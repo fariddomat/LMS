@@ -67,4 +67,16 @@ class User extends Authenticatable
             return $this->scopeWhereRole($q,$role_id);
         });
     }
+
+    // relations
+
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
+
+    public function payments()
+    {
+        return $this->hasMany(Payment::class);
+    }
 }

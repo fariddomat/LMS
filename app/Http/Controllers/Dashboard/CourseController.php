@@ -6,12 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Course;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+
 class CourseController extends Controller
 {
     public function index()
     {
         $courses = Course::all();
         return view('dashboard.courses.index', compact('courses'));
+    }
+
+    public function show(Course $course)
+    {
+        return view('dashboard.courses.show', compact('course'));
     }
 
     public function create()
@@ -21,14 +29,25 @@ class CourseController extends Controller
 
     public function store(Request $request)
     {
+
+        $request_data = $request->except(['thumbnail']);
         $request->validate([
             'title' => 'required',
             'description' => 'required',
             'duration' => 'required',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'thumbnail' => 'required|image|max:2048',
         ]);
 
-        Course::create($request->all());
+        $thumbnail = Image::make($request->thumbnail)
+            ->resize(300, 300)
+            ->encode('jpg');
+
+        Storage::disk('local')->put('public/images/courses/' . $request->thumbnail->hashName(), (string)$thumbnail, 'public');
+
+
+        $request_data['thumbnail'] = $request->thumbnail->hashName();
+        Course::create($request_data);
 
         return redirect()->route('dashboard.courses.index')->with('success', 'Course created successfully.');
     }
@@ -40,6 +59,8 @@ class CourseController extends Controller
 
     public function update(Request $request, Course $course)
     {
+
+        $request_data = $request->except(['thumbnail']);
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -47,13 +68,27 @@ class CourseController extends Controller
             'price' => 'required|numeric'
         ]);
 
-        $course->update($request->all());
+        if ($request->thumbnail) {
+            if ($course->thumbnail != null)
+                Storage::disk('local')->delete('public/images/courses/' . $course->thumbnail);
+            $thumbnail = Image::make($request->thumbnail)
+                ->resize(300, 300)
+                ->encode('jpg');
+
+            Storage::disk('local')->put('public/images/courses/' . $request->thumbnail->hashName(), (string)$thumbnail, 'public');
+
+
+            $request_data['thumbnail'] = $request->thumbnail->hashName();
+        }
+        $course->update($request_data);
 
         return redirect()->route('dashboard.courses.index')->with('success', 'Course updated successfully.');
     }
 
     public function destroy(Course $course)
     {
+        if ($course->thumbnail != null)
+                Storage::disk('local')->delete('public/images/courses/' . $course->thumbnail);
         $course->delete();
 
         return redirect()->route('dashboard.courses.index')->with('success', 'Course deleted successfully.');

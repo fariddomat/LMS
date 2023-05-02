@@ -71,18 +71,10 @@ class LessonController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'duration' => 'required',
-            'video' => 'nullable|mimetypes:video/mp4,video/webm,video/quicktime|max:100000',
         ]);
 
         $lesson->title = $validated['title'];
         $lesson->description = $validated['description'];
-        $lesson->duration = $validated['duration'];
-
-        if ($validated['video']) {
-            Storage::disk('public')->delete($lesson->video_path);
-            $lesson->video_path = $validated['video']->store('videos', 'public');
-        }
 
         $lesson->save();
 
@@ -92,7 +84,7 @@ class LessonController extends Controller
     public function destroy(Course $course, Lesson $lesson)
     {
         $course=Course::findOrFail($lesson->course_id);
-        Storage::disk('public')->delete($lesson->video_path);
+        Storage::disk('public')->delete('lessons/'.$lesson->video_path);
         $lesson->delete();
         return redirect()->route('dashboard.courses.show', $course)->with('success', 'Lesson deleted successfully.');
     }

@@ -5,7 +5,7 @@
 
         <!-- Breadcrumb -->
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a>create</a></li>
+            <li class="breadcrumb-item"><a>Show</a></li>
             <li class="breadcrumb-item"><a href="{{ route('dashboard.courses.index') }}">courses</a></li>
             <li class="breadcrumb-item"><a href="">Admin</a>
             </li>

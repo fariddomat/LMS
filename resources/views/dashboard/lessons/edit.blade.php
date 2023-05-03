@@ -64,7 +64,7 @@
                     <div class="card">
                         <div class="card-header">{{ __('Create Lesson') }}</div>
 
-                        <div class="card-body">
+                        <div class="card-bllckk">
                             <form action="{{ route('dashboard.lessons.update', $lesson) }}" method="POST">
                                 @csrf
                                 @method('PUT')

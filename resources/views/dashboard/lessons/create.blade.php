@@ -64,7 +64,7 @@
                     <div class="card">
                         <div class="card-header">{{ __('Create Lesson') }}</div>
 
-                        <div class="card-body">
+                        <div class="card-block">
                             <form id="lesson-form" method="post" action="{{ route('dashboard.lessons.store') }}"
                                 autocomplete="off" class="form-horizontal lesson-form" enctype="multipart/form-data">
                                 @csrf

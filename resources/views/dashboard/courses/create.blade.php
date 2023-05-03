@@ -21,7 +21,7 @@
                         <div class="card-header">
                             <h4 class="card-title">Create Course</h4>
                         </div>
-                        <div class="card-body">
+                        <div class="card-block">
                             <form method="POST" action="{{ route('dashboard.courses.store') }}" enctype="multipart/form-data">
                                 @csrf
 

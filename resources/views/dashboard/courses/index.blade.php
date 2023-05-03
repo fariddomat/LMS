@@ -24,7 +24,7 @@
                             <a href="{{ route('dashboard.courses.create') }}" class="btn btn-success btn-sm">Create Course</a>
                           </div>
                         </div>
-                        <div class="card-body">
+                        <div class="card-block">
                           <table class="table table-striped">
                             <thead>
                               <tr>

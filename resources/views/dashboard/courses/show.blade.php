@@ -21,7 +21,7 @@
                         <div class="card-header">
                             <h3 class="card-title">{{ $course->title }}</h3>
                         </div>
-                        <div class="card-body">
+                        <div class="card-block">
                             <a href="{{ route('dashboard.lessons.create', $course->id) }}" class="btn btn-primary mb-3">
                                 Add Lesson
                             </a>

@@ -21,7 +21,7 @@
                         <div class="card-header">
                             <h4>Edit Course</h4>
                         </div>
-                        <div class="card-body">
+                        <div class="card-block">
                             <form action="{{ route('dashboard.courses.update', $course->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')

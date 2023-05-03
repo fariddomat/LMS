@@ -39,8 +39,14 @@ Route::get('/clear', function() {
     Route::get('/courses/{course}/lessons/create', [App\Http\Controllers\Dashboard\LessonController::class, 'create'])->name('lessons.create');
 
     Route::resource('payments','App\Http\Controllers\Dashboard\PaymentController');
+
     Route::resource('posts','App\Http\Controllers\Dashboard\PostController');
     Route::resource('tags','App\Http\Controllers\Dashboard\TagController');
+
+
+    Route::get('/imageGallery/browser', 'App\Http\Controllers\Dashboard\ImageGalleryController@browser')->name('imageGallery.browser');
+    Route::post('/imageGallery/uploader', 'App\Http\Controllers\Dashboard\ImageGalleryController@uploader')->name('imageGallery.uploader');
+
  });
 
 

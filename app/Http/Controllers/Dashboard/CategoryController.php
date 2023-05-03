@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -41,7 +42,6 @@ class CategoryController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:categories,name|max:255',
-            'slug' => 'required|unique:categories,slug|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -50,7 +50,7 @@ class CategoryController extends Controller
 
         Category::create([
             'name' => $request->name,
-            'slug' => str_slug($request->input('name')),
+            'slug' => Str::slug($request->input('name')),
             'description' => $request->description,
         ]);
 
@@ -79,7 +79,6 @@ class CategoryController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|unique:categories,name,' . $category->id . '|max:255',
-            'slug' => 'required|unique:categories,slug,' . $category->id . '|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -88,7 +87,7 @@ class CategoryController extends Controller
 
         $category->update([
             'name' => $request->name,
-            'slug' => str_slug($request->input('name')),
+            'slug' => Str::slug($request->input('name')),
             'description' => $request->description,
         ]);
 

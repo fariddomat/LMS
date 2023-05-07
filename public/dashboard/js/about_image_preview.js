@@ -7,7 +7,7 @@ $(".image1").change(function () {
       $(".image1-preview").attr("src", e.target.result);
       $(".image1-preview").show();
     };
-
+ 
     reader.readAsDataURL(this.files[0]);
   } else {
     $(".image1-preview").attr("src", "");

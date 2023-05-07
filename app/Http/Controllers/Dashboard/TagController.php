@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
@@ -43,7 +44,7 @@ class TagController extends Controller
 
         $tag = Tag::create([
             'name' => $request->input('name'),
-            'slug' => str_slug($request->input('name')),
+            'slug' =>  Str::slug($request->input('name')),
         ]);
 
         return redirect()->route('dashboard.tags.index')->with('success', 'Tag created successfully.');
@@ -75,7 +76,7 @@ class TagController extends Controller
 
         $tag->update([
             'name' => $request->input('name'),
-            'slug' => str_slug($request->input('name')),
+            'slug' =>  Str::slug($request->input('name')),
         ]);
 
         return redirect()->route('dashboard.tags.index')->with('success', 'Tag updated successfully.');

@@ -62,7 +62,7 @@
             <div class="animated fadeIn">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header">{{ __('Create Lesson') }}</div>
+                        <div class="card-header">{{ __('Edit Lesson') }}</div>
 
                         <div class="card-bllckk">
                             <form action="{{ route('dashboard.lessons.update', $lesson) }}" method="POST">

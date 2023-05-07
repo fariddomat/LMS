@@ -8,8 +8,8 @@
         <!-- Breadcrumb -->
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a>edit</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">users</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Admin</a>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.users.index') }}">users</a></li>
+            <li class="breadcrumb-item"><a href="">Admin</a>
             </li>
             <li class="breadcrumb-item active">Dashboard</li>
 
@@ -24,7 +24,7 @@
                         <i class="fa fa-align-justify"></i> تعديل مستخدم
                     </div>
                     <div class="card-block ">
-                        <form action="{{ route('admin.users.update', $user->id) }}" method="POST" >
+                        <form action="{{ route('dashboard.users.update', $user->id) }}" method="POST" >
                             @csrf
                             @method('put')
                             @include('layouts._error')
@@ -49,7 +49,6 @@
 
                                     @endforeach
                                 </select>
-                                {{-- <a href="{{ route('admin.roles.create') }}">Create new Role</a> --}}
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i>

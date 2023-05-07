@@ -67,7 +67,6 @@
                                             <th>الاسم</th>
                                             <th>البريد الإلكتروني</th>
                                             <th>المهمة</th>
-                                            <th>التذاكر</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -83,20 +82,13 @@
                                                     @endforeach
                                                 </td>
                                                 <td>
-                                                    @if ($user->hasRole('agent') || $user->hasRole('back_office'))
-                                                   <a href="{{ route('admin.tickets.index') }}?id={{ $user->id }}" class="btn btn-small btn-primary"> {{ $user->tikets($user->id) }} <i class="fa fa-ticket"></i></a>
-                                                    @else
-                                                    ---------
-                                                    @endif
-                                                </td>
-                                                <td>
 
-                                                    <a href="{{ route('admin.users.edit', $user->id) }}"
+                                                    <a href="{{ route('dashboard.users.edit', $user->id) }}"
                                                         class="btn btn-outline-warning" style="display: inline-block"><i
                                                             class="fa fa-edit"></i> تعديل</a>
 
 
-                                                    <form action="{{ route('admin.users.destroy', $user->id) }}"
+                                                    <form action="{{ route('dashboard.users.destroy', $user->id) }}"
                                                         method="POST" style="display: inline-block">
                                                         @csrf
                                                         @method('delete')
@@ -105,8 +97,8 @@
                                                                 aria-hidden="true"></i> حذف</button>
                                                     </form>
 
-                                                    @if ($user->active == '1')
-                                                        <form action="{{ route('admin.users.ban', $user->id) }}"
+                                                    @if ($user->status == 'active')
+                                                        <form action="{{ route('dashboard.users.ban', $user->id) }}"
                                                             method="POST" style="display: inline-block">
                                                             @csrf
                                                             @method('post')
@@ -115,7 +107,7 @@
                                                                     aria-hidden="true"></i> حظر</button>
                                                         </form>
                                                     @else
-                                                        <form action="{{ route('admin.users.unban', $user->id) }}"
+                                                        <form action="{{ route('dashboard.users.unban', $user->id) }}"
                                                             method="POST" style="display: inline-block">
                                                             @csrf
                                                             @method('post')

@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -40,8 +41,7 @@ class PostController extends Controller
             'author_name' => 'required',
             'author_title' => 'required',
             'author_image' => 'nullable', 'image', 'mimes:jpeg,png,jpg,webp',
-
-
+            'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp'],
             'category_id' => 'required',
             'tags.*' => 'exists:tags,id',
         ]);
@@ -57,6 +57,9 @@ class PostController extends Controller
         $post->author_title = $request->author_title;
         $post->published = $request->has('published') ? true : false;
         $post->category_id = $request->category_id;
+        $image = $request->file('image');
+        $filename = $image->getClientOriginalName();
+        $post->image = $image->storeAs('photos/blogs', $filename);
         $post->save();
 
         $post->tags()->attach($request->tags);
@@ -86,7 +89,7 @@ class PostController extends Controller
             'author_name' => 'required',
             'author_title' => 'required',
             'author_image' => 'nullable', 'image', 'mimes:jpeg,png,jpg,webp',
-
+            'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp'],
             'category_id' => 'required',
         ]);
 
@@ -98,6 +101,12 @@ class PostController extends Controller
         $post->first_paragraph = $request->first_paragraph;
         $post->author_name = $request->author_name;
         $post->author_title = $request->author_title;
+        if ($request->has('image')) {
+            Storage::disk('local')->delete($post->image);
+            $image = $request->file('image');
+            $filename = $image->getClientOriginalName();
+            $post->image = $image->storeAs('photos/blogs', $filename);
+        }
         if ($request->has('published')) {
             if ( $post->published == false) {
                 $post->published = true;

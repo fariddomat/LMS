@@ -98,6 +98,15 @@
                                         @endforeach
                                     </select>
                                 </div>
+                                <div class="form-group">
+                                    <label>Image</label>
+                                    <input type="file" name="image" class="form-control image">
+                                </div>
+
+                                <div class="form-group">
+                                    <img src="" style="width: 300px; display: none;" class="img-thumbnail image-preview" alt="">
+                                </div>
+
                                 <button type="submit" class="btn btn-primary">Create</button>
                             </form>
                         </div>

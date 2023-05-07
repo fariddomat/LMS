@@ -82,6 +82,14 @@
                  </li>
 
                  <li class="nav-title">
+                    التحكم
+                </li>
+
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link" href="{{ route('dashboard.services.index') }}"><i class="icon-plus "></i>
+                        الخدمات</a>
+                </li>
+                 <li class="nav-title">
                      الأكاديمية
                  </li>
 
@@ -99,6 +107,10 @@
                      <a class="nav-link" href="{{ route('dashboard.categories.index') }}"><i class="icon-docs"></i>
                          التصنيفات</a>
                  </li>
+                 <li class="nav-item nav-dropdown">
+                    <a class="nav-link" href="{{ route('dashboard.tags.index') }}"><i class="icon-tag"></i>
+                        الوسومات Tags</a>
+                </li>
                  <li class="nav-item nav-dropdown">
                      <a class="nav-link" href="{{ route('dashboard.posts.index') }}"><i class="icon-doc"></i>
                          التدوينات</a>

@@ -32,6 +32,8 @@ Route::get('/clear', function() {
  Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', ], 'as' => 'dashboard.'], function () {
 
     Route::resource('users','App\Http\Controllers\Dashboard\UserController');
+    Route::post('ban/{id}', 'App\Http\Controllers\Dashboard\UserController@ban')->name('users.ban');
+    Route::post('unban/{id}', 'App\Http\Controllers\Dashboard\UserController@unban')->name('users.unban');
     Route::resource('categories','App\Http\Controllers\Dashboard\CategoryController');
     Route::resource('courses','App\Http\Controllers\Dashboard\CourseController');
     Route::resource('enrollments','App\Http\Controllers\Dashboard\EnrollmentController');
@@ -46,6 +48,16 @@ Route::get('/clear', function() {
 
     Route::get('/imageGallery/browser', 'App\Http\Controllers\Dashboard\ImageGalleryController@browser')->name('imageGallery.browser');
     Route::post('/imageGallery/uploader', 'App\Http\Controllers\Dashboard\ImageGalleryController@uploader')->name('imageGallery.uploader');
+
+    Route::resource('services','App\Http\Controllers\Dashboard\ServiceController');
+    Route::get('/services/{service}/sliderImages', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@index')->name('sliderImages.index');
+    Route::get('/services/{service}/sliderImages/create', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@create')->name('sliderImages.create');
+    Route::post('/services/{service}/sliderImages', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@store')->name('sliderImages.store');
+    Route::get('/services/sliderImages/{image}/edit', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@edit')->name('sliderImages.edit');
+    Route::put('/services/sliderImages/{image}', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@update')->name('sliderImages.update');
+    Route::delete('/services/sliderImages/{image}/delete', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@destroy')->name('sliderImages.destroy');
+    Route::get('/services/{service}/sliderImages/show', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@show')->name('sliderImages.show');
+    Route::get('/services/{service}/sliderImages/hide', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@hide')->name('sliderImages.hide');
 
  });
 

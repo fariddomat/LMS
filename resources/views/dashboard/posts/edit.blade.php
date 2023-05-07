@@ -115,6 +115,16 @@
                                         </div>
                                     </div>
                                 </div>
+
+                <div class="form-group ">
+                    <label>Image</label>
+                    <input type="file" name="image" class="form-control image">
+                </div>
+
+                <div class="form-group">
+                    <img src="{{ asset($post->image) }}" style="width: 300px;" class="img-thumbnail image-preview"
+                        alt="">
+                </div>
                                 <button type="submit" class="btn btn-info btn-fill pull-right">Update Post</button>
                                 <div class="clearfix"></div>
                             </form>

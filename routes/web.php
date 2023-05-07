@@ -46,8 +46,18 @@ Route::get('/clear', function() {
     Route::resource('tags','App\Http\Controllers\Dashboard\TagController');
 
 
+    Route::get('/contactForm', 'App\Http\Controllers\Dashboard\ContactFormController@index')->name('contactForm.index');
+    Route::delete('/contactForm/{contactForm}', 'App\Http\Controllers\Dashboard\ContactFormController@destroy')->name('contactForm.destroy');
+    Route::post('/contactForm/{contactForm}/status', 'App\Http\Controllers\Dashboard\ContactFormController@changeStatus')->name('contactForm.status');
+    Route::put('/contactForm/{contactForm}/note', 'App\Http\Controllers\Dashboard\ContactFormController@note')->name('contactForm.note');
+
+
+
     Route::get('/imageGallery/browser', 'App\Http\Controllers\Dashboard\ImageGalleryController@browser')->name('imageGallery.browser');
     Route::post('/imageGallery/uploader', 'App\Http\Controllers\Dashboard\ImageGalleryController@uploader')->name('imageGallery.uploader');
+
+    Route::get('/about', 'App\Http\Controllers\Dashboard\AboutController@create')->name('about.create');
+    Route::post('/about', 'App\Http\Controllers\Dashboard\AboutController@store')->name('about.store');
 
     Route::resource('services','App\Http\Controllers\Dashboard\ServiceController');
     Route::get('/services/{service}/sliderImages', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@index')->name('sliderImages.index');

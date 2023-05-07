@@ -17,9 +17,12 @@ class CreateContactFormsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
+            $table->string('mobile')->nullable();
             $table->string('subject');
             $table->text('message');
+            $table->string('note')->nullable();
             $table->boolean('read')->default(false);
+            $table->string('ip')->nullable();
             $table->timestamps();
         });
     }

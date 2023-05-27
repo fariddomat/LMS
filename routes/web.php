@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', function () {
+    return view('home.index');
+});
 
 // Clear cashe route
 Route::get('/clear', function() {
@@ -30,6 +32,7 @@ Route::get('/clear', function() {
 
 
  Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', ], 'as' => 'dashboard.'], function () {
+   Route::get('home', 'App\Http\Controllers\Dashboard\HomeController@index')->name('home');
 
     Route::resource('users','App\Http\Controllers\Dashboard\UserController');
     Route::post('ban/{id}', 'App\Http\Controllers\Dashboard\UserController@ban')->name('users.ban');

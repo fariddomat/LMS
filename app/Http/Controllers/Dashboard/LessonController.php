@@ -17,6 +17,12 @@ class LessonController extends Controller
         return view('dashboard.lessons.index', compact('lessons'));
     }
 
+    public function show(Course $course)
+    {
+        $lessons = $course->lessons;
+        return view('dashboard.lessons.index', compact('lessons'));
+    }
+
     public function create(Course $course)
     {
         // dd($course);

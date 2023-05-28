@@ -145,10 +145,6 @@
                          المستخدمين</a>
                  </li>
 
-                 <li class="nav-title">
-                     Extras
-                 </li>
-
                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('dashboard.setting.changePassword') }}"><i
                              class="icon-lock "></i>

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', function () {
     return view('home.index');
-});
+})->name('home');
 
 // Clear cashe route
 Route::get('/clear', function() {
@@ -86,4 +86,4 @@ Route::get('/clear', function() {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

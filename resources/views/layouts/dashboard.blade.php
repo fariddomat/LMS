@@ -99,7 +99,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('dashboard.setting.cover') }}"><i class="icon-camera "></i>
-                        السلايدر</a>
+                        الصفحة الرئيسية</a>
                 </li>
                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('dashboard.about.create') }}"><i class="icon-info "></i>

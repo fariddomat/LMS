@@ -11,10 +11,9 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <div class="pb-50 pt-30">
-                                <h3 class="">Best Treatment Here</h3>
-                                <h1 class="">Health Care Solution</h1>
-                                <p class="">Every day we bring hope to millions of children in the
-                                    world's<br> hardest places as a sign of God's unconditional love. </p>
+                                <h3 class="">{{ setting('cover1_text') }}</h3>
+                                <h1 class="">{{ setting('cover2_text') }}</h1>
+                                <p class="">{!!  setting('cover3_text') !!} </p>
                                 <a class="btn btn-theme-colored1 btn-round" href="#">Read More</a>
                             </div>
                         </div>
@@ -25,7 +24,7 @@
 
         <!-- Section: welcome -->
         <section id="welcome" class="divider layer-overlay overlay-white-3 parallax" data-parallax-ratio="0.1"
-            data-tm-bg-img="images/bg/bg10.jpg">
+            data-tm-bg-img="{{ asset('home/images/bg/bg2.jpg') }}">
             <div class="container pt-150 pb-150">
                 <div class="section-content">
                     <div class="row">
@@ -43,7 +42,7 @@
 
         <!-- Section: Services -->
         <section id="services" class="divider parallax layer-overlay overlay-white-8" data-parallax-ratio="0.1"
-            data-tm-bg-img="images/bg/bg17.jpg">
+            data-tm-bg-img="{{ asset('home/images/bg/bg3.jpg') }}">
             <div class="container pt-150 pb-150">
                 <div class="section-title text-center">
                     <div class="row">
@@ -94,7 +93,7 @@
 
         <!-- Section: Experts -->
         <section id="experts" class="divider parallax layer-overlay overlay-white-6" data-parallax-ratio="0.1"
-            data-tm-bg-img="images/bg/bg2.jpg">
+            data-tm-bg-img="{{ asset('home/images/bg/bg4.jpg') }}">
             <section class="">
                 <div class="container">
                     <div class="section-title">
@@ -133,7 +132,7 @@
                                                     <div class="box-hover-effect">
                                                         <div class="staff-header effect-wrapper">
                                                             <div class="thumb">
-                                                                <img src="images/team/t1.jpg" class="img-fullwidth"
+                                                                <img src="{{ asset('home/images/team/t1.jpg') }}" class="img-fullwidth"
                                                                     alt="" />
                                                             </div>
                                                             <div class="overlay-shade shade-white"></div>
@@ -195,7 +194,7 @@
                                                     <div class="box-hover-effect">
                                                         <div class="staff-header effect-wrapper">
                                                             <div class="thumb">
-                                                                <img src="images/team/t2.jpg" class="img-fullwidth"
+                                                                <img src="{{ asset('home/images/team/t2.jpg') }}" class="img-fullwidth"
                                                                     alt="" />
                                                             </div>
                                                             <div class="overlay-shade shade-white"></div>
@@ -257,7 +256,7 @@
                                                     <div class="box-hover-effect">
                                                         <div class="staff-header effect-wrapper">
                                                             <div class="thumb">
-                                                                <img src="images/team/t3.jpg" class="img-fullwidth"
+                                                                <img src="{{ asset('home/images/team/t3.jpg') }}" class="img-fullwidth"
                                                                     alt="" />
                                                             </div>
                                                             <div class="overlay-shade shade-white"></div>
@@ -319,7 +318,7 @@
                                                     <div class="box-hover-effect">
                                                         <div class="staff-header effect-wrapper">
                                                             <div class="thumb">
-                                                                <img src="images/team/t4.jpg" class="img-fullwidth"
+                                                                <img src="{{ asset('home/images/team/t4.jpg') }}" class="img-fullwidth"
                                                                     alt="" />
                                                             </div>
                                                             <div class="overlay-shade shade-white"></div>
@@ -386,7 +385,7 @@
 
             <!-- Section: blog -->
             <section id="blog" class="divider parallax layer-overlay overlay-white-4" data-parallax-ratio="0.1"
-                data-tm-bg-img="images/bg/bg14.jpg">
+                data-tm-bg-img="{{ asset('home/images/bg/bg5.jpg') }}">
                 <div class="container pt-90">
                     <div class="section-title">
                         <div class="row justify-content-md-center">
@@ -426,7 +425,7 @@
                                                         <div class="entry-header">
                                                             <div class="post-thumb lightgallery-lightbox">
                                                                 <div class="post-thumb-inner">
-                                                                    <div class="thumb"> <img src="images/blog/b1.jpg"
+                                                                    <div class="thumb"> <img src="{{ asset('home/images/blog/b1.jpg') }}"
                                                                             alt="Image" /></div>
                                                                 </div>
                                                             </div>
@@ -475,7 +474,7 @@
                                                         <div class="entry-header">
                                                             <div class="post-thumb lightgallery-lightbox">
                                                                 <div class="post-thumb-inner">
-                                                                    <div class="thumb"> <img src="images/blog/b2.jpg"
+                                                                    <div class="thumb"> <img src="{{ asset('home/images/blog/b2.jpg') }}"
                                                                             alt="Image" /></div>
                                                                 </div>
                                                             </div>
@@ -524,7 +523,7 @@
                                                         <div class="entry-header">
                                                             <div class="post-thumb lightgallery-lightbox">
                                                                 <div class="post-thumb-inner">
-                                                                    <div class="thumb"> <img src="images/blog/b3.jpg"
+                                                                    <div class="thumb"> <img src="{{ asset('home/images/blog/b3.jpg') }}"
                                                                             alt="Image" /></div>
                                                                 </div>
                                                             </div>

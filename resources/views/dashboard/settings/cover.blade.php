@@ -30,41 +30,28 @@
                         @method('post')
                         @include('layouts._error')
 
-                        <div class="row">
+                        <div class="row" style="padding: 5px 25px">
 
 
-                            <div class="col-md-4">
-                                <label>نص غلاف 1</label>
+                            <div class="col-md-12">
+                                <label>نص 1</label>
                                 <input type="text" value="{{ setting('cover1_text') }}" name="cover1_text" class="form-control">
                             </div>
-                            <div class="col-md-4">
-                                <label>نص غلاف 2</label>
+                            <div class="col-md-12">
+                                <label>نص 2</label>
                                 <input type="text" value="{{ setting('cover2_text') }}" name="cover2_text" class="form-control">
                             </div>
-                            <div class="col-md-4">
-                                <label>نص غلاف 3</label>
-                                <input type="text" value="{{ setting('cover3_text') }}" name="cover3_text" class="form-control">
+                            <div class="col-md-12">
+                                <label>نص 3</label>
+                                <textarea name="cover3_text"  class="form-control">{{ setting('cover3_text') }}</textarea>
                             </div>
 
                             <div class="col-md-4">
-                                <label>غلاف 1</label>
+                                <label>غلاف </label>
                                 <input type="file" name="cover1" class="form-control-file">
-                                <img src="{{ asset('home/images/1.jpg') }}"
+                                <img src="{{ asset('home/images/bg/bg1.jpg') }}"
                                     style=" margin-top: 10px; max-width: 250px;" alt="">
                             </div>
-                            <div class="col-md-4">
-                                <label>غلاف 2</label>
-                                <input type="file" name="cover2" class="form-control-file">
-                                <img src="{{ asset('home/images/2.jpg') }}"
-                                    style=" margin-top: 10px; max-width: 250px;" alt="">
-                            </div>
-                            <div class="col-md-4">
-                                <label>غلاف 3</label>
-                                <input type="file" name="cover3" class="form-control-file">
-                                <img src="{{ asset('home/images/3.jpg') }}"
-                                    style=" margin-top: 10px;max-width: 250px;" alt="">
-                            </div>
-
 
                         </div>
                         <br>

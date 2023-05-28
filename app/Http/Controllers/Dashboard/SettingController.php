@@ -23,27 +23,14 @@ class SettingController extends Controller
     {
 
         setting($request->all())->save();
-        if ($request->cover3) {
-            $image_path = public_path("home/images/3.jpg");
-            if (File::exists($image_path)) {
-                File::delete($image_path);
-            }
-            $request->cover3->move(public_path('/home/images'), '3.jpg');
-        }
-        if ($request->cover2) {
-            $image_path = public_path("home/images/2.jpg");
-            if (File::exists($image_path)) {
-                File::delete($image_path);
-            }
-            $request->cover2->move(public_path('/home/images'), '2.jpg');
-        }
+
         if ($request->cover1) {
-            $image_path = public_path("home/images/1.jpg");
+            $image_path = public_path("home/images/bg/bg1.jpg");
             // dd($image_path);
             if (File::exists($image_path)) {
                 File::delete($image_path);
             }
-            $request->cover1->move(public_path('/home/images'), '1.jpg');
+            $request->cover1->move(public_path('home/images/bg'), 'bg1.jpg');
         }
         return redirect()->back();
     }

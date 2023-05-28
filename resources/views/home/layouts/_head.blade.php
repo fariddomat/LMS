@@ -8,7 +8,7 @@
     <meta name="author" content="ThemeMascot" />
 
     <!-- Page Title -->
-    <title>StudyPress | Education & Courses HTML Template</title>
+    <title>{{ setting('site_title') }}</title>
 
     <!-- Favicon and Touch Icons -->
     <link href="{{ asset('home/images/favicon.png') }}" rel="shortcut icon" type="image/png">

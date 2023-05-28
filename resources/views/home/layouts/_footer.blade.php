@@ -100,12 +100,12 @@
                 <div class="row pt-20 pb-20">
                     <div class="col-sm-6">
                         <div class="footer-paragraph">
-                            © 2020 ThemeMascot. All Rights Reserved.
+                            © 2023. All Rights Reserved.
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="footer-paragraph text-right">
-                            Site Template
+                            By <a href="https://digitsmark.com/">DigitalMark</a>
                         </div>
                     </div>
                 </div>

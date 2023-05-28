@@ -7,7 +7,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <title>@yield('title')</title>
 
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+     <meta name="csrf-token" content="{{ csrf_token() }}">
      <!-- Icons -->
      <link href="{{ asset('dashboard/css/font-awesome.min.css') }}" rel="stylesheet">
      <link href="{{ asset('dashboard/css/simple-line-icons.css') }}" rel="stylesheet">
@@ -82,17 +82,33 @@
                  </li>
 
                  <li class="nav-title">
-                    التحكم
+                     التحكم
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.setting.settingsText') }}"><i class="icon-info "></i>
+                         معلومات الموقع</a>
+                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard.setting.logs') }}"><i class="icon-magnifier "></i>
+                        سجل العمليات</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard.setting.social') }}"><i class="icon-share "></i>
+                        مواقع التواصل</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.about.create') }}"><i class="icon-info "></i>
-                        من نحن</a>
+                    <a class="nav-link" href="{{ route('dashboard.setting.cover') }}"><i class="icon-camera "></i>
+                        السلايدر</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.services.index') }}"><i class="icon-plus "></i>
-                        الخدمات</a>
-                </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.about.create') }}"><i class="icon-info "></i>
+                         من نحن</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.services.index') }}"><i class="icon-plus "></i>
+                         الخدمات</a>
+                 </li>
                  <li class="nav-title">
                      الأكاديمية
                  </li>
@@ -112,9 +128,9 @@
                          التصنيفات</a>
                  </li>
                  <li class="nav-item nav-dropdown">
-                    <a class="nav-link" href="{{ route('dashboard.tags.index') }}"><i class="icon-tag"></i>
-                        الوسومات Tags</a>
-                </li>
+                     <a class="nav-link" href="{{ route('dashboard.tags.index') }}"><i class="icon-tag"></i>
+                         الوسومات Tags</a>
+                 </li>
                  <li class="nav-item nav-dropdown">
                      <a class="nav-link" href="{{ route('dashboard.posts.index') }}"><i class="icon-doc"></i>
                          التدوينات</a>
@@ -129,12 +145,14 @@
                          المستخدمين</a>
                  </li>
 
-                 <li class="nav-item">
-                     <a class="nav-link" href=""><i class="icon-magnifier"></i>
-                         سجل العمليات </a>
-                 </li>
                  <li class="nav-title">
                      Extras
+                 </li>
+
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.setting.changePassword') }}"><i
+                             class="icon-lock "></i>
+                         تغيير كلمة السر</a>
                  </li>
              </ul>
          </nav>

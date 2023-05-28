@@ -72,6 +72,15 @@ Route::get('/clear', function() {
     Route::get('/services/{service}/sliderImages/show', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@show')->name('sliderImages.show');
     Route::get('/services/{service}/sliderImages/hide', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@hide')->name('sliderImages.hide');
 
+    Route::get('/settings/cover', 'App\Http\Controllers\Dashboard\SettingController@cover')->name('setting.cover');
+    Route::post('/settings/change_cover', 'App\Http\Controllers\Dashboard\SettingController@change_cover')->name('setting.change_cover');
+    Route::get('/settings/logs', 'App\Http\Controllers\Dashboard\SettingController@logs')->name('setting.logs');
+    Route::get('/settings/settings', 'App\Http\Controllers\Dashboard\SettingController@settingsText')->name('setting.settingsText');
+    Route::post('/settings/setting', 'App\Http\Controllers\Dashboard\SettingController@settings')->name('setting.settings');
+    Route::get('/settings/social', 'App\Http\Controllers\Dashboard\SettingController@social')->name('setting.social');
+    Route::get('/settings/changePassword', 'App\Http\Controllers\Dashboard\SettingController@changePassword')->name('setting.changePassword');
+    Route::post('/settings/changePass', 'App\Http\Controllers\Dashboard\SettingController@changePass')->name('setting.changePass');
+
  });
 
 

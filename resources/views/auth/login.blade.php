@@ -1,75 +1,64 @@
 @extends('home.layouts._app')
 
 @section('content')
-<div class="main-content-area">
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card" style="margin: 120px 0;">
-                <div class="card-header">تسجيل الدخول</div>
+    <!-- Start main-content -->
+    <div class="main-content">
 
-                <div class="card-block">
-                    <form method="POST" action="{{ route('login') }}" style=" padding: 25px 0; text-align: right"  dir="rtl">
-                        @csrf
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end" style="text-align: right !important; padding-right: 50px">البريد الالكتروني</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+        <section>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 col-md-push-3">
+                        <form name="reg-form" class="register-form" method="post" action="{{ route('login') }}">
+                            @csrf
+                            <div class="icon-box mb-0 p-0">
+                                <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
+                                    <i class="pe-7s-users"></i>
+                                </a>
+                                <h4 class="text-gray pt-10 mt-0 mb-30">تسجيل الدخول</h4>
                             </div>
-                        </div>
+                            <hr>
+                            <p class="text-gray">أدخل معلوماتك الشخصية للوصول إلى حسابك الشخصي.</p>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end" style="text-align: right !important; padding-right: 50px">كلمة السر</label>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="email" class="">البريد الالكتروني</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                    <input id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        تذكرني
-                                    </label>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="form-group col-md-12">
+                                    <label for="password" class="">كلمة السر</label>
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    دخول
-                                </button>
-{{--
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif --}}
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        required autocomplete="current-password">
+
+                                    @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                    </form>
+
+                            <div class="form-group">
+                                <button class="btn btn-dark btn-lg btn-block mt-15" type="submit">دخول</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
-</div>
-</div>
+    <!-- end main-content -->
 @endsection

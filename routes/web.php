@@ -39,6 +39,10 @@ Route::get('/clear', function() {
     Route::resource('users','App\Http\Controllers\Dashboard\UserController');
     Route::post('ban/{id}', 'App\Http\Controllers\Dashboard\UserController@ban')->name('users.ban');
     Route::post('unban/{id}', 'App\Http\Controllers\Dashboard\UserController@unban')->name('users.unban');
+    Route::resource('profiles','App\Http\Controllers\Dashboard\ProfileController');
+    Route::post('active/{id}', 'App\Http\Controllers\Dashboard\ProfileController@active')->name('profiles.active');
+    Route::post('reject/{id}', 'App\Http\Controllers\Dashboard\ProfileController@reject')->name('profiles.reject');
+
     Route::resource('categories','App\Http\Controllers\Dashboard\CategoryController');
     Route::resource('courses','App\Http\Controllers\Dashboard\CourseController');
     Route::resource('enrollments','App\Http\Controllers\Dashboard\EnrollmentController');

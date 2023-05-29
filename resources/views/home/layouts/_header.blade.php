@@ -20,7 +20,7 @@
                                 data-effect="slide" data-animation="none" data-align="right">
                                 <ul id="main-nav" class="menuzord-menu">
                                     <li class="active menu-item">
-                                        <a href="{{ route('home') }}">Home</a>
+                                        <a href="{{ route('home') }}">الرئيسية</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="#">Hot</a>

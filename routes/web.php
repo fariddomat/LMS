@@ -30,6 +30,8 @@ Route::get('/clear', function() {
 
  });
 
+ Route::resource('profiles','App\Http\Controllers\Home\ProfileController');
+
 
  Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', ], 'as' => 'dashboard.'], function () {
    Route::get('home', 'App\Http\Controllers\Dashboard\HomeController@index')->name('home');

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected $guarded=[];
+    protected $guarded = [];
 
     public function category()
     {
@@ -16,7 +16,13 @@ class Post extends Model
     }
 
     public function tags()
-{
-    return $this->belongsToMany(Tag::class);
-}
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function getImagePathAttribute()
+    {
+        return asset($this->image);
+        // return Storage::url('images/' . $this->id . '/' . $this->img);
+    }
 }

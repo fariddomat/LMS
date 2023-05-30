@@ -36,6 +36,8 @@
                             <form method="POST" action="{{ route('dashboard.posts.store') }}"
                                 enctype="multipart/form-data">
                                 @csrf
+
+                                @include('layouts._error')
                                 <div class="form-group">
                                     <label for="title">Title</label>
                                     <input type="text" name="title" class="form-control" id="title"

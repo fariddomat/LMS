@@ -31,6 +31,7 @@ Route::get('/clear', function() {
  });
 
  Route::resource('profiles','App\Http\Controllers\Home\ProfileController');
+ Route::resource('posts','App\Http\Controllers\Home\PostController');
 
 
  Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', ], 'as' => 'dashboard.'], function () {

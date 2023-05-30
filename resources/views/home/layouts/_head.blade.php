@@ -119,6 +119,10 @@
             left: 25px;
             top: 25px
         }
+
+        span svg.w-5{
+            max-width: 40px;
+        }
     </style>
 
     @yield('styles')

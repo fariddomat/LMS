@@ -23,7 +23,16 @@
                                         <a href="{{ route('home') }}">الرئيسية</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="#">Hot</a>
+                                        <a href=""">الأكاديمية</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="">خدماتنا</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="{{ route('posts.index') }}">المدونة</a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="">اتصل بنا</a>
                                     </li>
                                 </ul>
                             </nav>

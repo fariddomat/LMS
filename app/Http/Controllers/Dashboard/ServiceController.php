@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
+
 class ServiceController extends Controller
 {
     public function index()
@@ -42,9 +44,19 @@ class ServiceController extends Controller
         $service->index_name = $validatedData['index_name'];
         $service->icon_class = $validatedData['icon_class'];
         if ($request->has('image')) {
-            $image = $request->file('image');
-            $filename = $image->getClientOriginalName();
-            $service->image = $image->storeAs('photos/services', $filename);
+
+            $image = Image::make($request->image)
+                ->resize(530, 390)
+                ->encode('jpg');
+
+            Storage::disk('local')->put('photos/services/' . $request->image->hashName(), (string)$image, 'public');
+
+
+            $service->image  = $request->image->hashName();
+
+            // $image = $request->file('image');
+            // $filename = $image->getClientOriginalName();
+            // $service->image = $image->storeAs('photos/services', $filename);
         }
         if ($request->has('index_image')) {
             $indexImage = $request->file('index_image');
@@ -83,10 +95,23 @@ class ServiceController extends Controller
         $service->index_name = $validatedData['index_name'];
         $service->icon_class = $validatedData['icon_class'];
         if ($request->has('image')) {
-            Storage::disk('local')->delete($service->image);
-            $image = $request->file('image');
-            $filename = $image->getClientOriginalName();
-            $service->image = $image->storeAs('photos/services', $filename);
+
+
+            if ($service->image != null)
+                Storage::disk('local')->delete('photos/services/' . $service->image);
+            $image = Image::make($request->image)
+                ->resize(530, 390)
+                ->encode('jpg');
+
+            Storage::disk('local')->put('photos/services/' . $request->image->hashName(), (string)$image, 'public');
+
+
+            $service->image = $request->image->hashName();
+
+            // Storage::disk('local')->delete($service->image);
+            // $image = $request->file('image');
+            // $filename = $image->getClientOriginalName();
+            // $service->image = $image->storeAs('photos/services', $filename);
         }
         if ($request->has('index_image')) {
             Storage::disk('local')->delete($service->index_image);

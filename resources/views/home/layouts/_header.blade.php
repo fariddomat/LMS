@@ -26,7 +26,7 @@
                                         <a href="{{ route('courses.index') }}">الأكاديمية</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="">خدماتنا</a>
+                                        <a href="{{ route('services.index') }}">خدماتنا</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="{{ route('posts.index') }}">المدونة</a>

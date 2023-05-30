@@ -11,6 +11,12 @@ class Service extends Model
 
     protected $guarded=[];
 
+    public function getImagePathAttribute()
+    {
+
+        return asset('photos/services/'.$this->image);
+        // return Storage::url('images/courses/'.$this->thumbnail);
+    }
     public function sliderImages()
     {
         return $this->hasMany(ServiceSliderImage::class);

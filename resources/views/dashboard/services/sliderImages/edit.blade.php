@@ -13,7 +13,8 @@
         <!-- Breadcrumb -->
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a>Edit</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('dashboard.sliderImages.index', $service->id) }}">sliderImages</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.sliderImages.index', $service->id) }}">sliderImages</a>
+            </li>
             <li class="breadcrumb-item"><a href="">Admin</a>
             </li>
             <li class="breadcrumb-item active">Dashboard</li>
@@ -26,7 +27,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Edit Service</h4>
+                            <h4>تعديل الصورة</h4>
                         </div>
                         <div class="card-block">
                             <form action="{{ route('dashboard.sliderImages.update', $image->id) }}" method="post"
@@ -36,15 +37,16 @@
 
 
                                 <div class="form-group mb-3">
-                                    <label>Image</label>
+                                    <label>الصورة</label>
                                     <input type="file" name="image" class="form-control image">
                                 </div>
                                 <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" value="1" id="showed"
-                                        name="showed" {{ $image->showed == 1 ? 'checked' : '' }}>
                                     <label class="form-check-label" for="showed">
-                                        Showed
+                                        عرض
                                     </label>
+                                    <input class="form-check-input" style="margin-right: 50px" type="checkbox" value="1" id="showed"
+                                        name="showed" {{ $image->showed == 1 ? 'checked' : '' }}>
+
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -53,7 +55,7 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <button type="submit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> تعديل
                                     </button>
                                 </div>
                             </form>

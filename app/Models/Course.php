@@ -25,6 +25,8 @@ class Course extends Model
 
     public function getThumbnailUrlAttribute()
     {
-        return Storage::url('images/courses/'.$this->thumbnail);
+
+        return asset('public/images/courses/'.$this->thumbnail);
+        // return Storage::url('images/courses/'.$this->thumbnail);
     }
 }

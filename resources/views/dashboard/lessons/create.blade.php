@@ -62,7 +62,7 @@
             <div class="animated fadeIn">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header">{{ __('Create Lesson') }}</div>
+                        <div class="card-header">إضافة درس</div>
 
                         <div class="card-block">
                             <form id="lesson-form" method="post" action="{{ route('dashboard.lessons.store') }}"
@@ -70,7 +70,7 @@
                                 @csrf
 
                                 <div class="row">
-                                    <label class="col-sm-2 col-form-label">{{ __('Course') }}</label>
+                                    <label class="col-sm-2 col-form-label">الدورة</label>
                                     <div class="col-sm-7">
                                         <div class="form-group">
                                             <input type="hidden" name="course_id" value="{{ $course->id }}"
@@ -80,37 +80,37 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-2 col-form-label">{{ __('Title') }}</label>
+                                    <label class="col-sm-2 col-form-label">العنوان</label>
                                     <div class="col-sm-7">
                                         <div class="form-group">
                                             <input class="form-control" name="title" id="input-title" type="text"
-                                                placeholder="{{ __('Title') }}" value="{{ old('title') }}"
+                                                placeholder="{{ __('العنوان') }}" value="{{ old('title') }}"
                                                 required="true" aria-required="true" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <label class="col-sm-2 col-form-label">{{ __('Description') }}</label>
+                                    <label class="col-sm-2 col-form-label">{{ __('الوصف') }}</label>
                                     <div class="col-sm-7">
                                         <div class="form-group">
-                                            <textarea class="form-control" name="description" id="input-description" placeholder="{{ __('Description') }}"
+                                            <textarea class="form-control" name="description" id="input-description" placeholder="{{ __('الوصف') }}"
                                                 required="true" aria-required="true">{{ old('description') }}</textarea>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-sm-2 col-form-label">{{ __('Duration') }}</label>
+                                    <label class="col-sm-2 col-form-label">{{ __('المدة') }}</label>
                                     <div class="col-sm-7">
                                         <div class="form-group">
                                             <input class="form-control" name="duration" id="input-duration" type="text"
-                                                placeholder="{{ __('Duration') }}" value="{{ old('duration') }}"
+                                                placeholder="{{ __('المدة') }}" value="{{ old('duration') }}"
                                                 required="true" aria-required="true" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class=" row">
-                                    <label for="video" class="col-sm-2 col-form-label">{{ __('Video') }}</label>
+                                    <label for="video" class="col-sm-2 col-form-label">{{ __('الفيديو') }}</label>
 
                                     <div class="col-sm-7">
                                         <div class="form-group">
@@ -134,7 +134,7 @@
 
 
                                 <div class="card-footer ">
-                                    <button type="submit" class="btn btn-primary">{{ __('Add Lesson') }}</button>
+                                    <button type="submit" class="btn btn-primary">إضافة</button>
                                 </div>
                             </form>
                         </div>

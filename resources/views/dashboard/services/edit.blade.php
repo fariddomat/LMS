@@ -44,7 +44,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Edit Service</h4>
+                            <h4>تعديل خدمة</h4>
                         </div>
                         <div class="card-block">
                             <form action="{{ route('dashboard.services.update', $service->id) }}" method="post" enctype="multipart/form-data">
@@ -53,23 +53,23 @@
                                 @include('layouts._error')
 
                                 <div class="form-group mb-3">
-                                    <label for="title" class="form-label">Title in Arabic</label>
+                                    <label for="title" class="form-label">العنوان</label>
                                     <input type="text" name="title" class="form-control" value="{{ $service->title }}" dir="rtl">
                                 </div>
 
 
                                 <div class="form-group mb-3">
-                                    <label for="main_title" class="form-label">Main Title in Arabic</label>
+                                    <label for="main_title" class="form-label">العنوان الرئيسي</label>
                                     <input type="text" name="main_title" class="form-control" value="{{ $service->main_title }}" dir="rtl">
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="index_name" class="form-label">Index Name in Arabic</label>
+                                    <label for="index_name" class="form-label">اسم الفهرس</label>
                                     <input type="text" name="index_name" class="form-control" value="{{ $service->index_name }}" dir="rtl">
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label>Index Image</label>
+                                    <label>صورة الفهرس</label>
                                     <input type="file" name="index_image" class="form-control logo">
                                 </div>
 
@@ -85,7 +85,7 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="brief" class="form-label">Brief in Arabic</label>
+                                    <label for="brief" class="form-label">مختصر</label>
                                     <textarea class="form-control" id="brief" name="brief" rows="5" dir="rtl">{{ $service->brief }}</textarea>
                                 </div>
 
@@ -95,16 +95,16 @@
                                     <input type="text" name="icon_class" class="form-control" value="{{ $service->icon_class }}">
                                 </div>
 
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" value="1" id="showed" name="showed" {{ $service->showed  == 1 ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="showed">
-                                      Showed
+                                <div class="form-check mb-3"><label class="form-check-label" for="showed">
+                                      عرض
                                     </label>
+                                    <input class="form-check-input" style="margin-right: 50px" type="checkbox" value="1" id="showed" name="showed" {{ $service->showed  == 1 ? 'checked' : '' }}>
+
                                 </div>
 
 
                                 <div class="form-group mb-3">
-                                    <label>Image</label>
+                                    <label>الصورة</label>
                                     <input type="file" name="image" class="form-control image">
                                 </div>
 
@@ -113,8 +113,8 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <button type="submit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Update </button>
-                                    <a href="{{route('dashboard.sliderImages.index', $service->id)}}" class="btn btn-primary"> Slider Images </a>
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> تعديل </button>
+                                    <a href="{{route('dashboard.sliderImages.index', $service->id)}}" class="btn btn-primary"> سلايدر الصور </a>
 
                                 </div>
                             </form>

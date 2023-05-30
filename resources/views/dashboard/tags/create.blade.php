@@ -20,14 +20,14 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h4>Create tag</h4>
+                            <h4>إضافة وسم</h4>
                         </div>
                         <div class="card-block">
                             <form action="{{ route('dashboard.tags.store') }}" method="post">
                                 @csrf
 
                                 <div class="form-group">
-                                    <label for="name">Name</label>
+                                    <label for="name">الاسم</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
                                     @error('name')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -35,7 +35,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Create</button>
+                                    <button type="submit" class="btn btn-primary">حفظ</button>
                                 </div>
                             </form>
                         </div>

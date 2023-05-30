@@ -19,24 +19,24 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Edit Category</h4>
+                            <h4>تعديل تصنيف</h4>
                         </div>
                         <div class="card-block">
                             <form action="{{ route('dashboard.categories.update', $category->id) }}" method="post">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="name">Name:</label>
+                                    <label for="name">الاسم:</label>
                                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $category->name) }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="description">Description:</label>
+                                    <label for="description">الوصف:</label>
                                     <textarea class="form-control" id="description" name="description" rows="3">{{ old('description', $category->description) }}</textarea>
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Create</button>
+                                    <button type="submit" class="btn btn-primary">تعديل</button>
                                 </div>
                             </form>
                         </div>

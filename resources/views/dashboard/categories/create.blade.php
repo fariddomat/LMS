@@ -20,14 +20,14 @@
 
                     <div class="card">
                         <div class="card-header">
-                            <h4>Create Category</h4>
+                            <h4>إضافة تصنيف</h4>
                         </div>
                         <div class="card-block">
                             <form action="{{ route('dashboard.categories.store') }}" method="post">
                                 @csrf
 
                                 <div class="form-group">
-                                    <label for="name">Name</label>
+                                    <label for="name">الاسم</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required>
                                     @error('name')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -35,7 +35,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="description">Description</label>
+                                    <label for="description">الوصف</label>
                                     <textarea name="description" class="form-control" id="" cols="30" rows="10">{{ old('description') }}</textarea>
                                     @error('description')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Create</button>
+                                    <button type="submit" class="btn btn-primary">إضافة</button>
                                 </div>
                             </form>
                         </div>

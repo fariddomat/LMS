@@ -23,17 +23,17 @@
                         </div>
                         <div class="card-block">
                             <a href="{{ route('dashboard.lessons.create', $course->id) }}" class="btn btn-primary mb-3">
-                                Add Lesson
+                                إضافة درس
                             </a>
                             @if($course->lessons->isEmpty())
-                            <p>No lessons found.</p>
+                            <p>لم يتم الإضافة بعد.</p>
                             @else
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Duration</th>
-                                        <th>Actions</th>
+                                        <th>العنوان</th>
+                                        <th>المدة</th>
+                                        <th>العمليات</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,15 +43,15 @@
                                         <td>{{ $lesson->duration }}</td>
                                         <td>
                                             <a href="{{ route('dashboard.lessons.show', $lesson->id) }}" class="btn btn-sm btn-success disabled" disabled>
-                                                View
+                                                مشاهدة
                                             </a>
                                             <a href="{{ route('dashboard.lessons.edit', $lesson->id) }}" class="btn btn-sm btn-primary">
-                                                Edit
+                                                تعديل
                                             </a>
                                             <form action="{{ route('dashboard.lessons.destroy', $lesson->id) }}" method="POST" style="display: inline-block;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this lesson?')">Delete</button>
+                                                <button type="submit" class="btn btn-sm btn-danger delete" >حذف</button>
                                             </form>
                                         </td>
                                     </tr>

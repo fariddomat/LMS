@@ -64,7 +64,7 @@
                                                 <td>{{ $index + 1 }}</td>
                                                 <td>{{ $profile->name }}</td>
                                                 <td>{{ $profile->email }}</td>
-                                                <td>{{ $profile->created_at }}</td>
+                                                <td>{{ $profile->created_at->diffForHumans() }}</td>
                                                 <td>{{ $profile->status }}</td>
 
                                                 <td>

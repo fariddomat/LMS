@@ -62,22 +62,22 @@
             <div class="animated fadeIn">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-header">{{ __('Edit Lesson') }}</div>
+                        <div class="card-header">تعديل درس</div>
 
-                        <div class="card-bllckk">
+                        <div class="card-block">
                             <form action="{{ route('dashboard.lessons.update', $lesson) }}" method="POST">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="title">Title</label>
+                                    <label for="title">العنوان</label>
                                     <input type="text" name="title" id="title" class="form-control" value="{{ $lesson->title }}" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="description">Description</label>
+                                    <label for="description">الوصف</label>
                                     <textarea name="description" id="description" rows="5" class="form-control" required>{{ $lesson->description }}</textarea>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Update Lesson</button>
+                                    <button type="submit" class="btn btn-primary">تعديل</button>
                                 </div>
                             </form>
                         </div>

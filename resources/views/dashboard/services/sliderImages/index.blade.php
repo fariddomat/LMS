@@ -19,18 +19,16 @@
             <div class="animated fadeIn">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="card-title">Service Slider</h3>
+                        <h3 class="card-title">سلايدر الصور</h3>
                     </div>
                     <div class="card-block">
 
                     <div class="row justify-content-center">
                         <div class="col">
                             <a href="{{ route('dashboard.sliderImages.create', $service->id) }}" class="btn btn-primary"><i
-                                    class="fa fa-plus"></i> Add </a>
-                            <a href="{{ route('dashboard.sliderImages.show', $service->id) }}" class="btn btn-primary"> Show
-                                all </a>
-                            <a href="{{ route('dashboard.sliderImages.hide', $service->id) }}" class="btn btn-primary"> Hide
-                                all </a>
+                                    class="fa fa-plus"></i> إضافة </a>
+                            <a href="{{ route('dashboard.sliderImages.show', $service->id) }}" class="btn btn-primary"> إظهار الكل </a>
+                            <a href="{{ route('dashboard.sliderImages.hide', $service->id) }}" class="btn btn-primary"> إخفاء الكل </a>
                         </div>
                     </div>
                     <div class="row justify-content-center">
@@ -39,10 +37,10 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Image</th>
-                                        <th>Showed</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th>الصورة</th>
+                                        <th>العرض</th>
+                                        <th>تعديل</th>
+                                        <th>حذف</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,10 +49,10 @@
                                             <td>{{ $key + 1 }}</td>
                                             <td> <img src="{{ asset($image->image) }}" style="width: 125px; height: auto;"
                                                     alt=""> </td>
-                                            <td>{{ $image->showed == 1 ? 'YES' : 'NO' }}</td>
+                                            <td>{{ $image->showed == 1 ? 'نعم' : 'لا' }}</td>
                                             <td>
                                                 <a href="{{ route('dashboard.sliderImages.edit', $image->id) }}"
-                                                    class="btn btn-info btn-sm"><i class="fa fa-edit"></i> edit</a>
+                                                    class="btn btn-info btn-sm"><i class="fa fa-edit"></i> تعديل</a>
                                             </td>
                                             <td>
                                                 <form action="{{ route('dashboard.sliderImages.destroy', $image->id) }}"
@@ -62,7 +60,7 @@
                                                     @csrf()
                                                     @method('delete')
                                                     <button type="submit" class="btn btn-danger delete btn-sm"><i
-                                                            class="fa fa-trash"></i> Delete</button>
+                                                            class="fa fa-trash"></i> حذف</button>
                                                 </form><!-- end of form -->
                                             </td>
                                         </tr>

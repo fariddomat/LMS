@@ -26,7 +26,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h4>Create service Image</h4>
+                        <h4>إضافة صورة</h4>
                     </div>
                     <div class="card-block">
 
@@ -34,14 +34,14 @@
                 @csrf()
 
                 <div class="form-group mb-3">
-                    <label>Image</label>
+                    <label>الصورة</label>
                     <input type="file" name="image" class="form-control image">
                 </div>
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" value="1" id="showed" name="showed" checked>
-                    <label class="form-check-label" for="showed">
-                      Showed
+                <div class="form-check mb-3"><label class="form-check-label" for="showed">
+                      عرض
                     </label>
+                    <input class="form-check-input" style="margin-right: 50px" type="checkbox" value="1" id="showed" name="showed" checked>
+
                 </div>
 
                 <div class="form-group mb-3">
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Add </button>
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> إضافة </button>
                 </div>
             </form>
                     </div>

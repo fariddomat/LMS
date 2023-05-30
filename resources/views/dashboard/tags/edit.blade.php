@@ -19,19 +19,19 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Edit tag</h4>
+                            <h4>تعديل وسم</h4>
                         </div>
                         <div class="card-block">
                             <form action="{{ route('dashboard.tags.update', $tag->id) }}" method="post">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="name">Name:</label>
+                                    <label for="name">الاسم:</label>
                                     <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $tag->name) }}">
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Create</button>
+                                    <button type="submit" class="btn btn-primary">تعديل</button>
                                 </div>
                             </form>
                         </div>

@@ -123,6 +123,10 @@
         span svg.w-5{
             max-width: 40px;
         }
+        .course-item .course-thumb .price{
+            left: unset;
+            right: -3px;
+        }
     </style>
 
     @yield('styles')

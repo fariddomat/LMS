@@ -109,6 +109,10 @@
                      <a class="nav-link" href="{{ route('dashboard.services.index') }}"><i class="icon-plus "></i>
                          الخدمات</a>
                  </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.contactForm.index') }}"><i class="icon-note "></i>
+                         تواصل معنا</a>
+                 </li>
                  <li class="nav-title">
                      الأكاديمية
                  </li>

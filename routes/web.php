@@ -14,9 +14,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('home.index');
-})->name('home');
+Route::group(['middleware' => 'WebMiddleware'], function(){
+Route::get('/', 'App\Http\Controllers\Home\HomeController@index')->name('home');
+Route::resource('profiles','App\Http\Controllers\Home\ProfileController');
+Route::resource('posts','App\Http\Controllers\Home\PostController');
+Route::resource('academy','App\Http\Controllers\Home\AcademyController');
+Route::resource('courses','App\Http\Controllers\Home\CourseController');
+Route::resource('services','App\Http\Controllers\Home\ServiceController');
+Route::post('/contact', 'App\Http\Controllers\Home\HomeController@contact')->name('contact');
+Route::get('/contactPage', 'App\Http\Controllers\Home\HomeController@contactPage')->name('contactPage');
+
+  });
 
 // Clear cashe route
 Route::get('/clear', function() {
@@ -30,12 +38,6 @@ Route::get('/clear', function() {
 
  });
 
- Route::resource('profiles','App\Http\Controllers\Home\ProfileController');
- Route::resource('posts','App\Http\Controllers\Home\PostController');
- Route::resource('courses','App\Http\Controllers\Home\CourseController');
- Route::resource('services','App\Http\Controllers\Home\ServiceController');
- Route::post('/contact', 'App\Http\Controllers\Home\HomeController@contact')->name('contact');
- Route::get('/contactPage', 'App\Http\Controllers\Home\HomeController@contactPage')->name('contactPage');
 
 
  Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', ], 'as' => 'dashboard.'], function () {

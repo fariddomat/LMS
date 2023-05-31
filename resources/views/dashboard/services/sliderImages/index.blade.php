@@ -19,7 +19,7 @@
             <div class="animated fadeIn">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="card-title">سلايدر الصور</h3>
+                        <h3 class="card-title">معرض الصور</h3>
                     </div>
                     <div class="card-block">
 
@@ -47,7 +47,7 @@
                                     @foreach ($images as $key => $image)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td> <img src="{{ asset($image->image) }}" style="width: 125px; height: auto;"
+                                            <td> <img src="{{ $image->image_path }}" style="width: 125px; height: auto;"
                                                     alt=""> </td>
                                             <td>{{ $image->showed == 1 ? 'نعم' : 'لا' }}</td>
                                             <td>

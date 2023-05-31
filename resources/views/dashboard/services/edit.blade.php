@@ -109,12 +109,12 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <img src="{{ asset($service->image) }}" style="width: 300px;" class="img-thumbnail image-preview" alt="">
+                                    <img src="{{ $service->image_path }}" style="width: 300px;" class="img-thumbnail image-preview" alt="">
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <button type="submit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> تعديل </button>
-                                    <a href="{{route('dashboard.sliderImages.index', $service->id)}}" class="btn btn-primary"> سلايدر الصور </a>
+                                    <a href="{{route('dashboard.sliderImages.index', $service->id)}}" class="btn btn-primary"> معرض الصور </a>
 
                                 </div>
                             </form>

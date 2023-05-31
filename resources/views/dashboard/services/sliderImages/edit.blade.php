@@ -50,7 +50,7 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <img src="{{ asset($image->image) }}" style="width: 300px;"
+                                    <img src="{{ $image->image_path }}" style="width: 300px;"
                                         class="img-thumbnail image-preview" alt="">
                                 </div>
 

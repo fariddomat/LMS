@@ -6,12 +6,13 @@
             <div class="menuzord-container header-nav-container">
                 <div class="container position-relative">
                     <div class="row header-nav-col-row">
-                        <div class="col-sm-auto align-self-center">
+                        <div class="col-sm-auto ms-auto align-self-center">
                             <a class="menuzord-brand site-brand" href="{{ route('home') }}">
                                 <img class="logo-default logo-1x"
-                                    src="{{ asset('home/images/logo-wide.png') }}" alt="Logo">
+                                    src="{{ asset('logo.webp') }}" alt="Logo">
+                                    {{ setting('site_name') }}
                                 <img class="logo-default logo-2x retina"
-                                    src="{{ asset('home/images/logo-wide@2x.png') }}" alt="Logo">
+                                    src="{{ asset('logo.webp') }}" alt="Logo">
                             </a>
                         </div>
                         <div class="col-sm-auto ms-auto pr-0 align-self-center">
@@ -23,7 +24,7 @@
                                         <a href="{{ route('home') }}">الرئيسية</a>
                                     </li>
                                     <li class="menu-item">
-                                        <a href="{{ route('courses.index') }}">الأكاديمية</a>
+                                        <a href="{{ route('academy.index') }}">الأكاديمية</a>
                                     </li>
                                     <li class="menu-item">
                                         <a href="{{ route('services.index') }}">خدماتنا</a>
@@ -37,7 +38,7 @@
                                 </ul>
                             </nav>
                         </div>
-                        <div class="col-sm-auto align-self-center nav-side-icon-parent">
+                        {{-- <div class="col-sm-auto align-self-center nav-side-icon-parent">
                             <ul class="list-inline nav-side-icon-list">
                                 <li class="hidden-mobile-mode"><a href="#" id="top-nav-search-btn"><i
                                             class="search-icon fa fa-search"></i></a></li>
@@ -104,7 +105,7 @@
                                 </form>
                                 <a href="#" id="close-search-btn"><i class="fa fa-times"></i></a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="row d-block d-xl-none">
                         <div class="col-12">

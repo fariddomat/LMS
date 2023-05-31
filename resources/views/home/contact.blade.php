@@ -99,7 +99,7 @@
                               <div class="mb-3">
                                   {{-- <input name="form_botcheck" class="form-control" type="hidden" value="" /> --}}
                                   <button type="submit"
-                                      class="btn btn-flat btn-theme-colored1 text-uppercase mt-10 mb-sm-30 border-left-theme-color-2-4px"
+                                      class="btn btn-dark btn-lg btn-block mt-15"
                                       data-loading-text="Please wait...">إرسال</button>
 
                               </div>

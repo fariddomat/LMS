@@ -35,9 +35,6 @@
     <link href="{{ asset('home/css/responsive.css') }}" rel="stylesheet" type="text/css">
     <!-- CSS | Style css. This is the file where you can place your own custom css code. Just uncomment it and use it. -->
 
-    <!-- CSS | Theme Color -->
-    <link href="{{ asset('home/css/colors/theme-skin-color-set1.css') }}" rel="stylesheet" type="text/css">
-
     <link href="{{ asset('home/css/bootstrap-rtl.min.css') }}" rel="stylesheet" type="text/css">
 
     <link href="{{ asset('home/css/style-main-rtl.css') }}" rel="stylesheet" type="text/css">
@@ -50,6 +47,9 @@
     <script src="{{ asset('home/js/menuzord/js/menuzord.js') }}"></script>
 
     <!-- <link href="{{ asset('home/css/style.css') }}" rel="stylesheet" type="text/css"> -->
+
+    <!-- CSS | Theme Color -->
+    <link href="{{ asset('home/css/colors/theme-skin-color-set1.css') }}" rel="stylesheet" type="text/css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -126,6 +126,9 @@
         .course-item .course-thumb .price{
             left: unset;
             right: -3px;
+        }
+        .lg-css3.lg-fade .lg-item.lg-current{
+            left: 0;
         }
     </style>
 

@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\Lesson;
+use App\Models\Profile;
 use App\Models\Service;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class AcademyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +18,10 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services=Service::all();
-        return view('home.services.index', compact('services'));
+        $profiles=Profile::where('status','active')->count();
+        $courses=Course::count();
+        $lessons=Lesson::count();
+        return view('home.academy.index', compact('profiles', 'courses', 'lessons'));
     }
 
     /**
@@ -46,11 +51,9 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($title)
+    public function show($id)
     {
-        $service=Service::where('title', $title)->firstOrFail();
-        $services=Service::all();
-        return view('home.services.show', compact('service', 'services'));
+        //
     }
 
     /**

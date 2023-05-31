@@ -24,24 +24,22 @@
                 <div class="row align-items-center">
                     <div class="col-md-8">
                         <h3 class="text-gray mt-0 mt-sm-30 mb-2">مرحبا بك في</h3>
-                        <h2 class="text-theme-colored2 mt-0">أكاديمية العافية الشمولية </h2>
-                        <h2 class="text-theme-colored2 mt-0">Holistic Wellness Coaching Academy</h2>
-                        <p class="font-weight-600">يسعدنا الإعلان عن أكاديمية هوليستك</p>
-                        <p class="mt-20">أول أكاديمية لتدريب مختصين في العافية الشمولية وجودة الحياة باللغة العربية ومعتمدة
-                            .
-                            <br>
-                            يسعدنا الآن توفير بعض التفاصيل التي تهمكم لبدء رحلتكم كمدربين في العافية الشمولية ✍🏻
+                        <h2 class="text-theme-colored2 mt-0">{!! $academy->ar_title !!} </h2>
+                        <h2 class="text-theme-colored2 mt-0">{!! $academy->en_title !!}</h2>
+                        <p class="font-weight-600">{!! $academy->header !!}</p>
+                        <p class="mt-20">{!! $academy->about !!}
                         </p>
                     </div>
                     <div class="col-md-4">
                         <img src="{{ asset('logo-lg.png') }}" alt="">
                     </div>
+
                     <div class="col-md-12 text-center">
 
-                    <a class="btn btn-dark btn-theme-colored1 text-uppercase mt-30"
-                    href="{{ route('courses.index') }}">الدورات</a>
-                <a class="btn btn-dark btn-block  btn-theme-colored2 text-uppercase text-white mt-30"
-                    href="{{ route('profiles.create') }}">سجل الآن</a>
+                        <a class="btn btn-dark btn-theme-colored1 text-uppercase mt-30"
+                            href="{{ route('courses.index') }}">الدورات</a>
+                        <a class="btn btn-dark btn-block  btn-theme-colored2 text-uppercase text-white mt-30"
+                            href="{{ route('profiles.create') }}">سجل الآن</a>
                     </div>
                 </div>
             </div>
@@ -101,13 +99,93 @@
                         <div class="col-md-12 text-center">
                             <h2 class="title text-theme-colored2 mt-0 mb-20">أكاديمية هوليستك لتدريب مدربين العافية الشمولية
                             </h2>
-                            <p class="mb-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam modi
-                                consequuntur maxime voluptates earum illo sunt, veritatis maiores doloribus ut id, nostrum.
-                                Temporibus odit quas illum eos dolores itaque facilis omnis beatae saepe eum. Odit labore
-                                vel temporibus quasi.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam modi consequuntur maxime
-                                voluptates earum illo sunt, veritatis maiores doloribus ut id, nostrum. Temporibus odit quas
-                                illum eos dolores itaque facilis omnis beatae saepe eum. Odit labore vel temporibus.</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="title text-left text-theme-colored2 mt-0">من نحن</h3>
+                                    {!! $academy->who_are_we !!}
+                                </div>
+                                <div class="col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"></div>
+                                <div class="col-md-6">
+                                    <h3 class="title text-left text-theme-colored2 mt-0">فلسفتنا</h3>
+                                    {!! $academy->phylosofy !!}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="title text-left text-theme-colored2 mt-0">رؤيتنا</h3>
+                                    {!! $academy->vision !!}
+                                </div>
+                                <div class="col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6"></div>
+                                <div class="col-md-6">
+                                    <h3 class="title text-left text-theme-colored2 mt-0">رسالتنا</h3>
+                                    {!! $academy->message !!}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mt-20">
+                                <div class="col-md-12">
+                                    <h3 class="title text-theme-colored2 mt-0">من هو مدرب العافية الشمولية</h3>
+                                    {!! $academy->how_is !!}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mt-20">
+                                <div class="col-md-12">
+                                    <h3 class="title text-left  text-theme-colored2 mt-0">أهداف الأكاديمية</h3>
+                                    {!! $academy->goals !!}
+                                </div>
+                            </div>
+
+                            <hr>
+                            <div class="row mt-20">
+                                <div class="col-md-12">
+                                    <h3 class="title text-left  text-theme-colored2 mt-0">أساسيات المنهج</h3>
+                                    {!! $academy->essential !!}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mt-20">
+                                <div class="col-md-12">
+                                    <h3 class="title text-left  text-theme-colored2 mt-0">طريقة التعليم</h3>
+                                    {!! $academy->education_way !!}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mt-20">
+                                <div class="col-md-12">
+                                    <h3 class="title text-left  text-theme-colored2 mt-0">مدة الدراسة </h3>
+                                    {!! $academy->education_period !!}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mt-20">
+                                <div class="col-md-12">
+                                    <h3 class="title text-left  text-theme-colored2 mt-0">شروط التخرج</h3>
+                                    {!! $academy->graduation_condition !!}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mt-20">
+                                <div class="col-md-12">
+                                    <h3 class="title text-left  text-theme-colored2 mt-0">شروط القبول </h3>
+                                    {!! $academy->accept_condition !!}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row mt-20">
+                                <div class="col-md-12">
+                                    <h3 class="title text-left  text-theme-colored2 mt-0">رسوم الدراسة </h3>
+                                    {!! $academy->education_fee !!}
+                                </div>
+                            </div>
+                            <hr>
+                            {!! $academy->footer !!}
                             <a class="btn btn-dark btn-theme-colored1 text-uppercase mt-30"
                                 href="{{ route('courses.index') }}">الدورات</a>
                             <a class="btn btn-dark btn-block  btn-theme-colored2 text-uppercase text-white mt-30"

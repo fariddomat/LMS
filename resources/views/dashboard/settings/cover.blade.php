@@ -1,5 +1,14 @@
 @extends('layouts.dashboard')
+@push('scripts')
+<script src="{{asset('dashboard/js/image_preview.js')}}"></script>
 
+<script type="text/javascript">
+    var imageGalleryBrowseUrl = "{{ route('dashboard.imageGallery.browser') }}";
+    var imageGalleryUploadUrl = "{{ route('dashboard.imageGallery.uploader') }}";
+</script>
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+
+@endpush
 @section('content')
 <main class="main">
 
@@ -35,15 +44,15 @@
 
                             <div class="col-md-12">
                                 <label>نص 1</label>
-                                <input type="text" value="{{ setting('cover1_text') }}" name="cover1_text" class="form-control">
+                                <textarea id="1" name="cover1_text"  class="form-control">{{ setting('cover1_text') }}</textarea>
                             </div>
                             <div class="col-md-12">
                                 <label>نص 2</label>
-                                <input type="text" value="{{ setting('cover2_text') }}" name="cover2_text" class="form-control">
+                                <textarea id="2" name="cover2_text"  class="form-control">{{ setting('cover2_text') }}</textarea>
                             </div>
                             <div class="col-md-12">
                                 <label>نص 3</label>
-                                <textarea name="cover3_text"  class="form-control">{{ setting('cover3_text') }}</textarea>
+                                <textarea id="3" name="cover3_text"  class="form-control">{{ setting('cover3_text') }}</textarea>
                             </div>
 
                             <div class="col-md-4">
@@ -68,3 +77,39 @@
     </div>
 </main>
 @endsection
+@push('scripts')
+<script>
+    $(function() {
+    CKEDITOR.replace("1", {
+        filebrowserBrowseUrl: imageGalleryBrowseUrl,
+        filebrowserUploadUrl:
+            imageGalleryUploadUrl +
+            "?_token=" +
+            $("meta[name=csrf-token]").attr("content"),
+        removeButtons: "1"
+    });
+});
+
+$(function() {
+    CKEDITOR.replace("2", {
+        filebrowserBrowseUrl: imageGalleryBrowseUrl,
+        filebrowserUploadUrl:
+            imageGalleryUploadUrl +
+            "?_token=" +
+            $("meta[name=csrf-token]").attr("content"),
+        removeButtons: "2"
+    });
+});
+
+$(function() {
+    CKEDITOR.replace("3", {
+        filebrowserBrowseUrl: imageGalleryBrowseUrl,
+        filebrowserUploadUrl:
+            imageGalleryUploadUrl +
+            "?_token=" +
+            $("meta[name=csrf-token]").attr("content"),
+        removeButtons: "3"
+    });
+});
+</script>
+@endpush

@@ -25,6 +25,15 @@
         });
 </script>
 @endpush
+@push('scripts')
+<script type="text/javascript">
+    var imageGalleryBrowseUrl = "{{ route('dashboard.imageGallery.browser') }}";
+    var imageGalleryUploadUrl = "{{ route('dashboard.imageGallery.uploader') }}";
+</script>
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+
+@endpush
+
 @section('content')
     <main class="main">
 
@@ -86,7 +95,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="brief" class="form-label">مختصر</label>
-                                    <textarea class="form-control" id="brief" name="brief" rows="5" dir="rtl">{{ $service->brief }}</textarea>
+                                    <textarea class="form-control" id="_editor" name="brief" rows="5" dir="rtl">{{ $service->brief }}</textarea>
                                 </div>
 
 
@@ -125,3 +134,19 @@
         </div>
     </main>
     @endsection
+
+    @push('scripts')
+    <script>
+        $(function() {
+        CKEDITOR.replace("_editor", {
+            filebrowserBrowseUrl: imageGalleryBrowseUrl,
+            filebrowserUploadUrl:
+                imageGalleryUploadUrl +
+                "?_token=" +
+                $("meta[name=csrf-token]").attr("content"),
+            removeButtons: "_editor"
+        });
+    });
+    </script>
+    @endpush
+ 

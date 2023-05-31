@@ -68,7 +68,7 @@
                             <img alt="images" src="{{ $service->image_path }}" />
                             <h3 class="mt-20 mb-10">{{ $service->title }}</h3>
                             <p class="lead">{{ $service->main_title }}</p>
-                            <p>{{ $service->brief }}</p>
+                            <p>{!! $service->brief !!}</p>
                             <div class="row mb-20 mt-20">
 
                             </div>

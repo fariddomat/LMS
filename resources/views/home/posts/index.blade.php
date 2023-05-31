@@ -54,7 +54,7 @@
                                                     </div>
 
                                                     <div class="post-excerpt">
-                                                        <div class="mascot-post-excerpt">{!! $post->description !!}.</div>
+                                                        <div class="mascot-post-excerpt">{!! Str::limit($post->description, 250) !!}.</div>
                                                     </div>
                                                     <div class="post-btn-readmore"> <a href="{{ route('posts.show', $post->slug) }}"
                                                             class="btn btn-plain-text-with-arrow"> عرض التفاصيل </a></div>

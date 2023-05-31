@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
+use App\Models\Academy;
 use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Profile;
@@ -21,7 +22,8 @@ class AcademyController extends Controller
         $profiles=Profile::where('status','active')->count();
         $courses=Course::count();
         $lessons=Lesson::count();
-        return view('home.academy.index', compact('profiles', 'courses', 'lessons'));
+        $academy=Academy::firstOrFail();
+        return view('home.academy.index', compact('profiles', 'courses', 'lessons', 'academy'));
     }
 
     /**

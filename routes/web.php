@@ -75,6 +75,9 @@ Route::get('/clear', function() {
     Route::get('/about', 'App\Http\Controllers\Dashboard\AboutController@create')->name('about.create');
     Route::post('/about', 'App\Http\Controllers\Dashboard\AboutController@store')->name('about.store');
 
+    Route::get('/academy', 'App\Http\Controllers\Dashboard\AcademyController@create')->name('academy.create');
+    Route::post('/academy', 'App\Http\Controllers\Dashboard\AcademyController@store')->name('academy.store');
+
     Route::resource('services','App\Http\Controllers\Dashboard\ServiceController');
     Route::get('/services/{service}/sliderImages', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@index')->name('sliderImages.index');
     Route::get('/services/{service}/sliderImages/create', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@create')->name('sliderImages.create');

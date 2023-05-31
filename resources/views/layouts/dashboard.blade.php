@@ -118,6 +118,10 @@
                  </li>
 
                  <li class="nav-item nav-dropdown">
+                    <a class="nav-link" href="{{ route('dashboard.academy.create') }}"><i class="icon-folder-alt "></i>
+                        الرئيسية</a>
+                </li>
+                 <li class="nav-item nav-dropdown">
                      <a class="nav-link" href="{{ route('dashboard.courses.index') }}"><i class="icon-folder-alt "></i>
                          الدورات</a>
                  </li>

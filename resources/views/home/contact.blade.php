@@ -29,18 +29,15 @@
                                   <li><strong>رقم الهاتف:</strong> <a href="tel:{{setting('site_phone')}}">{{setting('site_phone')}}</a></li>
                                   <li><strong>البريد الالكتروني:</strong> <a
                                           href="mailto:{{setting('site_email')}}">{{setting('site_email')}}</a></li>
-                                  <li><strong>الموضوع:</strong>{{setting('site_address')}}A</li>
+                                  <li><strong>العنوان:</strong> {{setting('site_location')}}</li>
                               </ul>
                           </div>
                           <ul class="styled-icons icon-dark icon-sm icon-circled mt-30">
-                              <li><a href="#" data-tm-bg-color="#3B5998"><i class="fab fa-facebook"></i></a></li>
-                              <li><a href="#" data-tm-bg-color="#02B0E8"><i class="fab fa-twitter"></i></a></li>
-                              <li><a href="#" data-tm-bg-color="#4C75A3"><i class="fab fa-vk"></i></a></li>
-                              <li><a href="#" data-tm-bg-color="#D9CCB9"><i class="fab fa-instagram"></i></a></li>
-                              <li><a href="#" data-tm-bg-color="#D71619"><i class="fab fa-google-plus"></i></a></li>
-                              <li><a href="#" data-tm-bg-color="#A4CA39"><i class="fab fa-android"></i></a></li>
-                              <li><a href="#" data-tm-bg-color="#4C75A3"><i class="fab fa-vk"></i></a></li>
-                          </ul>
+                              <li><a class="social-link" data-tm-bg-color="#3B5998" href="{{ setting('facebook_link') }}"><i class="fab fa-facebook"></i></a></li>
+                              <li><a class="social-link" data-tm-bg-color="#4C75A3" href="{{ setting('twitter_link') }}"><i class="fab fa-twitter"></i></a></li>
+                              <li><a class="social-link" data-tm-bg-color="#A4CA39" href="{{ setting('whatsapp_link') }}"><i class="fab fa-whatsapp"></i></a></li>
+                              <li><a class="social-link" data-tm-bg-color="#D9CCB9" href="{{ setting('instagram_link') }}"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
                       </div>
                       <div class="col-lg-7">
                           <h2 class="mt-0 mb-0">هل ترغب بالاستفسار عن شيء؟</h2>

@@ -26,6 +26,7 @@ class ServiceSliderImageController extends Controller
     {
         $rules = [
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp'],
+            
         ];
         $validatedData = $request->validate($rules);
         $sliderImage  = new ServiceSliderImage();

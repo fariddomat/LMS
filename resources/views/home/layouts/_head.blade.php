@@ -3,19 +3,19 @@
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="StudyPress | Education & Courses HTML Template" />
-    <meta name="keywords" content="academy, course, education, education html theme, elearning, learning," />
-    <meta name="author" content="ThemeMascot" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
 
     <!-- Page Title -->
     <title>{{ setting('site_title') }}</title>
 
     <!-- Favicon and Touch Icons -->
-    <link href="{{ asset('home/images/favicon.png') }}" rel="shortcut icon" type="image/png">
-    <link href="{{ asset('home/images/apple-touch-icon.png') }}" rel="apple-touch-icon">
-    <link href="{{ asset('home/images/apple-touch-icon-72x72.png') }}" rel="apple-touch-icon" sizes="72x72">
-    <link href="{{ asset('home/images/apple-touch-icon-114x114.png') }}" rel="apple-touch-icon" sizes="114x114">
-    <link href="{{ asset('home/images/apple-touch-icon-144x144.png') }}" rel="apple-touch-icon" sizes="144x144">
+    <link href="{{ asset('logo.png') }}" rel="shortcut icon" type="image/png">
+    <link href="{{ asset('logo.png') }}" rel="apple-touch-icon">
+    <link href="{{ asset('logo.png') }}" rel="apple-touch-icon" sizes="72x72">
+    <link href="{{ asset('logo.png') }}" rel="apple-touch-icon" sizes="114x114">
+    <link href="{{ asset('logo.png') }}" rel="apple-touch-icon" sizes="144x144">
 
     <!-- Stylesheet -->
     <link href="{{ asset('home/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">

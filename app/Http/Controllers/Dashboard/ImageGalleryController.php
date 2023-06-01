@@ -13,7 +13,7 @@ class ImageGalleryController extends Controller
     public function browser(Request $request)
     {
         $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-        $files = Storage::disk('local')->allFiles('public/photos/gallery');
+        $files = Storage::disk('public')->allFiles('public/photos/gallery');
         return view('dashboard.filebrowse.browser', compact('CKEditorFuncNum', 'files'));
     }
 
@@ -27,7 +27,7 @@ class ImageGalleryController extends Controller
             $response['error']['message'] = 'Please upload a valid image.';
             return response()->json($response);
         }
-        $name = $request->file('upload')->store('public/photos/gallery', 'local');
+        $name = $request->file('upload')->store('public/photos/gallery', 'public');
         $response['uploaded'] = 1;
         $response['fileName'] = $name;
         $response['url'] = asset($name);

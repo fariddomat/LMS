@@ -43,7 +43,7 @@ class CourseController extends Controller
             ->resize(530, 390)
             ->encode('jpg');
 
-        Storage::disk('local')->put('public/images/courses/' . $request->thumbnail->hashName(), (string)$thumbnail, 'public');
+        Storage::disk('public')->put('public/images/courses/' . $request->thumbnail->hashName(), (string)$thumbnail, 'public');
 
 
         $request_data['thumbnail'] = $request->thumbnail->hashName();
@@ -70,14 +70,12 @@ class CourseController extends Controller
 
         if ($request->thumbnail) {
             if ($course->thumbnail != null)
-                Storage::disk('local')->delete('public/images/courses/' . $course->thumbnail);
+                Storage::disk('public')->delete('public/images/courses/' . $course->thumbnail);
             $thumbnail = Image::make($request->thumbnail)
                 ->resize(530, 390)
                 ->encode('jpg');
 
-            Storage::disk('local')->put('public/images/courses/' . $request->thumbnail->hashName(), (string)$thumbnail, 'public');
-
-
+            Storage::disk('public')->put('public/images/courses/' . $request->thumbnail->hashName(), (string)$thumbnail, 'public');
             $request_data['thumbnail'] = $request->thumbnail->hashName();
         }
         $course->update($request_data);
@@ -88,7 +86,7 @@ class CourseController extends Controller
     public function destroy(Course $course)
     {
         if ($course->thumbnail != null)
-                Storage::disk('local')->delete('public/images/courses/' . $course->thumbnail);
+                Storage::disk('public')->delete('public/images/courses/' . $course->thumbnail);
         $course->delete();
 
         return redirect()->route('dashboard.courses.index')->with('success', 'Course deleted successfully.');

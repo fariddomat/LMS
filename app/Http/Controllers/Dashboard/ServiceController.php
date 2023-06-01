@@ -49,7 +49,7 @@ class ServiceController extends Controller
                 ->resize(530, 390)
                 ->encode('jpg');
 
-            Storage::disk('local')->put('photos/services/' . $request->image->hashName(), (string)$image, 'public');
+            Storage::disk('public')->put('photos/services/' . $request->image->hashName(), (string)$image, 'public');
 
 
             $service->image  = $request->image->hashName();
@@ -61,7 +61,7 @@ class ServiceController extends Controller
         if ($request->has('index_image')) {
             $indexImage = $request->file('index_image');
             $filename = $indexImage->getClientOriginalName();
-            $service->index_image = $indexImage->storeAs('photos/services/index', $filename);
+            $service->index_image = $indexImage->storeAs('photos/services/index', $filename, ['disk' => 'public']);
         }
         $service->showed  = $request->has('showed') ? 1 : 0;
         $service->slug = Str::slug($request->input('title'));
@@ -98,26 +98,26 @@ class ServiceController extends Controller
 
 
             if ($service->image != null)
-                Storage::disk('local')->delete('photos/services/' . $service->image);
+                Storage::disk('public')->delete('photos/services/' . $service->image);
             $image = Image::make($request->image)
                 ->resize(530, 390)
                 ->encode('jpg');
 
-            Storage::disk('local')->put('photos/services/' . $request->image->hashName(), (string)$image, 'public');
+            Storage::disk('public')->put('photos/services/' . $request->image->hashName(), (string)$image, 'public');
 
 
             $service->image = $request->image->hashName();
 
-            // Storage::disk('local')->delete($service->image);
+            // Storage::disk('public')->delete($service->image);
             // $image = $request->file('image');
             // $filename = $image->getClientOriginalName();
             // $service->image = $image->storeAs('photos/services', $filename);
         }
         if ($request->has('index_image')) {
-            Storage::disk('local')->delete($service->index_image);
+            Storage::disk('public')->delete($service->index_image);
             $indexImage = $request->file('index_image');
             $filename = $indexImage->getClientOriginalName();
-            $service->index_image = $indexImage->storeAs('photos/services/index', $filename);
+            $service->index_image = $indexImage->storeAs('photos/services/index', $filename, ['disk' => 'public']);
         }
         $service->showed  = $request->has('showed') ? 1 : 0;
         $service->slug = Str::slug($request->input('title'));
@@ -129,7 +129,7 @@ class ServiceController extends Controller
     public function destroy(Service $service)
     {
         if ($service->index_image) {
-            Storage::disk('local')->delete($service->index_image);
+            Storage::disk('public')->delete($service->index_image);
             $service->index_image = null;
             $service->save();
         }

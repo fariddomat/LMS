@@ -43,27 +43,27 @@ class LessonController extends Controller
         $lesson->description = $validated['description'];
         $lesson->duration = $validated['duration'];
         // $lesson->video_path = $validated['video']->store('videos', 'public');
-        $lesson->course_id= $request->course_id;
+        $lesson->course_id = $request->course_id;
 
 
         // Save the video file
         if ($request->hasFile('video')) {
             $file = $request->file('video');
             $fileName = $file->getClientOriginalName();
-            $path = $file->storeAs('public/lessons', $fileName);
+            $path = $file->storeAs('public/lessons', $fileName, ['disk' => 'public']);
 
             // Set the video file path for the lesson
             $lesson->video_path = $path;
         }
 
-            $lesson->save();
+        $lesson->save();
 
-            $course=Course::findOrFail($request->course_id);
-            return response()->json([
-                'success' => true,
-                'message' => 'Lesson created successfully.',
-                'redirect_url' => route('dashboard.courses.show', $course)
-            ]);
+        $course = Course::findOrFail($request->course_id);
+        return response()->json([
+            'success' => true,
+            'message' => 'Lesson created successfully.',
+            'redirect_url' => route('dashboard.courses.show', $course)
+        ]);
         // return redirect()->route('dashboard.courses.show', $course)->with('success', 'Lesson created successfully.');
     }
 
@@ -89,8 +89,8 @@ class LessonController extends Controller
 
     public function destroy(Course $course, Lesson $lesson)
     {
-        $course=Course::findOrFail($lesson->course_id);
-        Storage::disk('public')->delete('lessons/'.$lesson->video_path);
+        $course = Course::findOrFail($lesson->course_id);
+        Storage::disk('public')->delete('lessons/' . $lesson->video_path);
         $lesson->delete();
         return redirect()->route('dashboard.courses.show', $course)->with('success', 'Lesson deleted successfully.');
     }

@@ -26,14 +26,14 @@ class ServiceSliderImageController extends Controller
     {
         $rules = [
             'image' => ['required', 'image', 'mimes:jpeg,png,jpg,webp'],
-            
+
         ];
         $validatedData = $request->validate($rules);
         $sliderImage  = new ServiceSliderImage();
 
         $image = $request->file('image');
         $filename = $image->getClientOriginalName();
-        $sliderImage->image = $image->storeAs('photos/services/sliderImages/' . $service->id, $filename);
+        $sliderImage->image = $image->storeAs('photos/services/sliderImages/' . $service->id, $filename, ['disk' => 'public']);
 
         $sliderImage->showed  = $request->has('showed') ? 1 : 0;
         $sliderImage->service_id = $service->id;
@@ -56,10 +56,10 @@ class ServiceSliderImageController extends Controller
         $validatedData = $request->validate($rules);
 
         if ($request->has('image')) {
-            Storage::disk('local')->delete($image->image);
+            Storage::disk('public')->delete($image->image);
             $imageFile = $request->file('image');
             $filename = $imageFile->getClientOriginalName();
-            $image->image = $imageFile->storeAs('photos/services/sliderImages/' . $image->service_id, $filename);
+            $image->image = $imageFile->storeAs('photos/services/sliderImages/' . $image->service_id, $filename, ['disk' => 'public']);
         }
 
         $image->showed  = $request->has('showed') ? 1 : 0;
@@ -70,7 +70,7 @@ class ServiceSliderImageController extends Controller
 
     public function destroy(ServiceSliderImage $image)
     {
-        Storage::disk('local')->delete($image->image);
+        Storage::disk('public')->delete($image->image);
         $image->delete();
         session()->flash('success', 'Image Deleted Successfully');
         return redirect()->back();

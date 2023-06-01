@@ -59,7 +59,7 @@ class PostController extends Controller
         $post->category_id = $request->category_id;
         $image = $request->file('image');
         $filename = $image->getClientOriginalName();
-        $post->image = $image->storeAs('photos/blogs', $filename);
+        $post->image = $image->storeAs('photos/blogs', $filename, ['disk' => 'public']);
         $post->save();
 
         $post->tags()->attach($request->tags);
@@ -102,10 +102,10 @@ class PostController extends Controller
         $post->author_name = $request->author_name;
         $post->author_title = $request->author_title;
         if ($request->has('image')) {
-            Storage::disk('local')->delete($post->image);
+            Storage::disk('public')->delete($post->image);
             $image = $request->file('image');
             $filename = $image->getClientOriginalName();
-            $post->image = $image->storeAs('photos/blogs', $filename);
+            $post->image = $image->storeAs('photos/blogs', $filename, ['disk' => 'public']);
         }
         if ($request->has('published')) {
             if ( $post->published == false) {

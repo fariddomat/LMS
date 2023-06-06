@@ -29,6 +29,9 @@
                     <div class="row">
                         <div class="col-md-7">
                             <p class="lead text-black">{!! $about->about_me !!}</p>
+                            <a href="{{ route('whoiam') }}" target="_self"
+                                class="btn btn-dark btn-sm btn-block mt-15 mb-20"> قراءة المزيد </a>
+
                         </div>
                         <div class="col-md-5">
                             <img src="{{ asset('dr.webp') }}" alt=""

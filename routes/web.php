@@ -23,6 +23,7 @@ Route::resource('courses','App\Http\Controllers\Home\CourseController');
 Route::resource('services','App\Http\Controllers\Home\ServiceController');
 Route::post('/contact', 'App\Http\Controllers\Home\HomeController@contact')->name('contact');
 Route::get('/contactPage', 'App\Http\Controllers\Home\HomeController@contactPage')->name('contactPage');
+Route::get('/whoiam', 'App\Http\Controllers\Home\HomeController@whoiam')->name('whoiam');
 
   });
 
@@ -60,6 +61,7 @@ Route::get('/clear', function() {
 
     Route::resource('posts','App\Http\Controllers\Dashboard\PostController');
     Route::resource('tags','App\Http\Controllers\Dashboard\TagController');
+    Route::resource('whoiam','App\Http\Controllers\Dashboard\WhoIAmController');
 
 
     Route::get('/contactForm', 'App\Http\Controllers\Dashboard\ContactFormController@index')->name('contactForm.index');

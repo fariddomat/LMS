@@ -33,6 +33,9 @@
                                         <a href="{{ route('posts.index') }}">المدونة</a>
                                     </li>
                                     <li class="menu-item">
+                                        <a href="{{ route('whoiam') }}">من أنا؟</a>
+                                    </li>
+                                    <li class="menu-item">
                                         <a href="{{ route('contactPage') }}">اتصل بنا</a>
                                     </li>
                                 </ul>

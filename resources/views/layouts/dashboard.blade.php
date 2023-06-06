@@ -101,6 +101,10 @@
                     <a class="nav-link" href="{{ route('dashboard.setting.cover') }}"><i class="icon-camera "></i>
                         الصفحة الرئيسية</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard.whoiam.index') }}"><i class="icon-info "></i>
+                        من أنا</a>
+                </li>
                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('dashboard.about.create') }}"><i class="icon-info "></i>
                          من نحن</a>

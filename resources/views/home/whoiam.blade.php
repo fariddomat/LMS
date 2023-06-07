@@ -36,6 +36,9 @@
                                 style="border: 4px solid white;
                         border-radius: 25px;">
                         </div>
+                        <div class="col-md-12">
+                            {!! setting('who_video') !!}
+                        </div>
                     </div>
                 </div>
             </div>

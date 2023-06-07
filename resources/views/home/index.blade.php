@@ -5,7 +5,7 @@
     <div class="main-content-area">
         <!-- Section: home -->
         <section id="home" class="divider parallax fullscreen" data-parallax-ratio="0.6"
-            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}">
+            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}">
             <div class="d-flex align-items-center flex-column justify-content-center h-100">
                 <div class="container pt-150 pb-150">
                     <div class="row">

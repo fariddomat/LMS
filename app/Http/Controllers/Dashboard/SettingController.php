@@ -24,14 +24,14 @@ class SettingController extends Controller
 
         setting($request->all())->save();
 
-        if ($request->cover1) {
-            $image_path = public_path("home/images/bg/bg1.jpg");
-            // dd($image_path);
-            if (File::exists($image_path)) {
-                File::delete($image_path);
-            }
-            $request->cover1->move(public_path('home/images/bg'), 'bg1.jpg');
+         if ($request->hasFile('cover1')) {
+             setting([
+                'cover_time' => now()
+            ])->save();
+            $image = $request->file('cover1');
+            $imagePath = $image->storeAs('home/images/bg', 'bg1.jpg',  ['disk' => 'public']);
         }
+
         return redirect()->back();
     }
 

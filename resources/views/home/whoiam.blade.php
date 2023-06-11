@@ -36,7 +36,11 @@
                                 style="border: 4px solid white;
                         border-radius: 25px;">
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12" style="margin-top: 75px;
+                        padding: 0;
+                        box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
+                        -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
+                        -moz-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);">
                             {!! setting('who_video') !!}
                         </div>
                     </div>

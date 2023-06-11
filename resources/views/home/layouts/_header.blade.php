@@ -1,5 +1,6 @@
 <!-- Header -->
-<header id="header" class="header header-layout-type-header-2rows">
+<header id="header" class="header header-layout-type-header-2rows" style="  z-index: 10000;
+position: relative;">
 
     <div class="header-nav tm-enable-navbar-hide-on-scroll" style="">
         <div class="header-nav-wrapper navbar-scrolltofixed">
@@ -20,22 +21,25 @@
                                 class="menuzord theme-color1 pull-left flip menuzord-responsive"
                                 data-effect="slide" data-animation="none" data-align="right">
                                 <ul id="main-nav" class="menuzord-menu">
-                                    <li class="active menu-item">
+                                    <li class="{{ Request::is('/') ? 'active' : '' }}  menu-item">
                                         <a href="{{ route('home') }}">الرئيسية</a>
                                     </li>
-                                    <li class="menu-item">
+                                    <li class="{{ Request::is('academy*') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('academy.index') }}">الأكاديمية</a>
                                     </li>
-                                    <li class="menu-item">
+                                    <li class="{{ Request::is('service*') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('services.index') }}">خدماتنا</a>
                                     </li>
-                                    <li class="menu-item">
+                                    <li class="{{ Request::is('posts*') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('posts.index') }}">المدونة</a>
                                     </li>
-                                    <li class="menu-item">
+                                    <li class="{{ Request::is('integrativeMedicine') ? 'active' : '' }} menu-item">
+                                        <a href="{{ route('integrativeMedicine') }}">الطب التكاملي</a>
+                                    </li>
+                                    <li class="{{ Request::is('whoiam') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('whoiam') }}">من أنا؟</a>
                                     </li>
-                                    <li class="menu-item">
+                                    <li class="{{ Request::is('contactPage') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('contactPage') }}">اتصل بنا</a>
                                     </li>
                                 </ul>

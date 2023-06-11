@@ -77,7 +77,8 @@
          <nav class="sidebar-nav">
              <ul class="nav">
                  <li class="nav-item">
-                     <a class="nav-link" href="{{ route('dashboard.home') }}"><i class="icon-speedometer"></i> لوحة التحكم
+                     <a class="nav-link" href="{{ route('dashboard.home') }}"><i class="icon-speedometer"></i> لوحة
+                         التحكم
                      </a>
                  </li>
 
@@ -85,29 +86,35 @@
                      التحكم
                  </li>
                  <li class="nav-item">
-                     <a class="nav-link" href="{{ route('dashboard.setting.settingsText') }}"><i class="icon-info "></i>
+                     <a class="nav-link" href="{{ route('dashboard.setting.settingsText') }}"><i
+                             class="icon-info "></i>
                          معلومات الموقع</a>
                  </li>
                  <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.setting.logs') }}"><i class="icon-magnifier "></i>
-                        سجل العمليات</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.setting.social') }}"><i class="icon-share "></i>
-                        مواقع التواصل</a>
-                </li>
+                     <a class="nav-link" href="{{ route('dashboard.setting.logs') }}"><i class="icon-magnifier "></i>
+                         سجل العمليات</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.setting.social') }}"><i class="icon-share "></i>
+                         مواقع التواصل</a>
+                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.setting.cover') }}"><i class="icon-camera "></i>
-                        الصفحة الرئيسية</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.whoiam.index') }}"><i class="icon-info "></i>
-                        من أنا</a>
-                </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.setting.cover') }}"><i class="icon-camera "></i>
+                         الصفحة الرئيسية</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.whoiam.index') }}"><i class="icon-info "></i>
+                         من أنا</a>
+                 </li>
                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('dashboard.about.create') }}"><i class="icon-info "></i>
                          من نحن</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.integrativeMedicines.index') }}"><i
+                             class="fa fa-medkit  "></i>
+                         الطب التكاملي</a>
                  </li>
                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('dashboard.services.index') }}"><i class="icon-plus "></i>
@@ -122,11 +129,13 @@
                  </li>
 
                  <li class="nav-item nav-dropdown">
-                    <a class="nav-link" href="{{ route('dashboard.academy.create') }}"><i class="icon-folder-alt "></i>
-                        الرئيسية</a>
-                </li>
+                     <a class="nav-link" href="{{ route('dashboard.academy.create') }}"><i
+                             class="icon-folder-alt "></i>
+                         الرئيسية</a>
+                 </li>
                  <li class="nav-item nav-dropdown">
-                     <a class="nav-link" href="{{ route('dashboard.courses.index') }}"><i class="icon-folder-alt "></i>
+                     <a class="nav-link" href="{{ route('dashboard.courses.index') }}"><i
+                             class="icon-folder-alt "></i>
                          الدورات</a>
                  </li>
                  <li class="nav-item nav-dropdown">

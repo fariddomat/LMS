@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ContactForm;
 use App\Models\Post;
 use App\Models\About;
+use App\Models\IntegrativeMedicine;
 use App\Models\Service;
 use App\Models\WhoIAm;
 use Illuminate\Http\Request;
@@ -45,5 +46,10 @@ class HomeController extends Controller
         $about=About::firstOrFail();
         $whoiams=WhoIAm::all();
         return view('home.whoiam', compact('whoiams', 'about'));
+    }
+    public function integrativeMedicines()
+    {
+        $integrativeMedicines=IntegrativeMedicine::all();
+        return view('home.integrativeMedicine', compact('integrativeMedicines'));
     }
 }

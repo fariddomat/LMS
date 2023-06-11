@@ -24,6 +24,7 @@ Route::resource('services','App\Http\Controllers\Home\ServiceController');
 Route::post('/contact', 'App\Http\Controllers\Home\HomeController@contact')->name('contact');
 Route::get('/contactPage', 'App\Http\Controllers\Home\HomeController@contactPage')->name('contactPage');
 Route::get('/whoiam', 'App\Http\Controllers\Home\HomeController@whoiam')->name('whoiam');
+Route::get('/integrativeMedicine', 'App\Http\Controllers\Home\HomeController@integrativeMedicines')->name('integrativeMedicine');
 
   });
 
@@ -62,6 +63,7 @@ Route::get('/clear', function() {
     Route::resource('posts','App\Http\Controllers\Dashboard\PostController');
     Route::resource('tags','App\Http\Controllers\Dashboard\TagController');
     Route::resource('whoiam','App\Http\Controllers\Dashboard\WhoIAmController');
+    Route::resource('integrativeMedicines','App\Http\Controllers\Dashboard\IntegrativeMedicineController');
 
 
     Route::get('/contactForm', 'App\Http\Controllers\Dashboard\ContactFormController@index')->name('contactForm.index');

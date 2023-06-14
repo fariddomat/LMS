@@ -23,7 +23,7 @@
 
         <!-- Section: welcome -->
         <section id="welcome" class="divider layer-overlay overlay-white-3 parallax" data-parallax-ratio="0.1"
-            data-tm-bg-img="{{ asset('home/images/bg/bg2.jpg') }}">
+            data-tm-bg-img="{{ asset('t2.jpg') }}">
             <div class="container pt-150 pb-150">
                 <div class="section-content">
                     <div class="row">
@@ -38,7 +38,8 @@
                                 style="border: 4px solid white;
                             border-radius: 25px;">
                         </div>
-                        <div class="col-md-12" style="margin-top: 75px;
+                        <div class="col-md-12"
+                            style="margin-top: 75px;
                         padding: 0;
                         box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
                         -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
@@ -48,6 +49,21 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+
+            <h2 class="lead" style="margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            top: -px;
+            z-index: 5000;
+            color: #dea3a7;
+            font-weight: 600;
+            font-size: 2.7rem;
+            font-family: 'cairo'; ">تعريف رحلة التشافي</h2>
+        <section  class="divider parallax layer-overlay overlay-white-4">
+            <img src="{{ asset('t.jpg') }}" alt="">
         </section>
 
         <!-- Section: Services -->
@@ -135,7 +151,8 @@
                                                                     class="fa fa-link" style="color: white"></i></a>
                                                         </div>
                                                         <div class="entry-content">
-                                                            <h5 class="entry-title"><a href="{{ route('posts.show', $post->slug) }}"
+                                                            <h5 class="entry-title"><a
+                                                                    href="{{ route('posts.show', $post->slug) }}"
                                                                     rel="bookmark">{{ $post->title }}</a></h5>
                                                             <div class="entry-meta mt-0">
                                                                 <span class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
@@ -152,7 +169,8 @@
                                                             </div>
                                                             <div class="post-btn-readmore"> <a
                                                                     href="{{ route('posts.show', $post->slug) }}"
-                                                                    class="btn btn-plain-text-with-arrow"> عرض التفاصيل </a>
+                                                                    class="btn btn-plain-text-with-arrow"> عرض التفاصيل
+                                                                </a>
                                                             </div>
                                                             <div class="clearfix"></div>
                                                         </div>
@@ -171,5 +189,6 @@
                 </div>
             </div>
         </section>
+
     </div>
 @endsection

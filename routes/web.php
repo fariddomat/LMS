@@ -26,6 +26,9 @@ Route::get('/contactPage', 'App\Http\Controllers\Home\HomeController@contactPage
 Route::get('/whoiam', 'App\Http\Controllers\Home\HomeController@whoiam')->name('whoiam');
 Route::get('/integrativeMedicine', 'App\Http\Controllers\Home\HomeController@integrativeMedicines')->name('integrativeMedicine');
 
+Route::get('tap-payment', 'App\Http\Controllers\TapController@form')->name('tap.form');
+Route::post('tap-payment', 'App\Http\Controllers\TapController@payment')->name('tap.payment');
+Route::any('tap-callback','App\Http\Controllers\TapController@callback')->name('tap.callback');
   });
 
 // Clear cashe route
@@ -60,7 +63,6 @@ Route::get('/clear', function() {
 
     Route::resource('payments','App\Http\Controllers\Dashboard\PaymentController');
 
-    Route::resource('posts','App\Http\Controllers\Dashboard\PostController');
     Route::resource('tags','App\Http\Controllers\Dashboard\TagController');
     Route::resource('whoiam','App\Http\Controllers\Dashboard\WhoIAmController');
     Route::resource('integrativeMedicines','App\Http\Controllers\Dashboard\IntegrativeMedicineController');

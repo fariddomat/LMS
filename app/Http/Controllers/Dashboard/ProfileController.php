@@ -49,6 +49,14 @@ class ProfileController extends Controller
         ]);
         $request->merge(['password' => bcrypt($request->password)]);
         $profile = Profile::create($request->except('password_confirmation'));
+
+
+        $user = User::create([
+            'name' => $profile->full_name,
+            'email' => $profile->email,
+            'password' => $profile->password,
+        ]);
+        $user->attachRoles([2]);
         session()->flash('success', 'تم الحفظ بنجاح !');
         return redirect()->route('dashboard.profiles.index');
     }
@@ -98,6 +106,13 @@ class ProfileController extends Controller
         $profile = Profile::find($id);
 
         $profile->update($request->all());
+
+        $user=User::where('email', $profile->email)->firstOrFail();
+        $user->update([
+            'name' => $profile->full_name,
+            'email' => $profile->email,
+        ]);
+
         session()->flash('success', 'تم التعديل بنجاح !');
         return redirect()->route('dashboard.profiles.index');
     }
@@ -111,7 +126,10 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         $profile = Profile::find($id);
+
+        $user=User::where('email', $profile->email)->firstOrFail();
         $profile->delete();
+        $user->delete();
         session()->flash('success', 'تم الحذف بنجاح !');
         return redirect()->route('dashboard.profiles.index');
     }
@@ -140,14 +158,6 @@ class ProfileController extends Controller
             $profile->update([
                 'status' => 'active'
             ]);
-
-
-            $user = User::create([
-                'name' => $profile->full_name,
-                'email' => $profile->email,
-                'password' => $profile->password,
-            ]);
-            $user->attachRoles([2]);
 
             session()->flash('success', 'تم تفعيل الحساب بنجاح !');
             return redirect()->route('dashboard.profiles.index');

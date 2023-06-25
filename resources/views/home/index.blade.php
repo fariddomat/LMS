@@ -38,31 +38,33 @@
                                 style="border: 4px solid white;
                             border-radius: 25px;">
                         </div>
-                        <div class="col-md-12"
-                            style="margin-top: 75px;
-                        padding: 0;
-                        box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
-                        -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
-                        -moz-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);">
-                            {!! setting('home_video') !!}
-                        </div>
+
                     </div>
                 </div>
             </div>
         </section>
 
+        <section  class="divider parallax " style="background-color: #202C45; justify-content: center">
+            <div class="col-md-12"
+            style="margin: 85px;
+        padding: 0;
+        box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
+        -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35); width: auto;">
+            {!! setting('home_video') !!}
+        </div>
+        </section>
 
+        <section  class="divider parallax layer-overlay overlay-white-4">
             <h2 class="lead" style="margin: 0 auto;
             width: 100%;
             text-align: center;
             position: relative;
-            top: -px;
             z-index: 5000;
             color: #dea3a7;
             font-weight: 600;
             font-size: 2.7rem;
-            font-family: 'cairo'; ">تعريف رحلة التشافي</h2>
-        <section  class="divider parallax layer-overlay overlay-white-4">
+            font-family: 'cairo'; margin-top: 50px ">تعريف رحلة التشافي</h2>
             <img src="{{ asset('t.jpg') }}" alt="">
         </section>
 

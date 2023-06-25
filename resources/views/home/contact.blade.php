@@ -22,7 +22,11 @@
               <div class="container pb-70">
                   <div class="row">
                       <div class="col-lg-5 mb-30">
-                          <img class="img-fullwidth mb-30" src="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" alt="images">
+                        <div class="row" style="justify-content: center">
+                            <img class="mb-30" src="{{ asset('logo.webp') }}?v={{ setting('cover_time') }}" alt="images" style="width: auto">
+
+                        </div>
+                        <img class="img-fullwidth mb-30" src="{{ asset('logo-lg.png') }}?v={{ setting('cover_time') }}" alt="images">
                           <p>{{setting('site_about')}}</p>
                           <div class="tm-sc-unordered-list list-style2">
                               <ul>

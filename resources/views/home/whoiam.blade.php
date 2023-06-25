@@ -36,16 +36,20 @@
                                 style="border: 4px solid white;
                         border-radius: 25px;">
                         </div>
-                        <div class="col-md-12" style="margin-top: 75px;
-                        padding: 0;
-                        box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
-                        -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
-                        -moz-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);">
-                            {!! setting('who_video') !!}
-                        </div>
+
                     </div>
                 </div>
             </div>
+        </section>
+        <section  class="divider parallax " style="background-color: #202C45; justify-content: center">
+            <div class="col-md-12"
+            style="margin: 85px;
+        padding: 0;
+        box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
+        -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35); width: auto;">
+            {!! setting('who_video') !!}
+        </div>
         </section>
         <section class="">
             <div class="container">

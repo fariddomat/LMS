@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -15,6 +17,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
+
 
     }
 
@@ -50,6 +53,14 @@ class ProfileController extends Controller
         ]);
         $request->merge(['password'=>bcrypt($request->password)]);
         $profile=Profile::create($request->except('password_confirmation'));
+
+
+        $user = User::create([
+            'name' => $profile->full_name,
+            'email' => $profile->email,
+            'password' => $profile->password,
+        ]);
+        $user->attachRoles([2]);
         session()->flash('success','تم الحفظ بنجاح !');
         return redirect()->route('home');
     }
@@ -62,7 +73,11 @@ class ProfileController extends Controller
      */
     public function show($id)
     {
-        //
+        $user=Auth::user();
+        if(!$user)
+            abort(403);
+        $profile=Profile::where('email', $user->email)->firstOrFail();
+        return view('home.profile.show', compact('profile'));
     }
 
     /**

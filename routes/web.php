@@ -45,7 +45,7 @@ Route::get('/clear', function() {
 
 
 
- Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', ], 'as' => 'dashboard.'], function () {
+ Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', 'role:superadministrator'], 'as' => 'dashboard.'], function () {
    Route::get('home', 'App\Http\Controllers\Dashboard\HomeController@index')->name('home');
 
     Route::resource('users','App\Http\Controllers\Dashboard\UserController');
@@ -55,6 +55,7 @@ Route::get('/clear', function() {
     Route::post('active/{id}', 'App\Http\Controllers\Dashboard\ProfileController@active')->name('profiles.active');
     Route::post('reject/{id}', 'App\Http\Controllers\Dashboard\ProfileController@reject')->name('profiles.reject');
 
+    Route::resource('posts','App\Http\Controllers\Dashboard\PostController');
     Route::resource('categories','App\Http\Controllers\Dashboard\CategoryController');
     Route::resource('courses','App\Http\Controllers\Dashboard\CourseController');
     Route::resource('enrollments','App\Http\Controllers\Dashboard\EnrollmentController');

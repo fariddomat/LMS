@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 require_once('../vendor/autoload.php');
 
-use App\Models\Profile;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class TapController extends Controller
 {
@@ -19,30 +17,7 @@ class TapController extends Controller
     public function payment(Request $request)
     {
 
-        $user = Auth::user();
-        if(!$user)
-            abort(403);
-
-        $profile = Profile::where('email', $user->email)->firstOrFail();
-
-        $phoneNumber = $profile->mobile; // Replace with your phone number variable
-
-        // Remove the '+' or '00' prefix
-        $phoneNumber = preg_replace('/^\+|^00/', '', $phoneNumber);
-
-        // Extract the country code and number
-        $countryCode = '';
-        $number = '';
-
-        if (preg_match('/^\d{1,3}/', $phoneNumber, $matches)) {
-            $countryCode = $matches[0];
-            $number = substr($phoneNumber, strlen($countryCode));
-        }
-
-        // // Output the results
-        // echo 'Country Code: ' . $countryCode . PHP_EOL;
-        // echo 'Number: ' . $number . PHP_EOL;
-        // dd('stop');
+        
         $client = new \GuzzleHttp\Client();
         $response = $client->request('POST', 'https://api.tap.company/v2/charges', [
             'body' => '{
@@ -56,13 +31,11 @@ class TapController extends Controller
                 "reference":{"transaction":"txn_01","order":"ord_01"},
                 "receipt":{"email":true,"sms":true},
                 "customer":{
-                    "first_name":' . $profile->full_name . ',
-                    "email":' . $profile->email . ',
-                    "phone":{
-                        "country_code":' . $countryCode . ',
-                        "number":' . $number . '
-                    }
-                },
+                    "first_name":"test",
+                    "middle_name":"test",
+                    "last_name":"test",
+                    "email":"test@test.com",
+                    "phone":{"country_code":965,"number":51234567}},
                     "source":{"id":"src_all"},
                     "post":{"url":"https://holistichealth.sa/tap-payment"},
                     "redirect":{"url":"https://holistichealth.sa/tap-callback"}}',
@@ -107,9 +80,6 @@ class TapController extends Controller
         if ($responseTap->status == 'CAPTURED') {
 
             // dd($responseTap->customer->email);
-            $profile=Profile::where('email',$responseTap->customer->email)->firstOrFail();
-            $profile->status='paid';
-            $profile->save();
             return redirect()->route('tap.form')->with('success', 'Payment Successfully Made.');
         }
 

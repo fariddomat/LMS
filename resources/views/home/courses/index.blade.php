@@ -10,7 +10,7 @@
         <div class="section-content">
           <div class="row">
             <div class="col-md-12 text-center">
-              <h2 class="title">الدورات</h2>
+              <h2 class="title">دورات أكاديمية مدربي العافية الشمولية</h2>
 
             </div>
           </div>

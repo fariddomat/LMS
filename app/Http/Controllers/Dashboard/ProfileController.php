@@ -107,7 +107,7 @@ class ProfileController extends Controller
 
         $profile->update($request->all());
 
-        $user=User::where('email', $profile->email)->firstOrFail();
+        $user = User::where('email', $profile->email)->firstOrFail();
         $user->update([
             'name' => $profile->full_name,
             'email' => $profile->email,
@@ -127,7 +127,7 @@ class ProfileController extends Controller
     {
         $profile = Profile::find($id);
 
-        $user=User::where('email', $profile->email)->firstOrFail();
+        $user = User::where('email', $profile->email)->firstOrFail();
         $profile->delete();
         $user->delete();
         session()->flash('success', 'تم الحذف بنجاح !');
@@ -138,10 +138,18 @@ class ProfileController extends Controller
     {
         $profile = Profile::find($id);
         if ($profile) {
-            $profile->update([
-                'status' => 'reject'
-            ]);
-            $user=User::where('email', $profile->email)->first();
+            if ($profile->status == 'paid') {
+
+                $profile->update([
+                    'status' => 'paid_reject'
+                ]);
+            } else {
+
+                $profile->update([
+                    'status' => 'reject'
+                ]);
+            }
+            $user = User::where('email', $profile->email)->first();
             $user->update([
                 'status' => 'ban'
             ]);
@@ -155,10 +163,21 @@ class ProfileController extends Controller
     {
         $profile = Profile::find($id);
         if ($profile) {
-            $profile->update([
-                'status' => 'active'
-            ]);
+            if ($profile->status == 'paid_reject') {
 
+                $profile->update([
+                    'status' => 'reject'
+                ]);
+            } else {
+                $profile->update([
+                    'status' => 'active'
+                ]);
+
+                $user = User::where('email', $profile->email)->first();
+                $user->update([
+                    'status' => 'active'
+                ]);
+            }
             session()->flash('success', 'تم تفعيل الحساب بنجاح !');
             return redirect()->route('dashboard.profiles.index');
         } else

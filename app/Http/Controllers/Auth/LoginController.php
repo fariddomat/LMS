@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/dashboard/home';
+    // protected $redirectTo = '/dashboard/home';
 
     /**
      * Create a new controller instance.
@@ -37,4 +37,16 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    protected function redirectTo()
+    {
+        if (auth()->user()->hasRole(['superadministrator'])) {
+            return '/dashboard/home';
+        }
+        elseif(auth()->user()->hasRole(['user'])) {
+            return '/profiles';
+        }
+    }
+
 }

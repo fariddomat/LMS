@@ -109,7 +109,7 @@ class ProfileController extends Controller
         $request->validate([
             'full_name'=> 'required',
             'mobile'=> 'required',
-            'email'=> 'required|email|unique:profiles,email,',
+            'email'=> 'required|email|unique:profiles,email,'. $id,
             'birth_date'=> 'required',
             'address'=> 'required',
             'type'=> 'required',
@@ -124,7 +124,6 @@ class ProfileController extends Controller
             'name' => $profile->full_name,
             'email' => $profile->email,
         ]);
-        $user->attachRoles([2]);
         session()->flash('success','تم التعديل بنجاح !');
         return redirect()->route('profiles.index');
     }

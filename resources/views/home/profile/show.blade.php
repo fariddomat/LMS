@@ -23,11 +23,19 @@
             <div class="container">
                 <div class="section-content">
                     <div class="row justify-content-md-center">
+                        <div class="col-md-3 mt-15">
+                            <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white"
+                            href="{{ route('profiles.edit', $profile->id) }}" style="width: 100%; text-align: right">تعديل الملف الشخصي</a>
+                            <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white mt-30"
+                            href="{{ route('profiles.edit', $profile->id) }}"  style="width: 100%; text-align: right">تعديل كلمة السر</a>
+                            <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white mt-30"
+                            href=""  style="width: 100%; text-align: right">الدورات الخاصة بي</a>
+                            <a class="btn btn-dark btn-block   btn-theme-colored3  text-uppercase text-white mt-30"
+                            href=""  style="width: 100%; text-align: right">تسجيل خروج</a>
+                        </div>
                         <div class="col-md-8">
 
-                            <h4 class="line-bottom">الملف الشخصي:
-                                <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white"
-                                href="{{ route('profiles.edit', $profile->id) }}">تعديل</a></h4>
+                            <h4 class="line-bottom">الملف الشخصي:</h4>
                             @if ($profile->status == 'pending')
                             <div class="bg-success text-white d-flex border-bottom p-15 mb-20">
                                 <div class="flex-shrink-0">

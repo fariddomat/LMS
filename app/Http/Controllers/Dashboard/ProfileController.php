@@ -105,9 +105,9 @@ class ProfileController extends Controller
         ]);
         $profile = Profile::find($id);
 
+        $user = User::where('email', $profile->email)->firstOrFail();
         $profile->update($request->all());
 
-        $user = User::where('email', $profile->email)->firstOrFail();
         $user->update([
             'name' => $profile->full_name,
             'email' => $profile->email,

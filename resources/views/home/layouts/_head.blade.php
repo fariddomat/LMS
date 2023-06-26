@@ -133,4 +133,19 @@
     </style>
 
     @yield('styles')
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+    *{
+        font-family: 'Amiri'
+    }
+    h4, h5, h6, .h4, .h5, .h6 .h1, .h2, .h3, h1, h2, h3 {
+        font-family: 'Amiri'
+    }
+    .menuzord.theme-color1 .menuzord-menu > li.active > a, .menuzord.theme-color1 .menuzord-menu > li:hover > a, .menuzord.theme-color1 .menuzord-menu ul.dropdown li:hover > a {
+  background: var(--theme-color2);
+  color: #fff;
+}
+</style>
 </head>

@@ -23,7 +23,7 @@
 
         <!-- Section: welcome -->
         <section id="welcome" class="divider layer-overlay overlay-white-3 parallax" data-parallax-ratio="0.1"
-            data-tm-bg-img="{{ asset('t2.jpg') }}">
+            data-tm-bg-img="{{ asset('home/images/bg/bg5.jpg') }}" style="background-color: #202C45">
             <div class="container pt-150 pb-150">
                 <div class="section-content">
                     <div class="row">
@@ -44,7 +44,8 @@
             </div>
         </section>
 
-        <section  class="divider parallax " style="background-color: #202C45; justify-content: center">
+        <section  class="divider parallax " data-parallax-ratio="0.1"
+        data-tm-bg-img="{{ asset('m.jpg') }}"  style="background-color: #202C45; justify-content: center">
             <div class="col-md-12"
             style="margin: 85px;
         padding: 0;
@@ -63,8 +64,7 @@
             z-index: 5000;
             color: #dea3a7;
             font-weight: 600;
-            font-size: 2.7rem;
-            font-family: 'cairo'; margin-top: 50px ">تعريف رحلة التشافي</h2>
+            font-size: 2.7rem; margin-top: 50px ">تعريف رحلة التشافي</h2>
             <img src="{{ asset('t.jpg') }}" alt="">
         </section>
 

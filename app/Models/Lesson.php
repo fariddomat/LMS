@@ -16,4 +16,9 @@ class Lesson extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+    public function getVideoAttribute()
+    {
+        return asset($this->video_path);
+    }
 }

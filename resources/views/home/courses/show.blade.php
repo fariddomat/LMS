@@ -5,7 +5,8 @@
     <div class="main-content">
         <!-- Section: page title -->
         <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
-            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" style="margin-top: 100px; background-size: cover;">
+            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}"
+            style="margin-top: 100px; background-size: cover;">
             <div class="container pt-50 pb-50">
                 <div class="section-content">
                     <div class="row">
@@ -36,14 +37,45 @@
                             <h3 class="text-theme-colored line-bottom text-theme-colored">{{ $course->title }}</h3>
                             <ul class="review_text list-inline">
                                 <li class="font-size-16"><span class="text-theme-color-2">السعر :</span>
-                                    {{ $course->price }}</li>
+                                    {{ $course->price }} ريال سعودي</li>
                                 <li>
-                                    <div class="star-rating" title="Rated 4.50 out of 5"><span
-                                            style="width: 90%;">4.50</span></div>
+                                    <div class="star-rating" title="Rated 5 out of 5"><span style="width: 100%;">5</span>
+                                    </div>
                                 </li>
                             </ul>
                             <h5><em>مدة الدورة: {{ $course->duration }}</em></h5>
+                            <h5>عدد الدروس: {{ $course->lessons->count() }}</h5>
                             <p>{{ $course->description }}</p>
+                            @auth
+                                <div class="row">
+                                    @if ($course->user)
+                                        @foreach ($course->lessons as $index=> $lesson)
+                                            <a href="{{ route('lessons.show', $lesson->id) }}"><div class="bg-light d-flex border-bottom p-15 mb-20">
+                                                <div class="flex-shrink-0">
+                                                    <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3" style="  border: 1px solid #233fae;
+                                                    border-radius: 50%;
+                                                    padding: 5px 3px 5px 5px;
+                                                    color: #233fae;"></i>
+                                                </div>
+                                                <div class="flex-shrink-1">
+                                                    <h5 class="mt-0 mb-0">الدرس {{ $index+1 }}: {{ $lesson->title }} </h5>
+                                                    <p>{{ $lesson->description }}</p>
+                                                    <h6>المدة: [{{ $lesson->duration }}]</h6>
+                                                </div>
+                                            </div></a>
+                                        @endforeach
+                                    @else
+                                        false
+                                    @endif
+                                </div>
+                            @else
+                                <div class="col-md-12 ">
+
+                                    <a class="btn btn-dark btn-block   btn-theme-colored2  text-uppercase text-white"
+                                        href="{{ route('enrollments.create') }}">اشترك الآن</a>
+                                </div>
+                            @endauth
+
 
                         </div>
                     </div>
@@ -55,87 +87,19 @@
                                 <div class="widget widget_nav_menu">
                                     <ul>
                                         @foreach ($courses as $item)
-
-                                        <li class="@if ($item->id == $course->id)
-                                            active
-                                        @endif"><a href="{{ route('courses.show', $item->title) }}">{{$item->title}}</a></li>
+                                            <li class="@if ($item->id == $course->id) active @endif"><a
+                                                    href="{{ route('courses.show', $item->title) }}">{{ $item->title }}</a>
+                                            </li>
                                         @endforeach
 
                                     </ul>
                                 </div>
                             </div>
-                            <div class="widget">
-                                <h4 class="widget-title line-bottom">Opening <span class="text-theme-color-2">Hours</span>
-                                </h4>
-                                <div class="opening-hours">
-                                    <ul class="list-border">
-                                        <li class="clearfix"> <span> Mon - Tues : </span>
-                                            <div class="value float-end"> 6.00 am - 10.00 pm </div>
-                                        </li>
-                                        <li class="clearfix"> <span> Wednes - Thurs :</span>
-                                            <div class="value float-end"> 8.00 am - 6.00 pm </div>
-                                        </li>
-                                        <li class="clearfix"> <span> Fri : </span>
-                                            <div class="value float-end"> 3.00 pm - 8.00 pm </div>
-                                        </li>
-                                        <li class="clearfix"> <span> Sun : </span>
-                                            <div class="value float-end"> Colosed </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="widget border-1px p-30">
-                                <h5 class="widget-title text-theme-colored1">Contact Us</h5>
-                                <form id="quick_contact_form" name="quick_contact_form" class="quick-contact-form"
-                                    action="includes/quickcontact.php" method="post">
-                                    <div class="mb-3">
-                                        <input name="form_email" class="form-control" type="text"
-                                            placeholder="Enter Email">
-                                    </div>
-                                    <div class="mb-3">
-                                        <textarea name="form_message" class="form-control" placeholder="Enter Message" rows="3"></textarea>
-                                    </div>
-                                    <div class="mb-3 tm-sc-button">
-                                        <input name="form_botcheck" class="form-control" type="hidden" value="">
-                                        <button type="submit" class="btn btn-theme-colored1 btn-sm"
-                                            data-loading-text="Please wait..."> Send Message </button>
-                                    </div>
-                                </form>
 
-                                <!-- Quick Contact Form Validation-->
-                                <script>
-                                    (function($) {
-                                        $("#quick_contact_form").validate({
-                                            submitHandler: function(form) {
-                                                var form_btn = $(form).find('button[type="submit"]');
-                                                var form_result_div = '#form-result';
-                                                $(form_result_div).remove();
-                                                form_btn.before(
-                                                    '<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>'
-                                                    );
-                                                var form_btn_old_msg = form_btn.html();
-                                                form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                                                $(form).ajaxSubmit({
-                                                    dataType: 'json',
-                                                    success: function(data) {
-                                                        if (data.status === 'true') {
-                                                            $(form).find('.form-control').val('');
-                                                        }
-                                                        form_btn.prop('disabled', false).html(form_btn_old_msg);
-                                                        $(form_result_div).html(data.message).fadeIn('slow');
-                                                        setTimeout(function() {
-                                                            $(form_result_div).fadeOut('slow')
-                                                        }, 6000);
-                                                    }
-                                                });
-                                            }
-                                        });
-                                    })(jQuery);
-                                </script>
-                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
     </div>

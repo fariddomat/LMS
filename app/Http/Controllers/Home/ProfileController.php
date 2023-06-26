@@ -92,7 +92,8 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+        $profile=Profile::findOrFail($id);
+        return view('home.profile.edit', compact('profile'));
     }
 
     /**
@@ -104,7 +105,28 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $profile=Profile::findOrFail($id);
+        $request->validate([
+            'full_name'=> 'required',
+            'mobile'=> 'required',
+            'email'=> 'required|email|unique:profiles,email,',
+            'birth_date'=> 'required',
+            'address'=> 'required',
+            'type'=> 'required',
+            'about'=> 'required',
+            'why'=> 'required',
+        ]);
+
+        $user=User::where('email', $profile->email)->firstOrFail();
+        $profile->update($request->all());
+
+        $user->update([
+            'name' => $profile->full_name,
+            'email' => $profile->email,
+        ]);
+        $user->attachRoles([2]);
+        session()->flash('success','تم التعديل بنجاح !');
+        return redirect()->route('profiles.index');
     }
 
     /**

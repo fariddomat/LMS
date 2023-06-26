@@ -29,4 +29,15 @@ class Course extends Model
         return asset('public/images/courses/'.$this->thumbnail);
         // return Storage::url('images/courses/'.$this->thumbnail);
     }
+
+    public function getUserAttribute()
+    {
+        $enrollment=Enrollment::where('course_id', $this->id)
+            ->where('user_id', auth()->id())
+            ->get();
+        if($enrollment->count() > 0){
+            return true;
+        }
+        return false;
+    }
 }

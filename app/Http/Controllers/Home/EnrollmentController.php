@@ -1,22 +1,33 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Home;
 
-require_once('../vendor/autoload.php');
-
+use App\Http\Controllers\Controller;
+use App\Models\Course;
+use App\Models\Enrollment;
+use App\Models\Payment;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TapController extends Controller
+class EnrollmentController extends Controller
 {
-
-    public function form()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        return view('tap-payment');
+        //
     }
 
-    public function payment(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
     {
 
         $user = Auth::user();
@@ -53,7 +64,10 @@ class TapController extends Controller
                 "save_card":false,
                 "description":"Register Student",
                 "metadata":{"udf1":"Metadata 1"},
-                "reference":{"transaction":"txn_01","order":"ord_01"},
+                "reference":{
+                    "transaction":"txn_01",
+                    "order":'.$request->course_id.'
+                },
                 "receipt":{"email":true,"sms":true},
                 "customer":{
                     "first_name":' . $profile->full_name . ',
@@ -64,8 +78,8 @@ class TapController extends Controller
                     }
                 },
                     "source":{"id":"src_all"},
-                    "post":{"url":"https://holistichealth.sa/tap-payment"},
-                    "redirect":{"url":"https://holistichealth.sa/tap-callback"}}',
+                    "post":{"url":"https://holistichealth.sa/enrollments/create"},
+                    "redirect":{"url":"https://holistichealth.sa/enrollments/tap-callback"}}',
             'headers' => [
                 'Authorization' => 'Bearer sk_test_Bp25K4oXYmUSvie8NC3OMF1H',
                 'accept' => 'application/json',
@@ -104,15 +118,82 @@ class TapController extends Controller
         curl_close($curl);
 
         $responseTap = json_decode($response);
+        $course=Course::findOrFail($responseTap->reference->order);
         if ($responseTap->status == 'CAPTURED') {
 
-            // dd($responseTap->customer->email);
-            $profile=Profile::where('email',$responseTap->customer->email)->firstOrFail();
-            $profile->status='paid';
-            $profile->save();
-            return redirect()->route('profiles.index')->with('success', 'Payment Successfully Made.');
+            // dd($responseTap->reference->order);
+            $enrollment=Enrollment::create([
+                'user_id'=> auth()->id,
+                'course_id'=>$responseTap->reference->order
+            ]);
+
+            Payment::create([
+                'enrollment_id'=>$enrollment->id,
+                'amount'=>$responseTap->amount,
+                'currency'=>$responseTap->currency,
+                'payment_gateway'=>'Tap',
+                'transaction_id'=>$responseTap->id,
+            ]);
+
+            return redirect()->route('courses.show', $course->title)->with('success', 'Payment Successfully Made.');
         }
 
-        return redirect()->route('profiles.index')->with('error', 'Something Went Wrong.');
+        return redirect()->route('courses.show', $course->title)->with('error', 'Something Went Wrong.');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

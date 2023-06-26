@@ -5,7 +5,8 @@
     <div class="main-content-area">
         <!-- Section: page title -->
         <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
-            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" style="margin-top: 100px; background-size: cover;">
+            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}"
+            style="margin-top: 100px; background-size: cover;">
             <div class="container pt-50 pb-50">
                 <div class="section-content">
                     <div class="row">
@@ -31,6 +32,9 @@
                         </p>
                     </div>
                     <div class="col-md-4">
+                        <div class="row" style="justify-content: center">
+                            <img src="{{ asset('logo.webp') }}" style="width: auto" alt="">
+                        </div>
                         <img src="{{ asset('logo-lg.png') }}" alt="">
                     </div>
 
@@ -38,9 +42,20 @@
 
                         <a class="btn btn-dark btn-theme-colored1 text-uppercase mt-30"
                             href="{{ route('courses.index') }}">الدورات</a>
-                        <a class="btn btn-dark btn-block  btn-theme-colored2 text-uppercase text-white mt-30"
-                            href="{{ route('profiles.create') }}">سجل الآن</a>
+
+                        @if (!Auth::user())
+                            <a class="btn btn-dark btn-block  btn-theme-colored2 text-uppercase text-white mt-30"
+                                href="{{ route('profiles.create') }}">سجل الآن</a>
+                        @endif
                     </div>
+                    @if (!Auth::user())
+                        <div class="col-md-12 text-center">
+                            <p style="margin-top: 25px">لديك حساب بالفعل؟</p>
+
+                            <a class="btn btn-dark btn-block   btn-theme-colored3  text-uppercase text-white"
+                                href="{{ route('login') }}">دخول</a>
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>
@@ -190,6 +205,7 @@
                                 href="{{ route('courses.index') }}">الدورات</a>
                             <a class="btn btn-dark btn-block  btn-theme-colored2 text-uppercase text-white mt-30"
                                 href="{{ route('profiles.create') }}">سجل الآن</a>
+
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,20 @@
 @section('content')
     <!-- Start main-content -->
     <div class="main-content">
+        <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
+            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}"
+            style="margin-top: 100px; background-size: cover;">
+            <div class="container pt-50 pb-50">
+                <div class="section-content">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2 class="title">الملف الشخصي </h2>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Section: Experts Details -->
         <section style="margin-top: 50px">
@@ -12,7 +25,9 @@
                     <div class="row justify-content-md-center">
                         <div class="col-md-8">
 
-                            <h4 class="line-bottom">الملف الشخصي:</h4>
+                            <h4 class="line-bottom">الملف الشخصي:
+                                <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white"
+                                href="{{ route('profiles.edit', $profile->id) }}">تعديل</a></h4>
                             @if ($profile->status == 'pending')
                             <div class="bg-success text-white d-flex border-bottom p-15 mb-20">
                                 <div class="flex-shrink-0">
@@ -69,7 +84,7 @@
                                     <p>{{ $profile->address }}</p>
                                 </div>
                             </div>
-                            <ul class="styled-icons icon-dark icon-theme-colored2 icon-circled icon-sm">
+                            {{-- <ul class="styled-icons icon-dark icon-theme-colored2 icon-circled icon-sm">
                                 <li><a class="styled-icons-item" target="_blank" href="#"><i
                                             class="fab fa-facebook"></i></a></li>
                                 <li><a class="styled-icons-item" target="_blank" href="#"><i
@@ -78,7 +93,7 @@
                                             class="fab fa-linkedin"></i></a></li>
                                 <li><a class="styled-icons-item" target="_blank" href="#"><i
                                             class="fab fa-skype"></i></a></li>
-                            </ul>
+                            </ul> --}}
                         </div>
                     </div>
                 </div>

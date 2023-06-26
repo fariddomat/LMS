@@ -24,6 +24,9 @@ position: relative;">
                                     <li class="{{ Request::is('/') ? 'active' : '' }}  menu-item">
                                         <a href="{{ route('home') }}">الرئيسية</a>
                                     </li>
+                                    <li class="{{ Request::is('profiles*') ? 'active' : '' }}  menu-item">
+                                        <a href="{{ route('profiles.index') }}">الملف الشخصي</a>
+                                    </li>
                                     <li class="{{ Request::is('academy*') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('academy.index') }}">الأكاديمية</a>
                                     </li>

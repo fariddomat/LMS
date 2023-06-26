@@ -37,21 +37,7 @@
                   </form>
                 </div>
               </div>
-              <div class="widget">
-                <h4 class="widget-title widget-title-line-bottom line-bottom-theme-colored1">Latest News</h4>
-                <div class="latest-posts">
-                  <article class="post clearfix pb-0 mb-20">
-                    <a class="post-thumb" href="#"><img src="{{ asset('home/images/shop/portfolio-sq1.jpg') }}" alt="images"></a>
-                    <div class="post-right">
-                      <h5 class="post-title mt-0"><a href="#">Sustainable Construction</a></h5>
-                      <span class="post-date">
-                        <time class="entry-date" datetime="2021-05-15T06:10:26+00:00">April 15, 2021</time>
-                      </span>
-                    </div>
-                  </article>
-                </div>
-              </div>
-
+              
               <div class="widget widget_text text-center">
                 <div class="textwidget">
                   <div class="section-typo-light bg-theme-colored1 mb-md-40 p-30 pt-40 pb-40"> <img class="size-full wp-image-800 aligncenter" src="{{ asset('home/images/headphone-128.png') }}" alt="images" width="128" height="128" />

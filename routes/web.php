@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => 'WebMiddleware'], function(){
 Route::get('/', 'App\Http\Controllers\Home\HomeController@index')->name('home');
-Route::resource('profiles','App\Http\Controllers\Home\ProfileController');
 Route::resource('posts','App\Http\Controllers\Home\PostController');
 Route::resource('academy','App\Http\Controllers\Home\AcademyController');
 Route::resource('courses','App\Http\Controllers\Home\CourseController');
@@ -29,7 +28,11 @@ Route::get('/integrativeMedicine', 'App\Http\Controllers\Home\HomeController@int
 // Route::get('tap-payment', 'App\Http\Controllers\TapController@form')->name('tap.form');
 Route::post('tap-payment', 'App\Http\Controllers\TapController@payment')->name('tap.payment');
 Route::any('tap-callback','App\Http\Controllers\TapController@callback')->name('tap.callback');
+Route::any('enrollments/tap-callback','App\Http\Controllers\TapController@callback')->name('enrollments.callback');
   });
+
+  Route::resource('profiles','App\Http\Controllers\Home\ProfileController')->only('create');
+
 
 // Clear cashe route
 Route::get('/clear', function() {
@@ -43,6 +46,13 @@ Route::get('/clear', function() {
 
  });
 
+ Route::middleware(['auth'])
+    ->group(function () {
+        Route::resource('profiles','App\Http\Controllers\Home\ProfileController')->except('create');
+        Route::resource('enrollments','App\Http\Controllers\Home\EnrollmentController');
+
+        Route::resource('lessons','App\Http\Controllers\Home\LessonController')->only('show');
+    });
 
 
  Route::group(['prefix' => '/dashboard', 'middleware' => ['auth', 'role:superadministrator'], 'as' => 'dashboard.'], function () {
@@ -54,6 +64,7 @@ Route::get('/clear', function() {
     Route::resource('profiles','App\Http\Controllers\Dashboard\ProfileController');
     Route::post('active/{id}', 'App\Http\Controllers\Dashboard\ProfileController@active')->name('profiles.active');
     Route::post('reject/{id}', 'App\Http\Controllers\Dashboard\ProfileController@reject')->name('profiles.reject');
+    Route::resource('trainers','App\Http\Controllers\Dashboard\TrainerController');
 
     Route::resource('posts','App\Http\Controllers\Dashboard\PostController');
     Route::resource('categories','App\Http\Controllers\Dashboard\CategoryController');

@@ -28,7 +28,7 @@ Route::get('/integrativeMedicine', 'App\Http\Controllers\Home\HomeController@int
 // Route::get('tap-payment', 'App\Http\Controllers\TapController@form')->name('tap.form');
 Route::post('tap-payment', 'App\Http\Controllers\TapController@payment')->name('tap.payment');
 Route::any('tap-callback','App\Http\Controllers\TapController@callback')->name('tap.callback');
-Route::any('enrollments/tap-callback','App\Http\Controllers\TapController@callback')->name('enrollments.callback');
+Route::any('enrollments/tap-callback','App\Http\Controllers\Home\EnrollmentController@callback')->name('enrollments.callback');
   });
 
   Route::resource('profiles','App\Http\Controllers\Home\ProfileController')->only('create');

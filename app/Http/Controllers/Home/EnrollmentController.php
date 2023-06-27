@@ -10,6 +10,8 @@ use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+require_once('../laravel_project/vendor/autoload.php');
+
 class EnrollmentController extends Controller
 {
     /**
@@ -35,6 +37,9 @@ class EnrollmentController extends Controller
             abort(403);
 
         $profile = Profile::where('email', $user->email)->firstOrFail();
+        if ($profile->status != 'active') {
+            return redirect()->route('profiles.index');
+        }
 
         $phoneNumber = $profile->mobile; // Replace with your phone number variable
 
@@ -57,24 +62,24 @@ class EnrollmentController extends Controller
         $client = new \GuzzleHttp\Client();
         $response = $client->request('POST', 'https://api.tap.company/v2/charges', [
             'body' => '{
-                "amount":1,
+                "amount":8000,
                 "currency":"SAR",
                 "customer_initiated":true,
                 "threeDSecure":true,
                 "save_card":false,
-                "description":"Register Student",
+                "description":"Register",
                 "metadata":{"udf1":"Metadata 1"},
                 "reference":{
                     "transaction":"txn_01",
-                    "order":'.$request->course_id.'
+                    "order":"'.$request->course_id.'"
                 },
                 "receipt":{"email":true,"sms":true},
                 "customer":{
-                    "first_name":' . $profile->full_name . ',
-                    "email":' . $profile->email . ',
+                    "first_name":"' . $profile->full_name . '",
+                    "email":"' . $profile->email . '",
                     "phone":{
-                        "country_code":' . $countryCode . ',
-                        "number":' . $number . '
+                        "country_code":"' . $countryCode . '",
+                        "number":"' . $number . '"
                     }
                 },
                     "source":{"id":"src_all"},
@@ -118,13 +123,13 @@ class EnrollmentController extends Controller
         curl_close($curl);
 
         $responseTap = json_decode($response);
-        $course=Course::findOrFail($responseTap->reference->order);
         if ($responseTap->status == 'CAPTURED') {
-
+            // dd($responseTap);
+        $course=Course::findOrFail(1);
             // dd($responseTap->reference->order);
             $enrollment=Enrollment::create([
-                'user_id'=> auth()->id,
-                'course_id'=>$responseTap->reference->order
+                'user_id'=> auth()->id(),
+                'course_id'=>$course->id
             ]);
 
             Payment::create([

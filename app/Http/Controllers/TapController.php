@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-require_once('../vendor/autoload.php');
+require_once('../laravel_project/vendor/autoload.php');
 
 use App\Models\Profile;
 use Illuminate\Http\Request;
@@ -56,11 +56,11 @@ class TapController extends Controller
                 "reference":{"transaction":"txn_01","order":"ord_01"},
                 "receipt":{"email":true,"sms":true},
                 "customer":{
-                    "first_name":' . $profile->full_name . ',
-                    "email":' . $profile->email . ',
+                    "first_name":"' . $profile->full_name . '",
+                    "email":"' . $profile->email . '",
                     "phone":{
-                        "country_code":' . $countryCode . ',
-                        "number":' . $number . '
+                        "country_code":"' . $countryCode . '",
+                        "number":"' . $number . '"
                     }
                 },
                     "source":{"id":"src_all"},

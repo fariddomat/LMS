@@ -9,9 +9,12 @@ position: relative;">
                     <div class="row header-nav-col-row">
                         <div class="col-sm-auto ms-auto align-self-center">
                             <a class="menuzord-brand site-brand" href="{{ route('home') }}">
-                                <img class="logo-default logo-1x"
+                                <img class="logo-default logo-1x "
                                     src="{{ asset('logo.webp') }}" alt="Logo">
+                                    <span class="ttt">
                                     {{ setting('site_name') }}
+
+                                    </span>
                                 <img class="logo-default logo-2x retina"
                                     src="{{ asset('logo.webp') }}" alt="Logo">
                             </a>
@@ -24,9 +27,14 @@ position: relative;">
                                     <li class="{{ Request::is('/') ? 'active' : '' }}  menu-item">
                                         <a href="{{ route('home') }}">الرئيسية</a>
                                     </li>
+                                    @auth
+                                    @if (Auth::user()->hasRole('user'))
+
                                     <li class="{{ Request::is('profiles*') ? 'active' : '' }}  menu-item">
                                         <a href="{{ route('profiles.index') }}">الملف الشخصي</a>
                                     </li>
+                                    @endif
+                                    @endauth
                                     <li class="{{ Request::is('academy*') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('academy.index') }}">الأكاديمية</a>
                                     </li>
@@ -36,9 +44,9 @@ position: relative;">
                                     <li class="{{ Request::is('posts*') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('posts.index') }}">المدونة</a>
                                     </li>
-                                    <li class="{{ Request::is('integrativeMedicine') ? 'active' : '' }} menu-item">
+                                    {{-- <li class="{{ Request::is('integrativeMedicine') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('integrativeMedicine') }}">الطب التكاملي</a>
-                                    </li>
+                                    </li> --}}
                                     <li class="{{ Request::is('whoiam') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('whoiam') }}">من أنا؟</a>
                                     </li>

@@ -49,6 +49,9 @@ Route::get('/clear', function() {
  Route::middleware(['auth'])
     ->group(function () {
         Route::resource('profiles','App\Http\Controllers\Home\ProfileController')->except('create');
+        Route::get('profile/passowrd','App\Http\Controllers\Home\ProfileController@password')->name('profiles.password');
+        Route::post('profile/changePassowrd','App\Http\Controllers\Home\ProfileController@changePassword')->name('profiles.changePassword');
+
         Route::resource('enrollments','App\Http\Controllers\Home\EnrollmentController');
 
         Route::resource('lessons','App\Http\Controllers\Home\LessonController')->only('show');

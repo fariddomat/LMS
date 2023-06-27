@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Rules\MatchOldPassword;
+use Illuminate\Support\Facades\Hash;
 class ProfileController extends Controller
 {
     /**
@@ -137,5 +139,23 @@ class ProfileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function password()
+    {
+        return view('home.profile.password');
+    }
+
+    public function changePassword(Request $request)
+    {
+
+        $request->validate([
+            'oldpassword' => ['required', new MatchOldPassword],
+            'password' => ['required'],
+            'nconfirm_password' => ['same:password'],
+        ]);
+        User::find(auth()->user()->id)->update(['password' => Hash::make($request->password)]);
+
+        return redirect()->back();
     }
 }

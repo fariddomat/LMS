@@ -147,5 +147,14 @@
   background: var(--theme-color2);
   color: #fff;
 }
+
+@media only screen and (max-width: 500px) {
+
+/* retina */
+.ttt{
+    display: none !important;
+}
+
+}
 </style>
 </head>

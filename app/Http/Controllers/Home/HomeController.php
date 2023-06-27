@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\About;
 use App\Models\IntegrativeMedicine;
 use App\Models\Service;
+use App\Models\Trainer;
 use App\Models\WhoIAm;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,8 @@ class HomeController extends Controller
     {
         $posts=Post::latest()->limit(3)->get();
         $about=About::firstOrFail();
-        return view('home.index', compact('posts', 'about'));
+        $trainers=Trainer::all();
+        return view('home.index', compact('posts', 'about', 'trainers'));
     }
 
     public function contact(Request $request)

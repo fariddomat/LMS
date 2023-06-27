@@ -54,12 +54,12 @@
                                 <div class="form-group col-md-6">
                                     <label for="password">كلمة السر</label>
                                     <input id="password" value="{{ old('password') }}" name="password" class="form-control"
-                                        type="text">
+                                        type="password">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label>تأكيد كلمة السر</label>
                                     <input id="password_confirmation" value="{{ old('password_confirmation') }}"
-                                        name="password_confirmation" class="form-control" type="text">
+                                        name="password_confirmation" class="form-control" type="password">
                                 </div>
                             </div>
 

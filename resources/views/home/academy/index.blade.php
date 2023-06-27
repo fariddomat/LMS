@@ -59,6 +59,28 @@
                 </div>
             </div>
         </section>
+  <!-- Start Divider -->
+  <section class="" style="  background: gray;">
+    <div class="container pt-15 pb-15">
+      <div class="section-content">
+        <h2 class="title text-theme-colored1 mt-20 mb-20 text-center">الرعاة العالميين
+        </h2>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="tm-sc tm-sc-clients tm-sc-clients-carousel owl-dots-light-skin owl-dots-center">
+              <div class="owl-carousel owl-theme tm-owl-carousel-5col" data-autoplay="true" data-loop="true" data-duration="6000" data-smartspeed="300" data-margin="30" data-stagepadding="0" data-laptop="4">
+                <div class="item"> <a target="_blank"> <img src='{{ asset('supporters/1.png') }}' alt='Image' style="height: 120px !important;" /> </a></div>
+                <div class="item"> <a target="_blank"> <img src='{{ asset('supporters/2.png') }}' alt='Image' style="height: 120px !important;" /> </a></div>
+                <div class="item"> <a target="_blank"> <img src='{{ asset('supporters/3.png') }}' alt='Image' style="height: 120px !important;" /> </a></div>
+                <div class="item"> <a target="_blank"> <img src='{{ asset('supporters/4.png') }}' alt='Image' style="height: 120px !important;" /> </a></div>
+                <div class="item"> <a target="_blank"> <img src='{{ asset('supporters/5.png') }}' alt='Image' style="height: 120px !important;" /> </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
         <!-- Section: Funfacts -->
         <section class="layer-overlay overlay-theme-colored2-9 bg-no-repeat bg-pos-center-center"

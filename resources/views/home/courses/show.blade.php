@@ -65,7 +65,13 @@
                                             </div></a>
                                         @endforeach
                                     @else
-                                        false
+
+                                <div class="col-md-12 ">
+
+                                    <a class="btn btn-dark btn-block   btn-theme-colored2  text-uppercase text-white"
+                                        href="{{ route('enrollments.create') }}">اشترك الآن</a>
+                                </div>
+
                                     @endif
                                 </div>
                             @else

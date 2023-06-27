@@ -44,27 +44,29 @@
             </div>
         </section>
 
-        <section  class="divider parallax " data-parallax-ratio="0.1"
-        data-tm-bg-img="{{ asset('m.jpg') }}"  style="background-color: #202C45; justify-content: center">
+        <section class="divider parallax " data-parallax-ratio="0.1" data-tm-bg-img="{{ asset('m.jpg') }}"
+            style="background-color: #202C45; justify-content: center">
             <div class="col-md-12"
-            style="margin: 85px;
+                style="margin: 85px;
         padding: 0;
         box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
         -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
         -moz-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35); width: auto;">
-            {!! setting('home_video') !!}
-        </div>
+                {!! setting('home_video') !!}
+            </div>
         </section>
 
-        <section  class="divider parallax layer-overlay overlay-white-4">
-            <h2 class="lead" style="margin: 0 auto;
+        <section class="divider parallax layer-overlay overlay-white-4">
+            <h2 class="lead"
+                style="margin: 0 auto;
             width: 100%;
             text-align: center;
             position: relative;
             z-index: 5000;
             color: #dea3a7;
             font-weight: 600;
-            font-size: 2.7rem; margin-top: 50px ">تعريف رحلة التشافي</h2>
+            font-size: 2.7rem; margin-top: 50px ">
+                تعريف رحلة التشافي</h2>
             <img src="{{ asset('t.jpg') }}" alt="">
         </section>
 
@@ -101,6 +103,69 @@
                                 </div>
                             </div>
                         @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Staff -->
+        <section>
+            <div class="container">
+                <div class="section-title">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-60">
+                                <div class="tm-sc tm-sc-section-title section-title">
+                                    <div class="title-wrapper">
+                                        <h2 class="text-uppercase line-bottom line-bottom-theme-colored1">المدربين <span
+                                                class="text-theme-colored1">الخاصين بنا</span></h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <div class="row" style="justify-content: center">
+                      @foreach ($trainers as $trainer)
+                      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                        <div class="staff-item mb-lg-40">
+                            <div class="staff-thumb"> <img alt="img" src="{{ asset('trainers/images/'.$trainer->img) }}" class="w-100">
+                            </div>
+                            <div class="staff-content">
+                                <h4 class="staff-name text-theme-colored1 mt-0">{{ $trainer->first_name }} {{ $trainer->last_name }} - <small>{{ $trainer->title }}</small>
+                                </h4>
+                                <h5>{{ $trainer->qout }}</h5>
+                                <p class="mb-20">
+                                    {{ $trainer->about }}
+                                </p>
+                                <div class="staff-social-part">
+                                    <ul
+                                        class="styled-icons icon-dark icon-theme-colored2 icon-sm icon-circled float-start mt-10">
+                                        @if ($trainer->facebook != '')
+                                        <li><a class="social-link" href="{{ $trainer->facebook }}"><i class="fab fa-facebook"></i></a>
+                                        </li>
+                                        @endif
+                                        @if ($trainer->twitter != '')
+                                        <li><a class="social-link" href="{{ $trainer->twitter }}"><i class="fab fa-twitter"></i></a>
+                                        </li>
+                                        @endif
+                                        @if ($trainer->instagram != '')
+                                        <li><a class="social-link" href="{{ $trainer->instagram }}"><i class="fab fa-instagram"></i></a>
+                                        </li>
+                                        @endif
+                                        @if ($trainer->whatsapp != '')
+                                        <li><a class="social-link" href="{{ $trainer->whatsapp }}"><i class="fab fa-whatsapp"></i></a>
+                                        </li>
+                                        @endif
+                                    </ul>
+                                    {{-- <a class="btn btn-theme-colored2 btn-xs p-10 float-end" href="#">view
+                                        details</a> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                      @endforeach
                     </div>
                 </div>
             </div>
@@ -144,7 +209,8 @@
                                                         <div class="entry-header">
                                                             <div class="post-thumb lightgallery-lightbox">
                                                                 <div class="post-thumb-inner">
-                                                                    <div class="thumb"> <img src="{{ $post->image_path }}"
+                                                                    <div class="thumb"> <img
+                                                                            src="{{ $post->image_path }}"
                                                                             alt="Image" /></div>
                                                                 </div>
                                                             </div>
@@ -157,10 +223,12 @@
                                                                     href="{{ route('posts.show', $post->slug) }}"
                                                                     rel="bookmark">{{ $post->title }}</a></h5>
                                                             <div class="entry-meta mt-0">
-                                                                <span class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
+                                                                <span
+                                                                    class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
                                                                         class="far fa-calendar-alt mr-10 text-theme-colored"></i>
                                                                     {{ $post->created_at->diffForHumans() }}</span>
-                                                                <span class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
+                                                                <span
+                                                                    class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
                                                                         class="far fa-user mr-10 text-theme-colored"></i>
                                                                     {{ $post->author_name }}</span>
                                                             </div>

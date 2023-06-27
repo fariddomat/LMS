@@ -27,11 +27,21 @@
                             <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white"
                             href="{{ route('profiles.edit', $profile->id) }}" style="width: 100%; text-align: right">تعديل الملف الشخصي</a>
                             <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white mt-30"
-                            href="{{ route('profiles.edit', $profile->id) }}"  style="width: 100%; text-align: right">تعديل كلمة السر</a>
+                            href="{{ route('profiles.password') }}"  style="width: 100%; text-align: right">تعديل كلمة السر</a>
                             <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white mt-30"
                             href=""  style="width: 100%; text-align: right">الدورات الخاصة بي</a>
-                            <a class="btn btn-dark btn-block   btn-theme-colored3  text-uppercase text-white mt-30"
-                            href=""  style="width: 100%; text-align: right">تسجيل خروج</a>
+                            {{-- <a class="btn btn-dark btn-block   btn-theme-colored3  text-uppercase text-white mt-30"
+                            href=""  style="width: 100%; text-align: right">تسجيل خروج</a> --}}
+
+                            <a class="btn btn-dark btn-block   btn-theme-colored3  text-uppercase text-white mt-30" href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();"  style="width: 100%; text-align: right">
+                             تسجيل خروج <i class="fa fa-lock"></i>
+                         </a>
+
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                             @csrf
+                         </form>
                         </div>
                         <div class="col-md-8">
 

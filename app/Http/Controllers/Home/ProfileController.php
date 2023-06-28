@@ -34,7 +34,9 @@ class ProfileController extends Controller
      */
     public function create()
     {
-
+        if(auth()->user()){
+            return redirect()->route('profiles.create');
+        }
         return view('home.profile.create');
     }
 
@@ -68,7 +70,8 @@ class ProfileController extends Controller
         ]);
         $user->attachRoles([2]);
         session()->flash('success','تم الحفظ بنجاح !');
-        return redirect()->route('home');
+
+        return redirect()->route('profiles.create');
     }
 
     /**

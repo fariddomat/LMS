@@ -31,7 +31,7 @@ Route::any('tap-callback','App\Http\Controllers\TapController@callback')->name('
 Route::any('enrollments/tap-callback','App\Http\Controllers\Home\EnrollmentController@callback')->name('enrollments.callback');
   });
 
-  Route::resource('profiles','App\Http\Controllers\Home\ProfileController')->only('create');
+  Route::resource('profiles','App\Http\Controllers\Home\ProfileController')->only('create', 'store');
 
 
 // Clear cashe route
@@ -48,7 +48,7 @@ Route::get('/clear', function() {
 
  Route::middleware(['auth'])
     ->group(function () {
-        Route::resource('profiles','App\Http\Controllers\Home\ProfileController')->except('create');
+        Route::resource('profiles','App\Http\Controllers\Home\ProfileController')->except('create', 'store');
         Route::get('profile/passowrd','App\Http\Controllers\Home\ProfileController@password')->name('profiles.password');
         Route::post('profile/changePassowrd','App\Http\Controllers\Home\ProfileController@changePassword')->name('profiles.changePassword');
 

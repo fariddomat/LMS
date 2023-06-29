@@ -142,10 +142,10 @@
                      <a class="nav-link" href="{{ route('dashboard.profiles.index') }}"><i class="icon-people "></i>
                          الطلاب</a>
                  </li>
-                 {{-- <li class="nav-item nav-dropdown">
+                 <li class="nav-item nav-dropdown">
                      <a class="nav-link" href="{{ route('dashboard.enrollments.index') }}"><i class="icon-people "></i>
                          الاشتراكات</a>
-                 </li> --}}
+                 </li>
                  <li class="nav-item nav-dropdown">
                      <a class="nav-link" href="{{ route('dashboard.trainers.index') }}"><i class="icon-people "></i>
                          المدربين</a>

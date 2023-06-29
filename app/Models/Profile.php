@@ -23,4 +23,10 @@ class Profile extends Model
         return $this->belongsTo(User::class, 'email');
     }
 
+    public function getUserpAttribute()
+    {
+       $user= User::where('email',$this->email)->firstOrFail();
+       return $user;
+    }
+
 }

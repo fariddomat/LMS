@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Enrollment;
+use App\Models\Profile;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,7 +14,7 @@ class EnrollmentController extends Controller
 {
     public function index()
     {
-        $enrollments = Enrollment::all();
+        $enrollments = Enrollment::latest()->paginate(25);
 
         return view('dashboard.enrollments.index', compact('enrollments'));
     }
@@ -20,8 +22,8 @@ class EnrollmentController extends Controller
     public function create()
     {
         $courses = Course::all();
-
-        return view('dashboard.enrollments.create', compact('courses'));
+        $profiles = Profile::all();
+        return view('dashboard.enrollments.create', compact('courses', 'profiles'));
     }
 
     public function store(Request $request)

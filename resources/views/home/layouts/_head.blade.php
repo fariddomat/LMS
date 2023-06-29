@@ -157,4 +157,7 @@
 
 }
 </style>
+
+     <link rel="stylesheet" href="{{ asset('noty/noty.css') }}">
+     <script src="{{ asset('noty/noty.min.js') }}" defer></script>
 </head>

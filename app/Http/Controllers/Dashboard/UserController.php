@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class UserController extends Controller
             ->whenSearch(request()->search)
             ->whenRole(request()->role_id)
             ->with('roles')
-            ->paginate(5);
+            ->paginate(25);
         return view('dashboard.users.index',compact('users','roles'));
     }
 
@@ -95,11 +96,22 @@ class UserController extends Controller
             'name'=>'required',
             'email'=>'required|email|unique:users,email,' . $id,
             'role_id'=>'required|numeric',
+            'password' =>'sometimes|confirmed'
         ]);
         $user=User::find($id);
-
-        $user->update($request->all());
+        $profile=Profile::where('email', $user->email)->firstOrFail();
+        $user->update($request->except('password','password_confirmation'));
+        if($request->password != ''){
+            $user->update([
+                'password' => bcrypt($request->password)
+            ]);
+        }
+        $profile->update([
+            'email'=> $user->email,
+            'password' => $user->password
+        ]);
         $user->syncRoles([$request->role_id]);
+
         session()->flash('success','تم التعديل بنجاح !');
         return redirect()->route('dashboard.users.index');
     }

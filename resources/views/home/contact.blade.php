@@ -26,7 +26,7 @@
                             <img class="mb-30" src="{{ asset('logo.webp') }}?v={{ setting('cover_time') }}" alt="images" style="width: auto">
 
                         </div>
-                        <img class="img-fullwidth mb-30" src="{{ asset('logo-lg.png') }}?v={{ setting('cover_time') }}" alt="images">
+                        {{-- <img class="img-fullwidth mb-30" src="{{ asset('logo-lg.png') }}?v={{ setting('cover_time') }}" alt="images"> --}}
                           <p>{{setting('site_about')}}</p>
                           <div class="tm-sc-unordered-list list-style2">
                               <ul>

@@ -11,7 +11,7 @@
                         <div class="description">{!! setting('site_about') !!}</div>
                     </div>
                     <ul class="styled-icons icon-dark icon-theme-colored1 icon-rounded clearfix">
-                        
+
                     </ul>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-4">
@@ -52,7 +52,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="footer-paragraph text-right">
-                            By <a href="https://digitsmark.com/">DigitalMark</a>
+                            By <a href="https://Joudtech.sa/">Joudtech</a>
                         </div>
                     </div>
                 </div>
@@ -71,4 +71,5 @@
 
 <script></script>
 
+     @extends('layouts._noty')
 @stack('scripts')

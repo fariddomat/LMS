@@ -35,7 +35,7 @@
                         <div class="row" style="justify-content: center">
                             <img src="{{ asset('logo.webp') }}" style="width: auto" alt="">
                         </div>
-                        <img src="{{ asset('logo-lg.png') }}" alt="">
+                        {{-- <img src="{{ asset('logo-lg.png') }}" alt=""> --}}
                     </div>
 
                     <div class="col-md-12 text-center">
@@ -225,8 +225,10 @@
                             {!! $academy->footer !!}
                             <a class="btn btn-dark btn-theme-colored1 text-uppercase mt-30"
                                 href="{{ route('courses.index') }}">الدورات</a>
-                            <a class="btn btn-dark btn-block  btn-theme-colored2 text-uppercase text-white mt-30"
+                                @if (!Auth::user())
+                                <a class="btn btn-dark btn-block  btn-theme-colored2 text-uppercase text-white mt-30"
                                 href="{{ route('profiles.create') }}">سجل الآن</a>
+                                @endif
 
                         </div>
                     </div>

@@ -40,6 +40,21 @@
                                 <input type="email" class="form-control" name="email" id="email" value="{{ old('email',$user->email) }}"
                                     aria-describedby="helpId" placeholder="">
                             </div>
+
+                            <div class="row pr-2 pl-2">
+                                <div class="form-group col-md-6">
+                                    <label for="" class="text-capitalize">كلمة السر الجديدة </label>
+                                    <input type="password" class="form-control" name="password" value=""
+                                        aria-describedby="helpId">
+                                </div>
+                            </div>
+                            <div class="row pr-2 pl-2">
+                                <div class="form-group col-md-6">
+                                    <label for="" class="text-capitalize">تأكيد كلمة السر </label>
+                                    <input type="password" class="form-control" name="password_confirmation"
+                                        value="" aria-describedby="helpId">
+                                </div>
+                            </div>
                             {{-- Roles --}}
                             <div class="form-group">
                                 <label for="role">المهمة</label>

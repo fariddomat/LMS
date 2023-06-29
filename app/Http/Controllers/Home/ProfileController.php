@@ -51,7 +51,7 @@ class ProfileController extends Controller
         $request->validate([
             'full_name'=> 'required',
             'mobile'=> 'required',
-            'email'=> 'required|email|unique:profiles,email,',
+            'email'=> 'required|email|unique:users,email,',
             'password'=> 'required|confirmed',
             'birth_date'=> 'required',
             'address'=> 'required',
@@ -71,7 +71,7 @@ class ProfileController extends Controller
         $user->attachRoles([2]);
         session()->flash('success','تم الحفظ بنجاح !');
 
-        return redirect()->route('profiles.create');
+        return redirect()->route('login');
     }
 
     /**
@@ -114,7 +114,7 @@ class ProfileController extends Controller
         $request->validate([
             'full_name'=> 'required',
             'mobile'=> 'required',
-            'email'=> 'required|email|unique:profiles,email,'. $id,
+            'email'=> 'required|email|unique:users,email,'. $id,
             'birth_date'=> 'required',
             'address'=> 'required',
             'type'=> 'required',

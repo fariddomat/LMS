@@ -17,6 +17,12 @@ class Service extends Model
         return asset('photos/services/'.$this->image);
         // return Storage::url('images/courses/'.$this->thumbnail);
     }
+
+    public function sections()
+    {
+        return $this->hasMany(ServiceSection::class);
+    }
+
     public function sliderImages()
     {
         return $this->hasMany(ServiceSliderImage::class);

@@ -128,6 +128,8 @@
 
                                 <div class="form-group mb-3">
                                     <button type="submit" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> تعديل </button>
+                                    <a href="{{route('dashboard.sections.index', $service->id)}}" class="btn btn-primary"> الأقسام </a>
+
                                     <a href="{{route('dashboard.sliderImages.index', $service->id)}}" class="btn btn-primary"> معرض الصور </a>
 
                                 </div>

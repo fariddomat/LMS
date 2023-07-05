@@ -46,7 +46,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="widget widget_text text-center">
+                                {{-- <div class="widget widget_text text-center">
                                     <div class="textwidget">
                                         <div class="section-typo-light bg-theme-colored1 mb-md-40 p-30 pt-40 pb-40"> <img
                                                 class="size-full wp-image-800 aligncenter"
@@ -61,7 +61,7 @@
                                         <i class="far fa-file-word brochure-icon"></i>
                                         <h5 class="text">Download PDF</h5>
                                     </a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <div class="col-lg-9">

@@ -19,7 +19,7 @@ class WebMiddleware
     public function handle(Request $request, Closure $next)
     {
 
-        $services_count=Service::latest()->limit(3)->get();
+        $services_count=Service::latest()->limit(4)->get();
         $courses_count=Course::latest()->limit(3)->get();
         // dd($services);
         view()->share('services_count',$services_count);

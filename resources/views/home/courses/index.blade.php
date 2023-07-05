@@ -38,7 +38,7 @@
                 </div>
               </div>
 
-              <div class="widget widget_text text-center">
+              {{-- <div class="widget widget_text text-center">
                 <div class="textwidget">
                   <div class="section-typo-light bg-theme-colored1 mb-md-40 p-30 pt-40 pb-40"> <img class="size-full wp-image-800 aligncenter" src="{{ asset('home/images/headphone-128.png') }}" alt="images" width="128" height="128" />
                   <h4>Online Help!</h4>
@@ -51,7 +51,7 @@
                   <i class="far fa-file-word brochure-icon"></i>
                   <h5 class="text">Download PDF</h5>
                 </a>
-              </div>
+              </div> --}}
             </div>
           </div>
           <div class="col-md-9 blog-float-end">

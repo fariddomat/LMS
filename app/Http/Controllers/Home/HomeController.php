@@ -20,8 +20,7 @@ class HomeController extends Controller
     {
         $posts=Post::latest()->limit(3)->get();
         $about=About::firstOrFail();
-        $trainers=Trainer::all();
-        return view('home.index', compact('posts', 'about', 'trainers'));
+        return view('home.index', compact('posts', 'about'));
     }
 
     public function contact(Request $request)

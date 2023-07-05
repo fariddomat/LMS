@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Profile;
 use App\Models\Service;
+use App\Models\Trainer;
 use Illuminate\Http\Request;
 
 class AcademyController extends Controller
@@ -23,7 +24,8 @@ class AcademyController extends Controller
         $courses=Course::count();
         $lessons=Lesson::count();
         $academy=Academy::firstOrFail();
-        return view('home.academy.index', compact('profiles', 'courses', 'lessons', 'academy'));
+        $trainers=Trainer::all();
+        return view('home.academy.index', compact('profiles', 'courses', 'lessons', 'academy', 'trainers'));
     }
 
     /**

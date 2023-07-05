@@ -114,6 +114,14 @@ Route::get('/clear', function() {
     Route::get('/services/{service}/sliderImages/show', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@show')->name('sliderImages.show');
     Route::get('/services/{service}/sliderImages/hide', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@hide')->name('sliderImages.hide');
 
+    Route::get('/services/{service}/sections', 'App\Http\Controllers\Dashboard\ServiceSectionController@index')->name('sections.index');
+    Route::get('/services/{service}/sections/create', 'App\Http\Controllers\Dashboard\ServiceSectionController@create')->name('sections.create');
+    Route::post('/services/{service}/sections', 'App\Http\Controllers\Dashboard\ServiceSectionController@store')->name('sections.store');
+    Route::get('/services/sections/{section}/edit', 'App\Http\Controllers\Dashboard\ServiceSectionController@edit')->name('sections.edit');
+    Route::put('/services/sections/{section}', 'App\Http\Controllers\Dashboard\ServiceSectionController@update')->name('sections.update');
+    Route::delete('/services/sections/{section}/delete', 'App\Http\Controllers\Dashboard\ServiceSectionController@destroy')->name('sections.destroy');
+
+
     Route::resource('orderservices','App\Http\Controllers\Dashboard\OrderServiceController');
     Route::resource('faqs','App\Http\Controllers\Dashboard\FAQController');
 

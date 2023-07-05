@@ -56,7 +56,7 @@
             </div>
         </section>
 
-        <section class="divider parallax layer-overlay overlay-white-4" style="background-color: white">
+        {{-- <section class="divider parallax layer-overlay overlay-white-4" style="background-color: white">
             <h2 class="lead"
                 style="margin: 0 auto;
             width: 100%;
@@ -68,7 +68,7 @@
             font-size: 2.7rem; margin-top: 50px ">
                 تعريف رحلة التشافي</h2>
             <img src="{{ asset('t.jpg') }}" alt="">
-        </section>
+        </section> --}}
 
         <!-- Section: Services -->
         <section id="services" class="divider parallax layer-overlay overlay-white-8" data-parallax-ratio="0.1"
@@ -83,7 +83,7 @@
                     </div>
                 </div>
                 <div class="section-content">
-                    <div class="row multi-row-clearfix">
+                    <div class="row multi-row-clearfix" style="justify-content: center">
                         @foreach ($services_count as $service)
                             <div class="col-md-6 col-lg-6 col-xl-4">
                                 <div class="tm-sc-services services-style-current-theme5">
@@ -96,6 +96,7 @@
                                         <div class="content">
                                             <h4 class="mt-0 mb-15">{{ $service->title }}</h4>
                                             <p>{{ $service->main_title }}</p>
+                                            <p>السعر: {{ $service->price }} ريال</p>
                                             <a href="{{ route('services.show', $service->title) }}" target="_self"
                                                 class="btn btn-dark btn-theme-colored1 btn-sm btn-block mt-15 mb-20"> قراءة
                                                 المزيد </a>
@@ -108,77 +109,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Section: Staff -->
-        <section class="divider parallax layer-overlay overlay-white-4" data-parallax-ratio="0.1"
-        data-tm-bg-img="{{ asset('home/images/bg/trainers.jpg') }}">
-            <div class="container">
-                <div class="section-title">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="mb-60">
-                                <div class="tm-sc tm-sc-section-title section-title">
-                                    <div class="title-wrapper">
-                                        <h2 class="text-uppercase line-bottom line-bottom-theme-colored1">المدربين <span
-                                                class="text-theme-colored1">الخاصين بنا</span></h2>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="section-content">
-                    <div class="row" style="justify-content: center">
-                        @foreach ($trainers as $trainer)
-                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                                <div class="staff-item mb-lg-40">
-                                    <div class="staff-thumb"> <img alt="img"
-                                            src="{{ asset('trainers/images/' . $trainer->img) }}" class="w-100">
-                                    </div>
-                                    <div class="staff-content">
-                                        <h4 class="staff-name text-theme-colored1 mt-0">{{ $trainer->first_name }}
-                                            {{ $trainer->last_name }} - <small>{{ $trainer->title }}</small>
-                                        </h4>
-                                        <h5>{{ $trainer->qout }}</h5>
-                                        <p class="mb-20">
-                                            {{ $trainer->about }}
-                                        </p>
-                                        <div class="staff-social-part">
-                                            <ul
-                                                class="styled-icons icon-dark icon-theme-colored2 icon-sm icon-circled float-start mt-10">
-                                                @if ($trainer->facebook != '')
-                                                    <li><a class="social-link" href="{{ $trainer->facebook }}"><i
-                                                                class="fab fa-facebook"></i></a>
-                                                    </li>
-                                                @endif
-                                                @if ($trainer->twitter != '')
-                                                    <li><a class="social-link" href="{{ $trainer->twitter }}"><i
-                                                                class="fab fa-twitter"></i></a>
-                                                    </li>
-                                                @endif
-                                                @if ($trainer->instagram != '')
-                                                    <li><a class="social-link" href="{{ $trainer->instagram }}"><i
-                                                                class="fab fa-instagram"></i></a>
-                                                    </li>
-                                                @endif
-                                                @if ($trainer->whatsapp != '')
-                                                    <li><a class="social-link" href="{{ $trainer->whatsapp }}"><i
-                                                                class="fab fa-whatsapp"></i></a>
-                                                    </li>
-                                                @endif
-                                            </ul>
-                                            {{-- <a class="btn btn-theme-colored2 btn-xs p-10 float-end" href="#">view
-                                        details</a> --}}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
         <!-- Section: blog -->
         <section id="blog" class="divider parallax layer-overlay overlay-white-4" data-parallax-ratio="0.1"

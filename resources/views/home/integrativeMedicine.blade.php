@@ -90,6 +90,15 @@
                         </div>
                         @endif
                     @endforeach
+
+                    <div class="row" style="margin-top: 25px">
+                        <div class="col-md-12 col-lg-6 col-xl-6">
+
+                            <a class="btn btn-dark btn-theme-colored1 text-uppercase mt-30"
+                            href="{{ route('faqs') }}">الاسئلة الشائعة</a>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -60,7 +60,7 @@
             </div>
         </section>
   <!-- Start Divider -->
-  <section class="" style="  background: gray;">
+  <section class="" style="  background: #EFBB76;">
     <div class="container pt-15 pb-15">
       <div class="section-content">
         <h2 class="title text-theme-colored1 mt-20 mb-20 text-center">الاعتمادات العالمية
@@ -82,9 +82,24 @@
     </div>
   </section>
 
+
+  <!-- Start Divider -->
+  <section class="" style="  background: #FEF6EC; padding-top: 50px; padding-bottom: 50px">
+    <div class="container pt-15 pb-15">
+      <div class="section-content">
+        <h2 class="title text-theme-colored1 mt-20 mb-20 text-center">شهادة الاعتماد لموقع الأكاديمية
+        </h2>
+        <div class="row" style="justify-content: center; margin-top:35px">
+
+            <img src="{{ asset('home/images/academy.png') }}" alt="">
+
+        </div>
+      </div>
+    </div>
+  </section>
         <!-- Section: Funfacts -->
         <section class="layer-overlay overlay-theme-colored2-9 bg-no-repeat bg-pos-center-center"
-            data-tm-bg-img="{{ asset('home/images/bg/bg2.jpg') }}">
+            data-tm-bg-img="{{ asset('home/images/bg/about.jpg') }}">
             <div class="container pt-100 pb-100">
                 <div class="section-content">
                     <div class="container">

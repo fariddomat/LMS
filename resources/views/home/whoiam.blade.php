@@ -24,7 +24,7 @@
             </div>
         </section>
         <section id="welcome" class="divider layer-overlay overlay-white-3 parallax" data-parallax-ratio="0.1"
-            data-tm-bg-img="{{ asset('home/images/bg/bg5.jpg') }}">
+            data-tm-bg-img="{{ asset('home/images/bg/about.png') }}">
             <div class="container pt-150 pb-150">
                 <div class="section-content">
                     <div class="row">
@@ -42,7 +42,7 @@
             </div>
         </section>
         <section  class="divider parallax "  data-parallax-ratio="0.1"
-        data-tm-bg-img="{{ asset('m.jpg') }}" style="background-color: #202C45; justify-content: center">
+        data-tm-bg-img="{{ asset('home/images/bg/video.png') }}" style="background-color: #202C45; justify-content: center">
             <div class="col-md-12"
             style="margin: 85px;
         padding: 0;

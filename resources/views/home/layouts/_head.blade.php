@@ -49,7 +49,7 @@
     <!-- <link href="{{ asset('home/css/style.css') }}" rel="stylesheet" type="text/css"> -->
 
     <!-- CSS | Theme Color -->
-    <link href="{{ asset('home/css/colors/theme-skin-color-set1.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('home/css/colors/theme-skin-color-set1.css') }}?v=1" rel="stylesheet" type="text/css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->

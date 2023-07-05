@@ -36,9 +36,9 @@ class OrderServiceController extends Controller
             abort(403);
 
         $profile = Profile::where('email', $user->email)->firstOrFail();
-        if ($profile->status != 'active') {
-            return redirect()->route('profiles.index');
-        }
+        // if ($profile->status != 'active') {
+        //     return redirect()->route('profiles.index');
+        // }
 
         $phoneNumber = $profile->mobile; // Replace with your phone number variable
 
@@ -99,6 +99,9 @@ class OrderServiceController extends Controller
 
     public function callback(Request $request, $id)
     {
+
+        $service=Service::findOrFail($id);
+
         $input = $request->all();
 
         $curl = curl_init();
@@ -130,10 +133,10 @@ class OrderServiceController extends Controller
             ]);
 
 
-            return redirect()->route('services.show', $id)->with('success', 'Payment Successfully Made.');
+            return redirect()->route('services.show', $service->title)->with('success', 'Payment Successfully Made.');
         }
 
-        return redirect()->route('services.show', $id)->with('error', 'Something Went Wrong.');
+        return redirect()->route('services.show', $service->title)->with('error', 'Something Went Wrong.');
     }
     /**
      * Store a newly created resource in storage.

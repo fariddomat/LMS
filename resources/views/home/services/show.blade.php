@@ -68,7 +68,6 @@
                             <h3 class="mt-20 mb-10">{{ $service->title }}</h3>
                             <p class="lead">{{ $service->main_title }}</p>
                             <form action="{{ route('orderservices.create') }}" method="get">
-                            @csrf
                             <input type="hidden" name="service_id" value="{{ $service->id }}">
                                 <button type="submit" class="btn btn-dark btn-theme-colored2 text-uppercase"> أطلب الخدمة الآن</button>
                             </form>

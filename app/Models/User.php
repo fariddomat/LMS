@@ -89,4 +89,27 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Service::class, 'order_services');
     }
+
+
+    public function service_reviews()
+    {
+        return $this->hasMany(ServiceReview::class);
+    }
+
+    public function order_services()
+    {
+        return $this->hasMany(OrderService::class);
+
+    }
+
+  
+
+    public function delete()
+    {
+        $this->order_services()->delete();
+        $this->enrollments()->delete();
+        $this->service_reviews()->delete();
+
+        return parent::delete();
+    }
 }

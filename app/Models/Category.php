@@ -10,8 +10,15 @@ class Category extends Model
     use HasFactory;
     protected $guarded=[];
 
-    public function post()
+    public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function delete()
+    {
+        $this->posts()->delete();
+        
+        return parent::delete();
     }
 }

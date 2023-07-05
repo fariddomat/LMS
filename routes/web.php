@@ -56,6 +56,7 @@ Route::get('/clear', function() {
 
         Route::resource('enrollments','App\Http\Controllers\Home\EnrollmentController');
         Route::resource('orderservices','App\Http\Controllers\Home\OrderServiceController');
+        Route::any('orderservices/tap-callback/{id}','App\Http\Controllers\Home\OrderServiceController@callback')->name('orderservices.callback');
 
         Route::resource('lessons','App\Http\Controllers\Home\LessonController')->only('show');
     });

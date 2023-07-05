@@ -4,7 +4,12 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\OrderService;
+use App\Models\Profile;
+use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+require_once('../laravel_project/vendor/autoload.php');
 
 class OrderServiceController extends Controller
 {
@@ -23,11 +28,113 @@ class OrderServiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $service=Service::findOrFail($request->service_id);
+        $user = Auth::user();
+        if(!$user)
+            abort(403);
+
+        $profile = Profile::where('email', $user->email)->firstOrFail();
+        if ($profile->status != 'active') {
+            return redirect()->route('profiles.index');
+        }
+
+        $phoneNumber = $profile->mobile; // Replace with your phone number variable
+
+        // Remove the '+' or '00' prefix
+        $phoneNumber = preg_replace('/^\+|^00/', '', $phoneNumber);
+
+        // Extract the country code and number
+        $countryCode = '';
+        $number = '';
+
+        if (preg_match('/^\d{1,3}/', $phoneNumber, $matches)) {
+            $countryCode = $matches[0];
+            $number = substr($phoneNumber, strlen($countryCode));
+        }
+
+        // // Output the results
+        // echo 'Country Code: ' . $countryCode . PHP_EOL;
+        // echo 'Number: ' . $number . PHP_EOL;
+        // dd('stop');
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST', 'https://api.tap.company/v2/charges', [
+            'body' => '{
+                "amount":'.$service->price.',
+                "currency":"SAR",
+                "customer_initiated":true,
+                "threeDSecure":true,
+                "save_card":false,
+                "description":"Register",
+                "metadata":{"udf1":"Metadata 1"},
+                "reference":{
+                    "transaction":"txn_01",
+                    "order":"'.$request->service_id.'"
+                },
+                "receipt":{"email":true,"sms":true},
+                "customer":{
+                    "first_name":"' . $profile->full_name . '",
+                    "email":"' . $profile->email . '",
+                    "phone":{
+                        "country_code":"' . $countryCode . '",
+                        "number":"' . $number . '"
+                    }
+                },
+                    "source":{"id":"src_all"},
+                    "post":{"url":"https://holistichealth.sa/orderservices/create"},
+                    "redirect":{"url":"https://holistichealth.sa/orderservices/tap-callback/'.$request->service_id.'"}}',
+
+            'headers' => [
+                'Authorization' => 'Bearer sk_test_Bp25K4oXYmUSvie8NC3OMF1H',
+                'accept' => 'application/json',
+                'content-type' => 'application/json',
+            ],
+        ]);
+
+        $response = json_decode($response->getBody());
+        // dd($response->transaction->url);
+        return redirect($response->transaction->url);
     }
 
+    public function callback(Request $request, $id)
+    {
+        $input = $request->all();
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.tap.company/v2/charges/" . $input['tap_id'],
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_POSTFIELDS => "{}",
+            CURLOPT_HTTPHEADER => array(
+                "authorization: Bearer sk_test_Bp25K4oXYmUSvie8NC3OMF1H" // SECRET API KEY
+            ),
+        ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        $responseTap = json_decode($response);
+        if ($responseTap->status == 'CAPTURED') {
+            OrderService::firstOrCreate([
+                'service_id' => $id,
+                'user_id' => auth()->id(),
+            ]);
+
+
+            return redirect()->route('services.show', $id)->with('success', 'Payment Successfully Made.');
+        }
+
+        return redirect()->route('services.show', $id)->with('error', 'Something Went Wrong.');
+    }
     /**
      * Store a newly created resource in storage.
      *

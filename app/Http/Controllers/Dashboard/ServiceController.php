@@ -33,7 +33,8 @@ class ServiceController extends Controller
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp'],
             'index_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp'],
             'icon_class' => ['required'],
-            'showed' => ['nullable'],
+            'price' => ['required'],
+            'available' => ['nullable'],
         ];
         $validatedData = $request->validate($rules);
 
@@ -43,10 +44,11 @@ class ServiceController extends Controller
         $service->main_title = $validatedData['main_title'];
         $service->index_name = $validatedData['index_name'];
         $service->icon_class = $validatedData['icon_class'];
+        $service->price = $validatedData['price'];
         if ($request->has('image')) {
 
             $image = Image::make($request->image)
-                ->resize(530, 390)
+                ->resize(420, null)
                 ->encode('jpg');
 
             Storage::disk('public')->put('photos/services/' . $request->image->hashName(), (string)$image, 'public');
@@ -63,7 +65,7 @@ class ServiceController extends Controller
             $filename = $indexImage->getClientOriginalName();
             $service->index_image = $indexImage->storeAs('photos/services/index', $filename, ['disk' => 'public']);
         }
-        $service->showed  = $request->has('showed') ? 1 : 0;
+        $service->available  = $request->has('available') ? 1 : 0;
         $service->slug = Str::slug($request->input('title'));
         $service->save();
         session()->flash('success', 'Service Added Successfully');
@@ -85,7 +87,8 @@ class ServiceController extends Controller
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp'],
             'index_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp'],
             'icon_class' => ['required'],
-            'showed' => ['nullable'],
+            'price' => ['required'],
+            'available' => ['nullable'],
         ];
         $validatedData = $request->validate($rules);
 
@@ -94,13 +97,14 @@ class ServiceController extends Controller
         $service->main_title = $validatedData['main_title'];
         $service->index_name = $validatedData['index_name'];
         $service->icon_class = $validatedData['icon_class'];
+        $service->price = $validatedData['price'];
         if ($request->has('image')) {
 
 
             if ($service->image != null)
                 Storage::disk('public')->delete('photos/services/' . $service->image);
             $image = Image::make($request->image)
-                ->resize(530, 390)
+                ->resize(420, 420)
                 ->encode('jpg');
 
             Storage::disk('public')->put('photos/services/' . $request->image->hashName(), (string)$image, 'public');
@@ -119,7 +123,7 @@ class ServiceController extends Controller
             $filename = $indexImage->getClientOriginalName();
             $service->index_image = $indexImage->storeAs('photos/services/index', $filename, ['disk' => 'public']);
         }
-        $service->showed  = $request->has('showed') ? 1 : 0;
+        $service->available  = $request->has('available') ? 1 : 0;
         $service->slug = Str::slug($request->input('title'));
         $service->save();
         session()->flash('success', 'Service Updated Successfully');

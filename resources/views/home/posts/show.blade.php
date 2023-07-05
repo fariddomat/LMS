@@ -6,7 +6,8 @@
 
         <!-- Section: page title -->
         <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
-            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" style="margin-top: 100px; background-size: cover;">
+            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}"
+            style="margin-top: 95px; background-size: cover;">
             <div class="container pt-50 pb-50">
                 <div class="section-content">
                     <div class="row">
@@ -35,15 +36,19 @@
                         <div class="blog-posts single-post">
                             <article class="post clearfix mb-0">
                                 <div class="entry-header mb-30">
-                                    <div class="post-thumb thumb"> <img src="{{ $post->image_path }}" alt="images"
-                                            class="img-responsive img-fullwidth"> </div>
+
                                     <h2>{{ $post->title }}</h2>
                                     <div class="entry-meta mt-0">
                                         <span class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
                                                 class="far fa-calendar-alt mr-10 text-theme-colored1"></i>
                                             {{ $post->created_at->diffForHumans() }}</span>
                                         <span class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
-                                                class="far fa-user mr-10 text-theme-colored1"></i> 214 {{ $post->author_name }}</span>
+                                                class="far fa-user mr-10 text-theme-colored1"></i>
+                                            {{ $post->author_name }}</span>
+                                    </div>
+                                    <div class="row" style="justify-content: center">
+                                        <div class="post-thumb thumb"> <img src="{{ $post->image_path }}" alt="images"
+                                                class="img-responsive" style="max-height: 500px; width: auto"> </div>
                                     </div>
                                 </div>
                                 <div class="entry-content">
@@ -61,7 +66,7 @@
                             </article>
 
                             <div class="disquss-comment mt-50">
-                                <div id="disqus_thread"></div>
+                                {{-- <div id="disqus_thread"></div>
                                 <script>
                                     /**
                                      *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -81,13 +86,34 @@
                                     })();
                                 </script>
                                 <noscript>Please enable JavaScript to view the <a
+                                        href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> --}}
+                                <div id="disqus_thread"></div>
+                                <script>
+                                    /**
+                                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+                                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+                                    /*
+                                    var disqus_config = function () {
+                                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+                                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                    };
+                                    */
+                                    (function() { // DON'T EDIT BELOW THIS LINE
+                                        var d = document,
+                                            s = d.createElement('script');
+                                        s.src = 'https://holistichealth-sa.disqus.com/embed.js';
+                                        s.setAttribute('data-timestamp', +new Date());
+                                        (d.head || d.body).appendChild(s);
+                                    })();
+                                </script>
+                                <noscript>Please enable JavaScript to view the <a
                                         href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="sidebar sidebar-left mt-sm-30">
-                            <div class="widget">
+                            {{-- <div class="widget">
                                 <h5 class="widget-title">Search box</h5>
                                 <div class="search-form">
                                     <form>
@@ -140,7 +166,7 @@
                                         </div>
                                     </article>
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="widget widget_archive">
                                 <h4 class="widget-title widget-title-line-bottom line-bottom-theme-colored1">الارشيف</h4>
@@ -157,19 +183,20 @@
                                 </ul>
                             </div>
                             <div class="widget widget_tag_cloud">
-                                <h4 class="widget-title widget-title-line-bottom line-bottom-theme-colored1">الوسوم Tags</h4>
+                                <h4 class="widget-title widget-title-line-bottom line-bottom-theme-colored1">الوسوم Tags
+                                </h4>
                                 <div class="tagcloud">
                                     @foreach ($post->tags as $tag)
-
-                                    <a href="#" class="tag-cloud-link">tag</a>
+                                        <a href="#" class="tag-cloud-link">tag</a>
                                     @endforeach
                                 </div>
                             </div>
                             <div class="widget widget_text text-center">
                                 <div class="textwidget">
                                     <div class="section-typo-light bg-theme-colored1 mb-md-40 p-30 pt-40 pb-40"> <img
-                                            class="size-full wp-image-800 aligncenter" src="{{ asset('home/images/headphone-128.png') }}"
-                                            alt="images" width="128" height="128" />
+                                            class="size-full wp-image-800 aligncenter"
+                                            src="{{ asset('home/images/headphone-128.png') }}" alt="images"
+                                            width="128" height="128" />
                                         <h4>Online Help!</h4>
                                         <h5>+(123) 456-78-90</h5>
                                     </div>

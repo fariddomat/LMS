@@ -23,8 +23,8 @@ class CreateServicesTable extends Migration
             $table->string('main_title');
             $table->string('index_name');
             $table->longText('brief');
-            
-            $table->boolean('showed');
+            $table->boolean('available');
+            $table->integer('price');
             $table->timestamps();
         });
     }

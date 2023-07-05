@@ -4,7 +4,7 @@
       <div class="main-content-area">
           <!-- Section: page title -->
           <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
-              data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" style="margin-top: 100px; background-size: cover;">
+              data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" style="margin-top: 95px; background-size: cover;">
               <div class="container pt-50 pb-50">
                   <div class="section-content">
                       <div class="row">
@@ -100,7 +100,7 @@
                               <div class="mb-3">
                                   {{-- <input name="form_botcheck" class="form-control" type="hidden" value="" /> --}}
                                   <button type="submit"
-                                      class="btn btn-dark btn-lg btn-block mt-15"
+                                      class="btn btn-dark btn-theme-colored1 btn-lg btn-block mt-15"
                                       data-loading-text="Please wait...">إرسال</button>
 
                               </div>

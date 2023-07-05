@@ -123,11 +123,11 @@ class EnrollmentController extends Controller
         curl_close($curl);
 
         $responseTap = json_decode($response);
+        $course=Course::findOrFail(1);
         if ($responseTap->status == 'CAPTURED') {
             // dd($responseTap);
-        $course=Course::findOrFail(1);
             // dd($responseTap->reference->order);
-            $enrollment=Enrollment::create([
+            $enrollment=Enrollment::firstOrCreate([
                 'user_id'=> auth()->id(),
                 'course_id'=>$course->id
             ]);

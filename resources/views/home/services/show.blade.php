@@ -5,7 +5,7 @@
     <div class="main-content-area">
         <!-- Section: page title -->
         <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
-            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" style="margin-top: 100px; background-size: cover;">
+            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" style="margin-top: 95px; background-size: cover;">
             <div class="container pt-50 pb-50">
                 <div class="section-content">
                     <div class="row">
@@ -65,13 +65,21 @@
                             </div>
                         </div>
                         <div class="col-lg-9">
-                            <img alt="images" src="{{ $service->image_path }}" />
                             <h3 class="mt-20 mb-10">{{ $service->title }}</h3>
                             <p class="lead">{{ $service->main_title }}</p>
+                            <form action="{{ route('orderservices.store') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="service_id" value="{{ $service->id }}">
+                                <button type="submit" class="btn btn-dark btn-theme-colored2 text-uppercase"> أطلب الخدمة الآن</button>
+                            </form>
+                           <div class="row" style="justify-content: center"> <img alt="" src="{{ asset( $service->index_image) }}" style="max-height:450px; width: auto"/>
+                           </div>
                             <p>{!! $service->brief !!}</p>
                             <div class="row mb-20 mt-20">
 
                             </div>
+                            @if ($service->sliderImages->count() > 0)
+
                             <div class="container">
                                 <div class="section-content">
                                     <div class="row">
@@ -135,8 +143,42 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
+                    @auth
+                    <div class="row">
+                        <h3>تقييم الخدمة</h3>
+                        <form action="{{ route('services.rating') }}" method="POST">
+                            @csrf
+                            @include('layouts._error')
+                            <input type="hidden" name="service_id" value="{{ $service->id }}">
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+
+                            <fieldset class="rating2">
+                                <input class="rating2" type="radio" id="star5" name="rating"
+                                    value="5"/>
+                                <label for="star5">5 stars</label>
+                                <input class="rating2" type="radio" id="star4" name="rating"
+                                    value="4" />
+                                <label for="star4">4 stars</label>
+                                <input class="rating2" type="radio" id="star3" name="rating"
+                                    value="3" />
+                                <label for="star3">3 stars</label>
+                                <input class="rating2" type="radio" id="star2" name="rating"
+                                    value="2"/>
+                                <label for="star2">2 stars</label>
+                                <input class="rating2" type="radio" id="star1" name="rating"
+                                    value="1" />
+                                <label for="star1">1 star</label>
+                            </fieldset>
+                            <textarea name="review" class="form-control">{{ old('review') }}</textarea>
+
+                            <button type="submit" class="btn btn-dark btn-theme-colored3 text-uppercase mt-20">إرسال</button>
+                        </form>
+                    </div>
+
+                    @endauth
                 </div>
             </div>
         </section>

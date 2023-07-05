@@ -84,4 +84,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Profile::class, 'email');
     }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'order_services');
+    }
 }

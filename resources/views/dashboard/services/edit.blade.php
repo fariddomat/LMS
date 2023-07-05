@@ -73,6 +73,11 @@
                                 </div>
 
                                 <div class="form-group mb-3">
+                                    <label for="price" class="form-label">سعر الخدمة </label>
+                                    <input type="number" name="price" class="form-control" value="{{ old('price', $service->price) }}" dir="rtl">
+                                </div>
+
+                                <div class="form-group mb-3">
                                     <label for="index_name" class="form-label">اسم الفهرس</label>
                                     <input type="text" name="index_name" class="form-control" value="{{ $service->index_name }}" dir="rtl">
                                 </div>
@@ -104,10 +109,10 @@
                                     <input type="text" name="icon_class" class="form-control" value="{{ $service->icon_class }}">
                                 </div>
 
-                                <div class="form-check mb-3"><label class="form-check-label" for="showed">
-                                      عرض
+                                <div class="form-check mb-3"><label class="form-check-label" for="available">
+                                      إتاحة طلب الخدمة
                                     </label>
-                                    <input class="form-check-input" style="margin-right: 50px" type="checkbox" value="1" id="showed" name="showed" {{ $service->showed  == 1 ? 'checked' : '' }}>
+                                    <input class="form-check-input" style="margin-right: 50px" type="checkbox" value="1" id="available" name="available" {{ $service->available  == 1 ? 'checked' : '' }}>
 
                                 </div>
 
@@ -149,4 +154,3 @@
     });
     </script>
     @endpush
- 

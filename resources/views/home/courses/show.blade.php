@@ -6,7 +6,7 @@
         <!-- Section: page title -->
         <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
             data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}"
-            style="margin-top: 100px; background-size: cover;">
+            style="margin-top: 95px; background-size: cover;">
             <div class="container pt-50 pb-50">
                 <div class="section-content">
                     <div class="row">
@@ -49,29 +49,36 @@
                             @auth
                                 <div class="row">
                                     @if ($course->user)
-                                        @foreach ($course->lessons as $index=> $lesson)
-                                            <a href="{{ route('lessons.show', $lesson->id) }}"><div class="bg-light d-flex border-bottom p-15 mb-20">
-                                                <div class="flex-shrink-0">
-                                                    <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3" style="  border: 1px solid #233fae;
+                                        @foreach ($course->lessons as $index => $lesson)
+                                            <a href="{{ route('lessons.show', $lesson->id) }}">
+                                                <div class="bg-light d-flex border-bottom p-15 mb-20">
+                                                    <div class="flex-shrink-0">
+                                                        <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3"
+                                                            style="  border: 1px solid #233fae;
                                                     border-radius: 50%;
                                                     padding: 5px 3px 5px 5px;
                                                     color: #233fae;"></i>
+                                                    </div>
+                                                    <div class="flex-shrink-1">
+                                                        <h5 class="mt-0 mb-0">الدرس {{ $index + 1 }}: {{ $lesson->title }}
+                                                        </h5>
+                                                        <p>{{ $lesson->description }}</p>
+                                                        <h6>المدة: [{{ $lesson->duration }}]</h6>
+                                                    </div>
                                                 </div>
-                                                <div class="flex-shrink-1">
-                                                    <h5 class="mt-0 mb-0">الدرس {{ $index+1 }}: {{ $lesson->title }} </h5>
-                                                    <p>{{ $lesson->description }}</p>
-                                                    <h6>المدة: [{{ $lesson->duration }}]</h6>
-                                                </div>
-                                            </div></a>
+                                            </a>
                                         @endforeach
                                     @else
+                                    @if (Auth::user()->hasRole('user'))
+                                        <div class="col-md-12 ">
 
-                                <div class="col-md-12 ">
+                                            <a class="btn btn-dark btn-block   btn-theme-colored2  text-uppercase text-white"
+                                                href="{{ route('enrollments.create') }}">اشترك الآن</a>
+                                        </div>
 
-                                    <a class="btn btn-dark btn-block   btn-theme-colored2  text-uppercase text-white"
-                                        href="{{ route('enrollments.create') }}">اشترك الآن</a>
-                                </div>
-
+                                    @else
+                                        <h3>يجب ترقية نوع الحساب من خدمات إلى طالب لتتمكن من الاشتراك في الدورة</h3>
+                                    @endif
                                     @endif
                                 </div>
                             @else

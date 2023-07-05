@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ContactForm;
 use App\Models\Post;
 use App\Models\About;
+use App\Models\Faq;
 use App\Models\IntegrativeMedicine;
 use App\Models\Service;
 use App\Models\Trainer;
@@ -51,7 +52,14 @@ class HomeController extends Controller
     }
     public function integrativeMedicines()
     {
-        $integrativeMedicines=IntegrativeMedicine::all();
+        $integrativeMedicines=IntegrativeMedicine::orderBy('created_at')->get();
         return view('home.integrativeMedicine', compact('integrativeMedicines'));
+    }
+
+    public function faqs()
+    {
+        $faqs=Faq::orderBy('created_at', 'asc')->get();
+        // dd($faqs);
+        return view('home.faqs', compact('faqs'));
     }
 }

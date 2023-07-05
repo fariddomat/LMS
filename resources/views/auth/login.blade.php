@@ -52,7 +52,7 @@
                             </div>
 
                             <div class="form-group">
-                                <button class="btn btn-dark btn-block mt-15" type="submit">دخول</button>
+                                <button class="btn btn-dark btn-theme-colored1 btn-block mt-15" type="submit">دخول</button>
                             </div>
 
 

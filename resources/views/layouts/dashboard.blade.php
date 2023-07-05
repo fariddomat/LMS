@@ -114,11 +114,19 @@
                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('dashboard.integrativeMedicines.index') }}"><i
                              class="fa fa-medkit  "></i>
-                         الطب التكاملي</a>
+                         الطب الشمولي</a>
                  </li>
                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('dashboard.services.index') }}"><i class="icon-plus "></i>
                          الخدمات</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.servicereviews.index') }}"><i class="icon-plus "></i>
+                         تقييم الخدمات</a>
+                 </li>
+                 <li class="nav-item">
+                     <a class="nav-link" href="{{ route('dashboard.orderservices.index') }}"><i class="icon-plus "></i>
+                         طلب الخدمات</a>
                  </li>
                  <li class="nav-item">
                      <a class="nav-link" href="{{ route('dashboard.contactForm.index') }}"><i class="icon-note "></i>

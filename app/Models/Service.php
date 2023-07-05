@@ -21,4 +21,9 @@ class Service extends Model
     {
         return $this->hasMany(ServiceSliderImage::class);
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'order_services');
+    }
 }

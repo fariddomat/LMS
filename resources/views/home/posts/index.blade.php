@@ -7,7 +7,7 @@
         <!-- Section: page title -->
         <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
             data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}"
-            style="margin-top: 100px; background-size: cover;">
+            style="margin-top: 95px; background-size: cover;">
             <div class="container pt-50 pb-50">
                 <div class="section-content">
                     <div class="row">
@@ -54,12 +54,12 @@
                                             </div>
                                             <div class="entry-content">
                                                 <h4 class="entry-title"><a href="{{ route('integrativeMedicine') }}"
-                                                        rel="bookmark">الطب التكاملي</a></h4>
+                                                        rel="bookmark">الطب الشمولي</a></h4>
 
 
                                                 <div class="post-excerpt">
                                                     <div class="mascot-post-excerpt">
-                                                        ماهو الطب التكاملي؟
+                                                        ماهو الطب الشمولي؟
                                                     </div>
                                                 </div>
                                                 <div class="post-btn-readmore"> <a href="{{ route('integrativeMedicine') }}"

@@ -12,12 +12,12 @@
 
         <!-- Section: page title -->
         <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
-            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" style="margin-top: 100px; background-size: cover;">
+            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" style="margin-top: 95px; background-size: cover;">
             <div class="container pt-50 pb-50">
                 <div class="section-content">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h2 class="title">ما هو الطب التكاملي؟</h2>
+                            <h2 class="title">ما هو الطب الشمولي؟</h2>
                         </div>
                     </div>
                 </div>
@@ -35,6 +35,7 @@
                                         <p>{!! $integrativeMedicine->content !!}</p>
                                     </div>
                                     <div class="col-md-12 col-lg-6 col-xl-6">
+                                    @if ($integrativeMedicine->image)
                                         <div class="box-hover-effect tm-sc-video-popup tm-sc-video-popup-button-over-image">
                                             <div class="effect-wrapper">
                                                 <div class="thumb">
@@ -43,11 +44,13 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    @endif
                                     </div>
                                 </div>
                             @else
                                 <div class="row" style="margin-top: 50px">
                                     <div class="col-md-12 col-lg-6 col-xl-6">
+                                        @if ($integrativeMedicine->image)
                                         <div class="box-hover-effect tm-sc-video-popup tm-sc-video-popup-button-over-image">
                                             <div class="effect-wrapper">
                                                 <div class="thumb">
@@ -56,6 +59,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @endif
                                     </div>
                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                         <p>{!! $integrativeMedicine->content !!}</p>
@@ -64,11 +68,13 @@
                             @endif
                         @else
                         <div class="row" style="margin-top: 50px">
-                            <div class="col-md-12 col-lg-12 col-xl-12"  style="border: #4a5a73 3px solid;
-                            border-radius: 25px;
+                            <div class="col-md-12 col-lg-12 col-xl-12"  style="
+                            /* border: #4a5a73 3px solid;
+                            border-radius: 25px; */
                             padding: 15px 25px; margin-bottom: 35px">
                                 <p>{!! $integrativeMedicine->content !!}</p>
                             </div>
+                            @if ($integrativeMedicine->image)
                             <div class="col-md-12 col-lg-12 col-xl-12">
                                 <div class="box-hover-effect tm-sc-video-popup tm-sc-video-popup-button-over-image">
                                     <div class="effect-wrapper">
@@ -79,6 +85,8 @@
                                     </div>
                                 </div>
                             </div>
+
+                            @endif
                         </div>
                         @endif
                     @endforeach

@@ -53,6 +53,9 @@ position: relative;">
                                     <li class="{{ Request::is('contactPage') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('contactPage') }}">اتصل بنا</a>
                                     </li>
+                                    <li class="{{ Request::is('login') ? 'active' : '' }} menu-item">
+                                        <a href="{{ route('login') }}">دخول</a>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>

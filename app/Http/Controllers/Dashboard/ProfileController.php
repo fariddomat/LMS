@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -56,7 +57,9 @@ class ProfileController extends Controller
             'email' => $profile->email,
             'password' => $profile->password,
         ]);
-        $user->attachRoles([2]);
+
+        $role=Role::where('name', $request->type)->firstOrFail();
+        $user->attachRoles([$role->id]);
         session()->flash('success', 'تم الحفظ بنجاح !');
         return redirect()->route('dashboard.profiles.index');
     }
@@ -96,7 +99,7 @@ class ProfileController extends Controller
         $request->validate([
             'full_name' => 'required',
             'mobile' => 'required',
-            'email' => 'required|email|unique:users,email,' . $id,
+            'email' => 'required|email|unique:profiles,email,' . $id,
             'birth_date' => 'required',
             'address' => 'required',
             'type' => 'required',
@@ -112,6 +115,9 @@ class ProfileController extends Controller
             'name' => $profile->full_name,
             'email' => $profile->email,
         ]);
+
+        $role=Role::where('name', $request->type)->firstOrFail();
+        $user->syncRoles([$role->id]);
 
         session()->flash('success', 'تم التعديل بنجاح !');
         return redirect()->route('dashboard.profiles.index');

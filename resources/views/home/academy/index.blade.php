@@ -6,7 +6,7 @@
         <!-- Section: page title -->
         <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
             data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}"
-            style="margin-top: 100px; background-size: cover;">
+            style="margin-top: 95px; background-size: cover;">
             <div class="container pt-50 pb-50">
                 <div class="section-content">
                     <div class="row">
@@ -63,7 +63,7 @@
   <section class="" style="  background: gray;">
     <div class="container pt-15 pb-15">
       <div class="section-content">
-        <h2 class="title text-theme-colored1 mt-20 mb-20 text-center">الرعاة العالميين
+        <h2 class="title text-theme-colored1 mt-20 mb-20 text-center">الاعتمادات العالمية
         </h2>
         <div class="row">
           <div class="col-sm-12">
@@ -136,6 +136,11 @@
                         <div class="col-md-12 text-center">
                             <h2 class="title text-theme-colored2 mt-0 mb-20">أكاديمية هوليستك لتدريب مدربين العافية الشمولية
                             </h2>
+                            <div class="row">
+                                <div class="col-md-12" style="padding: 0 75px">
+                                    {!! $academy->content !!}
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h3 class="title text-left text-theme-colored2 mt-0">من نحن</h3>

@@ -17,7 +17,7 @@
         <!-- Breadcrumb -->
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a>create</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('dashboard.integrativeMedicines.index') }}">Who I Am</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.integrativeMedicines.index') }}">IntegrativeMedicines</a></li>
             <li class="breadcrumb-item"><a href="">Admin</a>
             </li>
             <li class="breadcrumb-item active">Dashboard</li>

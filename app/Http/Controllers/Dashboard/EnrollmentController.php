@@ -33,11 +33,11 @@ class EnrollmentController extends Controller
             'course_id' => 'required',
         ]);
 
-        $enrollment = new Enrollment([
+        $enrollment = Enrollment::firstOrCreate([
             'user_id' => $request->user_id,
             'course_id' => $request->input('course_id'),
         ]);
-        $enrollment->save();
+        // $enrollment->save();
 
         return redirect()->route('dashboard.enrollments.index')->with('success', 'Enrollment created successfully');
     }

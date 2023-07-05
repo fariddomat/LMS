@@ -81,10 +81,9 @@
                             <div class="row">
                                 <div class="form-group col-md-12">
                                     <label>نوع الحساب</label>
-                                    <select name="type" class="form-control" id="">
-                                        <option value="طالب">طالب</option>
-                                        <option value="عامل">عامل</option>
-                                        <option value="لا يعمل">لا يعمل</option>
+                                    <select name="type"  class="form-control" id="">
+                                        <option value="user">طالب</option>
+                                        <option value="service">خدمات</option>
                                     </select>
                                 </div>
                             </div>
@@ -103,7 +102,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-dark btn-block mt-15" type="submit">سجل الآن</button>
+                                <button class="btn btn-dark btn-theme-colored1 btn-block mt-15" type="submit">سجل الآن</button>
                             </div>
 
 

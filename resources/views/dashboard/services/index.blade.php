@@ -29,7 +29,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>العنوان</th>
-                                            <th>العرض</th>
+                                            <th>طلب الخدمة</th>
                                             <th>العمليات</th>
                                         </tr>
                                     </thead>
@@ -38,10 +38,10 @@
                                             <tr>
                                                 <td>{{ $service->id }}</td>
                                                 <td>{{ $service->title }}</td>
-                                                <td>{{ $service->showed == 1 ? 'Showed' : 'Hidden' }}</td>
+                                                <td>{{ $service->available == 1 ? 'متاح' : 'غير متاح' }}</td>
                                                 <td>
-                                                    {{-- <a href="{{ route('dashboard.services.edit', $service->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> تعديل</a> --}}
-                                                    لايوجد عمليات متاحة
+                                                    <a href="{{ route('dashboard.services.edit', $service->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> تعديل</a>
+                                                    {{-- لايوجد عمليات متاحة --}}
                                                 </td>
                                             </tr>
                                         @endforeach

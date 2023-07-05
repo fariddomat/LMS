@@ -30,6 +30,7 @@
                                     <div class="">
                                         <form name="reg-form" class="register-form" method="post" action="{{ route('dashboard.profiles.store') }}">
                                             @csrf
+                                            @include('layouts._error')
                                             <div class="icon-box mb-0 p-0">
                                                 <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
                                                     <i class="pe-7s-users"></i>
@@ -87,10 +88,9 @@
                                                 <div class="form-group col-md-12">
                                                     <label>نوع الحساب</label>
                                                     <select name="type" class="form-control" id="">
-                                                        <option value="طالب">طالب</option>
-                                                        <option value="عامل">عامل</option>
-                                                        <option value="لا يعمل">لا يعمل</option>
-                                                    </select>
+                                                        <option value="user">طالب</option>
+                                                        <option value="service">خدمات</option>
+                                                   </select>
                                                 </div>
                                             </div>
 

@@ -120,44 +120,186 @@
             top: 25px
         }
 
-        span svg.w-5{
+        span svg.w-5 {
             max-width: 40px;
         }
-        .course-item .course-thumb .price{
+
+        .course-item .course-thumb .price {
             left: unset;
             right: -3px;
         }
-        .lg-css3.lg-fade .lg-item.lg-current{
+
+        .lg-css3.lg-fade .lg-item.lg-current {
             left: 0;
         }
     </style>
 
     @yield('styles')
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Amiri';
+
+            /* color: #375651; */
+        }
+        body{
+            /* background: #FEF6EC; */
+        }
+
+        h4,
+        h5,
+        h6,
+        .h4,
+        .h5,
+        .h6 .h1,
+        .h2,
+        .h3,
+        h1,
+        h2,
+        h3 {
+            font-family: 'Amiri';
+            /* color: #375651; */
+        }
+        p{
+            font-family: 'Amiri';
+            /* color: #375651; */
+        }
+        span{
+            font-family: 'Amiri';
+            /* color: #375651; */
+        }
+
+        .menuzord.theme-color1 .menuzord-menu>li.active>a,
+        .menuzord.theme-color1 .menuzord-menu>li:hover>a,
+        .menuzord.theme-color1 .menuzord-menu ul.dropdown li:hover>a {
+            background: var(--theme-color2);
+            color: #fff;
+        }
+
+
+        .menuzord-menu>li>a {
+            color: #375651;
+        }
+        .ttt{
+            color: #375651;
+
+        }
+        .header-nav-col-row{
+            background: #FEF6EC;
+        }
+        footer{
+            color: #375651;
+        }
+        footer#footer a:not(.social-link):not(.icon) ,
+        footer#footer .footer-widget-area .widget .widget-title {
+            color: #375651;
+        }
+        footer li:hover>a,
+        footer div:hover>a{
+            color: #EFBB76 !important;
+        }
+        .footer-widget-area{
+            background-color: #FEF6EC !important;
+            color: #375651;
+
+        }
+        footer.footer-bottom{
+            background-color: #FEF6EC;
+            color: #375651;
+        }
+        #services a:hover,
+        #welcome a:hover{
+            color: #375651 !important;
+            background-color: #FEF6EC !important;
+        }
+        @media only screen and (max-width: 500px) {
+
+            /* retina */
+            .ttt {
+                display: none !important;
+            }
+
+        }
+    </style>
 <style>
-    *{
-        font-family: 'Amiri'
-    }
-    h4, h5, h6, .h4, .h5, .h6 .h1, .h2, .h3, h1, h2, h3 {
-        font-family: 'Amiri'
-    }
-    .menuzord.theme-color1 .menuzord-menu > li.active > a, .menuzord.theme-color1 .menuzord-menu > li:hover > a, .menuzord.theme-color1 .menuzord-menu ul.dropdown li:hover > a {
-  background: var(--theme-color2);
-  color: #fff;
-}
 
-@media only screen and (max-width: 500px) {
+    .rating2 {
+            float: right;
+            border: none;
+        }
 
-/* retina */
-.ttt{
-    display: none !important;
-}
+        .rating2:not(:checked)>input {
+            position: absolute;
+            top: -9999px;
+            clip: rect(0, 0, 0, 0);
+        }
 
-}
+        .rating2:not(:checked)>label {
+            float: left;
+            width: 1em;
+            padding: 0 .1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 200%;
+            line-height: 1.2;
+            color: #ddd;
+        }
+
+        .rating2:not(:checked)>label:before {
+            content: '★ ';
+        }
+
+        .rating2>input:checked~label {
+            color: #f70;
+        }
+
+        .rating2:not(:checked)>label:hover,
+        .rating2:not(:checked)>label:hover~label {
+            color: gold;
+        }
+
+        .rating2>input:checked+label:hover,
+        .rating2>input:checked+label:hover~label,
+        .rating2>input:checked~label:hover,
+        .rating2>input:checked~label:hover~label,
+        .rating2>label:hover~input:checked~label {
+            color: #ea0;
+        }
+
+        .rating2>label:active {
+            position: relative;
+        }
+
+
 </style>
 
-     <link rel="stylesheet" href="{{ asset('noty/noty.css') }}">
-     <script src="{{ asset('noty/noty.min.js') }}" defer></script>
+    <link rel="stylesheet" href="{{ asset('noty/noty.css') }}">
+    <script src="{{ asset('noty/noty.min.js') }}" defer></script>
+
+    {{-- select2 --}}
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
+    <style>
+        .INTEGRITy {
+            color: #FEF6EC
+        }
+
+        .TRUST {
+            columns: #EFBB76;
+        }
+
+        .LOVE {
+            color: #EAA2A1;
+        }
+
+        .HOLISM {
+            color: #375651;
+        }
+
+    </style>
 </head>

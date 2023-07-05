@@ -30,7 +30,7 @@
                         <div class="col-md-7">
                             <p class="lead text-black">{!! $about->about_me !!}</p>
                             <a href="{{ route('whoiam') }}" target="_self"
-                                class="btn btn-dark btn-sm btn-block mt-15 mb-20"> قراءة المزيد </a>
+                                class="btn btn-dark btn-theme-colored1 btn-sm btn-block mt-15 mb-20"> قراءة المزيد </a>
 
                         </div>
                         <div class="col-md-5">
@@ -56,7 +56,7 @@
             </div>
         </section>
 
-        <section class="divider parallax layer-overlay overlay-white-4">
+        <section class="divider parallax layer-overlay overlay-white-4" style="background-color: white">
             <h2 class="lead"
                 style="margin: 0 auto;
             width: 100%;
@@ -97,7 +97,8 @@
                                             <h4 class="mt-0 mb-15">{{ $service->title }}</h4>
                                             <p>{{ $service->main_title }}</p>
                                             <a href="{{ route('services.show', $service->title) }}" target="_self"
-                                                class="btn btn-dark btn-sm btn-block mt-15 mb-20"> قراءة المزيد </a>
+                                                class="btn btn-dark btn-theme-colored1 btn-sm btn-block mt-15 mb-20"> قراءة
+                                                المزيد </a>
                                         </div>
                                     </div>
                                 </div>
@@ -127,45 +128,51 @@
                 </div>
                 <div class="section-content">
                     <div class="row" style="justify-content: center">
-                      @foreach ($trainers as $trainer)
-                      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                        <div class="staff-item mb-lg-40">
-                            <div class="staff-thumb"> <img alt="img" src="{{ asset('trainers/images/'.$trainer->img) }}" class="w-100">
-                            </div>
-                            <div class="staff-content">
-                                <h4 class="staff-name text-theme-colored1 mt-0">{{ $trainer->first_name }} {{ $trainer->last_name }} - <small>{{ $trainer->title }}</small>
-                                </h4>
-                                <h5>{{ $trainer->qout }}</h5>
-                                <p class="mb-20">
-                                    {{ $trainer->about }}
-                                </p>
-                                <div class="staff-social-part">
-                                    <ul
-                                        class="styled-icons icon-dark icon-theme-colored2 icon-sm icon-circled float-start mt-10">
-                                        @if ($trainer->facebook != '')
-                                        <li><a class="social-link" href="{{ $trainer->facebook }}"><i class="fab fa-facebook"></i></a>
-                                        </li>
-                                        @endif
-                                        @if ($trainer->twitter != '')
-                                        <li><a class="social-link" href="{{ $trainer->twitter }}"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                        @endif
-                                        @if ($trainer->instagram != '')
-                                        <li><a class="social-link" href="{{ $trainer->instagram }}"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        @endif
-                                        @if ($trainer->whatsapp != '')
-                                        <li><a class="social-link" href="{{ $trainer->whatsapp }}"><i class="fab fa-whatsapp"></i></a>
-                                        </li>
-                                        @endif
-                                    </ul>
-                                    {{-- <a class="btn btn-theme-colored2 btn-xs p-10 float-end" href="#">view
+                        @foreach ($trainers as $trainer)
+                            <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="staff-item mb-lg-40">
+                                    <div class="staff-thumb"> <img alt="img"
+                                            src="{{ asset('trainers/images/' . $trainer->img) }}" class="w-100">
+                                    </div>
+                                    <div class="staff-content">
+                                        <h4 class="staff-name text-theme-colored1 mt-0">{{ $trainer->first_name }}
+                                            {{ $trainer->last_name }} - <small>{{ $trainer->title }}</small>
+                                        </h4>
+                                        <h5>{{ $trainer->qout }}</h5>
+                                        <p class="mb-20">
+                                            {{ $trainer->about }}
+                                        </p>
+                                        <div class="staff-social-part">
+                                            <ul
+                                                class="styled-icons icon-dark icon-theme-colored2 icon-sm icon-circled float-start mt-10">
+                                                @if ($trainer->facebook != '')
+                                                    <li><a class="social-link" href="{{ $trainer->facebook }}"><i
+                                                                class="fab fa-facebook"></i></a>
+                                                    </li>
+                                                @endif
+                                                @if ($trainer->twitter != '')
+                                                    <li><a class="social-link" href="{{ $trainer->twitter }}"><i
+                                                                class="fab fa-twitter"></i></a>
+                                                    </li>
+                                                @endif
+                                                @if ($trainer->instagram != '')
+                                                    <li><a class="social-link" href="{{ $trainer->instagram }}"><i
+                                                                class="fab fa-instagram"></i></a>
+                                                    </li>
+                                                @endif
+                                                @if ($trainer->whatsapp != '')
+                                                    <li><a class="social-link" href="{{ $trainer->whatsapp }}"><i
+                                                                class="fab fa-whatsapp"></i></a>
+                                                    </li>
+                                                @endif
+                                            </ul>
+                                            {{-- <a class="btn btn-theme-colored2 btn-xs p-10 float-end" href="#">view
                                         details</a> --}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                      @endforeach
+                        @endforeach
                     </div>
                 </div>
             </div>

@@ -31,6 +31,8 @@
                                         <form name="reg-form" class="register-form" method="post" action="{{ route('dashboard.profiles.update', $profile->id) }}">
                                             @csrf
                                             @method('PUT')
+
+                            @include('layouts._error')
                                             <div class="icon-box mb-0 p-0">
                                                 <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
                                                     <i class="pe-7s-users"></i>
@@ -75,15 +77,10 @@
                                                 <div class="form-group col-md-12">
                                                     <label>نوع الحساب</label>
                                                     <select name="type" class="form-control" id="">
-                                                        <option value="طالب" @if ($profile->type == 'طالب')
-                                                            selected
-                                                        @endif>طالب</option>
-                                                        <option value="عامل" @if ($profile->type == 'عامل')
-                                                            selected
-                                                        @endif>عامل</option>
-                                                        <option value="لا يعمل" @if ($profile->type == 'لا يعمل')
-                                                            selected
-                                                        @endif>لا يعمل</option>
+                                                        <option value="user" @if ($profile->type == 'user') selected @endif>طالب
+                                                        </option>
+                                                        <option value="service" @if ($profile->type == 'service') selected @endif>خدمات
+                                                        </option>
                                                     </select>
                                                 </div>
                                             </div>

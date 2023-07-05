@@ -52,7 +52,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>الاسم</th>
-                                            <th>البريد الإلكتروني</th>
+                                            <th>الخدمة</th>
                                             <th>تاريخ التسجيل</th>
                                             <th>Action</th>
                                         </tr>
@@ -67,7 +67,7 @@
 
                                                 <td>
 
-                                             
+
 
                                                     <form action="{{ route('dashboard.enrollments.destroy', $enrollment->id) }}"
                                                         method="POST" style="display: inline-block">

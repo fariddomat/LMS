@@ -40,16 +40,22 @@
                                 @include('layouts._error')
                                 <div class="form-group mb-3">
                                     <label for="title" class="form-label">العنوان</label>
-                                    <input type="text" name="title" class="form-control" value="{{ old('ar.title') }}" dir="rtl">
+                                    <input type="text" name="title" class="form-control" value="{{ old('title') }}" dir="rtl">
                                 </div>
 
                                 <div class="form-group mb-3">
                                     <label for="main_title" class="form-label">العنوان الرئيسي </label>
-                                    <input type="text" name="main_title" class="form-control" value="{{ old('ar.main_title') }}" dir="rtl">
+                                    <input type="text" name="main_title" class="form-control" value="{{ old('main_title') }}" dir="rtl">
                                 </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="price" class="form-label">سعر الخدمة </label>
+                                    <input type="number" name="price" class="form-control" value="{{ old('price') }}" dir="rtl">
+                                </div>
+
                                 <div class="form-group mb-3">
                                     <label for="index_name" class="form-label">اسم الفهرس</label>
-                                    <input type="text" name="index_name" class="form-control" value="{{ old('ar.index_name') }}" dir="rtl">
+                                    <input type="text" name="index_name" class="form-control" value="{{ old('index_name') }}" dir="rtl">
                                 </div>
 
                                 <div class="form-group mb-3">
@@ -63,7 +69,7 @@
 
                                 <div class="form-group mb-3">
                                     <label for="brief" class="form-label">مختصر</label>
-                                    <textarea class="form-control" id="_editor" name="brief" rows="5" dir="rtl">{{ old('ar.brief') }}</textarea>
+                                    <textarea class="form-control" id="_editor" name="brief" rows="5" dir="rtl">{{ old('brief') }}</textarea>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="icon_class" class="form-label">Icon Class</label>
@@ -71,10 +77,10 @@
                                 </div>
 
                                 <div class="form-check mb-3">
-                                    <label class="form-check-label" for="showed">
-                                      عرض
+                                    <label class="form-check-label" for="available">
+                                      إتاحة طلب الخدمة
                                     </label>
-                                    <input class="form-check-input" style="margin-right: 50px" type="checkbox" value="1" id="showed" name="showed" {{ old('showed') == '1' ? 'checked' : '' }}>
+                                    <input class="form-check-input" style="margin-right: 50px" type="checkbox" value="1" id="available" name="available" {{ old('available') == '1' ? 'checked' : '' }}>
                                 </div>
 
                                 <div class="form-group mb-3">

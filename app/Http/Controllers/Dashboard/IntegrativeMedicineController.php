@@ -10,7 +10,7 @@ class IntegrativeMedicineController extends Controller
 {
     public function index()
     {
-        $sections = IntegrativeMedicine::all();
+        $sections = IntegrativeMedicine::orderBy('created_at')->get();
         return view('dashboard.integrativeMedicines.index', compact('sections'));
     }
 

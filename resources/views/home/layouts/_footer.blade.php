@@ -1,5 +1,5 @@
  <!-- Footer -->
- <footer id="footer" class="footer layer-overlay overlay-dark-9" data-tm-bg-img="images/bg/bg2.jpg">
+ <footer id="footer" class="footer layer-overlay" >
     <div class="footer-widget-area">
         <div class="container pt-90 pb-60">
             <div class="row">
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer-bottom" data-tm-bg-color="#2A2A2A">
+        <div class="footer-bottom" data-tm-bg-color="#FEF6EC">
             <div class="container">
                 <div class="row pt-20 pb-20">
                     <div class="col-sm-6">
@@ -70,6 +70,6 @@
 
 
 <script></script>
-
+<script id="dsq-count-scr" src="//holistichealth-sa.disqus.com/count.js" async></script>
      @extends('layouts._noty')
 @stack('scripts')

@@ -6,7 +6,7 @@
         <!-- Section: page title -->
         <section class="page-title layer-overlay overlay-dark-9 section-typo-light bg-img-center"
             data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}"
-            style="margin-top: 100px; background-size: cover;">
+            style="margin-top: 95px; background-size: cover;">
             <div class="container pt-50 pb-50">
                 <div class="section-content">
                     <div class="row">
@@ -44,7 +44,7 @@
                     <div class="order-1 col-sm-12 col-md-4">
                         <div class="sidebar sidebar-left mt-sm-30 ml-40">
                             <div class="tm-sidebar-nav-menu-style2">
-                                <h4 class="widget-title line-bottom">قائمة <span class="text-theme-color-2">الدورات</span>
+                                <h4 class="widget-title line-bottom">قائمة <span class="text-theme-color-2">الدروس</span>
                                 </h4>
                                 <div class="widget widget_nav_menu">
                                     <ul>

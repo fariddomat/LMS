@@ -8,7 +8,8 @@
         <!-- Breadcrumb -->
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a>Index</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('dashboard.integrativeMedicines.index') }}">IntegrativeMedicines</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.integrativeMedicines.index') }}">IntegrativeMedicines</a>
+            </li>
             <li class="breadcrumb-item"><a href="">Admin</a>
             </li>
             <li class="breadcrumb-item active">Dashboard</li>
@@ -21,7 +22,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h3 class="card-title">الطب التكاملي</h3>
+                            <h3 class="card-title">الطب الشمولي</h3>
                         </div>
                         <div class="card-block">
                             <a href="{{ route('dashboard.integrativeMedicines.create') }}" class="btn btn-primary">إضافة</a>
@@ -36,13 +37,18 @@
                                     </thead>
                                     <tbody>
                                         @forelse ($sections as $section)
+                                            @php
+
+                                                $text = strip_tags($section->content);
+                                            @endphp
                                             <tr>
                                                 <td>{{ $section->header ? 'نعم' : 'لا' }}</td>
-                                                <td>{!! Str::limit($section->content, 250 , ' ...') !!}</td>
+                                                <td>{!! Str::limit($text, 250, ' ...') !!}</td>
                                                 <td>
                                                     <a href="{{ route('dashboard.integrativeMedicines.edit', $section) }}"
                                                         class="btn btn-primary">تعديل</a>
-                                                    <form action="{{ route('dashboard.integrativeMedicines.destroy', $section) }}"
+                                                    <form
+                                                        action="{{ route('dashboard.integrativeMedicines.destroy', $section) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')

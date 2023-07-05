@@ -33,6 +33,8 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col">
+                            @if ($images->count() > 0)
+
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -67,6 +69,9 @@
                                     @endforeach
                                 </tbody>
                             </table><!-- end of table -->
+                            @else
+                            <h3 style="margin-top: 50px">لا يوجد بيانات</h3>
+                            @endif
                         </div>
                     </div></div>
             </div>

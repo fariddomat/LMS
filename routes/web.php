@@ -22,6 +22,7 @@ Route::resource('courses','App\Http\Controllers\Home\CourseController');
 Route::resource('services','App\Http\Controllers\Home\ServiceController');
 Route::post('/contact', 'App\Http\Controllers\Home\HomeController@contact')->name('contact');
 Route::get('/contactPage', 'App\Http\Controllers\Home\HomeController@contactPage')->name('contactPage');
+Route::get('/faqs', 'App\Http\Controllers\Home\HomeController@faqs')->name('faqs');
 Route::get('/whoiam', 'App\Http\Controllers\Home\HomeController@whoiam')->name('whoiam');
 Route::get('/integrativeMedicine', 'App\Http\Controllers\Home\HomeController@integrativeMedicines')->name('integrativeMedicine');
 
@@ -51,8 +52,10 @@ Route::get('/clear', function() {
         Route::resource('profiles','App\Http\Controllers\Home\ProfileController')->except('create', 'store');
         Route::get('profile/passowrd','App\Http\Controllers\Home\ProfileController@password')->name('profiles.password');
         Route::post('profile/changePassowrd','App\Http\Controllers\Home\ProfileController@changePassword')->name('profiles.changePassword');
+        Route::post('services/rating','App\Http\Controllers\Home\ServiceController@rating')->name('services.rating');
 
         Route::resource('enrollments','App\Http\Controllers\Home\EnrollmentController');
+        Route::resource('orderservices','App\Http\Controllers\Home\OrderServiceController');
 
         Route::resource('lessons','App\Http\Controllers\Home\LessonController')->only('show');
     });
@@ -100,6 +103,7 @@ Route::get('/clear', function() {
     Route::post('/academy', 'App\Http\Controllers\Dashboard\AcademyController@store')->name('academy.store');
 
     Route::resource('services','App\Http\Controllers\Dashboard\ServiceController');
+    Route::resource('servicereviews','App\Http\Controllers\Dashboard\ServiceReviewController');
     Route::get('/services/{service}/sliderImages', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@index')->name('sliderImages.index');
     Route::get('/services/{service}/sliderImages/create', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@create')->name('sliderImages.create');
     Route::post('/services/{service}/sliderImages', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@store')->name('sliderImages.store');
@@ -108,6 +112,10 @@ Route::get('/clear', function() {
     Route::delete('/services/sliderImages/{image}/delete', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@destroy')->name('sliderImages.destroy');
     Route::get('/services/{service}/sliderImages/show', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@show')->name('sliderImages.show');
     Route::get('/services/{service}/sliderImages/hide', 'App\Http\Controllers\Dashboard\ServiceSliderImageController@hide')->name('sliderImages.hide');
+
+    Route::resource('orderservices','App\Http\Controllers\Dashboard\OrderServiceController');
+    Route::resource('faqs','App\Http\Controllers\Dashboard\FAQController');
+
 
     Route::get('/settings/cover', 'App\Http\Controllers\Dashboard\SettingController@cover')->name('setting.cover');
     Route::post('/settings/change_cover', 'App\Http\Controllers\Dashboard\SettingController@change_cover')->name('setting.change_cover');

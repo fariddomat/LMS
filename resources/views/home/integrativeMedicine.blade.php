@@ -90,7 +90,31 @@
                         </div>
                         @endif
                     @endforeach
+                    <div class="row" style="margin-top: 50px">
+                        <div class="col-md-12">
+                          <div class="accordion tm-accordion accordion-classic" id="accordion200">
 
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="heading201">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse201" aria-expanded=" true" aria-controls="collapse201">
+                                  <strong style="  width: 100%;
+                                  text-align: right;">المبادئ الشائعة في العلاج الشمولي</strong>
+                                </button>
+                              </h2>
+                              <div id="collapse201" class="accordion-collapse collapse " aria-labelledby="heading201" data-bs-parent="#accordion200">
+                                <div class="accordion-body">
+                                    ·	اليقين بأن جميع الناس وُلدوا بقدرات علاجية فطريّة.<br>
+                                    ·	الإيمان بأن الطبيب والمريض يعملان معاً لمعالجة جميع أقسام الحياة التي تؤثر على الصحة البدنية والعافية الروحية.<br>
+                                    ·	العمل وفق فلسفة معالجة المريض باعتباره إنساناً، لا مَرَضاً.<br>
+                                    ·	التركيز على شفاء سبب العلة، لا تخفيف الأعراض وحسب.<br>
+                                    ·	التركيز على العلاقة بين العقل والجسد لمعالجة الشخص بالكامل.<br>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     <div class="row" style="margin-top: 25px">
                         <div class="col-md-12 col-lg-6 col-xl-6">
 

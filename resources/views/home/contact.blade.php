@@ -27,7 +27,7 @@
 
                         </div>
                         {{-- <img class="img-fullwidth mb-30" src="{{ asset('logo-lg.png') }}?v={{ setting('cover_time') }}" alt="images"> --}}
-                          <p>{{setting('site_about')}}</p>
+                          {{-- <p>{{setting('site_about')}}</p> --}}
                           <div class="tm-sc-unordered-list list-style2">
                               <ul>
                                   <li><strong>رقم الهاتف:</strong> <a href="tel:{{setting('site_phone')}}">{{setting('site_phone')}}</a></li>

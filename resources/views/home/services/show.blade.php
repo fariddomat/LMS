@@ -72,7 +72,9 @@
                             <input type="hidden" name="service_id" value="{{ $service->id }}">
                                 <button type="submit" class="btn btn-dark btn-theme-colored2 text-uppercase"> أطلب الخدمة الآن</button>
                             </form>
+                            @if ($service->index_image != '')
                            <div class="row" style="justify-content: center"> <img alt="" src="{{ asset( $service->index_image) }}" style="max-height:450px; width: auto"/>
+                            @endif
                            </div>
                             <p>{!! $service->brief !!}</p>
                             <div class="row mb-20 mt-20">

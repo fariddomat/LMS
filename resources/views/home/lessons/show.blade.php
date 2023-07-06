@@ -1,5 +1,10 @@
 @extends('home.layouts._app')
-
+@push('scripts')
+<script src="{{ asset('home/playerjs.js') }}"></script>
+<script>
+    var player = new Playerjs({id:"player", file:"{{  $lesson->video }}"});
+ </script>
+@endpush
 @section('content')
     <!-- Start main-content -->
     <div class="main-content">
@@ -31,7 +36,9 @@
                 <div class="row">
                     <div class="order-2 col-md-8 blog-float-end">
                         <div class="single-service">
-                            <video src="{{ $lesson->video }}" style="width: 100%;"></video>
+                            {{-- <video src="{{ $lesson->video }}" style="width: 100%;"></video> --}}
+                            <div id="player"></div>
+                            
                             <h3 class="text-theme-colored line-bottom text-theme-colored">{{ $lesson->title }}</h3>
 
                             <h5><em>المدة : {{ $lesson->duration }}</em></h5>

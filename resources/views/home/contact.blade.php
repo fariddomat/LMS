@@ -30,7 +30,8 @@
                           {{-- <p>{{setting('site_about')}}</p> --}}
                           <div class="tm-sc-unordered-list list-style2">
                               <ul>
-                                  <li><strong>رقم الهاتف:</strong> <a href="tel:{{setting('site_phone')}}">{{setting('site_phone')}}</a></li>
+                                  <li><strong>رقم الواتس اب لحجز الجلسات:</strong> <a href="tel:+9665594361874">009665594361874</a></li>
+                                  <li><strong>رقم الهاتف للاستفسار عن الاكاديمية:</strong> <a href="tel:+966563872550">00966563872550</a></li>
                                   <li><strong>البريد الالكتروني:</strong> <a
                                           href="mailto:{{setting('site_email')}}">{{setting('site_email')}}</a></li>
                                   <li><strong>العنوان:</strong> {{setting('site_location')}}</li>

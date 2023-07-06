@@ -46,7 +46,7 @@ class TapController extends Controller
         $client = new \GuzzleHttp\Client();
         $response = $client->request('POST', 'https://api.tap.company/v2/charges', [
             'body' => '{
-                "amount":300,
+                "amount":350,
                 "currency":"SAR",
                 "customer_initiated":true,
                 "threeDSecure":true,

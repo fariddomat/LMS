@@ -49,8 +49,9 @@ class LessonController extends Controller
         // Save the video file
         if ($request->hasFile('video')) {
             $file = $request->file('video');
-            $fileName = $file->getClientOriginalName();
-            $path = $file->storeAs('public/lessons', $fileName, ['disk' => 'public']);
+            // $fileName = $file->getClientOriginalName();
+            $filename = uniqid(). '.' .\File::extension($file->getClientOriginalName());
+            $path = $file->storeAs('public/lessons', $filename.'.mp4', ['disk' => 'public']);
 
             // Set the video file path for the lesson
             $lesson->video_path = $path;
@@ -84,13 +85,13 @@ class LessonController extends Controller
 
         $lesson->save();
 
-        return redirect()->route('dashboard.courses.show', $course)->with('success', 'Lesson updated successfully.');
+        return redirect()->route('dashboard.courses.show', $lesson->course_id)->with('success', 'Lesson updated successfully.');
     }
 
     public function destroy(Course $course, Lesson $lesson)
     {
         $course = Course::findOrFail($lesson->course_id);
-        Storage::disk('public')->delete('lessons/' . $lesson->video_path);
+        Storage::disk('public')->delete('public/lessons/' . $lesson->video_path);
         $lesson->delete();
         return redirect()->route('dashboard.courses.show', $course)->with('success', 'Lesson deleted successfully.');
     }

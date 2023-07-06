@@ -25,7 +25,7 @@
                           </div>
                         </div>
                         <div class="card-block">
-                          <table class="table table-striped">
+                          <table class="table table-striped table-responsive">
                             <thead>
                               <tr>
                                 <th>#</th>
@@ -51,7 +51,7 @@
                                   </td>
                                   <td>{{ $course->price }}</td>
                                   <td>
-                                    <div class="btn-group" style="  display: block;">
+                                    <div class="btn-group" style="  display: block;   min-width: 180px;">
                                       <a href="{{ route('dashboard.courses.show', $course->id) }}" class="btn btn-info btn-sm">مشاهدة</a>
                                       <a href="{{ route('dashboard.courses.edit', $course->id) }}" class="btn btn-primary btn-sm">تعديل</a>
                                       <form action="{{ route('dashboard.courses.destroy', $course->id) }}" method="POST">

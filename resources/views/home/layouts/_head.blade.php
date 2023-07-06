@@ -245,6 +245,9 @@
             }
 
         }
+        .layer-overlay.overlay-dark-9::before {
+  background-color: rgba(17, 17, 17, 0.3);
+}
     </style>
     <style>
         .rating2 {

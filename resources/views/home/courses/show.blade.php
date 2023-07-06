@@ -14,11 +14,12 @@
                             <h2 class="title">{{ $course->title }}</h2>
                             <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
                                 <div class="breadcrumbs">
-                                    <span class="active">{{ $course->title }}</span>
-                                    <span><i class="fa fa-angle-right"></i></span>
-                                    <span><a href="{{ route('courses.index') }}">الدورات</a></span>
-                                    <span><i class="fa fa-angle-right"></i></span>
                                     <span><a href="{{ route('home') }}" rel="home">الرئيسية</a></span>
+                                    <span><i class="fa fa-angle-left"></i></span>
+                                    <span><a href="{{ route('courses.index') }}">الدورات</a></span>
+                                    <span><i class="fa fa-angle-left"></i></span>
+                                    <span class="active">{{ $course->title }}</span>
+
                                 </div>
                             </nav>
                         </div>

@@ -13,12 +13,13 @@
                             <h2 class="title">Service Details</h2>
                             <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
                                 <div class="breadcrumbs">
-                                    <span class="active">{{ $service->title }}</span>
-                                    <span><i class="fa fa-angle-right"></i></span>
-                                    <span><a href="{{ route('services.index') }}">الخدمات</a></span>
-                                    <span><i class="fa fa-angle-right"></i></span>
                                     <span><a href="{{ route('home') }}" rel="home">الرئيسية</a></span>
-                                </div>
+
+                                    <span><i class="fa fa-angle-left"></i></span>
+                                    <span><a href="{{ route('services.index') }}">الخدمات</a></span>
+                                    <span><i class="fa fa-angle-left"></i></span>
+                                    <span class="active">{{ $service->title }}</span>
+                                   </div>
                             </nav>
                         </div>
                     </div>

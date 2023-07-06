@@ -15,11 +15,13 @@
                             <h2 class="title">{{ $post->title }}</h2>
                             <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
                                 <div class="breadcrumbs">
-                                    <span class="active">{{ $post->slug }}</span>
-                                    <span><i class="fa fa-angle-right"></i></span>
-                                    <span><a href="{{ route('posts.index') }}">المدونة</a></span>
-                                    <span><i class="fa fa-angle-right"></i></span>
                                     <span><a href="{{ route('home') }}" rel="home">الرئيسية</a></span>
+
+                                    <span><i class="fa fa-angle-left"></i></span>
+                                    <span><a href="{{ route('posts.index') }}">المدونة</a></span>
+                                    <span><i class="fa fa-angle-left"></i></span>
+                                    <span class="active">{{ $post->slug }}</span>
+
                                 </div>
                             </nav>
                         </div>

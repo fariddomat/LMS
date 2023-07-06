@@ -18,7 +18,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $posts=Post::latest()->limit(3)->get();
+        $posts=Post::where('published', true)->latest()->limit(3)->get();
         $about=About::firstOrFail();
         return view('home.index', compact('posts', 'about'));
     }

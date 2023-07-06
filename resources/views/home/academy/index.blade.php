@@ -258,7 +258,7 @@
             </div>
         </section>
         <section class="divider parallax layer-overlay overlay-white-4" data-parallax-ratio="0.1"
-        data-tm-bg-img="{{ asset('home/images/bg/trainers.jpg') }}">
+        data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}">
             <div class="container">
                 <div class="section-title">
                     <div class="row">

@@ -36,10 +36,10 @@
                                     </div>
                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                     @if ($integrativeMedicine->image)
-                                        <div class="box-hover-effect tm-sc-video-popup tm-sc-video-popup-button-over-image">
+                                        <div class="">
                                             <div class="effect-wrapper">
                                                 <div class="thumb">
-                                                    <img class="w-100" src="{{ $integrativeMedicine->image }}"
+                                                    <img class="w-100" src="{{ asset($integrativeMedicine->image) }}"
                                                         alt="">
                                                 </div>
                                             </div>
@@ -54,7 +54,7 @@
                                         <div class="box-hover-effect tm-sc-video-popup tm-sc-video-popup-button-over-image">
                                             <div class="effect-wrapper">
                                                 <div class="thumb">
-                                                    <img class="w-100" src="{{ $integrativeMedicine->image }}"
+                                                    <img class="w-100" src="{{ asset($integrativeMedicine->image) }}"
                                                         alt="">
                                                 </div>
                                             </div>

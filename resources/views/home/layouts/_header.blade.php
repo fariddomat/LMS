@@ -27,6 +27,22 @@ position: relative;">
                                     <li class="{{ Request::is('/') ? 'active' : '' }}  menu-item">
                                         <a href="{{ route('home') }}">الرئيسية</a>
                                     </li>
+
+                                    <li class="{{ Request::is('whoiam') ? 'active' : '' }} menu-item">
+                                        <a href="{{ route('whoiam') }}">من أنا؟</a>
+                                    </li>
+                                    <li class="{{ Request::is('service*') ? 'active' : '' }} menu-item">
+                                        <a href="{{ route('services.index') }}">خدماتنا</a>
+                                    </li>
+                                    <li class="{{ Request::is('academy*') ? 'active' : '' }} menu-item">
+                                        <a href="{{ route('academy.index') }}">الأكاديمية</a>
+                                    </li>
+                                    <li class="{{ Request::is('posts*') ? 'active' : '' }} menu-item">
+                                        <a href="{{ route('posts.index') }}">المدونة</a>
+                                    </li>
+                                    <li class="{{ Request::is('contactPage') ? 'active' : '' }} menu-item">
+                                        <a href="{{ route('contactPage') }}">اتصل بنا</a>
+                                    </li>
                                     @auth
                                     @if (Auth::user()->hasRole('user'))
 
@@ -35,24 +51,9 @@ position: relative;">
                                     </li>
                                     @endif
                                     @endauth
-                                    <li class="{{ Request::is('academy*') ? 'active' : '' }} menu-item">
-                                        <a href="{{ route('academy.index') }}">الأكاديمية</a>
-                                    </li>
-                                    <li class="{{ Request::is('service*') ? 'active' : '' }} menu-item">
-                                        <a href="{{ route('services.index') }}">خدماتنا</a>
-                                    </li>
-                                    <li class="{{ Request::is('posts*') ? 'active' : '' }} menu-item">
-                                        <a href="{{ route('posts.index') }}">المدونة</a>
-                                    </li>
                                     {{-- <li class="{{ Request::is('integrativeMedicine') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('integrativeMedicine') }}">الطب التكاملي</a>
                                     </li> --}}
-                                    <li class="{{ Request::is('whoiam') ? 'active' : '' }} menu-item">
-                                        <a href="{{ route('whoiam') }}">من أنا؟</a>
-                                    </li>
-                                    <li class="{{ Request::is('contactPage') ? 'active' : '' }} menu-item">
-                                        <a href="{{ route('contactPage') }}">اتصل بنا</a>
-                                    </li>
                                     <li class="{{ Request::is('login') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('login') }}">دخول</a>
                                     </li>

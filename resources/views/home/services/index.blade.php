@@ -35,9 +35,13 @@
                                     <div class="content">
                                         <h4 class="mt-0 mb-15">{{ $service->title }}</h4>
                                         <p>{{ $service->main_title }}</p>
-                                        @if ($service->price > 0)
-                                        <p>سعر الخدمة: {{ $service->price }} ريال سعودي</p>
-                                        @endif
+                                        <p>
+                                            @if ($service->price > 0)
+                                            سعر الخدمة: {{ $service->price }} ريال
+                                            @else
+                                            <br>
+                                            @endif
+                                        </p>
                                         <a href="{{ route('services.show', $service->title) }}" target="_self"
                                             class="btn btn-dark btn-theme-colored1 btn-sm btn-block mt-15 mb-20"> قراءة المزيد </a>
                                     </div>

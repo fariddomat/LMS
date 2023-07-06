@@ -145,7 +145,8 @@
 
             /* color: #375651; */
         }
-        body{
+
+        body {
             /* background: #FEF6EC; */
         }
 
@@ -163,11 +164,13 @@
             font-family: 'Amiri';
             /* color: #375651; */
         }
-        p{
+
+        p {
             font-family: 'Amiri';
             /* color: #375651; */
         }
-        span{
+
+        span {
             font-family: 'Amiri';
             /* color: #375651; */
         }
@@ -183,38 +186,57 @@
         .menuzord-menu>li>a {
             color: #375651;
         }
-        .ttt{
+
+        .ttt {
             color: #375651;
 
         }
-        .header-nav-col-row{
+
+        .header-nav-col-row {
             background: #FEF6EC;
         }
-        footer{
+
+        footer {
             color: #375651;
         }
-        footer#footer a:not(.social-link):not(.icon) ,
+
+        footer#footer a:not(.social-link):not(.icon),
         footer#footer .footer-widget-area .widget .widget-title {
             color: #375651;
         }
+
         footer li:hover>a,
-        footer div:hover>a{
+        footer div:hover>a {
             color: #EFBB76 !important;
         }
-        .footer-widget-area{
+
+        .footer-widget-area {
             background-color: #FEF6EC !important;
             color: #375651;
 
         }
-        footer.footer-bottom{
+
+        footer.footer-bottom {
             background-color: #FEF6EC;
             color: #375651;
         }
+
         #services a:hover,
-        #welcome a:hover{
+        #welcome a:hover {
             color: #375651 !important;
             background-color: #FEF6EC !important;
         }
+
+        #service3 blockquote.border-left-theme-colored {
+            border-left-color: #375651;
+            border-radius: 25px;
+        }
+
+        #service3 blockquote.blockquote-style6 {
+            background: #FEF6EC;
+            border-right: 10px solid #EAA2A1;
+        }
+
         @media only screen and (max-width: 500px) {
 
             /* retina */
@@ -224,9 +246,8 @@
 
         }
     </style>
-<style>
-
-    .rating2 {
+    <style>
+        .rating2 {
             float: right;
             border: none;
         }
@@ -273,9 +294,7 @@
         .rating2>label:active {
             position: relative;
         }
-
-
-</style>
+    </style>
 
     <link rel="stylesheet" href="{{ asset('noty/noty.css') }}">
     <script src="{{ asset('noty/noty.min.js') }}" defer></script>
@@ -300,6 +319,5 @@
         .HOLISM {
             color: #375651;
         }
-
     </style>
 </head>

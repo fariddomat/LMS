@@ -96,7 +96,13 @@
                                         <div class="content">
                                             <h4 class="mt-0 mb-15">{{ $service->title }}</h4>
                                             <p>{{ $service->main_title }}</p>
-                                            <p>السعر: {{ $service->price }} ريال</p>
+                                            <p>
+                                                @if ($service->price > 0)
+                                                سعر الخدمة: {{ $service->price }} ريال
+                                                @else
+                                                <br>
+                                                @endif
+                                            </p>
                                             <a href="{{ route('services.show', $service->title) }}" target="_self"
                                                 class="btn btn-dark btn-theme-colored1 btn-sm btn-block mt-15 mb-20"> قراءة
                                                 المزيد </a>
@@ -136,58 +142,62 @@
                                 class="isotope-layout masonry grid-3 gutter-15 clearfix lightgallery-lightbox">
                                 <div class="isotope-layout-inner">
                                     <div class="isotope-item isotope-item-sizer"></div>
-                                    @foreach ($posts as $post)
-                                        <!-- Isotope Item Start -->
-                                        <div class="isotope-item">
-                                            <div class="isotope-item-inner">
-                                                <div
-                                                    class="tm-sc-blog tm-sc-blog-masonry blog-style1-current-theme mb-lg-30">
-                                                    <article
-                                                        class="post type-post status-publish format-standard has-post-thumbnail">
-                                                        <div class="entry-header">
-                                                            <div class="post-thumb lightgallery-lightbox">
-                                                                <div class="post-thumb-inner">
-                                                                    <div class="thumb"> <img
-                                                                            src="{{ $post->image_path }}"
-                                                                            alt="Image" /></div>
-                                                                </div>
-                                                            </div>
-                                                            <a class="link"
-                                                                href="{{ route('posts.show', $post->slug) }}"><i
-                                                                    class="fa fa-link" style="color: white"></i></a>
-                                                        </div>
-                                                        <div class="entry-content">
-                                                            <h5 class="entry-title"><a
-                                                                    href="{{ route('posts.show', $post->slug) }}"
-                                                                    rel="bookmark">{{ $post->title }}</a></h5>
-                                                            <div class="entry-meta mt-0">
-                                                                <span
-                                                                    class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
-                                                                        class="far fa-calendar-alt mr-10 text-theme-colored"></i>
-                                                                    {{ $post->created_at->diffForHumans() }}</span>
-                                                                <span
-                                                                    class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
-                                                                        class="far fa-user mr-10 text-theme-colored"></i>
-                                                                    {{ $post->author_name }}</span>
-                                                            </div>
+                                   @if ($posts->count() > 0)
+                                   @foreach ($posts as $post)
+                                   <!-- Isotope Item Start -->
+                                   <div class="isotope-item">
+                                       <div class="isotope-item-inner">
+                                           <div
+                                               class="tm-sc-blog tm-sc-blog-masonry blog-style1-current-theme mb-lg-30">
+                                               <article
+                                                   class="post type-post status-publish format-standard has-post-thumbnail">
+                                                   <div class="entry-header">
+                                                       <div class="post-thumb lightgallery-lightbox">
+                                                           <div class="post-thumb-inner">
+                                                               <div class="thumb"> <img
+                                                                       src="{{ $post->image_path }}"
+                                                                       alt="Image" /></div>
+                                                           </div>
+                                                       </div>
+                                                       <a class="link"
+                                                           href="{{ route('posts.show', $post->slug) }}"><i
+                                                               class="fa fa-link" style="color: white"></i></a>
+                                                   </div>
+                                                   <div class="entry-content">
+                                                       <h5 class="entry-title"><a
+                                                               href="{{ route('posts.show', $post->slug) }}"
+                                                               rel="bookmark">{{ $post->title }}</a></h5>
+                                                       <div class="entry-meta mt-0">
+                                                           <span
+                                                               class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
+                                                                   class="far fa-calendar-alt mr-10 text-theme-colored"></i>
+                                                               {{ $post->created_at->diffForHumans() }}</span>
+                                                           <span
+                                                               class="mb-10 text-gray-darkgray mr-10 font-size-13"><i
+                                                                   class="far fa-user mr-10 text-theme-colored"></i>
+                                                               {{ $post->author_name }}</span>
+                                                       </div>
 
-                                                            <div class="post-excerpt">
-                                                                <div class="mascot-post-excerpt">{!! Str::limit($post->description, 150) !!}
-                                                                </div>
-                                                            </div>
-                                                            <div class="post-btn-readmore"> <a
-                                                                    href="{{ route('posts.show', $post->slug) }}"
-                                                                    class="btn btn-plain-text-with-arrow"> عرض التفاصيل
-                                                                </a>
-                                                            </div>
-                                                            <div class="clearfix"></div>
-                                                        </div>
-                                                    </article>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Isotope Item End -->
-                                    @endforeach
+                                                       <div class="post-excerpt">
+                                                           <div class="mascot-post-excerpt">{!! Str::limit($post->description, 150) !!}
+                                                           </div>
+                                                       </div>
+                                                       <div class="post-btn-readmore"> <a
+                                                               href="{{ route('posts.show', $post->slug) }}"
+                                                               class="btn btn-plain-text-with-arrow"> عرض التفاصيل
+                                                           </a>
+                                                       </div>
+                                                       <div class="clearfix"></div>
+                                                   </div>
+                                               </article>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <!-- Isotope Item End -->
+                               @endforeach
+                               @else
+                               <h3 style="color: white">لم يتم إضافة مقالات بعد</h3>
+                                   @endif
 
                                 </div>
                             </div>

@@ -28,7 +28,7 @@
 
 
         <!-- Section: Service details -->
-        <section>
+        <section id="service3">
             <div class="container">
                 <div class="section-content">
                     <div class="row">
@@ -143,6 +143,48 @@
                                 </div>
                             </div>
                             @endif
+
+                            @foreach ($service->sections as $section)
+                            @if (!$section->header)
+                            <div class="row" style="margin-top: 50px">
+                                <div class="col-md-12 col-lg-12 col-xl-12">
+                                    <p>{!! $section->content !!}</p>
+                                </div>
+                                <div class="col-md-12 col-lg-12 col-xl-12">
+                                @if ($section->image)
+                                    <div class="">
+                                        <div class="effect-wrapper">
+                                            <div class="thumb">
+                                                <img class="" src="{{ asset($section->image) }}"
+                                                    alt="" style="width: auto !important;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                                </div>
+                            </div>
+
+                            @else
+                            <div class="entry-content" style="margin-top: 75px">
+                                <blockquote
+                                    class="tm-sc-blockquote blockquote-style6  border-left-theme-colored quote-icon-theme-colored">
+                                    <p>{!! $section->content !!}</cite></footer>
+                                </blockquote>
+                            </div>
+                            <div class="col-md-12 col-lg-12 col-xl-12">
+                                @if ($section->image)
+                                    <div class="row" style="justify-content: center;text-align: center;">
+                                        <div class="effect-wrapper">
+                                            <div class="thumb">
+                                                <img class="" src="{{ asset($section->image) }}"
+                                                    alt="" style="width: auto !important;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                                </div>
+                            @endif
+                            @endforeach
                         </div>
                     </div>
                     @auth

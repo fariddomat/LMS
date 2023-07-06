@@ -9,19 +9,16 @@ position: relative;">
                     <div class="row header-nav-col-row">
                         <div class="col-sm-auto ms-auto align-self-center">
                             <a class="menuzord-brand site-brand" href="{{ route('home') }}">
-                                <img class="logo-default logo-1x "
-                                    src="{{ asset('logo.webp') }}" alt="Logo">
-                                    <span class="ttt">
+                                <img class="logo-default logo-1x " src="{{ asset('logo.webp') }}" alt="Logo">
+                                <span class="ttt">
                                     {{ setting('site_name') }}
 
-                                    </span>
-                                <img class="logo-default logo-2x retina"
-                                    src="{{ asset('logo.webp') }}" alt="Logo">
+                                </span>
+                                <img class="logo-default logo-2x retina" src="{{ asset('logo.webp') }}" alt="Logo">
                             </a>
                         </div>
                         <div class="col-sm-auto ms-auto pr-0 align-self-center">
-                            <nav id="top-primary-nav"
-                                class="menuzord theme-color1 pull-left flip menuzord-responsive"
+                            <nav id="top-primary-nav" class="menuzord theme-color1 pull-left flip menuzord-responsive"
                                 data-effect="slide" data-animation="none" data-align="right">
                                 <ul id="main-nav" class="menuzord-menu">
                                     <li class="{{ Request::is('/') ? 'active' : '' }}  menu-item">
@@ -44,19 +41,33 @@ position: relative;">
                                         <a href="{{ route('contactPage') }}">اتصل بنا</a>
                                     </li>
                                     @auth
-                                    @if (Auth::user()->hasRole('user'))
-
-                                    <li class="{{ Request::is('profiles*') ? 'active' : '' }}  menu-item">
-                                        <a href="{{ route('profiles.index') }}">الملف الشخصي</a>
-                                    </li>
-                                    @endif
+                                        @if (Auth::user()->hasRole('user'))
+                                            <li class="{{ Request::is('profiles*') ? 'active' : '' }}  menu-item">
+                                                <a href="{{ route('profiles.index') }}">الملف الشخصي</a>
+                                            </li>
+                                        @endif
                                     @endauth
                                     {{-- <li class="{{ Request::is('integrativeMedicine') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('integrativeMedicine') }}">الطب التكاملي</a>
                                     </li> --}}
-                                    <li class="{{ Request::is('login') ? 'active' : '' }} menu-item">
-                                        <a href="{{ route('login') }}">دخول</a>
-                                    </li>
+                                    @auth
+                                        <li class="menu-item">
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                                                خروج
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                                    class="d-none">
+                                                    @csrf
+                                                </form>
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="{{ Request::is('login') ? 'active' : '' }} menu-item">
+                                            <a href="{{ route('login') }}">دخول</a>
+                                        </li>
+                                    @endauth
                                 </ul>
                             </nav>
                         </div>

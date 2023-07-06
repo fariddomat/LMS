@@ -30,18 +30,19 @@
                           {{-- <p>{{setting('site_about')}}</p> --}}
                           <div class="tm-sc-unordered-list list-style2">
                               <ul>
-                                  <li><strong>رقم الواتس اب لحجز الجلسات:</strong> <a href="tel:+9665594361874">009665594361874</a></li>
-                                  <li><strong>رقم الهاتف للاستفسار عن الاكاديمية:</strong> <a href="tel:+966563872550">00966563872550</a></li>
+                                  <li><strong>رقم الواتس اب لحجز الجلسات:</strong> <a href= "https://wa.me/009665594361874">009665594361874</a></li>
+                                  <li><strong>رقم الهاتف للاستفسار عن الاكاديمية:</strong> <a href="tel:00966563872550">00966563872550</a></li>
                                   <li><strong>البريد الالكتروني:</strong> <a
                                           href="mailto:{{setting('site_email')}}">{{setting('site_email')}}</a></li>
                                   <li><strong>العنوان:</strong> {{setting('site_location')}}</li>
                               </ul>
                           </div>
                           <ul class="styled-icons icon-dark icon-sm icon-circled mt-30">
-                              <li><a class="social-link" data-tm-bg-color="#3B5998" href="{{ setting('facebook_link') }}"><i class="fab fa-facebook"></i></a></li>
+                              <li><a class="social-link" data-tm-bg-color="#EAA2A1" href="{{ setting('instagram_link') }}"><i class="fab fa-instagram"></i></a></li>
+                              <li><a class="social-link" data-tm-bg-color="#D9CCB9" href="{{ setting('instagram2_link') }}"><i class="fab fa-instagram"></i></a></li>
                               <li><a class="social-link" data-tm-bg-color="#4C75A3" href="{{ setting('twitter_link') }}"><i class="fab fa-twitter"></i></a></li>
                               <li><a class="social-link" data-tm-bg-color="#A4CA39" href="{{ setting('whatsapp_link') }}"><i class="fab fa-whatsapp"></i></a></li>
-                              <li><a class="social-link" data-tm-bg-color="#D9CCB9" href="{{ setting('instagram_link') }}"><i class="fab fa-instagram"></i></a></li>
+
                             </ul>
                       </div>
                       <div class="col-lg-7">

@@ -40,7 +40,7 @@
 
                         <div class="row pr-2 pl-2">
                             @php
-                            $social_sites=[ 'facebook','twitter','instagram', 'whatsapp'];
+                            $social_sites=[ 'instagram','twitter','instagram2', 'whatsapp'];
                            @endphp
                            @foreach ($social_sites as $social_site)
 

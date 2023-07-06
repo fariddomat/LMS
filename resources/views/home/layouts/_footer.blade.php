@@ -10,9 +10,14 @@
                         </div>
                         <div class="description">{!! setting('site_about') !!}</div>
                     </div>
-                    <ul class="styled-icons icon-dark icon-theme-colored1 icon-rounded clearfix">
-
-                    </ul>
+                    <div class="tm-sc-unordered-list list-style2">
+                        <ul>
+                            <li><strong>رقم الواتس اب لحجز الجلسات:</strong> <a href= "https://wa.me/{{setting('site_phone')}}">{{setting('site_phone')}}</a></li>
+                            <li><strong>رقم الهاتف للاستفسار عن الاكاديمية:</strong> <a href="tel:{{setting('site_phone2')}}">{{setting('site_phone2')}}</a></li>
+                            <li><strong>البريد الالكتروني:</strong> <a
+                                    href="mailto:{{setting('site_email')}}">{{setting('site_email')}}</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-4">
                     <div class="widget widget_nav_menu">

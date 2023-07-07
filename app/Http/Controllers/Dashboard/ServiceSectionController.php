@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\ServiceSection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceSectionController extends Controller
 {
@@ -76,9 +77,19 @@ class ServiceSectionController extends Controller
 
     public function destroy($section)
     {
-
         $section=ServiceSection::findOrFail($section);
         $section->delete();
         return redirect()->back()->with('success', 'Section deleted successfully.');
+    }
+
+    public function destroyImage($section)
+    {
+        $section=ServiceSection::findOrFail($section);
+        if ($section->image) {
+            Storage::disk('public')->delete($section->image);
+            $section->image = null;
+            $section->save();
+        }
+        return redirect()->back()->with('success', 'Image deleted successfully.');
     }
 }

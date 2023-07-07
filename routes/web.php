@@ -120,6 +120,7 @@ Route::get('/clear', function() {
     Route::get('/services/sections/{section}/edit', 'App\Http\Controllers\Dashboard\ServiceSectionController@edit')->name('sections.edit');
     Route::put('/services/sections/{section}', 'App\Http\Controllers\Dashboard\ServiceSectionController@update')->name('sections.update');
     Route::delete('/services/sections/{section}/delete', 'App\Http\Controllers\Dashboard\ServiceSectionController@destroy')->name('sections.destroy');
+    Route::delete('/services/sections/{section}/deleteImage', 'App\Http\Controllers\Dashboard\ServiceSectionController@destroyImage')->name('sections.destroyImage');
 
 
     Route::resource('orderservices','App\Http\Controllers\Dashboard\OrderServiceController');

@@ -1,15 +1,13 @@
 @extends('layouts.dashboard')
 @push('scripts')
-
-<script src="{{asset('dashboard/js/image_preview.js')}}"></script>
+    <script src="{{ asset('dashboard/js/image_preview.js') }}"></script>
 @endpush
 @push('scripts')
-<script type="text/javascript">
-    var imageGalleryBrowseUrl = "{{ route('dashboard.imageGallery.browser') }}";
-    var imageGalleryUploadUrl = "{{ route('dashboard.imageGallery.uploader') }}";
-</script>
-<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
-
+    <script type="text/javascript">
+        var imageGalleryBrowseUrl = "{{ route('dashboard.imageGallery.browser') }}";
+        var imageGalleryUploadUrl = "{{ route('dashboard.imageGallery.uploader') }}";
+    </script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
 @endpush
 @section('content')
     <main class="main">
@@ -17,7 +15,8 @@
         <!-- Breadcrumb -->
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a>edit</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('dashboard.sections.index', $section->service_id) }}">IntegrativeMedicines</a></li>
+            <li class="breadcrumb-item"><a
+                    href="{{ route('dashboard.sections.index', $section->service_id) }}">IntegrativeMedicines</a></li>
             <li class="breadcrumb-item"><a href="">Admin</a>
             </li>
             <li class="breadcrumb-item active">Dashboard</li>
@@ -34,21 +33,23 @@
                             <h4>تعديل التفاصيل</h4>
                         </div>
                         <div class="card-block">
-                            <form action="{{ route('dashboard.sections.update', $section->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('dashboard.sections.update', $section->id) }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                                 <div class="form-group">
                                     <label for="header">تعريفي؟</label>
-                                    <input type="checkbox" class="checkbox-form-control" id="header" name="header"  {{ $section->header ? 'checked' : '' }}>
+                                    <input type="checkbox" class="checkbox-form-control" id="header" name="header"
+                                        {{ $section->header ? 'checked' : '' }}>
                                 </div>
 
                                 <div class="form-group">
@@ -62,30 +63,39 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <img src="{{ asset($section->image) }}" style="width: 300px;" class="img-thumbnail image-preview" alt="">
+                                    <img src="{{ asset($section->image) }}" style="width: 300px;"
+                                        class="img-thumbnail image-preview" alt="">
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">تعديل</button>
                             </form>
+                            @if ($section->image != '')
+                                <form action="{{ route('dashboard.sections.destroyImage', $section) }}" method="POST"
+                                    class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger delete" style="margin-top: 15px">حذف
+                                        الصورة</button>
+                                </form>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    @endsection
+@endsection
 
-    @push('scripts')
+@push('scripts')
     <script>
         $(function() {
-        CKEDITOR.replace("_editor", {
-            filebrowserBrowseUrl: imageGalleryBrowseUrl,
-            filebrowserUploadUrl:
-                imageGalleryUploadUrl +
-                "?_token=" +
-                $("meta[name=csrf-token]").attr("content"),
-            removeButtons: "_editor"
+            CKEDITOR.replace("_editor", {
+                filebrowserBrowseUrl: imageGalleryBrowseUrl,
+                filebrowserUploadUrl: imageGalleryUploadUrl +
+                    "?_token=" +
+                    $("meta[name=csrf-token]").attr("content"),
+                removeButtons: "_editor"
+            });
         });
-    });
     </script>
-    @endpush
+@endpush

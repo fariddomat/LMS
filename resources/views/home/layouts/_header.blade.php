@@ -26,7 +26,7 @@ position: relative;">
                                     </li>
 
                                     <li class="{{ Request::is('whoiam') ? 'active' : '' }} menu-item">
-                                        <a href="{{ route('whoiam') }}">من أنا؟</a>
+                                        <a href="{{ route('whoiam') }}">رحلتي إلى هوليستك</a>
                                     </li>
                                     <li class="{{ Request::is('service*') ? 'active' : '' }} menu-item">
                                         <a href="{{ route('services.index') }}">خدماتنا</a>

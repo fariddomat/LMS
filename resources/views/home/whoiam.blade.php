@@ -17,7 +17,7 @@
                 <div class="section-content">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <h2 class="title">من أنا؟</h2>
+                            <h2 class="title">رحلتي إلى هوليستك</h2>
                         </div>
                     </div>
                 </div>
@@ -41,8 +41,7 @@
                 </div>
             </div>
         </section>
-        <section  class="divider parallax "  data-parallax-ratio="0.1"
-        data-tm-bg-img="{{ asset('home/images/bg/video.png') }}" style="background-color: #202C45; justify-content: center">
+        <section  class="divider parallax " style="background-color: #FEF6EC; justify-content: center">
             <div class="col-md-12"
             style="margin: 85px;
         padding: 0;

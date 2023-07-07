@@ -117,8 +117,7 @@
         </section>
 
         <!-- Section: blog -->
-        <section id="blog" class="divider parallax layer-overlay overlay-white-4" data-parallax-ratio="0.1"
-            data-tm-bg-img="{{ asset('home/images/bg/posts.jpg') }}">
+        <section id="blog" class="divider parallax layer-overlay overlay-white-4" style="background-color: #FEF6EC;">
             <div class="container pt-90">
                 <div class="section-title">
                     <div class="row justify-content-md-center">
@@ -196,7 +195,7 @@
                                    <!-- Isotope Item End -->
                                @endforeach
                                @else
-                               <h3 style="color: white">لم يتم إضافة مقالات بعد</h3>
+                               <h3 style="color: #375651">لم يتم إضافة مقالات بعد</h3>
                                    @endif
 
                                 </div>

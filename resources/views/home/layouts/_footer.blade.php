@@ -33,13 +33,10 @@
                             </li>
                             <li>
                                 <a href="https://tajir.maroof.sa/stores/299220">
-                                    <img src="{{ asset('paymentslogo/maroof.svg') }}" style="max-width: 200px;" alt="">
+                                    <img src="{{ asset('paymentslogo/maroof.svg') }}" style="max-width: 140px;margin-top: -15px" alt="">
                                 </a>
-                            </li>
-
-                            <li>
                                <a href="https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=0000024848">
-                                <img src="{{ asset('paymentslogo/saudiWork.png') }}" style="max-width: 200px;" alt="">
+                                <img src="{{ asset('paymentslogo/saudiWork.png') }}" style="max-width: 190px;margin-top: -7px" alt="">
                                </a>
                             </li>
 

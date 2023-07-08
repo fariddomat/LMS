@@ -21,12 +21,30 @@
                 </div>
                 <div class="col-md-6 col-lg-6 col-xl-4">
                     <div class="widget widget_nav_menu">
-                        <h4 class="widget-title widget-title-line-bottom line-bottom-theme-colored1">خدماتنا</h4>
+                        <h4 class="widget-title widget-title-line-bottom line-bottom-theme-colored1">وسائل الدفع المتاحة</h4>
                         <ul>
-                            @foreach ($services_count as $service)
+                            <li>
+                                <img src="{{ asset('paymentslogo/mada.png') }}" style="max-width: 70px" alt="">
+                                <img src="{{ asset('paymentslogo/stcpay.svg') }}" style="max-width: 70px" alt="">
+                                <img src="{{ asset('paymentslogo/pngwing.com.png') }}" style="max-width: 140px" alt="">
+                            </li>
+                            <li>
+                                <img src="{{ asset('paymentslogo/tabby_logo.webp') }}" style="max-width: 100px;margin-top: -15px;" alt="">
+                            </li>
+                            <li>
+                                <a href="https://tajir.maroof.sa/stores/299220">
+                                    <img src="{{ asset('paymentslogo/maroof.svg') }}" style="max-width: 200px;" alt="">
+                                </a>
+                            </li>
 
-                            <li><a href="{{ route('services.show', $service->title) }}">{{ $service->title }}</a></li>
-                            @endforeach
+                            <li>
+                               <a href="https://eauthenticate.saudibusiness.gov.sa/inquiry?certificateRefID=0000024848">
+                                <img src="{{ asset('paymentslogo/saudiWork.png') }}" style="max-width: 200px;" alt="">
+                               </a>
+                            </li>
+
+
+
                         </ul>
                     </div>
                 </div>

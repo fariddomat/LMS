@@ -40,7 +40,6 @@ class CourseController extends Controller
         ]);
 
         $thumbnail = Image::make($request->thumbnail)
-            ->resize(530, 390)
             ->encode('jpg');
 
         Storage::disk('public')->put('public/images/courses/' . $request->thumbnail->hashName(), (string)$thumbnail, 'public');
@@ -72,7 +71,6 @@ class CourseController extends Controller
             if ($course->thumbnail != null)
                 Storage::disk('public')->delete('public/images/courses/' . $course->thumbnail);
             $thumbnail = Image::make($request->thumbnail)
-                ->resize(530, 390)
                 ->encode('jpg');
 
             Storage::disk('public')->put('public/images/courses/' . $request->thumbnail->hashName(), (string)$thumbnail, 'public');

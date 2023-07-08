@@ -15,6 +15,9 @@
     <!-- end main-content -->
 
     @include('home.layouts._footer')
+    <script>
+        console.log = function () {};
+    </script>
 </body>
 
 </html>

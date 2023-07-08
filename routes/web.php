@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['middleware' => 'WebMiddleware'], function(){
 Route::get('/', 'App\Http\Controllers\Home\HomeController@index')->name('home');
+
+
 Route::resource('posts','App\Http\Controllers\Home\PostController');
 Route::resource('academy','App\Http\Controllers\Home\AcademyController');
 Route::resource('courses','App\Http\Controllers\Home\CourseController');
@@ -142,3 +144,6 @@ Route::get('/clear', function() {
 Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::any('/lessons/video/{file}', 'App\Http\Controllers\Home\HomeController@video')->where(['file'=>'.*']);

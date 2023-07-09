@@ -15,7 +15,7 @@ class ProfileController extends Controller
     {
 
         $profiles = Profile::whenSearch(request()->search)
-            ->paginate(5);
+            ->paginate(40);
         return view('dashboard.profiles.index', compact('profiles'));
     }
 

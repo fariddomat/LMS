@@ -46,8 +46,8 @@
 
         <section class="divider parallax " data-parallax-ratio="0.1" data-tm-bg-img="{{ asset('home/images/bg/video.png') }}"
             style="background-color: #202C45; justify-content: center">
-            <div class="col-md-12"
-                style="margin: 85px;
+            <div class="col-md-12 video"
+                style="
         padding: 0;
         box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
         -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);

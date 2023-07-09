@@ -20,7 +20,7 @@ class UserController extends Controller
             ->whenSearch(request()->search)
             ->whenRole(request()->role_id)
             ->with('roles')
-            ->paginate(25);
+            ->paginate(40);
         return view('dashboard.users.index',compact('users','roles'));
     }
 

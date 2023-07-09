@@ -132,6 +132,15 @@
         .lg-css3.lg-fade .lg-item.lg-current {
             left: 0;
         }
+
+        .video{
+                margin: 85px;
+            }
+        @media only screen and (max-width: 600px) {
+            .video{
+                margin: 15px;
+            }
+}
     </style>
 
     @yield('styles')
@@ -257,7 +266,7 @@
 
         .rating2:not(:checked)>input {
             position: absolute;
-            top: -9999px;
+            top: auto;
             clip: rect(0, 0, 0, 0);
         }
 
@@ -297,6 +306,7 @@
         .rating2>label:active {
             position: relative;
         }
+
     </style>
 
     <link rel="stylesheet" href="{{ asset('noty/noty.css') }}">

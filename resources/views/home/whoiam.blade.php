@@ -42,8 +42,8 @@
             </div>
         </section>
         <section  class="divider parallax " style="background-color: #FEF6EC; justify-content: center">
-            <div class="col-md-12"
-            style="margin: 85px;
+            <div class="col-md-12 video"
+            style="
         padding: 0;
         box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
         -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);

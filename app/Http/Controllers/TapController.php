@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 require_once('../laravel_project/vendor/autoload.php');
 
+use App\Models\PaymentRegister;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -110,6 +111,14 @@ class TapController extends Controller
             $profile=Profile::where('email',$responseTap->customer->email)->firstOrFail();
             $profile->status='paid';
             $profile->save();
+
+            PaymentRegister::create([
+                'user_id'=>auth()->id(),
+                'amount'=>$responseTap->amount,
+                'currency'=>$responseTap->currency,
+                'payment_gateway'=>'Tap',
+                'transaction_id'=>$responseTap->id,
+            ]);
             return redirect()->route('profiles.index')->with('success', 'Payment Successfully Made.');
         }
 

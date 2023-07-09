@@ -70,25 +70,12 @@ class HomeController extends Controller
         $enrollment=Enrollment::where('course_id',$lesson->course_id)
             ->where('user_id', auth()->id())
             ->firstOrFail();
-        $videoPath = public_path($lesson->video_path);
+        $videoPath = $lesson->video_path;
         // Generate a unique token for each video request
-    $token = md5($file . time());
-
-    \Cache::put($token, $file, now()->addSeconds(5));
         $headers = [
             'Content-Type' => 'video/mp4',
-            'Content-Disposition' => 'inline',
-            'X-Accel-Buffering' => 'no',
-            'Cache-Control' => 'no-cache, no-store, must-revalidate',
-            'Pragma' => 'no-cache',
-            'Expires' => '0',
-            'X-Video-Token' => $token
         ];
 
-
-        return response()->stream(function () use ($videoPath) {
-            $stream = fopen($videoPath, 'rb');
-            fpassthru($stream);
-        }, 200, $headers);
+        return response()->file($videoPath, $headers);
     }
 }

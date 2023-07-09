@@ -15,7 +15,7 @@ class ServiceReviewController extends Controller
      */
     public function index()
     {
-        $reviews=ServiceReview::latest()->paginate(20);
+        $reviews=ServiceReview::latest()->paginate(40);
         return view('dashboard.services.reviews.index', compact('reviews'));
     }
 

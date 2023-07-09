@@ -17,7 +17,7 @@ class OrderServiceController extends Controller
      */
     public function index()
     {
-        $orders = OrderService::latest()->paginate(10);
+        $orders = OrderService::latest()->paginate(40);
         return view('dashboard.orderservices.index', compact('orders'));
     }
 

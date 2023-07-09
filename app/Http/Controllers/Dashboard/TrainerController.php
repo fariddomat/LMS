@@ -20,7 +20,7 @@ class TrainerController extends Controller
      */
     public function index()
     {
-        $trainers=Trainer::paginate(5);
+        $trainers=Trainer::paginate(40);
         return view('dashboard.trainers.index', compact('trainers'));
     }
 

@@ -14,7 +14,7 @@ class EnrollmentController extends Controller
 {
     public function index()
     {
-        $enrollments = Enrollment::latest()->paginate(25);
+        $enrollments = Enrollment::latest()->paginate(40);
 
         return view('dashboard.enrollments.index', compact('enrollments'));
     }

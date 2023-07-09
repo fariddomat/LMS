@@ -102,7 +102,20 @@ class User extends Authenticatable
 
     }
 
-  
+
+    public function payment_services()
+    {
+        return $this->hasMany(PaymentService::class);
+
+    }
+
+    public function payment_registers()
+    {
+        return $this->hasMany(PaymentRegister::class);
+
+    }
+
+
 
     public function delete()
     {

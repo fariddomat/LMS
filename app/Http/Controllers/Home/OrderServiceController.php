@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\OrderService;
+use App\Models\PaymentService;
 use App\Models\Profile;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -31,10 +32,18 @@ class OrderServiceController extends Controller
     public function create(Request $request)
     {
         $service=Service::findOrFail($request->service_id);
+        if($service->price==0){
+            return redirect()->back();
+        }
         $user = Auth::user();
         if(!$user)
             abort(403);
 
+        $order=OrderService::where('user_id', $user->id)->where('service_id',$service->id)->get();
+        if($order->count() > 0){
+            session()->flash('success','لقد طلبت هذه الخدمة مسبقا !');
+            return redirect()->back();
+        }
         $profile = Profile::where('email', $user->email)->firstOrFail();
         // if ($profile->status != 'active') {
         //     return redirect()->route('profiles.index');
@@ -86,7 +95,7 @@ class OrderServiceController extends Controller
                     "redirect":{"url":"https://holistichealth.sa/orderservices/tap-callback/'.$request->service_id.'"}}',
 
             'headers' => [
-                'Authorization' => 'Bearer sk_test_Bp25K4oXYmUSvie8NC3OMF1H',
+                'Authorization' => 'Bearer sk_live_lXMKocjxUQt0Z3hORNarzI4B',
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
             ],
@@ -116,7 +125,7 @@ class OrderServiceController extends Controller
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_POSTFIELDS => "{}",
             CURLOPT_HTTPHEADER => array(
-                "authorization: Bearer sk_test_Bp25K4oXYmUSvie8NC3OMF1H" // SECRET API KEY
+                "authorization: Bearer sk_live_lXMKocjxUQt0Z3hORNarzI4B" // SECRET API KEY
             ),
         ));
 
@@ -132,6 +141,15 @@ class OrderServiceController extends Controller
                 'user_id' => auth()->id(),
             ]);
 
+
+            PaymentService::create([
+                'user_id'=>auth()->id(),
+                'service_id'=>$id,
+                'amount'=>$responseTap->amount,
+                'currency'=>$responseTap->currency,
+                'payment_gateway'=>'Tap',
+                'transaction_id'=>$responseTap->id,
+            ]);
 
             return redirect()->route('services.show', $service->title)->with('success', 'Payment Successfully Made.');
         }

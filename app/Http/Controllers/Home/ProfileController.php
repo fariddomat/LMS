@@ -72,7 +72,8 @@ class ProfileController extends Controller
 
         $role=Role::where('name', $request->type)->firstOrFail();
         $user->attachRoles([$role->id]);
-        session()->flash('success','تم الحفظ بنجاح !');
+        session()->flash('success','تم رفع الطلب إلى إدارة الأكاديمية للمراجعة، دمتم بخير !');
+
 
         return redirect()->route('login');
     }

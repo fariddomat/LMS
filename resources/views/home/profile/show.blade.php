@@ -55,7 +55,7 @@
                                     <i class="pe-7s-lock text-theme-colored font-size-24 mt-1 me-3"></i>
                                 </div>
                                 <div class="flex-shrink-1">
-                                    <p>أكمل إعداد ملفك الشخصي للوصول إلى الأكاديمية بتسديد رسوم الحساب والتي قدرها 300 ريال</p>
+                                    <p>أكمل إعداد ملفك الشخصي للوصول إلى الأكاديمية بتسديد رسوم الحساب والتي قدرها 350 ريال</p>
                                     <form action="{{ route('tap.payment') }}" method="POST">
                                         @csrf
                                         <button type="submit" class="btn btn-light">تسديد الآن</button>

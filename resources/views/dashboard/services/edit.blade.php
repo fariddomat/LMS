@@ -40,8 +40,8 @@
         <!-- Breadcrumb -->
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a>Edit</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('dashboard.tags.index') }}">Tags</a></li>
-            <li class="breadcrumb-item"><a href="">Admin</a>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.services.index') }}">Services</a></li>
+             <li class="breadcrumb-item"><a href="">Admin</a>
             </li>
             <li class="breadcrumb-item active">Dashboard</li>
 

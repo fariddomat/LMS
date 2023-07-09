@@ -15,8 +15,7 @@
         <!-- Breadcrumb -->
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a>edit</a></li>
-            <li class="breadcrumb-item"><a
-                    href="{{ route('dashboard.sections.index', $section->service_id) }}">IntegrativeMedicines</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('dashboard.sections.index', $section->service_id) }}">sections</a></li>
             <li class="breadcrumb-item"><a href="">Admin</a>
             </li>
             <li class="breadcrumb-item active">Dashboard</li>

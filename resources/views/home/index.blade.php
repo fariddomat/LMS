@@ -106,6 +106,11 @@
                                             <a href="{{ route('services.show', $service->title) }}" target="_self"
                                                 class="btn btn-dark btn-theme-colored1 btn-sm btn-block mt-15 mb-20"> قراءة
                                                 المزيد </a>
+
+                                                <form action="{{ route('orderservices.create') }}" method="get">
+                                                    <input type="hidden" name="service_id" value="{{ $service->id }}">
+                                                        <button type="submit" class="btn btn-dark btn-theme-colored3 text-uppercase"> أطلب الخدمة الآن</button>
+                                                    </form>
                                         </div>
                                     </div>
                                 </div>

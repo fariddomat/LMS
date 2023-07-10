@@ -95,7 +95,7 @@ class OrderServiceController extends Controller
                     "redirect":{"url":"https://holistichealth.sa/orderservices/tap-callback/'.$request->service_id.'"}}',
 
             'headers' => [
-                'Authorization' => 'Bearer sk_live_lXMKocjxUQt0Z3hORNarzI4B',
+                'Authorization' => 'Bearer sk_test_lXMKocjxUQt0Z3hORNarzI4B',
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
             ],
@@ -125,7 +125,7 @@ class OrderServiceController extends Controller
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_POSTFIELDS => "{}",
             CURLOPT_HTTPHEADER => array(
-                "authorization: Bearer sk_live_lXMKocjxUQt0Z3hORNarzI4B" // SECRET API KEY
+                "authorization: Bearer sk_test_lXMKocjxUQt0Z3hORNarzI4B" // SECRET API KEY
             ),
         ));
 

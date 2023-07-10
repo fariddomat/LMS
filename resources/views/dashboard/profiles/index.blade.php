@@ -102,7 +102,16 @@
                                                                     aria-hidden="true"></i> تفعيل</button>
                                                         </form>
                                                     @endif
-
+                                                    @if ($profile->status == 'pending')
+                                                    <form action="{{ route('dashboard.profiles.paid', $profile->id) }}"
+                                                        method="POST" style="display: inline-block">
+                                                        @csrf
+                                                        @method('post')
+                                                        <button type="submit" class="btn btn-outline-info"
+                                                            style="display: inline-block"><i class="fa fa-money"
+                                                                aria-hidden="true"></i> سداد الرسم</button>
+                                                    </form>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         @endforeach

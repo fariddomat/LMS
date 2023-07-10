@@ -189,4 +189,17 @@ class ProfileController extends Controller
         } else
             return response()->json(['message' => 'error'], 404);
     }
+
+    public function paid($id)
+    {
+        $profile = Profile::find($id);
+        if ($profile) {
+                $profile->update([
+                    'status' => 'paid'
+                ]);
+            session()->flash('success', 'تم تسديد الدفعات بنجاح !');
+            return redirect()->route('dashboard.profiles.index');
+        } else
+            return response()->json(['message' => 'error'], 404);
+    }
 }

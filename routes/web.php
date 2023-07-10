@@ -73,6 +73,7 @@ Route::get('/clear', function() {
     Route::resource('profiles','App\Http\Controllers\Dashboard\ProfileController');
     Route::post('active/{id}', 'App\Http\Controllers\Dashboard\ProfileController@active')->name('profiles.active');
     Route::post('reject/{id}', 'App\Http\Controllers\Dashboard\ProfileController@reject')->name('profiles.reject');
+    Route::post('paid/{id}', 'App\Http\Controllers\Dashboard\ProfileController@paid')->name('profiles.paid');
     Route::resource('trainers','App\Http\Controllers\Dashboard\TrainerController');
 
     Route::resource('posts','App\Http\Controllers\Dashboard\PostController');

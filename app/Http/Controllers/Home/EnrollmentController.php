@@ -33,12 +33,20 @@ class EnrollmentController extends Controller
     {
 
         $user = Auth::user();
-        if(!$user)
+        if (!$user)
             abort(403);
 
         $profile = Profile::where('email', $user->email)->firstOrFail();
         if ($profile->status != 'active') {
+            session()->flash('success', 'لم يتم تفعيل حسابك بعد !');
             return redirect()->route('profiles.index');
+        }
+
+        $enrollment = Enrollment::where('user_id',auth()->id())
+                                ->where('course_id',1)->get();
+        if ($enrollment->count() > 0) {
+            session()->flash('success', 'لقد طلبت قمت بشراء هذه الدورة مسبقا !');
+            return redirect()->back();
         }
 
         $phoneNumber = $profile->mobile; // Replace with your phone number variable
@@ -71,7 +79,7 @@ class EnrollmentController extends Controller
                 "metadata":{"udf1":"Metadata 1"},
                 "reference":{
                     "transaction":"txn_01",
-                    "order":"'.$request->course_id.'"
+                    "order":"' . $request->course_id . '"
                 },
                 "receipt":{"email":true,"sms":true},
                 "customer":{
@@ -123,26 +131,26 @@ class EnrollmentController extends Controller
         curl_close($curl);
 
         $responseTap = json_decode($response);
-        $course=Course::findOrFail(1);
+        $course = Course::findOrFail(1);
         if ($responseTap->status == 'CAPTURED') {
             // dd($responseTap);
             // dd($responseTap->reference->order);
-            $enrollment=Enrollment::firstOrCreate([
-                'user_id'=> auth()->id(),
-                'course_id'=>$course->id
+            $enrollment = Enrollment::firstOrCreate([
+                'user_id' => auth()->id(),
+                'course_id' => $course->id
             ]);
 
             Payment::create([
-                'enrollment_id'=>$enrollment->id,
-                'amount'=>$responseTap->amount,
-                'currency'=>$responseTap->currency,
-                'payment_gateway'=>'Tap',
-                'transaction_id'=>$responseTap->id,
+                'enrollment_id' => $enrollment->id,
+                'amount' => $responseTap->amount,
+                'currency' => $responseTap->currency,
+                'payment_gateway' => 'Tap',
+                'transaction_id' => $responseTap->id,
             ]);
-
+            session()->flash('success', 'لقد تمت عملية شراء الدورة بنجاح !');
             return redirect()->route('courses.show', $course->title)->with('success', 'Payment Successfully Made.');
         }
-
+        session()->flash('success', 'لم نتمكن من اتمام طلبك !');
         return redirect()->route('courses.show', $course->title)->with('error', 'Something Went Wrong.');
     }
 

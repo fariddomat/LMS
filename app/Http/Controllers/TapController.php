@@ -25,6 +25,19 @@ class TapController extends Controller
             abort(403);
 
         $profile = Profile::where('email', $user->email)->firstOrFail();
+        if ($profile->status == 'active') {
+            session()->flash('success', 'لقد تم تفعيل حسابك بالفعل !');
+            return redirect()->back();
+        }
+        if ($profile->status =='paid') {
+            session()->flash('success', 'لقد قمت بالدفع بالفعل !');
+            return redirect()->back();
+        }
+
+        if ($profile->status =='reject' || $profile->status=='paid_reject') {
+            session()->flash('success', 'لقد تم إلغاء تفعيل حسابك لايمكن إتمام العملية !');
+            return redirect()->back();
+        }
 
         $phoneNumber = $profile->mobile; // Replace with your phone number variable
 
@@ -119,9 +132,12 @@ class TapController extends Controller
                 'payment_gateway'=>'Tap',
                 'transaction_id'=>$responseTap->id,
             ]);
+
+            session()->flash('success', 'لقد تمت عملية الدفع بنجاح، انتظر أن تتم مراجعة طلبك من قبل الإدارة !');
             return redirect()->route('profiles.index')->with('success', 'Payment Successfully Made.');
         }
 
+        session()->flash('success', 'لم نتمكن من اتمام طلبك !');
         return redirect()->route('profiles.index')->with('error', 'Something Went Wrong.');
     }
 }

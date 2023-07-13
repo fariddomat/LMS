@@ -8,7 +8,7 @@
     document.addEventListener("contextmenu", (event) => {
        event.preventDefault();
     });
-    
+
    console._log = console.log
 console.log = function (log) {
   return console._log(`%c ${log}`, 'color:rgba(255,255,255,0)');
@@ -29,9 +29,10 @@ console.log = function (log) {
                             <h2 class="title">{{ $lesson->title }}</h2>
                             <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs">
                                 <div class="breadcrumbs">
-                                    <span class="active">{{ $lesson->title }}</span>
-                                    <span><i class="fa fa-angle-right"></i></span>
                                     <span><a href="{{ route('home') }}" rel="home">الرئيسية</a></span>
+
+                                    <span><i class="fa fa-angle-left"></i></span>
+                                    <span class="active">{{ $lesson->title }}</span>
                                 </div>
                             </nav>
                         </div>

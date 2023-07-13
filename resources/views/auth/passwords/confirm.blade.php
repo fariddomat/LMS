@@ -1,20 +1,20 @@
-@extends('layouts.app')
+@extends('home.layouts._app')
 
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 150px; margin-bottom: 75px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Confirm Password') }}</div>
+                <div class="card-header">تأكيد كلمة السر</div>
 
-                <div class="card-block">
-                    {{ __('Please confirm your password before continuing.') }}
+                <div class="card-block"  style="padding: 35px 0">
+                    قم بتأكيد كلمة السر قبل المتابعة
 
                     <form method="POST" action="{{ route('password.confirm') }}">
                         @csrf
 
                         <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-end">كلمة السر</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -29,13 +29,13 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Confirm Password') }}
+                                <button type="submit" class="btn btn-primary  btn-theme-colored1 form-control">
+                                    تأكيد
                                 </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                       هل نسيت كلمة السر؟
                                     </a>
                                 @endif
                             </div>

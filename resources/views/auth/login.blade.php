@@ -54,14 +54,17 @@
                             <div class="form-group">
                                 <button class="btn btn-dark btn-theme-colored1 btn-block mt-15" type="submit">دخول</button>
                             </div>
+                            <div class="col-md-12" style="margin-top: 15px">
+                                <a href="{{ route('password.request') }}" style="padding-top: 15px"> هل نسيت كلمة السر؟</a>
+                            </div>
 
 
-                    <div class="col-md-12">
-                        <p style="margin-top: 25px">ليس لديك حساب بعد؟</p>
+                            <div class="col-md-12">
+                                <p style="margin-top: 25px">ليس لديك حساب بعد؟</p>
 
                                 <a class="btn btn-dark btn-block   btn-theme-colored3  text-uppercase text-white"
-                                href="{{ route('profiles.create') }}">إنشاء حساب</a>
-                    </div>
+                                    href="{{ route('profiles.create') }}">إنشاء حساب</a>
+                            </div>
                         </form>
                     </div>
                 </div>

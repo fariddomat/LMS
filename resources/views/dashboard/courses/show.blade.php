@@ -42,7 +42,7 @@
                                         <td>{{ $lesson->title }}</td>
                                         <td>{{ $lesson->duration }}</td>
                                         <td>
-                                            <a href="{{ route('dashboard.lessons.show', $lesson->id) }}" class="btn btn-sm btn-success disabled" disabled>
+                                            <a href="{{ route('lessons.show', $lesson->id) }}" class="btn btn-sm btn-success " >
                                                 مشاهدة
                                             </a>
                                             <a href="{{ route('dashboard.lessons.edit', $lesson->id) }}" class="btn btn-sm btn-primary">

@@ -81,7 +81,7 @@ class TapController extends Controller
                     "post":{"url":"https://holistichealth.sa/tap-payment"},
                     "redirect":{"url":"https://holistichealth.sa/tap-callback"}}',
             'headers' => [
-                'Authorization' => 'Bearer sk_test_Bp25K4oXYmUSvie8NC3OMF1H',
+                'Authorization' => 'Bearer sk_test_2DMd3GstahTKrqHmwZ19PenX',
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
             ],
@@ -108,7 +108,7 @@ class TapController extends Controller
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_POSTFIELDS => "{}",
             CURLOPT_HTTPHEADER => array(
-                "authorization: Bearer sk_test_Bp25K4oXYmUSvie8NC3OMF1H" // SECRET API KEY
+                "authorization: Bearer sk_live_2DMd3GstahTKrqHmwZ19PenX" // SECRET API KEY
             ),
         ));
 

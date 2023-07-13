@@ -70,7 +70,7 @@ class EnrollmentController extends Controller
         $client = new \GuzzleHttp\Client();
         $response = $client->request('POST', 'https://api.tap.company/v2/charges', [
             'body' => '{
-                "amount":8000,
+                "amount":9200,
                 "currency":"SAR",
                 "customer_initiated":true,
                 "threeDSecure":true,
@@ -94,7 +94,7 @@ class EnrollmentController extends Controller
                     "post":{"url":"https://holistichealth.sa/enrollments/create"},
                     "redirect":{"url":"https://holistichealth.sa/enrollments/tap-callback"}}',
             'headers' => [
-                'Authorization' => 'Bearer sk_test_Bp25K4oXYmUSvie8NC3OMF1H',
+                'Authorization' => 'Bearer sk_test_2DMd3GstahTKrqHmwZ19PenX',
                 'accept' => 'application/json',
                 'content-type' => 'application/json',
             ],
@@ -121,7 +121,7 @@ class EnrollmentController extends Controller
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_POSTFIELDS => "{}",
             CURLOPT_HTTPHEADER => array(
-                "authorization: Bearer sk_test_Bp25K4oXYmUSvie8NC3OMF1H" // SECRET API KEY
+                "authorization: Bearer sk_test_2DMd3GstahTKrqHmwZ19PenX" // SECRET API KEY
             ),
         ));
 

@@ -26,10 +26,10 @@ class LessonController extends Controller
             }
             $lesson = Lesson::findOrFail($id);
             $lessons = Lesson::where('course_id', $lesson->course_id)->get();
-            if (!$user->hasRole('superadministrator')){
-            $enrollment=Enrollment::where('course_id',$lesson->course_id)
-            ->where('user_id', auth()->id())
-            ->firstOrFail();
+            if (!$user->hasRole('superadministrator')) {
+                $enrollment = Enrollment::where('course_id', $lesson->course_id)
+                    ->where('user_id', auth()->id())
+                    ->firstOrFail();
             }
             return view('home.lessons.show', compact('lesson', 'lessons'));
         } catch (\Throwable $th) {

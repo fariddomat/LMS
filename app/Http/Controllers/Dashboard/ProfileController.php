@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use Mail;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use App\Models\Role;
@@ -58,7 +59,7 @@ class ProfileController extends Controller
             'password' => $profile->password,
         ]);
 
-        $role=Role::where('name', $request->type)->firstOrFail();
+        $role = Role::where('name', $request->type)->firstOrFail();
         $user->attachRoles([$role->id]);
         session()->flash('success', 'تم الحفظ بنجاح !');
         return redirect()->route('dashboard.profiles.index');
@@ -116,7 +117,7 @@ class ProfileController extends Controller
             'email' => $profile->email,
         ]);
 
-        $role=Role::where('name', $request->type)->firstOrFail();
+        $role = Role::where('name', $request->type)->firstOrFail();
         $user->syncRoles([$role->id]);
 
         session()->flash('success', 'تم التعديل بنجاح !');
@@ -184,6 +185,24 @@ class ProfileController extends Controller
                     'status' => 'active'
                 ]);
             }
+            try {
+                $info = array(
+                    'name' => 'إلى ' . $user->name,
+
+                    'route' => route('courses.index'),
+                    'details' => 'شكرا لكم عزيزي الطالب لقد تم تفعيل حسابكم في الاكاديمية بنجاح يمكنك الآن تسجيل الدخول للاشتراك بالدورة بكل سهولة '
+                );
+                Mail::send('mail', $info, function ($message) use ($user) {
+                    $message->to($user->email, $user->name)
+                        ->subject('تم تفعيل حسابك بنجاح لدى holistichealth.sa');
+                    $message->from('notify@holistichealth.sa', ' Holistic Wellness - العافية الشمولية');
+                });
+
+                session()->flash('success', 'تم إرسال الإيميل بنجاح !');
+            } catch (\Throwable $th) {
+                //throw $th;
+                session()->flash('success', 'لم يتم إرسال الإيميل بنجاح !');
+            }
             session()->flash('success', 'تم تفعيل الحساب بنجاح !');
             return redirect()->route('dashboard.profiles.index');
         } else
@@ -194,9 +213,9 @@ class ProfileController extends Controller
     {
         $profile = Profile::find($id);
         if ($profile) {
-                $profile->update([
-                    'status' => 'paid'
-                ]);
+            $profile->update([
+                'status' => 'paid'
+            ]);
             session()->flash('success', 'تم تسديد الدفعات بنجاح !');
             return redirect()->route('dashboard.profiles.index');
         } else

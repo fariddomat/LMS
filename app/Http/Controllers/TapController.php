@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 require_once('../laravel_project/vendor/autoload.php');
 
+use Mail;
 use App\Models\PaymentRegister;
 use App\Models\Profile;
 use Illuminate\Http\Request;
@@ -108,7 +109,7 @@ class TapController extends Controller
             CURLOPT_CUSTOMREQUEST => "GET",
             CURLOPT_POSTFIELDS => "{}",
             CURLOPT_HTTPHEADER => array(
-                "authorization: Bearer sk_live_2DMd3GstahTKrqHmwZ19PenX" // SECRET API KEY
+                "authorization: Bearer sk_test_2DMd3GstahTKrqHmwZ19PenX" // SECRET API KEY
             ),
         ));
 
@@ -133,6 +134,23 @@ class TapController extends Controller
                 'transaction_id'=>$responseTap->id,
             ]);
 
+            try {
+                $user=Auth::user();
+                $info = array(
+                    'name' => 'إشعار عملية الدفع ',
+
+                    'route' => route('dashboard.profiles.index'),
+                    'details' => 'تمت عملية الدفع للطالب  '.$user->name.' لباقي التفاصيل '
+                );
+                Mail::send('mail', $info, function ($message) use ($user) {
+                    $message->to('notify@holistichealth.sa', 'notify')
+                        ->subject('تم الدفع لتفعيل حساب طالب');
+                    $message->from('notify@holistichealth.sa', ' Holistic Wellness - العافية الشمولية');
+                });
+
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
             session()->flash('success', 'لقد تمت عملية الدفع بنجاح، انتظر أن تتم مراجعة طلبك من قبل الإدارة !');
             return redirect()->route('profiles.index')->with('success', 'Payment Successfully Made.');
         }

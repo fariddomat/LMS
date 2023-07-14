@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use Mail;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Enrollment;
@@ -42,8 +43,8 @@ class EnrollmentController extends Controller
             return redirect()->route('profiles.index');
         }
 
-        $enrollment = Enrollment::where('user_id',auth()->id())
-                                ->where('course_id',1)->get();
+        $enrollment = Enrollment::where('user_id', auth()->id())
+            ->where('course_id', 1)->get();
         if ($enrollment->count() > 0) {
             session()->flash('success', 'لقد طلبت قمت بشراء هذه الدورة مسبقا !');
             return redirect()->back();
@@ -147,9 +148,45 @@ class EnrollmentController extends Controller
                 'payment_gateway' => 'Tap',
                 'transaction_id' => $responseTap->id,
             ]);
+            try {
+                $user = Auth::user();
+                $info = array(
+                    'name' => 'إلى ' . $user->name,
+
+                    'route' => route('profiles.index'),
+                    'details' => 'شكرا لانضمامكم لأكاديمية هوليستك لقد تم تأكيد سدادكم يمكنكم تسجيل الدخول و متابعة الدورة على موقعنا من خلال حسابكم في الاكاديمية '
+                );
+                Mail::send('mail', $info, function ($message) use ($user) {
+                    $message->to($user->email, $user->name)
+                        ->subject('تم الانضمام للأكاديمية بنجاح لدى holistichealth.sa');
+                    $message->from('notify@holistichealth.sa', ' Holistic Wellness - العافية الشمولية');
+                });
+
+                session()->flash('success', 'تم إرسال الإيميل بنجاح !');
+            } catch (\Throwable $th) {
+                //throw $th;
+                session()->flash('success', 'لم يتم إرسال الإيميل بنجاح !');
+            }
+            try {
+                $user = Auth::user();
+                $info = array(
+                    'name' => 'إشعار عملية شراء دورة ',
+
+                    'route' => route('dashboard.enrollments.index'),
+                    'details' => ' تم شراء دورة من قبل '.$user->name.' لباقي التفاصيل '
+                );
+                Mail::send('mail', $info, function ($message) use ($user) {
+                    $message->to('notify@holistichealth.sa', 'notify')
+                        ->subject('تم شراء دورة');
+                    $message->from('notify@holistichealth.sa', ' Holistic Wellness - العافية الشمولية');
+                });
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
             session()->flash('success', 'لقد تمت عملية شراء الدورة بنجاح !');
             return redirect()->route('courses.show', $course->title)->with('success', 'Payment Successfully Made.');
         }
+
         session()->flash('success', 'لم نتمكن من اتمام طلبك !');
         return redirect()->route('courses.show', $course->title)->with('error', 'Something Went Wrong.');
     }

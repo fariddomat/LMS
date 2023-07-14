@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Home;
 
+use Mail;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\ServiceReview;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -90,6 +92,7 @@ class ServiceController extends Controller
 
     public function rating(Request $request)
     {
+        $service=Service::findOrFail($request->service_id);
         $request->validate([
             'user_id' => 'required',
             'service_id' => 'required',
@@ -104,6 +107,26 @@ class ServiceController extends Controller
             'review' => $request->review,
 
         ]);
+
+        try {
+            $user=Auth::user();
+            $info = array(
+                'name' => 'إشعار عملية تقييم خدمة ',
+
+                'route' => route('dashboard.servicereviews.index'),
+                'details' => '	الحصول على تقييم جديد من قبل '.$user->name.' لمراجعته  '
+            );
+            Mail::send('mail', $info, function ($message) use ($user) {
+                $message->to('notify@holistichealth.sa', 'notify')
+                    ->subject('تم تقييم خدمة ');
+                $message->from('notify@holistichealth.sa', ' Holistic Wellness - العافية الشمولية');
+            });
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
+
 
         session()->flash('success', 'تم التقييم بنجاح');
         return redirect()->back();

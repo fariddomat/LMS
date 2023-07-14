@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use Mail;
 use App\Http\Controllers\Controller;
 use App\Models\OrderService;
 use App\Models\PaymentService;
@@ -136,7 +137,7 @@ class OrderServiceController extends Controller
 
         $responseTap = json_decode($response);
         if ($responseTap->status == 'CAPTURED') {
-            OrderService::firstOrCreate([
+            $order=OrderService::firstOrCreate([
                 'service_id' => $id,
                 'user_id' => auth()->id(),
             ]);
@@ -151,6 +152,44 @@ class OrderServiceController extends Controller
                 'transaction_id'=>$responseTap->id,
             ]);
 
+            try {
+                $user=Auth::user();
+                $info = array(
+                    'name' => 'إلى ' . $user->name,
+
+                    'route' => route('profiles.index'),
+                    'details' => 'شكرا لكم لطلبكم خدمة '.$service->title.'،
+                     طلبكم رقم '.$order->id.' سيتم التواصل معكم قريبا جداً لتحديد موعد للخدمة المطلوبة'
+                );
+                Mail::send('mail', $info, function ($message) use ($user) {
+                    $message->to($user->email, $user->name)
+                        ->subject('تم طلب الخدمة بنجاح لدى holistichealth.sa');
+                    $message->from('notify@holistichealth.sa', ' Holistic Wellness - العافية الشمولية');
+                });
+
+                session()->flash('success', 'تم إرسال الإيميل بنجاح !');
+            } catch (\Throwable $th) {
+                //throw $th;
+                session()->flash('success', 'لم يتم إرسال الإيميل بنجاح !');
+            }
+
+            try {
+                $user=Auth::user();
+                $info = array(
+                    'name' => 'إشعار عملية طلب خدمة ',
+
+                    'route' => route('dashboard.orderservices.index'),
+                    'details' => ' تم شراء خدمة  '.$service->title.' طلب رقم '.$order->id.' لصاحبه '.$user->name.' لباقي التفاصيل '
+                );
+                Mail::send('mail', $info, function ($message) use ($user) {
+                    $message->to('notify@holistichealth.sa', 'notify')
+                        ->subject('تم طلب خدمة جديدة');
+                    $message->from('notify@holistichealth.sa', ' Holistic Wellness - العافية الشمولية');
+                });
+
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
             return redirect()->route('services.show', $service->title)->with('success', 'Payment Successfully Made.');
         }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use Mail;
 use App\Http\Controllers\Controller;
 use App\Models\Profile;
 use App\Models\Role;
@@ -74,6 +75,22 @@ class ProfileController extends Controller
         $user->attachRoles([$role->id]);
         session()->flash('success','تم رفع الطلب إلى إدارة الأكاديمية للمراجعة، دمتم بخير !');
 
+        try {
+            $info = array(
+                'name' => 'إشعار إنشاء حساب جديد ',
+
+                'route' => route('dashboard.profiles.index'),
+                'details' => 'لديكم تسجيل طالب جديد في الاكاديمية اسم '.$user->name.' لباقي التفاصيل '
+            );
+            Mail::send('mail', $info, function ($message) use ($user) {
+                $message->to('notify@holistichealth.sa', 'notify')
+                    ->subject('تم إنشاء حساب جديد');
+                $message->from('notify@holistichealth.sa', ' Holistic Wellness - العافية الشمولية');
+            });
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
 
         return redirect()->route('login');
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Home;
 
+use Mail;
+
 use App\Http\Controllers\Controller;
 use App\Models\ContactForm;
 use App\Models\Post;
@@ -35,6 +37,24 @@ class HomeController extends Controller
         ]);
 
         ContactForm::create($request->all());
+        try {
+            $info = array(
+                'name' => 'إشعار للتواصل ',
+
+                'route' => route('dashboard.contactForm.index'),
+                'details' => ' لديكم طلب تواصل معنا جديد من قبل '.$request->name.''
+            );
+            Mail::send('mail', $info, function ($message) use ($request) {
+                $message->to('notify@holistichealth.sa', 'notify')
+                    ->subject('إشعار تواصل معنا holistichealth.sa');
+                $message->from('notify@holistichealth.sa', ' Holistic Wellness - العافية الشمولية');
+            });
+
+            session()->flash('success', 'تم إشعار الإدارة بنجاح !');
+        } catch (\Throwable $th) {
+            //throw $th;
+            session()->flash('success', 'لم يتم إرسال الإشعار بنجاح !');
+        }
 
         return redirect()->back();
     }

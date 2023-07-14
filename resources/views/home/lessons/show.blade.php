@@ -1,19 +1,22 @@
 @extends('home.layouts._app')
 @push('scripts')
-<script src="{{ asset('home/playerjs.js') }}"></script>
-<script>
-    var player = new Playerjs({id:"player", file:"{{  $lesson->video }}"});
- </script>
- <script>
-    document.addEventListener("contextmenu", (event) => {
-       event.preventDefault();
-    });
+    <script src="{{ asset('home/playerjs.js') }}"></script>
+    <script>
+        var player = new Playerjs({
+            id: "player",
+            file: "{{ $lesson->video }}"
+        });
+    </script>
+    <script>
+        document.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+        });
 
-   console._log = console.log
-console.log = function (log) {
-  return console._log(`%c ${log}`, 'color:rgba(255,255,255,0)');
-}
- </script>
+        console._log = console.log
+        console.log = function(log) {
+            return console._log(`%c ${log}`, 'color:rgba(255,255,255,0)');
+        }
+    </script>
 @endpush
 @section('content')
     <!-- Start main-content -->
@@ -54,6 +57,17 @@ console.log = function (log) {
 
                             <h5><em>المدة : {{ $lesson->duration }}</em></h5>
                             <p>{{ $lesson->description }}</p>
+
+                            @if ($lesson->lessonFiles->count() > 0)
+                                <div>
+                                    <h3 class="text-theme-colored line-bottom text-theme-colored">ملفات الدرس</h3>
+                                    @foreach ($lesson->lessonFiles as $index=>$file)
+                                    <a
+                                    href="{{ asset('lesson_files/' . $lesson->id . '/' . $file->file_name) }}"> <i class="fa fa-download"></i> {{ $file->file_name }}</a>
+                                    <br>
+                                    @endforeach
+                                </div>
+                            @endif
 
 
 

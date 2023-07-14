@@ -53,6 +53,8 @@
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger delete" >حذف</button>
                                             </form>
+                                            <a href="{{ route('dashboard.lesson.files.show', $lesson->id) }}" class="btn btn-primary btn-sm">ملفات الدرس</a>
+
                                         </td>
                                     </tr>
                                     @endforeach

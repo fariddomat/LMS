@@ -21,4 +21,10 @@ class Lesson extends Model
     {
         return asset($this->video_path);
     }
+
+    public function lessonFiles()
+    {
+        return $this->hasMany(LessonFile::class);
+    }
 }
+

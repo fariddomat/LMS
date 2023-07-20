@@ -15,7 +15,7 @@ class ProfileController extends Controller
     public function index()
     {
 
-        $profiles = Profile::whenSearch(request()->search)
+        $profiles = Profile::whenSearch(request()->search)->orderBy('created_at')
             ->paginate(40);
         return view('dashboard.profiles.index', compact('profiles'));
     }

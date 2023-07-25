@@ -50,7 +50,7 @@
                             @auth
                                 <div class="row">
                                     @if ($course->user)
-                                        @foreach ($course->lessons as $index => $lesson)
+                                        {{-- @foreach ($course->lessons as $index => $lesson)
                                             <a href="{{ route('lessons.show', $lesson->id) }}">
                                                 <div class="bg-light d-flex border-bottom p-15 mb-20">
                                                     <div class="flex-shrink-0">
@@ -68,18 +68,108 @@
                                                     </div>
                                                 </div>
                                             </a>
+                                        @endforeach --}}
+                                        @foreach ($course->course_categories as $index => $course_category)
+                                            @php
+                                                $index = $index + 1;
+                                            @endphp
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading20{{ $index }}">
+                                                    <button class="accordion-button @if ($index != 1)
+                                                    collapsed
+                                                    @endif" type="button" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapse20{{ $index }}"
+                                                        aria-expanded="@if ($index == 1) true
+                                                                        @else
+                                                                        false @endif"
+                                                        aria-controls="collapse20{{ $index }}">
+                                                        <strong
+                                                            style="  width: 100%;
+                                                            text-align: right;"> {{ $course_category->name }}
+                                                        </strong>
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse20{{ $index }}"
+                                                    class="accordion-collapse collapse @if ($index == 1) show @endif"
+                                                    aria-labelledby="heading20{{ $index }}"
+                                                    data-bs-parent="#accordion200">
+                                                    <div class="accordion-body">
+                                                        @foreach ($course_category->lessons as $index => $lesson)
+                                                        <a href="{{ route('lessons.show', $lesson->id) }}">
+                                                            <div class="bg-light d-flex border-bottom p-15 mb-20">
+                                                                <div class="flex-shrink-0">
+                                                                    <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3"
+                                                                        style="  border: 1px solid #233fae;
+                                                                border-radius: 50%;
+                                                                padding: 5px 3px 5px 5px;
+                                                                color: #233fae;"></i>
+                                                                </div>
+                                                                <div class="flex-shrink-1">
+                                                                    <h5 class="mt-0 mb-0">الدرس {{ $index + 1 }}: {{ $lesson->title }}
+                                                                    </h5>
+                                                                    <p>{{ $lesson->description }}</p>
+                                                                    <h6>المدة: [{{ $lesson->duration }}]</h6>
+                                                                </div>
+                                                            </div>
+                                                        </a>
+                                                    @endforeach
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @endforeach
-                                    @else
-                                    @if (Auth::user()->hasRole('user'))
-                                        <div class="col-md-12 ">
-
-                                            <a class="btn btn-dark btn-block   btn-theme-colored2  text-uppercase text-white"
-                                                href="{{ route('enrollments.create') }}">اشترك الآن</a>
+                                        @if($unCategoredLessons->count()>0)
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="heading300">
+                                                <button class="accordion-button
+                                                collapsed
+                                                " type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapse300"
+                                                    aria-expanded="false "
+                                                    aria-controls="collapse300">
+                                                    <strong
+                                                        style="  width: 100%;
+                                                        text-align: right;"> الدروس الغير مصنفة
+                                                    </strong>
+                                                </button>
+                                            </h2>
+                                            <div id="collapse300"
+                                                class="accordion-collapse collapse "
+                                                aria-labelledby="heading300"
+                                                data-bs-parent="#accordion200">
+                                                <div class="accordion-body">
+                                                    @foreach ($unCategoredLessons as $index => $lesson)
+                                                    <a href="{{ route('lessons.show', $lesson->id) }}">
+                                                        <div class="bg-light d-flex border-bottom p-15 mb-20">
+                                                            <div class="flex-shrink-0">
+                                                                <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3"
+                                                                    style="  border: 1px solid #233fae;
+                                                            border-radius: 50%;
+                                                            padding: 5px 3px 5px 5px;
+                                                            color: #233fae;"></i>
+                                                            </div>
+                                                            <div class="flex-shrink-1">
+                                                                <h5 class="mt-0 mb-0">الدرس {{ $index + 1 }}: {{ $lesson->title }}
+                                                                </h5>
+                                                                <p>{{ $lesson->description }}</p>
+                                                                <h6>المدة: [{{ $lesson->duration }}]</h6>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                @endforeach
+                                                </div>
+                                            </div>
                                         </div>
-
+                                        @endif
                                     @else
-                                        <h3>يجب ترقية نوع الحساب من خدمات إلى طالب لتتمكن من الاشتراك في الدورة</h3>
-                                    @endif
+                                        @if (Auth::user()->hasRole('user'))
+                                            <div class="col-md-12 ">
+
+                                                <a class="btn btn-dark btn-block   btn-theme-colored2  text-uppercase text-white"
+                                                    href="{{ route('enrollments.create') }}">اشترك الآن</a>
+                                            </div>
+                                        @else
+                                            <h3>يجب ترقية نوع الحساب من خدمات إلى طالب لتتمكن من الاشتراك في الدورة</h3>
+                                        @endif
                                     @endif
                                 </div>
                             @else

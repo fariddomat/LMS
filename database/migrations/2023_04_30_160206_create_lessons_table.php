@@ -20,6 +20,7 @@ class CreateLessonsTable extends Migration
             $table->text('description');
             $table->time('duration');
             $table->string('video_path');
+            $table->int('course_categoy_id')->nullable();
             $table->timestamps();
         });
     }

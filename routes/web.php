@@ -81,6 +81,7 @@ Route::get('/clear', function() {
     Route::resource('courses','App\Http\Controllers\Dashboard\CourseController');
     Route::resource('enrollments','App\Http\Controllers\Dashboard\EnrollmentController');
     Route::resource('lessons','App\Http\Controllers\Dashboard\LessonController');
+    Route::resource('course_categories','App\Http\Controllers\Dashboard\CourseCategoryController');
 
     Route::get('lessons/{lesson}/lesson_files/create','App\Http\Controllers\Dashboard\LessonFileController@create')->name('lesson.files.create');
     Route::get('lessons/{lesson}/lesson_files/show','App\Http\Controllers\Dashboard\LessonFileController@show')->name('lesson.files.show');

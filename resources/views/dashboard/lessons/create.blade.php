@@ -109,6 +109,22 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row">
+                                    <label class="col-sm-2 col-form-label" for="name">التصنيف</label>
+
+                                    <div class="col-sm-7">
+                                        <div class="form-group"><select name="course_category_id" class="form-control @error('course_id') is-invalid @enderror" id="">
+                                        @foreach ($course_categories as $course)
+                                        <option value="{{ $course->id }}">{{ $course->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('course_id')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class=" row">
                                     <label for="video" class="col-sm-2 col-form-label">{{ __('الفيديو') }}</label>
 

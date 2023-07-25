@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Course;
+use App\Models\CourseCategory;
 use App\Models\Lesson;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,7 +27,8 @@ class LessonController extends Controller
     public function create(Course $course)
     {
         // dd($course);
-        return view('dashboard.lessons.create', compact('course'));
+        $course_categories=CourseCategory::where('course_id', $course->id)->get();
+        return view('dashboard.lessons.create', compact('course', 'course_categories'));
     }
 
     public function store(Request $request)
@@ -35,6 +37,7 @@ class LessonController extends Controller
             'title' => 'required',
             'description' => 'required',
             'duration' => 'required',
+            'course_category_id' => 'required',
             'video' => 'required|mimetypes:video/mp4,video/webm,video/quicktime|max:100000000',
         ]);
 
@@ -42,6 +45,7 @@ class LessonController extends Controller
         $lesson->title = $validated['title'];
         $lesson->description = $validated['description'];
         $lesson->duration = $validated['duration'];
+        $lesson->course_category_id = $validated['course_category_id'];
         // $lesson->video_path = $validated['video']->store('videos', 'public');
         $lesson->course_id = $request->course_id;
 
@@ -70,7 +74,9 @@ class LessonController extends Controller
 
     public function edit(Course $course, Lesson $lesson)
     {
-        return view('dashboard.lessons.edit', compact('course', 'lesson'));
+        $course_categories=CourseCategory::where('course_id', $lesson->course->id)->get();
+        // dd($lesson->course->id);
+        return view('dashboard.lessons.edit', compact('course', 'lesson', 'course_categories'));
     }
 
     public function update(Request $request, Course $course, Lesson $lesson)
@@ -78,10 +84,12 @@ class LessonController extends Controller
         $validated = $request->validate([
             'title' => 'required',
             'description' => 'required',
+            'course_category_id' => 'required',
         ]);
 
         $lesson->title = $validated['title'];
         $lesson->description = $validated['description'];
+        $lesson->course_category_id = $validated['course_category_id'];
 
         $lesson->save();
 

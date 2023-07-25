@@ -68,6 +68,7 @@
                             <form action="{{ route('dashboard.lessons.update', $lesson) }}" method="POST">
                                 @csrf
                                 @method('PUT')
+                                @include('layouts._error')
                                 <div class="form-group">
                                     <label for="title">العنوان</label>
                                     <input type="text" name="title" id="title" class="form-control" value="{{ $lesson->title }}" required>
@@ -75,6 +76,20 @@
                                 <div class="form-group">
                                     <label for="description">الوصف</label>
                                     <textarea name="description" id="description" rows="5" class="form-control" required>{{ $lesson->description }}</textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="name">التصنيف</label>
+                                    <select name="course_category_id" class="form-control @error('course_id') is-invalid @enderror" id="">
+                                        @foreach ($course_categories as $course)
+                                        <option value="{{ $course->id }}" @if ($lesson->course_category_id ==$course->id)
+                                            selected
+                                        @endif>{{ $course->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('course_id')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">تعديل</button>

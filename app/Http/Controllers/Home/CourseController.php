@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\CourseCategory;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses=Course::latest()->paginate(6);
+        $courses = Course::latest()->paginate(6);
 
         return view('home.courses.index', compact('courses'));
     }
@@ -50,12 +51,14 @@ class CourseController extends Controller
      */
     public function show($title)
     {
-        $courses=Course::latest()->get();
-        $course=Course::where('title',$title)->first();
+        $courses = Course::latest()->get();
+        $course = Course::where('title', $title)->first();
         if ($course) {
-            $unCategoredLessons=Lesson::where('course_id', $course->id)->where('course_category_id',0)->get();
-            return view('home.courses.show', compact('course', 'courses', 'unCategoredLessons'));
-        }else {
+            $course_categories = CourseCategory::where('course_id', $course->id)
+                ->where('parent_id', null)->get();
+            $unCategoredLessons = Lesson::where('course_id', $course->id)->where('course_category_id', 0)->get();
+            return view('home.courses.show', compact('course', 'courses', 'unCategoredLessons', 'course_categories'));
+        } else {
             abort(404);
         }
     }

@@ -17,6 +17,8 @@ class CreateCourseCategoriesTable extends Migration
             $table->id();
             $table->integer('course_id');
             $table->string('name');
+            $table->integer('parent_id')->nullable();
+
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Course;
 use App\Models\CourseCategory;
 use Illuminate\Http\Request;
@@ -28,7 +29,8 @@ class CourseCategoryController extends Controller
     public function create()
     {
         $courses=Course::all();
-        return view('dashboard.courses.categories.create', compact('courses'));
+        $categories=CourseCategory::all();
+        return view('dashboard.courses.categories.create', compact('courses', 'categories'));
     }
 
     /**
@@ -47,6 +49,7 @@ class CourseCategoryController extends Controller
         $course_category = CourseCategory::create([
             'course_id' => $request->input('course_id'),
             'name' => $request->input('name'),
+            'parent_id' => $request->input('parent_id'),
         ]);
 
         return redirect()->route('dashboard.course_categories.index')->with('success', 'CourseCategory created successfully.');
@@ -61,7 +64,9 @@ class CourseCategoryController extends Controller
     public function edit(CourseCategory $course_category)
     {
         $courses=Course::all();
-        return view('dashboard.courses.categories.edit', compact('course_category', 'courses'));
+        $categories=CourseCategory::all();
+
+        return view('dashboard.courses.categories.edit', compact('course_category', 'courses', 'categories'));
     }
 
     /**
@@ -81,6 +86,8 @@ class CourseCategoryController extends Controller
         $course_category->update([
             'course_id' => $request->input('course_id'),
             'name' => $request->input('name'),
+            'parent_id' => $request->input('parent_id'),
+
         ]);
 
         return redirect()->route('dashboard.course_categories.index')->with('success', 'CourseCategory updated successfully.');

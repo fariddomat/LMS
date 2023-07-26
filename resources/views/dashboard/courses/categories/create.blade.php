@@ -44,6 +44,22 @@
                                     @enderror
                                 </div>
 
+                        <!-- If you want to allow the selection of a parent category, you can use a dropdown -->
+                        <div class="form-group">
+                            <label for="parent_id">تابع لتصنيف</label>
+                            <select name="parent_id" id="parent_id" class="form-control @error('parent_id') is-invalid @enderror">
+                                <option value="">اختر تصنيف أب (اختياري)</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                            @error('parent_id')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">إضافة</button>
                                 </div>

@@ -69,15 +69,15 @@
                                                 </div>
                                             </a>
                                         @endforeach --}}
-                                        @foreach ($course->course_categories as $index => $course_category)
+                                        @foreach ($course_categories as $index => $course_category)
                                             @php
                                                 $index = $index + 1;
                                             @endphp
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading20{{ $index }}">
-                                                    <button class="accordion-button @if ($index != 1)
-                                                    collapsed
-                                                    @endif" type="button" data-bs-toggle="collapse"
+                                                    <button
+                                                        class="accordion-button @if ($index != 1) collapsed @endif"
+                                                        type="button" data-bs-toggle="collapse"
                                                         data-bs-target="#collapse20{{ $index }}"
                                                         aria-expanded="@if ($index == 1) true
                                                                         @else
@@ -85,7 +85,8 @@
                                                         aria-controls="collapse20{{ $index }}">
                                                         <strong
                                                             style="  width: 100%;
-                                                            text-align: right;"> {{ $course_category->name }}
+                                                            text-align: right;">
+                                                            {{ $course_category->name }}
                                                         </strong>
                                                     </button>
                                                 </h2>
@@ -94,71 +95,150 @@
                                                     aria-labelledby="heading20{{ $index }}"
                                                     data-bs-parent="#accordion200">
                                                     <div class="accordion-body">
+                                                        @foreach ($course_category->subCategories as $index => $course_category2)
+                                                            @php
+                                                                $index = $index + 1;
+                                                            @endphp
+                                                            <div class="accordion-item">
+                                                                <h2 class="accordion-header  text-theme-colored "
+                                                                    id="heading20{{ $index }}">
+                                                                    {{ $course_category2->name }}
+                                                                </h2>
+                                                                <div>
+                                                                    <div class="accordion-body">
+                                                                        @foreach ($course_category2->subCategories as $index => $course_category3)
+                                                                            @php
+                                                                                $index = $index + 1;
+                                                                            @endphp
+                                                                            <div class="accordion-item">
+                                                                                <h2 class="accordion-header  text-theme-colored "
+                                                                                    id="heading20{{ $index }}">
+                                                                                    {{ $course_category3->name }}
+                                                                                </h2>
+                                                                                <div>
+                                                                                    <div class="accordion-body">
+                                                                                        @foreach ($course_category3->lessons as $index => $lesson)
+                                                                                            <a
+                                                                                                href="{{ route('lessons.show', $lesson->id) }}">
+                                                                                                <div
+                                                                                                    class="bg-light d-flex border-bottom p-15 mb-20">
+                                                                                                    <div class="flex-shrink-0">
+                                                                                                        <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3"
+                                                                                                            style="  border: 1px solid #233fae;
+                                                                                                    border-radius: 50%;
+                                                                                                    padding: 5px 3px 5px 5px;
+                                                                                                    color: #233fae;"></i>
+                                                                                                    </div>
+                                                                                                    <div class="flex-shrink-1">
+                                                                                                        <h5 class="mt-0 mb-0">
+                                                                                                            الدرس
+                                                                                                            {{ $index + 1 }}:
+                                                                                                            {{ $lesson->title }}
+                                                                                                        </h5>
+                                                                                                        <p>{{ $lesson->description }}
+                                                                                                        </p>
+                                                                                                        <h6>المدة:
+                                                                                                            [{{ $lesson->duration }}]
+                                                                                                        </h6>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </a>
+                                                                                        @endforeach
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        @endforeach
+                                                                        @foreach ($course_category2->lessons as $index => $lesson)
+                                                                            <a href="{{ route('lessons.show', $lesson->id) }}">
+                                                                                <div
+                                                                                    class="bg-light d-flex border-bottom p-15 mb-20">
+                                                                                    <div class="flex-shrink-0">
+                                                                                        <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3"
+                                                                                            style="  border: 1px solid #233fae;
+                                                                            border-radius: 50%;
+                                                                            padding: 5px 3px 5px 5px;
+                                                                            color: #233fae;"></i>
+                                                                                    </div>
+                                                                                    <div class="flex-shrink-1">
+                                                                                        <h5 class="mt-0 mb-0">الدرس
+                                                                                            {{ $index + 1 }}:
+                                                                                            {{ $lesson->title }}
+                                                                                        </h5>
+                                                                                        <p>{{ $lesson->description }}</p>
+                                                                                        <h6>المدة: [{{ $lesson->duration }}]
+                                                                                        </h6>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </a>
+                                                                        @endforeach
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endforeach
                                                         @foreach ($course_category->lessons as $index => $lesson)
-                                                        <a href="{{ route('lessons.show', $lesson->id) }}">
-                                                            <div class="bg-light d-flex border-bottom p-15 mb-20">
-                                                                <div class="flex-shrink-0">
-                                                                    <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3"
-                                                                        style="  border: 1px solid #233fae;
+                                                            <a href="{{ route('lessons.show', $lesson->id) }}">
+                                                                <div class="bg-light d-flex border-bottom p-15 mb-20">
+                                                                    <div class="flex-shrink-0">
+                                                                        <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3"
+                                                                            style="  border: 1px solid #233fae;
                                                                 border-radius: 50%;
                                                                 padding: 5px 3px 5px 5px;
                                                                 color: #233fae;"></i>
+                                                                    </div>
+                                                                    <div class="flex-shrink-1">
+                                                                        <h5 class="mt-0 mb-0">الدرس {{ $index + 1 }}:
+                                                                            {{ $lesson->title }}
+                                                                        </h5>
+                                                                        <p>{{ $lesson->description }}</p>
+                                                                        <h6>المدة: [{{ $lesson->duration }}]</h6>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="flex-shrink-1">
-                                                                    <h5 class="mt-0 mb-0">الدرس {{ $index + 1 }}: {{ $lesson->title }}
-                                                                    </h5>
-                                                                    <p>{{ $lesson->description }}</p>
-                                                                    <h6>المدة: [{{ $lesson->duration }}]</h6>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    @endforeach
+                                                            </a>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>
                                         @endforeach
-                                        @if($unCategoredLessons->count()>0)
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header" id="heading300">
-                                                <button class="accordion-button
-                                                collapsed
-                                                " type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#collapse300"
-                                                    aria-expanded="false "
-                                                    aria-controls="collapse300">
-                                                    <strong
-                                                        style="  width: 100%;
-                                                        text-align: right;"> الدروس الغير مصنفة
-                                                    </strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapse300"
-                                                class="accordion-collapse collapse "
-                                                aria-labelledby="heading300"
-                                                data-bs-parent="#accordion200">
-                                                <div class="accordion-body">
-                                                    @foreach ($unCategoredLessons as $index => $lesson)
-                                                    <a href="{{ route('lessons.show', $lesson->id) }}">
-                                                        <div class="bg-light d-flex border-bottom p-15 mb-20">
-                                                            <div class="flex-shrink-0">
-                                                                <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3"
-                                                                    style="  border: 1px solid #233fae;
+                                        @if ($unCategoredLessons->count() > 0)
+                                            <div class="accordion-item">
+                                                <h2 class="accordion-header" id="heading300">
+                                                    <button
+                                                        class="accordion-buttoncollapsed "
+                                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapse300"
+                                                        aria-expanded="false " aria-controls="collapse300">
+                                                        <strong
+                                                            style="  width: 100%;
+                                                        text-align: right;">
+                                                            الدروس الغير مصنفة
+                                                        </strong>
+                                                    </button>
+                                                </h2>
+                                                <div id="collapse300" class="accordion-collapse collapse "
+                                                    aria-labelledby="heading300" data-bs-parent="#accordion200">
+                                                    <div class="accordion-body">
+                                                        @foreach ($unCategoredLessons as $index => $lesson)
+                                                            <a href="{{ route('lessons.show', $lesson->id) }}">
+                                                                <div class="bg-light d-flex border-bottom p-15 mb-20">
+                                                                    <div class="flex-shrink-0">
+                                                                        <i class="pe-7s-play text-theme-colored font-size-24 mt-1 me-3"
+                                                                            style="  border: 1px solid #233fae;
                                                             border-radius: 50%;
                                                             padding: 5px 3px 5px 5px;
                                                             color: #233fae;"></i>
-                                                            </div>
-                                                            <div class="flex-shrink-1">
-                                                                <h5 class="mt-0 mb-0">الدرس {{ $index + 1 }}: {{ $lesson->title }}
-                                                                </h5>
-                                                                <p>{{ $lesson->description }}</p>
-                                                                <h6>المدة: [{{ $lesson->duration }}]</h6>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                @endforeach
+                                                                    </div>
+                                                                    <div class="flex-shrink-1">
+                                                                        <h5 class="mt-0 mb-0">الدرس {{ $index + 1 }}:
+                                                                            {{ $lesson->title }}
+                                                                        </h5>
+                                                                        <p>{{ $lesson->description }}</p>
+                                                                        <h6>المدة: [{{ $lesson->duration }}]</h6>
+                                                                    </div>
+                                                                </div>
+                                                            </a>
+                                                        @endforeach
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
                                         @endif
                                     @else
                                         @if (Auth::user()->hasRole('user'))

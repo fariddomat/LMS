@@ -28,6 +28,7 @@
                                     <thead>
                                         <tr>
                                             <th>الاسم</th>
+                                            <th>التصنيف الأب</th>
                                             <th>الدورة</th>
                                             <th>العمليات</th>
                                         </tr>
@@ -36,6 +37,10 @@
                                         @foreach($course_categories as $course_category)
                                             <tr>
                                                 <td>{{ $course_category->name }}</td>
+                                                <td>
+                                                    @if ($course_category->parentCategory)
+                                                    {{ $course_category->parentCategory->name }}
+                                                    @endif</td>
                                                 <td>{{ $course_category->course->title }}</td>
                                                 <td>
                                                     <a href="{{ route('dashboard.course_categories.edit', $course_category->id) }}" class="btn btn-sm btn-primary">تعديل</a>

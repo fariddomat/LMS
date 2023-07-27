@@ -34,7 +34,7 @@ class LessonFileController extends Controller
     public function store(Request $request, Lesson $lesson)
     {
         $request->validate([
-            'files.*' => 'required|file|mimes:pdf,doc,docx'
+            'files.*' => 'required|file|mimes:pdf,doc,docx,txt,jpeg,png,jpg,webp'
         ]);
 
         if ($request->hasFile('files')) {

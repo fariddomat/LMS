@@ -25,7 +25,7 @@ class LessonController extends Controller
                 }
             }
             $lesson = Lesson::findOrFail($id);
-            $lessons = Lesson::where('course_id', $lesson->course_id)->get();
+            $lessons = Lesson::where('course_id', $lesson->course_id)->orderBy('created_at')->get();
             if (!$user->hasRole('superadministrator')) {
                 $enrollment = Enrollment::where('course_id', $lesson->course_id)
                     ->where('user_id', auth()->id())

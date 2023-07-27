@@ -100,10 +100,10 @@
                                                                 $index = $index + 1;
                                                             @endphp
                                                             <div class="accordion-item">
-                                                                <h2 class="accordion-header  text-theme-colored "
+                                                                <h5 class="accordio-header  text-theme-colored "
                                                                     id="heading20{{ $index }}">
                                                                     {{ $course_category2->name }}
-                                                                </h2>
+                                                                </h5>
                                                                 <div>
                                                                     <div class="accordion-body">
                                                                         @foreach ($course_category2->subCategories as $index => $course_category3)
@@ -111,10 +111,10 @@
                                                                                 $index = $index + 1;
                                                                             @endphp
                                                                             <div class="accordion-item">
-                                                                                <h2 class="accordion-header  text-theme-colored "
+                                                                                <h5 class="accordion-header  text-theme-colored "
                                                                                     id="heading20{{ $index }}">
                                                                                     {{ $course_category3->name }}
-                                                                                </h2>
+                                                                                </h5>
                                                                                 <div>
                                                                                     <div class="accordion-body">
                                                                                         @foreach ($course_category3->lessons as $index => $lesson)

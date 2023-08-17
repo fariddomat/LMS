@@ -133,14 +133,15 @@
             left: 0;
         }
 
-        .video{
-                margin: 85px;
-            }
+        .video {
+            margin: 85px;
+        }
+
         @media only screen and (max-width: 600px) {
-            .video{
+            .video {
                 margin: 15px;
             }
-}
+        }
     </style>
 
     @yield('styles')
@@ -202,7 +203,51 @@
         }
 
         .header-nav-col-row {
-            background: #FEF6EC;
+            background: #fff;
+        }
+
+        #home,
+        #homeVideo,
+        #homeCourse,
+        #academy,
+        #academy2,
+        #about4 {
+            background: #FEF6EC
+        }
+
+        .academy3 {
+                margin-top: 75px;
+                padding: 15px;
+                box-shadow: 12px 12px 6px -6px rgba(0, 0, 0, 0.35);
+                -webkit-box-shadow: 12px 12px 6px -6px rgba(0, 0, 0, 0.35);
+                -moz-box-shadow: 12px 12px 6px -6px rgba(0, 0, 0, 0.35);
+                min-height: 445px !important;
+                text-align: center;
+
+        }
+        .academy3 > h2{
+            color:#e0e1da
+        }
+        .academy3 > h3,
+        .academy3 > h4
+        {
+            color:#fff
+        }
+
+
+
+        .dot {
+            height: 25px;
+            width: 25px;
+            border: 5px #f4a3a5 solid;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        footer#footer .styled-icons.icon-sm a {
+            font-size: 24px;
+            height: 50px;
+            width: 50px;
         }
 
         footer {
@@ -254,9 +299,10 @@
             }
 
         }
+
         .layer-overlay.overlay-dark-9::before {
-  background-color: rgba(17, 17, 17, 0.3);
-}
+            background-color: rgba(17, 17, 17, 0.3);
+        }
     </style>
     <style>
         .rating2 {
@@ -306,7 +352,6 @@
         .rating2>label:active {
             position: relative;
         }
-
     </style>
 
     <link rel="stylesheet" href="{{ asset('noty/noty.css') }}">

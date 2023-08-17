@@ -10,10 +10,10 @@ position: relative;">
                         <div class="col-sm-auto ms-auto align-self-center">
                             <a class="menuzord-brand site-brand" href="{{ route('home') }}">
                                 <img class="logo-default logo-1x " src="{{ asset('logo.webp') }}" alt="Logo">
-                                <span class="ttt">
+                                {{-- <span class="ttt">
                                     {{ setting('site_name') }}
 
-                                </span>
+                                </span> --}}
                                 <img class="logo-default logo-2x retina" src="{{ asset('logo.webp') }}" alt="Logo">
                             </a>
                         </div>

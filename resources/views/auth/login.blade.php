@@ -2,26 +2,25 @@
 
 @section('content')
     <!-- Start main-content -->
-    <div class="main-content">
+    <div class="main-content" style="background: #EFBB76">
 
 
         <section>
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-6 col-md-push-3">
+                <div class="row justify-content-center" style="color: #375651">
+                    <div class="col-md-4 col-md-push-4" style="text-align: center">
                         <form name="reg-form" class="register-form" method="post" action="{{ route('login') }}">
                             @csrf
                             <div class="icon-box mb-0 p-0">
-                                <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
-                                    <i class="pe-7s-users"></i>
-                                </a>
-                                <h4 class="text-gray pt-10 mt-0 mb-30">تسجيل الدخول</h4>
+                               <img src="{{ asset('login.png') }}" style="max-width: 80px;" alt="">
+                                <h2 class=" pt-10 mt-0 mb-30" style="color: #fef0df;font-size: 48px;">تسجيـل الدخـول</h2>
                             </div>
                             <hr>
-                            <p class="text-gray">أدخل معلوماتك الشخصية للوصول إلى حسابك الشخصي.</p>
+                            <p class="" style="font-size: 18px">أدخل معلوماتك الشخصية للوصول إلى حسابك الشخصي.</p>
 
                             <div class="row">
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-12" style="  text-align: right;
+                                font-size: 22px;">
                                     <label for="email" class="">البريد الالكتروني</label>
 
                                     <input id="email" type="email"
@@ -36,7 +35,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-12" style="  text-align: right;
+                                font-size: 22px; margin-top: 15px">
                                     <label for="password" class="">كلمة السر</label>
 
                                     <input id="password" type="password"
@@ -51,8 +51,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <button class="btn btn-dark btn-theme-colored1 btn-block mt-15" type="submit">دخول</button>
+                            <div class="form-group mt-25">
+                                <button class="btn btn-dark btn-theme-colored1 btn-block mt-15" type="submit" style="  background: unset;
+                                color: #375651;
+                                padding: 18px 75px;">دخول</button>
                             </div>
                             <div class="col-md-12" style="margin-top: 15px">
                                 <a href="{{ route('password.request') }}" style="padding-top: 15px"> هل نسيت كلمة السر؟</a>
@@ -62,8 +64,8 @@
                             <div class="col-md-12">
                                 <p style="margin-top: 25px">ليس لديك حساب بعد؟</p>
 
-                                <a class="btn btn-dark btn-block   btn-theme-colored3  text-uppercase text-white"
-                                    href="{{ route('profiles.create') }}">إنشاء حساب</a>
+                                <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white"
+                                    href="{{ route('profiles.create') }}">إنشاء حساب جديد</a>
                             </div>
                         </form>
                     </div>

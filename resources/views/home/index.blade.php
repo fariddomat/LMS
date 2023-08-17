@@ -4,39 +4,68 @@
     <!-- Start main-content -->
     <div class="main-content-area">
         <!-- Section: home -->
-        <section id="home" class="divider parallax fullscreen" data-parallax-ratio="0.6"
-            data-tm-bg-img="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}">
-            <div class="d-flex align-items-center flex-column justify-content-center h-100">
-                <div class="container pt-150 pb-150">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <div class="pb-50 pt-30">
-                                <h3 class="">{!! setting('cover1_text') !!}</h3>
-                                <h1 class="">{!! setting('cover2_text') !!}</h1>
-                                <h4 class="">{!! setting('cover3_text') !!} </h4>
+        <section id="home" class="divider parallax fullscreen" data-parallax-ratio="0.6" data-tm-bg-img="">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" alt="">
+                </div>
+                <div class="col-md-6">
+
+                    <div class="container pt-80 pr-100 pb-150">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="pb-50 pt-30">
+                                    <h3 class="">{!! setting('cover1_text') !!}</h3>
+                                    <h1 class="">{!! setting('cover2_text') !!}</h1>
+                                    <h4 class="">{!! setting('cover3_text') !!} </h4>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
 
+        <section id="homeVideo" class="divider parallax pt-50 pb-100" style="justify-content: center">
+            <h2 style="  direction: ltr; color:#375651;
+            ;
+         width: 70%;margin: 45px auto;">رحلـة العافيـة
+                الشموليـة
+                <span style="  float: right;"><span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span></span>
+            </h2>
+            <div class="col-md-12 video"
+                style=" ;
+        padding: 0;
+        box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
+        -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35); width: 70%; text-align:center;margin: 45px auto;">
+                {!! setting('home_video') !!}
+            </div>
+            <div style="direction: ltr;width: 70%;margin: 45px auto;">
+
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span></span>
+            </div>
+        </section>
         <!-- Section: welcome -->
-        <section id="welcome"  class="divider parallax layer-overlay overlay-white-4" data-parallax-ratio="0.1"
-        data-tm-bg-img="{{ asset('home/images/bg/about.png') }}">
+        <section id="welcome" class="divider parallax " style="background: #305650">
             <div class="container pt-150 pb-150">
                 <div class="section-content">
                     <div class="row">
                         <div class="col-md-7">
                             <p class="lead text-black">{!! $about->about_me !!}</p>
                             <a href="{{ route('whoiam') }}" target="_self"
-                                class="btn btn-dark btn-theme-colored1 btn-sm btn-block mt-15 mb-20"> قراءة المزيد </a>
+                                class="btn btn-dark btn-theme-colored2 btn-sm btn-block mt-15 mb-20"> قراءة المزيد </a>
 
                         </div>
                         <div class="col-md-5">
                             <img src="{{ asset('dr.webp') }}" alt=""
-                                style="border: 4px solid white;
-                            border-radius: 25px;">
+                                style="border: 12px solid white;
+                           ">
                         </div>
 
                     </div>
@@ -44,17 +73,6 @@
             </div>
         </section>
 
-        <section class="divider parallax " data-parallax-ratio="0.1" data-tm-bg-img="{{ asset('home/images/bg/video.png') }}"
-            style="background-color: #202C45; justify-content: center">
-            <div class="col-md-12 video"
-                style="
-        padding: 0;
-        box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
-        -webkit-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35);
-        -moz-box-shadow: 5px 10px 10px 7px rgba(0, 0, 0, 0.35); width: auto;">
-                {!! setting('home_video') !!}
-            </div>
-        </section>
 
         {{-- <section class="divider parallax layer-overlay overlay-white-4" style="background-color: white">
             <h2 class="lead"
@@ -71,7 +89,7 @@
         </section> --}}
 
         <!-- Section: Services -->
-        <section id="services" class="divider parallax layer-overlay overlay-white-8" data-parallax-ratio="0.1"
+        {{-- <section id="services" class="divider parallax layer-overlay overlay-white-8" data-parallax-ratio="0.1"
             data-tm-bg-img="{{ asset('home/images/bg/service.png') }}">
             <div class="container pt-150 pb-150">
                 <div class="section-title text-center">
@@ -119,10 +137,10 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
 
         <!-- Section: blog -->
-        <section id="blog" class="divider parallax layer-overlay overlay-white-4" style="background-color: #FEF6EC;">
+        {{-- <section id="blog" class="divider parallax layer-overlay overlay-white-4" style="background-color: #FEF6EC;">
             <div class="container pt-90">
                 <div class="section-title">
                     <div class="row justify-content-md-center">
@@ -210,7 +228,23 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
+        {{-- <section id="homeCourse" style="background: #fffaf4; padding: 50px 100px; text-align: center">
+            <h2 class="text-theme-colored">الدورات التدريبيــة</h2>
+            <h3 style="color: #ffa0a2"><a href="{{ route('courses.show',$courses_count[0]->title) }}">{{ $courses_count[0]->title }}</a></h3>
+            <div class="row">
+                <div class="col-md-4"><img src="{{ asset('c1.png') }}" alt=""></div>
+                <div class="col-md-4" style="text-align: center">
+                    <ul class="styled-icons icon-dark icon-sm icon-circled mt-30">
+                        <li><a class="social-link" data-tm-bg-color="#ffa0a2" href="{{ setting('site_email') }}"><i class="fa fa-envelope"></i></a></li>
+                        <li><a class="social-link" data-tm-bg-color="#ffa0a2" href="{{ setting('instagram2_link') }}"><i class="fab fa-instagram"></i></a></li>
+                        <li><a class="social-link" data-tm-bg-color="#ffa0a2" href="{{ setting('twitter_link') }}"><i class="fab fa-twitter"></i></a></li>
+                        <li><a class="social-link" data-tm-bg-color="#ffa0a2" href="{{ setting('whatsapp_link') }}"><i class="fab fa-whatsapp"></i></a></li>
 
+                      </ul>
+                </div>
+                <div class="col-md-4"><img src="{{ asset('c2.png') }}" alt=""></div>
+            </div>
+        </section> --}}
     </div>
 @endsection

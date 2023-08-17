@@ -58,6 +58,14 @@
                             @endforeach
                             </ul>
                         </div>
+                        <ul class="styled-icons icon-dark icon-sm icon-circled mt-30">
+                            <li><a class="social-link" data-tm-bg-color="#ffa0a2" href="{{ setting('site_email') }}"><i class="fa fa-envelope"></i></a></li>
+                            <li><a class="social-link" data-tm-bg-color="#ffa0a2" href="{{ setting('instagram2_link') }}"><i class="fab fa-instagram"></i></a></li>
+                            <li><a class="social-link" data-tm-bg-color="#ffa0a2" href="{{ setting('twitter_link') }}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a class="social-link" data-tm-bg-color="#ffa0a2" href="{{ setting('whatsapp_link') }}"><i class="fab fa-whatsapp"></i></a></li>
+
+                          </ul>
+             
                     </div>
                 </div>
             </div>

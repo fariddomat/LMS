@@ -144,7 +144,6 @@
         }
     </style>
 
-    @yield('styles')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap"
@@ -221,10 +220,11 @@
                 box-shadow: 12px 12px 6px -6px rgba(0, 0, 0, 0.35);
                 -webkit-box-shadow: 12px 12px 6px -6px rgba(0, 0, 0, 0.35);
                 -moz-box-shadow: 12px 12px 6px -6px rgba(0, 0, 0, 0.35);
-                min-height: 445px !important;
+                min-height: 465px !important;
                 text-align: center;
 
         }
+
         .academy3 > h2{
             color:#e0e1da
         }
@@ -235,7 +235,10 @@
         }
 
 
-
+        .footer-widget-area {
+  background-color: #FEF6EC !important;
+  color: #EAA2A1;
+}
         .dot {
             height: 25px;
             width: 25px;
@@ -266,9 +269,12 @@
 
         .footer-widget-area {
             background-color: #FEF6EC !important;
-            color: #375651;
+            color: #EAA2A1;
 
         }
+        footer#footer a:not(.social-link):not(.icon), footer#footer .footer-widget-area .widget .widget-title {
+  color: #375651;
+}
 
         footer.footer-bottom {
             background-color: #FEF6EC;
@@ -378,4 +384,6 @@
             color: #375651;
         }
     </style>
+
+    @yield('styles')
 </head>

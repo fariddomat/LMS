@@ -1,14 +1,13 @@
  <!-- Footer -->
- <footer id="footer" class="footer layer-overlay" >
+ <footer id="footer" class="footer" >
     <div class="footer-widget-area">
         <div class="container pt-90 pb-60">
             <div class="row">
                 <div class="col-md-6 col-lg-6 col-xl-4">
                     <div class="tm-widget-contact-info contact-info-style1 contact-icon-theme-colored1">
-                        <div class="thumb">
+                        <div class="thumb" style="margin-top: -15px;">
                             <img alt="Logo" src="{{ asset('logo-lg.png') }}">
                         </div>
-                        <div class="description">{!! setting('site_about') !!}</div>
                     </div>
                     <div class="tm-sc-unordered-list list-style2">
                         <ul>
@@ -65,7 +64,9 @@
                             <li><a class="social-link" data-tm-bg-color="#ffa0a2" href="{{ setting('whatsapp_link') }}"><i class="fab fa-whatsapp"></i></a></li>
 
                           </ul>
-             
+
+                        <div class="description" style="padding-top: 10px">{!! setting('site_about') !!}</div>
+
                     </div>
                 </div>
             </div>

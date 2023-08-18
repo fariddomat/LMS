@@ -4,7 +4,7 @@
     <!-- Start main-content -->
     <div class="main-content-area">
         <!-- Section: home -->
-        <section id="home" class="divider parallax fullscreen" data-parallax-ratio="0.6" data-tm-bg-img="">
+        <section id="home" class="">
             <div class="row">
                 <div class="col-md-6">
                     <img src="{{ asset('home/images/bg/bg1.jpg') }}?v={{ setting('cover_time') }}" alt="">
@@ -16,6 +16,10 @@
                             <div class="col-md-12 text-center">
                                 <div class="pb-50 pt-30">
                                     <h3 class="">{!! setting('cover1_text') !!}</h3>
+                                    <div class="row">
+                                    <img src="{{ asset('icon/h1.png') }}" style="max-width: 80px" alt="">
+
+                                    </div>
                                     <h1 class="">{!! setting('cover2_text') !!}</h1>
                                     <h4 class="">{!! setting('cover3_text') !!} </h4>
                                 </div>

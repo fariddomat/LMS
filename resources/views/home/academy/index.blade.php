@@ -10,7 +10,7 @@
             display: inline-block;
         }
     </style>
-@show
+@endsection
 @section('content')
     <!-- Start main-content -->
     <div class="main-content-area">

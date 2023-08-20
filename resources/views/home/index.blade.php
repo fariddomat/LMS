@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-md-6">
 
-                    <div class="container pt-80 pr-100 pb-150">
+                    <div class="container pt-80 pr-100 ">
                         <div class="row">
                             <div class="col-md-12 text-center">
                                 <div class="pb-50 pt-30">
@@ -57,7 +57,8 @@
         </section>
         <!-- Section: welcome -->
         <section id="welcome" class="divider parallax " style="background: #305650">
-            <div class="container pt-150 pb-150">
+            <div class="container pt-150 pb-150" style="  padding-left: 25px;
+            padding-right: 25px;">
                 <div class="section-content">
                     <div class="row">
                         <div class="col-md-7">

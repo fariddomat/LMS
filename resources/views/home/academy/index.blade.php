@@ -36,7 +36,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-5">
                         <div class="row" style="justify-content: center">
-                            <img src="{{ asset('academylogo.png') }}" style="width: auto" alt="">
+                            <img src="{{ asset('academylogo.png') }}" style="width: auto; padding: 0;" alt="">
                         </div>
                     </div>
                     <div class="col-md-7">
@@ -62,13 +62,13 @@
 
                                 <div style="display: initial;
                               direction: ltr;">
-                                    <p
+                                    <p class="haveAccount"
                                         style="  display: inherit;
                                 top: -25px;
                                 position: relative;
                                 left: 120px;">
                                         إذا كان لديك حساب</p>
-                                    <a class="btn btn-dark btn-block btn-sm   btn-theme-colored2  text-uppercase mt-30"
+                                    <a class="btn btn-dark btn-block btn-sm   btn-theme-colored2  text-uppercase mt-30 haveAccount2"
                                         href="{{ route('login') }}"
                                         style="  min-width: 125px;
                                 }">دخول</a>
@@ -101,7 +101,7 @@
                                     class="dot"></span>
                                 <span class="dot"></span>
                                 <span class="dot"></span></span>
-                            <div class="row"
+                            <div class="row shadowBlock"
                                 style="
                                 background: #fff;
                                 padding: 50px 0px;
@@ -130,7 +130,7 @@
                 <div class="section-content">
                     {{-- 3 --}}
                     <div class="row" style="margin-bottom: 75px ;background: #fff;">
-                        <div class="col-md-4">
+                        <div class="col-lg-4">
                             <div class="col-md-12 academy3 m-3" style="background: #375651">
                                 <img src="{{ asset('icon/x1.png') }}" alt="" style="  height: 150px;">
                                 <h2>التأصيل والتجذير</h2>
@@ -139,7 +139,7 @@
                                     من خلال تبيُن ذواتهم الباطنية والبدء بالعلاج من الجذور</h4>
                             </div>
                         </div>
-                        <div class="col-md-4 ">
+                        <div class="col-lg-4 ">
                             <div class="col-md-12 academy3 m-3" style="background: #f4a3a5">
                                 <img src="{{ asset('icon/x2.png') }}" alt="" style="  height: 150px;">
                                 <h2>التــــوازن</h2>
@@ -152,7 +152,7 @@
                                     التصرفات الدقيقة التي تحمل أثراً مستمراً على صحتهم الكُلية.</h4>
                             </div>
                         </div>
-                        <div class="col-md-4 ">
+                        <div class="col-lg-4 ">
                             <div class="col-md-12 academy3 m-3" style="background: #f9bb76">
                                 <img src="{{ asset('icon/x3.png') }}" alt="" style="  height: 150px;">
                                 <h2>الإتســـاع</h2>
@@ -256,7 +256,7 @@
                                             من نحن ؟
                                         </h1>
                                     </span>
-                                    <div class="row"
+                                    <div class="row shadowBlock"
                                         style="
                                     background: #fff;
                                     padding: 50px 0px;
@@ -278,7 +278,7 @@
                                         <div class="section-content">
                                             {{-- 3 --}}
                                             <div class="row" style="margin-bottom: 75px ;">
-                                                <div class="col-md-4">
+                                                <div class="col-lg-4">
                                                     <div class="col-md-12 academy3 m-3"
                                                         style="background: #375651;min-height: 400px !important;padding-top: 50px;">
 
@@ -293,7 +293,7 @@
                                                             {!! $academy->phylosofy !!}</h3>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 ">
+                                                <div class="col-lg-4 ">
                                                     <div class="col-md-12 academy3 m-3"
                                                         style="background: #f4a3a5;min-height: 400px !important;padding-top: 50px;">
                                                         <h2
@@ -307,7 +307,7 @@
                                                             {!! $academy->message !!}</h3>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-4 ">
+                                                <div class="col-lg-4 ">
                                                     <div class="col-md-12 academy3 m-3"
                                                         style="background: #f9bb76;min-height: 400px !important;padding-top: 50px;">
                                                         <h2
@@ -331,7 +331,7 @@
 
                             <div class="row mt-20">
                                 <div class="col-md-12">
-                                    <h1 class="title text-left text-theme-colored1 mt-0" style="  margin-bottom: 0;">من هو
+                                    <h1 class="title text-left text-theme-colored1 mt-0 ttitle" style="  margin-bottom: 0;">من هو
                                         مدرب العافية الشمولية</h1>
                                     <span
                                         style="margin-top: 0;
@@ -341,7 +341,7 @@
                                             class="dot"></span>
                                         <span class="dot"></span>
                                         <span class="dot"></span></span>
-                                    <div class="row"
+                                    <div class="row shadowBlock"
                                         style="
                                 background: #fff;
                                 padding: 50px 0px;
@@ -359,7 +359,7 @@
                             </div>
                             <div class="row mt-20">
                                 <div class="col-md-12">
-                                    <h1 class="title text-left  text-theme-colored1 mt-3"
+                                    <h1 class="title text-left  text-theme-colored1 mt-3 ttitle"
                                         style="margin-top: 75px !important; margin-bottom: 0;width: 80%;">أهداف
                                         الأكاديمية <img src="{{ asset('icon/arrow.png') }}" alt=""
                                             style="height: 120px;
@@ -374,7 +374,7 @@
                                             class="dot"></span>
                                         <span class="dot"></span>
                                         <span class="dot"></span></span>
-                                    <div class="row"
+                                    <div class="row shadowBlock"
                                         style="
                                 background: #fff;
                                 padding: 50px 0px;
@@ -395,12 +395,12 @@
 
                             <div class="row mt-20">
                                 <div class="col-md-12">
-                                    <h1 class="title text-left  text-theme-colored1 mt-0"
+                                    <h1 class="title text-left  text-theme-colored1 mt-0 ttitle"
                                         style="margin-top: 75px !important; margin-bottom: 0;">أساسيات المنهج<img
                                             src="{{ asset('icon/arrow2.png') }}" alt=""
                                             style="height: 120px;
                                         margin-top: -27px;
-                                       margin-right: 150px;">
+                                       margin-right: 150px;" class="tarrow">
                                     </h1>
                                     <span
                                         style="margin-top: 0;
@@ -410,7 +410,7 @@
                                             class="dot"></span>
                                         <span class="dot"></span>
                                         <span class="dot"></span></span>
-                                    <div class="row"
+                                    <div class="row shadowBlock"
                                         style="
                                 background: #fff;
                                 padding: 50px 0px;
@@ -435,8 +435,8 @@
         <section style="background: #fff">
             <div class="container">
                 <div class="section-title">
-                    <div class="row">
-                        <div class="col-md-4" style="text-align: center">
+                    <div class="row"  style="justify-content: center">
+                        <div class="col-lg-4 col-md-6" style="text-align: center">
                             <div class="row" style="justify-content: center; ">
                                 <div class="row"
                                     style="justify-content: center;  justify-content: center;
@@ -459,7 +459,7 @@
                                 width: 0px;">
                                 </div>
                             </div>
-                            <div
+                            <div class="eyee"
                                 style="background-size: cover ;background-image: url({{ asset('icon/q1.png') }}) ;padding-top: 40px;
 height: 460px;">
                                 <img src="{{ asset('icon/i1.png') }}"
@@ -469,7 +469,7 @@ height: 460px;">
                                 {!! $academy->education_way !!}
                             </div>
                         </div>
-                        <div class="col-md-4" style="text-align: center">
+                        <div class="col-lg-4 col-md-6" style="text-align: center">
                             <div class="row" style="justify-content: center; ">
                                 <div class="row"
                                     style="justify-content: center;  justify-content: center;
@@ -492,14 +492,14 @@ height: 460px;">
                                 width: 0px;">
                                 </div>
                             </div>
-                            <div
-                                style="background-size: cover ;background-image: url({{ asset('icon/q2.png') }}) ;padding-top: 20px;
+                            <div class="eyee"
+                                style="background-size: cover ;background-image: url({{ asset('icon/q2.png?v=1') }}) ;padding-top: 20px;
 height: 425px;">
                                 <img src="{{ asset('icon/i2.png') }}" style="max-width: 135px" alt="">
                                 {!! $academy->education_period !!}
                             </div>
                         </div>
-                        <div class="col-md-4" style="text-align: center">
+                        <div class="col-lg-4 col-md-6" style="text-align: center">
                             <div class="row" style="justify-content: center; ">
                                 <div class="row"
                                     style="justify-content: center;  justify-content: center;
@@ -522,7 +522,7 @@ height: 425px;">
                                 width: 0px;">
                                 </div>
                             </div>
-                            <div
+                            <div class="eyee"
                                 style="background-size: cover ;background-image: url({{ asset('icon/q1.png') }}) ;padding-top: 40px;
 height: 460px;">
                                 <img src="{{ asset('icon/i3.png') }}"
@@ -535,7 +535,7 @@ height: 460px;">
                     </div>
                     <div class="row" style="margin-bottom: 75px ; margin-top: 75px">
 
-                        <div class="col-md-6 ">
+                        <div class="col-lg-6 ">
                             <div class="col-md-12 academy3 m-3"
                                 style="background: #f4a3a5;min-height: 425px !important;padding-top: 50px;">
                                 <h2 style="color: #fff">شروط القبول</h2>
@@ -543,7 +543,7 @@ height: 460px;">
                                     {!! $academy->accept_condition !!}</h3>
                             </div>
                         </div>
-                        <div class="col-md-6 ">
+                        <div class="col-lg-6 ">
                             <div class="col-md-12 academy3 m-3"
                                 style="background: #f9bb76;min-height: 425px !important;padding-top: 50px;">
                                 <h2 style="color:#fff">شروط التخرج</h2>
@@ -581,7 +581,7 @@ height: 460px;">
             <div class="section-content">
                 <div class="row" style="justify-content: center">
                     @foreach ($trainers as $trainer)
-                        <div class="col-sm-12 col-md-2">
+                        <div class="col-sm-12 col-lg-2 col-md-4">
                             <div>
                                 <div class="staff-item mb-lg-40"
                                     style="margin-top: 115px;background: #fff;

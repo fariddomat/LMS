@@ -14,7 +14,7 @@ class LessonController extends Controller
 {
     public function index()
     {
-        $lessons = Lesson::all();
+        $lessons = Lesson::orderBy('sort_id', 'asc')->get();
         return view('dashboard.lessons.index', compact('lessons'));
     }
 
@@ -102,5 +102,18 @@ class LessonController extends Controller
         Storage::disk('public')->delete('public/lessons/' . $lesson->video_path);
         $lesson->delete();
         return redirect()->route('dashboard.courses.show', $course)->with('success', 'Lesson deleted successfully.');
+    }
+    public function sort(Request $request)
+    {
+        // dd($request->order);
+        $lessons = Lesson::all();
+        foreach ($lessons as $lesson) {
+            foreach ($request->order as $order) {
+                if ($order['id'] == $lesson->id) {
+                    $lesson->update(['sort_id' => $order['position']]);
+                }
+            }
+        }
+        return response('Update Successfully.', 200);
     }
 }

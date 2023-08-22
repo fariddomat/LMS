@@ -20,7 +20,7 @@ class CourseCategory extends Model
     // Define the relationship for child categories
     public function subCategories()
     {
-        return $this->hasMany(CourseCategory::class, 'parent_id');
+        return $this->hasMany(CourseCategory::class, 'parent_id')->orderBy('sort_id', 'asc');
     }
 
     // Define the relationship for the parent category
@@ -41,6 +41,6 @@ class CourseCategory extends Model
 
     public function lessons()
     {
-        return $this->hasMany(Lesson::class);
+        return $this->hasMany(Lesson::class)->orderBy('sort_id', 'asc');
     }
 }

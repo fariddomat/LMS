@@ -1,5 +1,8 @@
 @extends('layouts.dashboard')
-
+@section('styles')
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.css"/>
+@endsection
 @section('content')
     <main class="main">
 
@@ -24,18 +27,21 @@
                         <div class="card-block">
                             <a href="{{ route('dashboard.course_categories.create') }}" class="btn btn-primary">إضافة</a>
                             @if(count($course_categories) > 0)
-                                <table class="table table-hover">
+                                <table  id="table" class="table table-hover">
                                     <thead>
                                         <tr>
+                                            <th>#</th>
                                             <th>الاسم</th>
                                             <th>التصنيف الأب</th>
                                             <th>الدورة</th>
                                             <th>العمليات</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        @foreach($course_categories as $course_category)
-                                            <tr>
+                                    <tbody  id="tablecontents">
+                                        @foreach($course_categories as $index=>$course_category)
+                                            <tr class="row1"  data-id="{{ $course_category->id }}">
+                                                <td scope="row"><i class="fa fa-sort" style="  position: inherit;"></i> {{ $index+1 }}</td>
+
                                                 <td>{{ $course_category->name }}</td>
                                                 <td>
                                                     @if ($course_category->parentCategory)
@@ -64,3 +70,61 @@
         </div>
     </main>
     @endsection
+@push('scripts')
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" defer></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" defer></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.12/datatables.min.js" defer></script>
+
+<script type="text/javascript" defer>
+
+$(function () {
+
+    $("#table").DataTable({
+        responsive: true,
+                searching: false,
+                paging: false,
+                sorting: false,
+                info: true,}
+    );
+    $( "#tablecontents" ).sortable({
+      items: "tr",
+      cursor: 'move',
+      opacity: 0.6,
+      update: function() {
+          sendOrderToServer();
+      }
+    });
+    function sendOrderToServer() {
+      var order = [];
+      var token = $('meta[name="csrf-token"]').attr('content');
+      $('tr.row1').each(function(index,element) {
+        order.push({
+          id: $(this).attr('data-id'),
+          position: index+1
+        });
+      });
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "{{ url('dashboard/course_categories/sortable') }}",
+            data: {
+          order: order,
+          _token: token
+
+        },
+        success: function(response) {
+            if (response.status == "success") {
+              console.log(response);
+            } else {
+              console.log(response);
+            }
+        }
+      });
+    }
+  });
+
+</script>
+@endpush

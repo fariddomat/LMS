@@ -17,7 +17,7 @@ class CourseCategoryController extends Controller
      */
     public function index()
     {
-        $course_categories = CourseCategory::all();
+        $course_categories = CourseCategory::orderBy('sort_id', 'asc')->get();
         return view('dashboard.courses.categories.index', compact('course_categories'));
     }
 
@@ -104,4 +104,19 @@ class CourseCategoryController extends Controller
         $course_category->delete();
         return redirect()->route('dashboard.course_categories.index')->with('success', 'CourseCategory deleted successfully.');
     }
+
+    public function sort(Request $request)
+    {
+        // dd($request->order);
+        $course_categories = CourseCategory::all();
+        foreach ($course_categories as $course_category) {
+            foreach ($request->order as $order) {
+                if ($order['id'] == $course_category->id) {
+                    $course_category->update(['sort_id' => $order['position']]);
+                }
+            }
+        }
+        return response('Update Successfully.', 200);
+    }
+
 }

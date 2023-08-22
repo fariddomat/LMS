@@ -18,6 +18,8 @@ class CreateCourseCategoriesTable extends Migration
             $table->integer('course_id');
             $table->string('name');
             $table->integer('parent_id')->nullable();
+            $table->integer('sort_id')->default(1);
+
 
             $table->timestamps();
         });

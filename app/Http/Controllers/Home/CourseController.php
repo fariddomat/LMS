@@ -55,8 +55,8 @@ class CourseController extends Controller
         $course = Course::where('title', $title)->first();
         if ($course) {
             $course_categories = CourseCategory::where('course_id', $course->id)
-                ->where('parent_id', null)->get();
-            $unCategoredLessons = Lesson::where('course_id', $course->id)->where('course_category_id', 0)->get();
+                ->where('parent_id', null)->orderBy('sort_id', 'asc')->get();
+            $unCategoredLessons = Lesson::where('course_id', $course->id)->where('course_category_id', 0)->orderBy('sort_id', 'asc')->get();
             return view('home.courses.show', compact('course', 'courses', 'unCategoredLessons', 'course_categories'));
         } else {
             abort(404);

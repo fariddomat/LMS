@@ -20,7 +20,7 @@ class CourseController extends Controller
 
     public function show(Course $course)
     {
-        $lessons=Lesson::where('course_id',$course->id)->orderBy('created_at')->get();
+        $lessons=Lesson::where('course_id',$course->id)->orderBy('sort_id', 'asc')->get();
         return view('dashboard.courses.show', compact('course','lessons'));
     }
 

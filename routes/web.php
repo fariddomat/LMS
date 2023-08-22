@@ -81,7 +81,12 @@ Route::get('/clear', function() {
     Route::resource('courses','App\Http\Controllers\Dashboard\CourseController');
     Route::resource('enrollments','App\Http\Controllers\Dashboard\EnrollmentController');
     Route::resource('lessons','App\Http\Controllers\Dashboard\LessonController');
+    Route::post('lessons/sortable', 'App\Http\Controllers\Dashboard\LessonController@sort');
+
     Route::resource('course_categories','App\Http\Controllers\Dashboard\CourseCategoryController');
+    Route::post('course_categories/sortable', 'App\Http\Controllers\Dashboard\CourseCategoryController@sort');
+
+
 
     Route::get('lessons/{lesson}/lesson_files/create','App\Http\Controllers\Dashboard\LessonFileController@create')->name('lesson.files.create');
     Route::get('lessons/{lesson}/lesson_files/show','App\Http\Controllers\Dashboard\LessonFileController@show')->name('lesson.files.show');

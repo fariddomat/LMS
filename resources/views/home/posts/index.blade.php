@@ -204,7 +204,8 @@
                 </div>
             </div>
             <div class="row" style="justify-content: center">
-                <img src="{{ asset('icon/blog/3.png') }}" alt="" style="width: 50px">
+                <img src="{{ asset('icon/blog/3.png') }}" alt="" style="  width: 80px;
+                margin-top: -80px;">
             </div>
         </section>
     </div>

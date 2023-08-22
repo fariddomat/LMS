@@ -18,13 +18,15 @@
                 padding: 75px 5px;
             }
 
-            .post-btn-readmore{
+            .post-btn-readmore {
                 margin-bottom: 28px;
             }
-            .post-btn-readmore.btn{
+
+            .post-btn-readmore.btn {
                 margin-top: 0 !important;
             }
-            .entry-content{
+
+            .entry-content {
                 padding: 0 15px !important;
             }
 
@@ -204,7 +206,8 @@
                 </div>
             </div>
             <div class="row" style="justify-content: center">
-                <img src="{{ asset('icon/blog/3.png') }}" alt="" style="  width: 80px;
+                <img src="{{ asset('icon/blog/3.png') }}" alt=""
+                    style="  width: 80px;
                 margin-top: -80px;">
             </div>
         </section>

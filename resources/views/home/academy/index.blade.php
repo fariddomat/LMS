@@ -517,7 +517,7 @@ height: 460px;">
                             </div>
                             <div class="eyee"
                                 style="background-size: cover ;background-image: url({{ asset('icon/q2.png?v=1') }}) ;padding-top: 20px;
-height: 425px;">
+height: 444px;">
                                 <img src="{{ asset('icon/i2.png') }}" style="max-width: 135px" alt="">
                                 {!! $academy->education_period !!}
                             </div>
@@ -560,7 +560,7 @@ height: 460px;">
 
                         <div class="col-lg-6 ">
                             <div class="col-md-12 academy3 m-3"
-                                style="background: #f4a3a5;min-height: 425px !important;padding-top: 50px;">
+                                style="background: #f4a3a5;min-height: 444px !important;padding-top: 50px;">
                                 <h2 style="color: #fff">شروط القبول</h2>
                                 <h3 style="text-align: justify;padding: 0 25px;">
                                     {!! $academy->accept_condition !!}</h3>
@@ -568,7 +568,7 @@ height: 460px;">
                         </div>
                         <div class="col-lg-6 ">
                             <div class="col-md-12 academy3 m-3"
-                                style="background: #f9bb76;min-height: 425px !important;padding-top: 50px;">
+                                style="background: #f9bb76;min-height: 444px !important;padding-top: 50px;">
                                 <h2 style="color:#fff">شروط التخرج</h2>
                                 <h3 style="text-align: justify;padding: 0 25px;">
                                     {!! $academy->graduation_condition !!}

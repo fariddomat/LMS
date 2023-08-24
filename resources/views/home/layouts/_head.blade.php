@@ -149,7 +149,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
     <style>
-        * {
+        @font-face {
+            font-family: 'Janna';
+            src: url({{ asset('home/fonts/ArbFONTS-Janna-LT-Regular.ttf') }});
+        }
+
+        @font-face {
+            font-family: 'Amiri';
+            src: url('https://fonts.googleapis.com/css2?family=Janna:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+        }
+       a {
             font-family: 'Amiri';
 
             /* color: #375651; */
@@ -180,7 +189,7 @@
         }
 
         span {
-            font-family: 'Amiri';
+            font-family: unset';
             /* color: #375651; */
         }
 
@@ -332,7 +341,7 @@
                 padding-right: 25px;
             }
 
-            .haveAccount {
+            /* .haveAccount {
                 display: block !important;
                 position: unset !important;
                 margin-bottom: 0;
@@ -341,7 +350,7 @@
 
             .haveAccount2 {
                 margin-top: 10px !important;
-            }
+            } */
 
             #academy2>.container,
             section>.container-fluid {

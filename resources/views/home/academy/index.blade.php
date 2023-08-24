@@ -9,6 +9,17 @@
             border-radius: 50%;
             display: inline-block;
         }
+
+        .main-content-area table td {
+            padding: 0px !important;
+            border: unset !important;
+        }
+
+        @media only screen and (max-width: 550px) {
+            .mmin {
+                min-width: auto !important;
+            }
+        }
     </style>
 @endsection
 @section('content')
@@ -49,30 +60,40 @@
                         </p>
                         <div class="col-md-12 text-center">
 
-                            <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30"
-                                href="{{ route('courses.index') }}"
-                                style="  min-width: 125px;
-                            }">الدورات</a>
 
                             @if (!Auth::user())
-                                <a class="btn btn-dark btn-block btn-sm btn-theme-colored3 text-uppercase  mt-30"
-                                    href="{{ route('profiles.create') }}"
-                                    style="  min-width: 125px;
-                                }">سجل الآن</a>
+                                  <table>
+                                <tr>
 
-                                <div style="display: initial;
-                              direction: ltr;">
-                                    <p class="haveAccount"
-                                        style="  display: inherit;
-                                top: -25px;
-                                position: relative;
-                                left: 120px;">
-                                        إذا كان لديك حساب</p>
-                                    <a class="btn btn-dark btn-block btn-sm   btn-theme-colored2  text-uppercase mt-30 haveAccount2"
-                                        href="{{ route('login') }}"
-                                        style="  min-width: 125px;
-                                }">دخول</a>
-                                </div>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        إذا كان لديك حساب
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30 mmin"
+                                            href="{{ route('courses.index') }}"
+                                            style="  min-width: 125px;
+                                    ">الدورات</a>
+                                    </td>
+                                    <td><a class="btn btn-dark btn-block btn-sm btn-theme-colored3 text-uppercase  mt-30 mmin"
+                                            href="{{ route('profiles.create') }}"
+                                            style="  min-width: 125px;
+                                ">سجل الآن</a>
+                                    </td>
+                                    <td><a class="btn btn-dark btn-block btn-sm   btn-theme-colored2  text-uppercase mt-30 haveAccount2 mmin"
+                                            href="{{ route('login') }}"
+                                            style="  min-width: 125px;
+                                ">دخول</a></td>
+                                </tr>
+                            </table>
+                            @else
+                            <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30 mmin"
+                                            href="{{ route('courses.index') }}"
+                                            style="  min-width: 125px;
+                                    ">الدورات</a>
                             @endif
                         </div>
                     </div>
@@ -331,7 +352,8 @@
 
                             <div class="row mt-20">
                                 <div class="col-md-12">
-                                    <h1 class="title text-left text-theme-colored1 mt-0 ttitle" style="  margin-bottom: 0;">من هو
+                                    <h1 class="title text-left text-theme-colored1 mt-0 ttitle"
+                                        style="  margin-bottom: 0;">من هو
                                         مدرب العافية الشمولية</h1>
                                     <span
                                         style="margin-top: 0;
@@ -400,7 +422,8 @@
                                             src="{{ asset('icon/arrow2.png') }}" alt=""
                                             style="height: 120px;
                                         margin-top: -27px;
-                                       margin-right: 150px;" class="tarrow">
+                                       margin-right: 150px;"
+                                            class="tarrow">
                                     </h1>
                                     <span
                                         style="margin-top: 0;
@@ -435,7 +458,7 @@
         <section style="background: #fff">
             <div class="container">
                 <div class="section-title">
-                    <div class="row"  style="justify-content: center">
+                    <div class="row" style="justify-content: center">
                         <div class="col-lg-4 col-md-6" style="text-align: center">
                             <div class="row" style="justify-content: center; ">
                                 <div class="row"
@@ -565,94 +588,94 @@ height: 460px;">
         <section style="background: #fffaf4;padding-top: 50px; padding-bottom: 50px">
             <div class="container pt-15 pb-15">
                 <div class="section-content">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="mb-60">
-                        <div class="tm-sc tm-sc-section-title section-title">
-                            <div class="title-wrapper">
-                                <h2 class="text-uppercase text-theme-colored1">أعضاء
-                                    هيئة التدريس
-                                </h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section-content">
-                <div class="row" style="justify-content: center">
-                    @foreach ($trainers as $trainer)
-                        <div class="col-sm-12 col-lg-2 col-md-4">
-                            <div>
-                                <div class="staff-item mb-lg-40"
-                                    style="margin-top: 115px;background: #fff;
-                                    box-shadow: 4px 12px 6px -6px rgba(0, 0, 0, 0.35);
-                                    -webkit-box-shadow: 4px 12px 6px -6px rgba(0, 0, 0, 0.35);
-                                    -moz-box-shadow: 4px 12px 6px -6px rgba(0, 0, 0, 0.35);      margin-bottom: 25px;">
-                                    <div class="staff-thumb"
-                                        style="  position: relative;
-                                                 top: -80px;">
-                                        <img alt="img" src="{{ asset('trainers/images/' . $trainer->img) }}"
-                                            class="w-100 rounded"
-                                            style="border-radius: 50% !important;border: 1px solid #f9bf7f;
-                                                padding: 3px;">
-                                    </div>
-                                    <div class="staff-content"
-                                        style="min-height: 250px;
-                                        margin-top: -80;
-                                        color: #eaa2a1;border-bottom: unset;">
-                                        <h4 class="staff-name text-theme-colored1 mt-0">{{ $trainer->first_name }}
-                                            {{ $trainer->last_name }}  <small>{{ $trainer->title }}</small>
-                                        </h4>
-                                        <h5>{{ $trainer->qout }}</h5>
-                                        <p class="mb-20">
-                                            {{ $trainer->about }}
-                                        </p>
-                                        <div class="staff-social-part">
-                                            <ul
-                                                class="styled-icons icon-dark icon-theme-colored2 icon-sm icon-circled float-start mt-10">
-                                                @if ($trainer->facebook != '')
-                                                    <li><a class="social-link" href="{{ $trainer->facebook }}"
-                                                            style="font-size: 10px;
-                                                            height: 22px;
-                                                            width: 22px; margin: 0;"><i
-                                                                class="fab fa-facebook"></i></a>
-                                                    </li>
-                                                @endif
-                                                @if ($trainer->twitter != '')
-                                                    <li><a class="social-link" href="{{ $trainer->twitter }}"
-                                                            style="font-size: 10px;
-                                                            height: 22px;
-                                                            width: 22px; margin: 0;"><i
-                                                                class="fab fa-twitter"></i></a>
-                                                    </li>
-                                                @endif
-                                                @if ($trainer->instagram != '')
-                                                    <li><a class="social-link" href="{{ $trainer->instagram }}"
-                                                            style="font-size: 10px;
-                                                            height: 22px;
-                                                            width: 22px; margin: 0;"><i
-                                                                class="fab fa-instagram"></i></a>
-                                                    </li>
-                                                @endif
-                                                @if ($trainer->whatsapp != '')
-                                                    <li><a class="social-link" href="{{ $trainer->whatsapp }}"
-                                                            style="font-size: 10px;
-                                                            height: 22px;
-                                                            width: 22px; margin: 0;"><i
-                                                                class="fab fa-whatsapp"></i></a>
-                                                    </li>
-                                                @endif
-                                            </ul>
-                                            {{-- <a class="btn btn-theme-colored2 btn-xs p-10 float-end" href="#">view
-                                            details</a> --}}
-                                        </div>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="mb-60">
+                                <div class="tm-sc tm-sc-section-title section-title">
+                                    <div class="title-wrapper">
+                                        <h2 class="text-uppercase text-theme-colored1">أعضاء
+                                            هيئة التدريس
+                                        </h2>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-            </div>
+                    </div>
+                    <div class="section-content">
+                        <div class="row" style="justify-content: center">
+                            @foreach ($trainers as $trainer)
+                                <div class="col-sm-12 col-lg-2 col-md-4">
+                                    <div>
+                                        <div class="staff-item mb-lg-40"
+                                            style="margin-top: 115px;background: #fff;
+                                    box-shadow: 4px 12px 6px -6px rgba(0, 0, 0, 0.35);
+                                    -webkit-box-shadow: 4px 12px 6px -6px rgba(0, 0, 0, 0.35);
+                                    -moz-box-shadow: 4px 12px 6px -6px rgba(0, 0, 0, 0.35);      margin-bottom: 25px;">
+                                            <div class="staff-thumb"
+                                                style="  position: relative;
+                                                 top: -80px;">
+                                                <img alt="img" src="{{ asset('trainers/images/' . $trainer->img) }}"
+                                                    class="w-100 rounded"
+                                                    style="border-radius: 50% !important;border: 1px solid #f9bf7f;
+                                                padding: 3px;">
+                                            </div>
+                                            <div class="staff-content"
+                                                style="min-height: 250px;
+                                        margin-top: -80;
+                                        color: #eaa2a1;border-bottom: unset;">
+                                                <h4 class="staff-name text-theme-colored1 mt-0">{{ $trainer->first_name }}
+                                                    {{ $trainer->last_name }} <small>{{ $trainer->title }}</small>
+                                                </h4>
+                                                <h5>{{ $trainer->qout }}</h5>
+                                                <p class="mb-20">
+                                                    {{ $trainer->about }}
+                                                </p>
+                                                <div class="staff-social-part">
+                                                    <ul
+                                                        class="styled-icons icon-dark icon-theme-colored2 icon-sm icon-circled float-start mt-10">
+                                                        @if ($trainer->facebook != '')
+                                                            <li><a class="social-link" href="{{ $trainer->facebook }}"
+                                                                    style="font-size: 10px;
+                                                            height: 22px;
+                                                            width: 22px; margin: 0;"><i
+                                                                        class="fab fa-facebook"></i></a>
+                                                            </li>
+                                                        @endif
+                                                        @if ($trainer->twitter != '')
+                                                            <li><a class="social-link" href="{{ $trainer->twitter }}"
+                                                                    style="font-size: 10px;
+                                                            height: 22px;
+                                                            width: 22px; margin: 0;"><i
+                                                                        class="fab fa-twitter"></i></a>
+                                                            </li>
+                                                        @endif
+                                                        @if ($trainer->instagram != '')
+                                                            <li><a class="social-link" href="{{ $trainer->instagram }}"
+                                                                    style="font-size: 10px;
+                                                            height: 22px;
+                                                            width: 22px; margin: 0;"><i
+                                                                        class="fab fa-instagram"></i></a>
+                                                            </li>
+                                                        @endif
+                                                        @if ($trainer->whatsapp != '')
+                                                            <li><a class="social-link" href="{{ $trainer->whatsapp }}"
+                                                                    style="font-size: 10px;
+                                                            height: 22px;
+                                                            width: 22px; margin: 0;"><i
+                                                                        class="fab fa-whatsapp"></i></a>
+                                                            </li>
+                                                        @endif
+                                                    </ul>
+                                                    {{-- <a class="btn btn-theme-colored2 btn-xs p-10 float-end" href="#">view
+                                            details</a> --}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -661,7 +684,8 @@ height: 460px;">
         <section class="" style="  background: #FEF6EC; padding-top: 50px;">
             <div class="container pt-15" style="padding-bottom: 0px">
                 <div class="section-content">
-                    <h2 class="title text-theme-colored1 mt-20 mb-20 text-center" style="font-size: 38px;">شهادة الاعتماد لموقع الأكاديمية
+                    <h2 class="title text-theme-colored1 mt-20 mb-20 text-center" style="font-size: 38px;">شهادة الاعتماد
+                        لموقع الأكاديمية
                     </h2>
                     <div class="row" style="justify-content: center;">
                         <div class="vl"

@@ -438,19 +438,23 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
     <style>
         .INTEGRITy {
-            color: #FEF6EC
+            color: #FEF6EC !important;
         }
 
         .TRUST {
-            columns: #EFBB76;
+            columns: #EFBB76 !important;
         }
 
         .LOVE {
-            color: #EAA2A1;
+            color: #EAA2A1 !important;
         }
 
         .HOLISM {
-            color: #375651;
+            color: #375651 !important;
+        }
+
+        .Janna{
+            font-family: Janna;
         }
     </style>
 

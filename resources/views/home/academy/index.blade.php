@@ -2,6 +2,9 @@
 
 @section('styles')
     <style>
+        .academy3 {
+  min-height: 525px !important
+}
         .dot {
             height: 15px;
             width: 15px;
@@ -155,7 +158,7 @@
                             <div class="col-md-12 academy3 m-3" style="background: #375651">
                                 <img src="{{ asset('icon/x1.png') }}" alt="" style="  height: 150px;">
                                 <h2>التأصيل والتجذير</h2>
-                                <h4 style="text-align: justify;padding: 0 25px;">نتعهد بإرشاد الطلبة حتى يصيروا
+                                <h4 class="Janna" style="text-align: justify;padding: 0 25px;">نتعهد بإرشاد الطلبة حتى يصيروا
                                     معالجين شموليين وليفهموا ثم يعالجوا العوامل التي توجّه فهم العملاء وجودة حياتهم
                                     من خلال تبيُن ذواتهم الباطنية والبدء بالعلاج من الجذور</h4>
                             </div>
@@ -164,7 +167,7 @@
                             <div class="col-md-12 academy3 m-3" style="background: #f4a3a5">
                                 <img src="{{ asset('icon/x2.png') }}" alt="" style="  height: 150px;">
                                 <h2>التــــوازن</h2>
-                                <h4 style="text-align: justify;padding: 0 25px;">يقدّر مدربونا ويؤمنون بأن ممالك
+                                <h4 class="Janna" style="text-align: justify;padding: 0 25px;">يقدّر مدربونا ويؤمنون بأن ممالك
                                     الذات
                                     الثلاث ينبغي أن تتواجد وتندمج معاً بتناغم إذا ما أراد المرء تحقيق ذاته الأعلى
                                     والأصدق. يفهمون الجانب متعدد الأبعاد من العافية، والذي يتضمن: البدنية والعقلية
@@ -177,7 +180,7 @@
                             <div class="col-md-12 academy3 m-3" style="background: #f9bb76">
                                 <img src="{{ asset('icon/x3.png') }}" alt="" style="  height: 150px;">
                                 <h2>الإتســـاع</h2>
-                                <h4 style="text-align: justify;padding: 0 25px;">سيرأس مدربونا رحلة العملاء نحو
+                                <h4 class="Janna" style="text-align: justify;padding: 0 25px;">سيرأس مدربونا رحلة العملاء نحو
                                     العودة
                                     من العوامل الخارجية التي شوّشت صورتهم الداخلية، وسيعملون على إعادة إطلاق الذات
                                     الداخلية الأصلية بتعبيرها الأصدق والأقوى لتكون فوانيس تضيء مسيرتهم الجديدة
@@ -301,7 +304,7 @@
                                             <div class="row" style="margin-bottom: 75px ;">
                                                 <div class="col-lg-4">
                                                     <div class="col-md-12 academy3 m-3"
-                                                        style="background: #375651;min-height: 400px !important;padding-top: 50px;">
+                                                        style="background: #375651;min-height: 450px !important;padding-top: 50px;">
 
                                                         <h2
                                                             style="background-image: url({{ asset('icon/N1.png') }}); background-size: contain;
@@ -316,7 +319,7 @@
                                                 </div>
                                                 <div class="col-lg-4 ">
                                                     <div class="col-md-12 academy3 m-3"
-                                                        style="background: #f4a3a5;min-height: 400px !important;padding-top: 50px;">
+                                                        style="background: #f4a3a5;min-height: 450px !important;padding-top: 50px;">
                                                         <h2
                                                             style="background-image: url({{ asset('icon/N2.png') }}); background-size: contain;
                                                         background-repeat: no-repeat;
@@ -330,7 +333,7 @@
                                                 </div>
                                                 <div class="col-lg-4 ">
                                                     <div class="col-md-12 academy3 m-3"
-                                                        style="background: #f9bb76;min-height: 400px !important;padding-top: 50px;">
+                                                        style="background: #f9bb76;min-height: 450px !important;padding-top: 50px;">
                                                         <h2
                                                             style="background-image: url({{ asset('icon/N3.png') }}); background-size: contain;
                                                         background-repeat: no-repeat;
@@ -519,7 +522,9 @@ height: 460px;">
                                 style="background-size: cover ;background-image: url({{ asset('icon/q2.png?v=1') }}) ;padding-top: 20px;
 height: 444px;">
                                 <img src="{{ asset('icon/i2.png') }}" style="max-width: 135px" alt="">
+                                <div style="margin-top: -15px;">
                                 {!! $academy->education_period !!}
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6" style="text-align: center">

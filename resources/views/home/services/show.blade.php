@@ -1,4 +1,5 @@
 @extends('home.layouts._app')
+
 @section('styles')
     <style>
         .pink {
@@ -12,7 +13,22 @@
         }
 
         .academy3 {
-            min-height: 850px !important;
+            min-height: 950px !important;
+        }
+
+        @media only screen and (max-width: 550px) {
+            .ttitle {
+                font-size: 46px !important;
+            }
+
+            .p-mobile{
+                padding-left: 25px !important;
+                padding-right: 25px !important;
+            }
+
+            .academy3{
+                min-height: auto !important;
+            }
         }
     </style>
 @endsection
@@ -203,8 +219,8 @@
             <section id="service3">
                 <div class="container">
                     <div class="section-content">
-                        <div class="row pr-100 pl-100" style="justify-content: center">
-                            <h2 style="color: #EAA2A1; font-size: 64px; text-align: center">الاستشارة الفردية</h2>
+                        <div class="row pr-100 pl-100 p-mobile" style="justify-content: center">
+                            <h2 class="ttitle" style="color: #EAA2A1; font-size: 64px; text-align: center">الاستشارة الفردية</h2>
                             <h5 class="pink">الرحلة الفردية الشمولية مع د.ريهام، مبنية على علوم الطب الوظيفي الشمولي
                                 ﻟﻌﻼج ﺟﺬور اﻻﺿﻄﺮاﺑﺎت اﻟﺠﺴﺪﻳﺔ واﻟﻨﻔﺴﻴﺔ، وﺣﻜﻤﺔ اﻟﻄﺐ اﻻﻳﻮرﻓﻴﺪي وﻋﻠﻮم ﺟﺬور
                                 .اﻷﻣﺮاض اﻟﺸﻌﻮرﻳﺔ وﻓﻨﻮن اﻟﻜﻮﺗﺸﻨﺞ اﻟﻌﺎﻃﻔﻲ واﻟﺮوﺣﺎﻧﻲ<br>
@@ -219,7 +235,7 @@
                     </div> --}}
 
                         <div class="row mt-100" style="justify-content: center">
-                            <h2 style="color: #EAA2A1; font-size: 64px; text-align: center">خطوات رحلة التشافي الشمولي</h2>
+                            <h2 class="ttitle" style="color: #EAA2A1; font-size: 64px; text-align: center">خطوات رحلة التشافي الشمولي</h2>
                             <img src="{{ asset('icon/services/1/7.png') }}" alt="">
 
                         </div>
@@ -491,8 +507,8 @@
             <section id="service3">
                 <div class="container">
                     <div class="section-content">
-                        <div class="row pr-100 pl-100" style="justify-content: center">
-                            <h2 style="color: #EAA2A1; font-size: 64px; text-align: center">جلسات التنفس</h2>
+                        <div class="row pr-100 pl-100 p-mobile" style="justify-content: center">
+                            <h2 class="ttitle" style="color: #EAA2A1; font-size: 64px; text-align: center">جلسات التنفس</h2>
                             <h5 class="pink">التنفس الواعي المتصل نستشعر من خلاله القوة الشفائية المذهلة من خلال شفاء
                                 عقلنا الباطن والشعوري</h5>
 
@@ -510,7 +526,7 @@
                 <div class="container">
                     <div class="section-content">
                         <div class="row">
-                            <h2 style="color: #EAA2A1; font-size: 64px; text-align: center">فوائد جلسات التنفس</h2>
+                            <h2 class="ttitle" style="color: #EAA2A1; font-size: 64px; text-align: center">فوائد جلسات التنفس</h2>
                             <h4 class="HOLISM" style="font-family: Janna; text-align: center">وﺑﻤﻤﺎرﺳﺔ اﻟﺘﻤﺮﻳﻨﺎت، ﻧﺤﺼﻞ ﻓﻲ
                                 ﻛﻞ ﻣﺮة ﻋﻠﻰ ﻗﺪر أﻛﺒﺮ ﻣﻦ اﻟﺤﺮﻳﺔ واﻟﺴﻼم واﻹدراك
                                 اﻟﺪاﺧﻠﻲ واﻟﻨﺠﺎح ﻓﻲ أﻫﺪاﻓﻨﺎ</h4>
@@ -590,7 +606,7 @@
                             </form>
                             <img src="{{ asset('icon/services/1/5.png') }}" style="max-width: 80px" alt="">
                         </div>
-                        <div class="row pt-100 pr-100 pl-100" style="justify-content: center">
+                        <div class="row pt-100 pr-100 pl-100 p-mobile" style="justify-content: center">
                             <div class="col-md-6">
                                 <h2 class="Janna HOLISM">رﺣﻠﺔ إﻟﻰ اﻹﺗﺴﺎق ﺑﻴﻦ اﻟﻌﻘﻞ واﻷﻣﻌﺎء
                                     واﻟﻘﻠﺐ</h2>
@@ -627,7 +643,7 @@
                         <div class="row" style="margin-bottom: 75px ;">
                             <div class="col-lg-4">
                                 <div class="col-md-12 academy3 m-3"
-                                    style="background: #375651;min-height:950px !important;padding-top: 50px;">
+                                    style="background: #375651;min-height:950px ;padding-top: 50px;">
                                     <img src="{{ asset('icon/N1.png') }}" style="  max-height: 75px;" alt="">
                                     <h2
                                         style="min-height: 130px;
@@ -658,7 +674,7 @@
                             </div>
                             <div class="col-lg-4 ">
                                 <div class="col-md-12 academy3 m-3"
-                                    style="background: #f4a3a5;min-height: 950px !important;padding-top: 50px;">
+                                    style="background: #f4a3a5;min-height: 950px ;padding-top: 50px;">
 
                                     <img src="{{ asset('icon/N2.png') }}" style="  max-height: 75px;" alt="">
                                     <h2
@@ -693,7 +709,7 @@
                             </div>
                             <div class="col-lg-4 ">
                                 <div class="col-md-12 academy3 m-3"
-                                    style="background: #f9bb76;min-height: 950px !important;padding-top: 50px;">
+                                    style="background: #f9bb76;min-height: 950px ;padding-top: 50px;">
                                     <img src="{{ asset('icon/N3.png') }}" style="  max-height: 75px;" alt="">
                                     <h2
                                         style="min-min-height: 130px;

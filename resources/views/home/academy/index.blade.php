@@ -70,30 +70,30 @@
 
                                     <td></td>
                                     <td></td>
-                                    <td>
+                                    <td class="Janna">
                                         إذا كان لديك حساب
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30 mmin"
+                                        <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30 mmin Janna"
                                             href="{{ route('courses.index') }}"
                                             style="  min-width: 125px;
                                     ">الدورات</a>
                                     </td>
-                                    <td><a class="btn btn-dark btn-block btn-sm btn-theme-colored3 text-uppercase  mt-30 mmin"
+                                    <td><a class="btn btn-dark btn-block btn-sm btn-theme-colored3 text-uppercase  mt-30 mmin Janna"
                                             href="{{ route('profiles.create') }}"
                                             style="  min-width: 125px;
                                 ">سجل الآن</a>
                                     </td>
-                                    <td><a class="btn btn-dark btn-block btn-sm   btn-theme-colored2  text-uppercase mt-30 haveAccount2 mmin"
+                                    <td><a class="btn btn-dark btn-block btn-sm   btn-theme-colored2  text-uppercase mt-30 haveAccount2 mmin Janna"
                                             href="{{ route('login') }}"
                                             style="  min-width: 125px;
                                 ">دخول</a></td>
                                 </tr>
                             </table>
                             @else
-                            <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30 mmin"
+                            <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30 mmin Janna"
                                             href="{{ route('courses.index') }}"
                                             style="  min-width: 125px;
                                     ">الدورات</a>
@@ -115,7 +115,7 @@
                         <div class="col-md-12 text-center">
                             <h2 class="title text-theme-colored1 mt-0 mb-0" style="font-size: 3.4rem;">أكاديميــة هوليستك
                             </h2>
-                            <h2 class="title text-theme-colored2 mt-0 mb-20">لتدريب مدربين العافية
+                            <h2 class="title text-theme-colored2 mt-0 mb-20 Janna">لتدريب مدربين العافية
                                 الشمولية
                             </h2>
                             <span
@@ -625,8 +625,8 @@ height: 460px;">
                                                 padding: 3px;">
                                             </div>
                                             <div class="staff-content"
-                                                style="min-height: 250px;
-                                        margin-top: -80;
+                                                style="min-height: 400px;
+                                        margin-top: -80px;
                                         color: #eaa2a1;border-bottom: unset;">
                                                 <h4 class="staff-name text-theme-colored1 mt-0">{{ $trainer->first_name }}
                                                     {{ $trainer->last_name }} <small>{{ $trainer->title }}</small>

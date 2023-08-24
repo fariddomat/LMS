@@ -16,12 +16,12 @@
                                 <h2 class=" pt-10 mt-0 mb-30" style="color: #fef0df;font-size: 48px;">تسجيـل الدخـول</h2>
                             </div>
                             <hr>
-                            <p class="" style="font-size: 18px">أدخل معلوماتك الشخصية للوصول إلى حسابك الشخصي.</p>
+                            <p class="Janna" style="font-size: 14px">أدخل معلوماتك الشخصية للوصول إلى حسابك الشخصي.</p>
 
                             <div class="row">
                                 <div class="form-group col-md-12" style="  text-align: right;
                                 font-size: 22px;">
-                                    <label for="email" class="">البريد الالكتروني</label>
+                                    <label for="email" class="Janna">البريد الالكتروني</label>
 
                                     <input id="email" type="email"
                                         class="form-control @error('email') is-invalid @enderror" name="email"
@@ -37,7 +37,7 @@
                             <div class="row">
                                 <div class="form-group col-md-12" style="  text-align: right;
                                 font-size: 22px; margin-top: 15px">
-                                    <label for="password" class="">كلمة السر</label>
+                                    <label for="password" class="Janna">كلمة السر</label>
 
                                     <input id="password" type="password"
                                         class="form-control @error('password') is-invalid @enderror" name="password"
@@ -52,19 +52,19 @@
                             </div>
 
                             <div class="form-group mt-25">
-                                <button class="btn btn-dark btn-theme-colored1 btn-block mt-15" type="submit" style="  background: unset;
+                                <button class="btn btn-dark btn-theme-colored1 btn-block mt-15 Janna" type="submit" style="  background: unset;
                                 color: #375651;
-                                padding: 18px 75px;">دخول</button>
+                                padding: 8px 75px;">دخول</button>
                             </div>
                             <div class="col-md-12" style="margin-top: 15px">
-                                <a href="{{ route('password.request') }}" style="padding-top: 15px"> هل نسيت كلمة السر؟</a>
+                                <a href="{{ route('password.request') }}" style="padding-top: 15px" class="Janna"> هل نسيت كلمة السر؟</a>
                             </div>
 
 
                             <div class="col-md-12">
-                                <p style="margin-top: 25px">ليس لديك حساب بعد؟</p>
+                                <p class="Janna" style="margin-top: 25px">ليس لديك حساب بعد؟</p>
 
-                                <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white"
+                                <a class="btn btn-dark btn-block   btn-theme-colored1  text-uppercase text-white Janna"
                                     href="{{ route('profiles.create') }}">إنشاء حساب جديد</a>
                             </div>
                         </form>

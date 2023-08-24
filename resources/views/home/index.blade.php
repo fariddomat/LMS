@@ -62,6 +62,11 @@
                 <div class="section-content">
                     <div class="row">
                         <div class="col-md-7">
+                            <span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span></span>
+                            </span>
                             <p class="lead text-black">{!! $about->about_me !!}</p>
                             <a href="{{ route('whoiam') }}" target="_self"
                                 class="btn btn-dark btn-theme-colored2 btn-sm btn-block mt-15 mb-20"> قراءة المزيد </a>

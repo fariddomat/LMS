@@ -37,8 +37,15 @@
                             <img src="{{ $course->thumbnail_url }}" alt="">
                             <h3 class="text-theme-colored line-bottom text-theme-colored">{{ $course->title }}</h3>
                             <ul class="review_text list-inline">
-                                <li class="font-size-16"><span class="text-theme-color-2">السعر :</span>
-                                    {{ $course->price }} ريال سعودي</li>
+                                @auth
+                                    @if (Auth::user()->enrollments->count() == 0)
+                                        <li class="font-size-16"><span class="text-theme-color-2">السعر :</span>
+                                            {{ $course->price }} ريال سعودي</li>
+                                    @endif
+                                @else
+                                    <li class="font-size-16"><span class="text-theme-color-2">السعر :</span>
+                                        {{ $course->price }} ريال سعودي</li>
+                                @endauth
                                 <li>
                                     <div class="star-rating" title="Rated 5 out of 5"><span style="width: 100%;">5</span>
                                     </div>
@@ -202,9 +209,8 @@
                                         @if ($unCategoredLessons->count() > 0)
                                             <div class="accordion-item">
                                                 <h2 class="accordion-header" id="heading300">
-                                                    <button
-                                                        class="accordion-buttoncollapsed "
-                                                        type="button" data-bs-toggle="collapse" data-bs-target="#collapse300"
+                                                    <button class="accordion-buttoncollapsed " type="button"
+                                                        data-bs-toggle="collapse" data-bs-target="#collapse300"
                                                         aria-expanded="false " aria-controls="collapse300">
                                                         <strong
                                                             style="  width: 100%;

@@ -3,8 +3,9 @@
 @section('styles')
     <style>
         .academy3 {
-  min-height: 525px !important
-}
+            min-height: 525px !important
+        }
+
         .dot {
             height: 15px;
             width: 15px;
@@ -65,37 +66,37 @@
 
 
                             @if (!Auth::user())
-                                  <table>
-                                <tr>
+                                <table>
+                                    <tr>
 
-                                    <td></td>
-                                    <td></td>
-                                    <td class="Janna">
-                                        إذا كان لديك حساب
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30 mmin Janna"
-                                            href="{{ route('courses.index') }}"
-                                            style="  min-width: 125px;
+                                        <td></td>
+                                        <td></td>
+                                        <td class="Janna">
+                                            إذا كان لديك حساب
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30 mmin Janna"
+                                                href="{{ route('courses.index') }}"
+                                                style="  min-width: 125px;
                                     ">الدورات</a>
-                                    </td>
-                                    <td><a class="btn btn-dark btn-block btn-sm btn-theme-colored3 text-uppercase  mt-30 mmin Janna"
-                                            href="{{ route('profiles.create') }}"
-                                            style="  min-width: 125px;
+                                        </td>
+                                        <td><a class="btn btn-dark btn-block btn-sm btn-theme-colored3 text-uppercase  mt-30 mmin Janna"
+                                                href="{{ route('profiles.create') }}"
+                                                style="  min-width: 125px;
                                 ">سجل الآن</a>
-                                    </td>
-                                    <td><a class="btn btn-dark btn-block btn-sm   btn-theme-colored2  text-uppercase mt-30 haveAccount2 mmin Janna"
-                                            href="{{ route('login') }}"
-                                            style="  min-width: 125px;
+                                        </td>
+                                        <td><a class="btn btn-dark btn-block btn-sm   btn-theme-colored2  text-uppercase mt-30 haveAccount2 mmin Janna"
+                                                href="{{ route('login') }}"
+                                                style="  min-width: 125px;
                                 ">دخول</a></td>
-                                </tr>
-                            </table>
+                                    </tr>
+                                </table>
                             @else
-                            <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30 mmin Janna"
-                                            href="{{ route('courses.index') }}"
-                                            style="  min-width: 125px;
+                                <a class="btn btn-dark btn-theme-colored3 btn-sm text-uppercase mt-30 mmin Janna"
+                                    href="{{ route('courses.index') }}"
+                                    style="  min-width: 125px;
                                     ">الدورات</a>
                             @endif
                         </div>
@@ -158,7 +159,8 @@
                             <div class="col-md-12 academy3 m-3" style="background: #375651">
                                 <img src="{{ asset('icon/x1.png') }}" alt="" style="  height: 150px;">
                                 <h2>التأصيل والتجذير</h2>
-                                <h4 class="Janna" style="text-align: justify;padding: 0 25px;">نتعهد بإرشاد الطلبة حتى يصيروا
+                                <h4 class="Janna" style="text-align: justify;padding: 0 25px;">نتعهد بإرشاد الطلبة حتى
+                                    يصيروا
                                     معالجين شموليين وليفهموا ثم يعالجوا العوامل التي توجّه فهم العملاء وجودة حياتهم
                                     من خلال تبيُن ذواتهم الباطنية والبدء بالعلاج من الجذور</h4>
                             </div>
@@ -167,7 +169,8 @@
                             <div class="col-md-12 academy3 m-3" style="background: #f4a3a5">
                                 <img src="{{ asset('icon/x2.png') }}" alt="" style="  height: 150px;">
                                 <h2>التــــوازن</h2>
-                                <h4 class="Janna" style="text-align: justify;padding: 0 25px;">يقدّر مدربونا ويؤمنون بأن ممالك
+                                <h4 class="Janna" style="text-align: justify;padding: 0 25px;">يقدّر مدربونا ويؤمنون بأن
+                                    ممالك
                                     الذات
                                     الثلاث ينبغي أن تتواجد وتندمج معاً بتناغم إذا ما أراد المرء تحقيق ذاته الأعلى
                                     والأصدق. يفهمون الجانب متعدد الأبعاد من العافية، والذي يتضمن: البدنية والعقلية
@@ -180,7 +183,8 @@
                             <div class="col-md-12 academy3 m-3" style="background: #f9bb76">
                                 <img src="{{ asset('icon/x3.png') }}" alt="" style="  height: 150px;">
                                 <h2>الإتســـاع</h2>
-                                <h4 class="Janna" style="text-align: justify;padding: 0 25px;">سيرأس مدربونا رحلة العملاء نحو
+                                <h4 class="Janna" style="text-align: justify;padding: 0 25px;">سيرأس مدربونا رحلة العملاء
+                                    نحو
                                     العودة
                                     من العوامل الخارجية التي شوّشت صورتهم الداخلية، وسيعملون على إعادة إطلاق الذات
                                     الداخلية الأصلية بتعبيرها الأصدق والأقوى لتكون فوانيس تضيء مسيرتهم الجديدة
@@ -523,7 +527,7 @@ height: 460px;">
 height: 444px;">
                                 <img src="{{ asset('icon/i2.png') }}" style="max-width: 135px" alt="">
                                 <div style="margin-top: -15px;">
-                                {!! $academy->education_period !!}
+                                    {!! $academy->education_period !!}
                                 </div>
                             </div>
                         </div>
@@ -716,10 +720,43 @@ height: 460px;">
             </div>
         </section>
 
+
+        <section class="" style="  background: #eaa2a1;">
+            <div class="container pt-15 pb-15">
+                <div class="section-content">
+                    <h2 class="title text-theme-colored1 mt-20 mb-20 text-center">التعاونات
+                    </h2>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="tm-sc tm-sc-clients tm-sc-clients-carousel owl-dots-light-skin owl-dots-center">
+                                <div class="owl-carousel owl-theme tm-owl-carousel-3col" data-autoplay="true"
+                                    data-loop="true" data-duration="6000" data-smartspeed="300" data-margin="30"
+                                    data-stagepadding="0" data-laptop="4">
+                                    <div class="item"> <a target="_blank"> <img src='{{ asset('ta3aon/1.jpg') }}'
+                                                alt='Image' style="height: 120px !important;" /> </a></div>
+                                    <div class="item"> <a target="_blank"> <img src='{{ asset('ta3aon/2.png') }}'
+                                                alt='Image' style="height: 120px !important;" /> </a></div>
+                                    <div class="item"> <a target="_blank"> <img src='{{ asset('ta3aon/3.png') }}'
+                                                alt='Image' style="height: 120px !important;" /> </a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="row" style="justify-content: center;">
+            <div class="vl"
+                style="border-left: 3px solid #f4a3a5;
+            height: 100px;
+            width: auto;">
+            </div>
+        </div>
         <!-- Start Divider -->
         <section class="" style="  background: #EFBB76;">
             <div class="container pt-15 pb-15">
                 <div class="section-content">
+
                     <h2 class="title text-theme-colored1 mt-20 mb-20 text-center">الاعتمادات العالمية
                     </h2>
                     <div class="row">

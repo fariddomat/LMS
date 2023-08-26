@@ -161,14 +161,17 @@
 
 
         <section class="">
-            <div class="container">
+            <div class="container" style="padding-top: 0px; padding-bottom: 0px ;position: relative;
+            top: -25px;">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="">
                             <div class="">
                                 <div class="timeline__items">
                                     @foreach ($whoiams as $index => $whoiam)
-                                        <div class="timeline__item" style="">
+                                        <div class="timeline__item" style="@if($index==8)
+                                          margin-top: -50px !important;
+                                        @endif">
                                             <div class="timeline__content">
                                                 @if ($index == 0)
                                                     <div class="row" style="justify-content: center">

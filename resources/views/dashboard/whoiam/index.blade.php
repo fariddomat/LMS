@@ -42,16 +42,16 @@
                                                 <td>{{ $section->header ? 'نعم' : 'لا' }}</td>
                                                 <td>{{ $section->start_date }} - {{ $section->end_date }}</td>
                                                 <td>{{ $section->title }}</td>
-                                                <td>{!! Str::limit($section->content, 250 , ' ...') !!}</td>
+                                                <td>{!! Str::limit(strip_tags($section->content), 250 , ' ...') !!}</td>
                                                 <td>
                                                     <a href="{{ route('dashboard.whoiam.edit', $section) }}"
                                                         class="btn btn-primary">تعديل</a>
-                                                    <form action="{{ route('dashboard.whoiam.destroy', $section) }}"
+                                                    {{-- <form action="{{ route('dashboard.whoiam.destroy', $section) }}"
                                                         method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" class="btn btn-danger delete">حذف</button>
-                                                    </form>
+                                                    </form> --}}
                                                 </td>
                                             </tr>
                                         @empty

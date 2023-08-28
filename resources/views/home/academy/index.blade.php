@@ -2,6 +2,10 @@
 
 @section('styles')
     <style>
+
+strong {
+  font-weight: bold !important;
+}
         .academy3 {
             min-height: 525px !important
         }

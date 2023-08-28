@@ -58,7 +58,7 @@
         @if ($service->id == 1)
 
             <!-- Section: Service details -->
-            <section id="service3" style="background: #fef6ec">
+            <section id="service3" style="background: #fefef2">
                 <div class="container">
                     <div class="section-content">
                         <div class="row">
